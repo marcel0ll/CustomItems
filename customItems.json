@@ -1,0 +1,79 @@
+{
+	"blocks":
+	[		
+		{
+			"name": "Test block",
+			"textureName": "blocoTeste",
+			"material": "rock",
+			"hardness": "2",
+			"resistance": "3",
+			"lightLevel": "3",
+			"harvestLevel": "2"
+		}
+	],
+	"items":
+	{
+		
+	},
+	"liquids":
+	{
+
+	},
+	"tools":
+	{
+		"shovels":
+		[
+			{
+				"name":"Test",
+				"textureName":"Test",
+
+				"harvestLevel":"1",
+				"maxUses":"30000",
+				"efficiencyOnProperMaterial":"20",
+				"damageVsEntity":"0",
+				"enchantability":"0",
+			},
+			{
+				"name":"Tretinha",
+				"textureName":"tretinha",
+				"harvestLevel":"1",
+				"maxUses":"5",
+				"efficiencyOnProperMaterial":"20",
+				"damageVsEntity":"0",
+				"enchantability":"0",
+			},
+		]
+	},
+	"armor":
+	{
+		"helmets":
+		[
+			{
+				"name":"Chapeu",
+				"textureName":"chapeu",
+
+				"durability":"2",
+				"reduction":"1",
+				"enchantability":"30",
+			}
+		],
+		"chestplates":
+		[
+			{
+				"name":"Corpo",
+				"textureName":"chapeu",
+
+				"durability":"2",
+				"reduction":"1",
+				"enchantability":"30",
+			}
+		],
+		"leggings":[],
+		"boots":[],
+	},
+	"music_disks":
+	{
+
+	},
+
+}
