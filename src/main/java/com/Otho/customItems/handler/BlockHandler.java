@@ -34,18 +34,23 @@ public class BlockHandler {
         	String name = (String) blockData.get("name");
         	String textureName = (String) blockData.get("textureName");
         	String material = (String) blockData.get("material");
-        	String hardness = (String) blockData.get("hardness");
-        	String resistance = (String) blockData.get("resistance");
-        	String lightLevel = (String) blockData.get("lightLevel");
-        	String harvestLevel = (String) blockData.get("harvestLevel");
+        	
+        	float hardness = ((Number) blockData.get("hardness")).floatValue();
+        	float resistance = ((Number) blockData.get("resistance")).floatValue();
+        	float lightLevel = ((Number) blockData.get("lightLevel")).floatValue();
+        	int harvestLevel = ((Number) blockData.get("harvestLevel")).intValue();
+        	
+        	
+        	
+        	
         	
         	//Make Custom Block
         	CustomBlock block = new CustomBlock(CI_Material.getMaterial(material));
         	
-        	block.setHardness(Float.parseFloat((hardness)));
-        	block.setResistance(Float.parseFloat((resistance)));
-        	block.setLightLevel(Float.parseFloat((lightLevel)));
-        	block.setHarvestLevel("pickaxe", (int) Float.parseFloat(harvestLevel));
+        	block.setHardness(hardness);
+        	block.setResistance(resistance);
+        	block.setLightLevel(lightLevel);
+        	block.setHarvestLevel("pickaxe", harvestLevel);
         	
         	//Register Block
         	GameRegistry.registerBlock(block, name);

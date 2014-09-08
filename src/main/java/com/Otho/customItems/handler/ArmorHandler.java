@@ -56,14 +56,14 @@ public class ArmorHandler {
 			String name = (String) data.get("name");
         	String textureName = (String) data.get("textureName");
         	
-        	String durability = (String) data.get("durability");
-        	String reductionNum = (String) data.get("reduction");
-        	String enchantability = (String) data.get("enchantability");
+        	int durability = ((Number) data.get("durability")).intValue();
+        	int reductionNum = ((Number) data.get("reduction")).intValue();
+        	int enchantability = ((Number) data.get("enchantability")).intValue();
         	
 			//Make Custom Armor
         	int reduction[] = {0,0,0,0};
-        	reduction[type] = (int) Float.parseFloat(reductionNum);
-        	ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(textureName, (int) Float.parseFloat(durability), reduction, (int) Float.parseFloat(enchantability));
+        	reduction[type] = reductionNum;
+        	ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(textureName, durability, reduction, enchantability);
         	CustomArmor armor = new CustomArmor(material, 0, type, textureName);
 			//Register Armor
         	

@@ -54,14 +54,14 @@ public class ToolsHandler {
 			String name = (String) data.get("name");
         	String textureName = (String) data.get("textureName");
         	
-        	String harvestLevel = (String) data.get("harvestLevel");
-        	String maxUses = (String) data.get("maxUses");
-        	String efficiencyOnProperMaterial = (String) data.get("efficiencyOnProperMaterial");
-        	String damageVsEntity = (String) data.get("damageVsEntity");
-        	String enchantability = (String) data.get("enchantability");
+        	int harvestLevel = ((Number) data.get("harvestLevel")).intValue();
+        	int maxUses = ((Number) data.get("maxUses")).intValue();
+        	float efficiencyOnProperMaterial = ((Number) data.get("efficiencyOnProperMaterial")).floatValue();
+        	float damageVsEntity = ((Number) data.get("damageVsEntity")).floatValue();
+        	int enchantability = ((Number) data.get("enchantability")).intValue();
 			
 			//Make Custom Tool
-        	Item.ToolMaterial material = EnumHelper.addToolMaterial(textureName, (int) Float.parseFloat(harvestLevel), (int) Float.parseFloat(maxUses), (int) Float.parseFloat(efficiencyOnProperMaterial), (int) Float.parseFloat(damageVsEntity), (int) Float.parseFloat(enchantability));
+        	Item.ToolMaterial material = EnumHelper.addToolMaterial(textureName, harvestLevel, maxUses, efficiencyOnProperMaterial, damageVsEntity, enchantability);
         	Item tool;
         	
         	switch(type)

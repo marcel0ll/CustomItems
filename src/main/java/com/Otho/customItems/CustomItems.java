@@ -12,7 +12,11 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemFood;
 
 
 @Mod(dependencies=constants.DEPENDENCIES, modid  = constants.MOD_ID, version = constants.VERSION, name=constants.MOD_NAME)
@@ -23,7 +27,7 @@ public class CustomItems
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-		logHelper.permission = 5;		
+		logHelper.permission = 5;
 				
 		String path = event.getModConfigurationDirectory().toString()+"\\"+constants.MOD_ID+".json";		
 		logHelper.log(constants.MOD_ID, logHelper.debug, path);		
@@ -31,6 +35,10 @@ public class CustomItems
 		BlockHandler.init();
 		ToolsHandler.init();
 		ArmorHandler.init();
+		
+		
+		
+		
 	
 	}	
 	
