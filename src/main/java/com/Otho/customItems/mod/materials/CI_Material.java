@@ -1,84 +1,116 @@
 package com.Otho.customItems.mod.materials;
 
-import net.minecraft.block.material.*;
 import net.minecraft.block.material.Material;
 
 public class CI_Material {
 	
 	public static Material getMaterial (String material)
 	{		
-		switch(material)
-		{	
-			case "air":
-				return Material.air;
-			case "anvil":
-				return Material.anvil;
-			case "cactus":
-				return Material.cactus;
-			case "cake":
-				return Material.cake;
-			case "carpet":
-				return Material.carpet;
-			case "circuits":
-				return Material.circuits;
-			case "clay":
-				return Material.clay;
-			case "cloth":
-				return Material.cloth;
-			case "coral":
-				return Material.coral;
-			case "craftedSnow":
-				return Material.craftedSnow;
-			case "dragonEgg":
-				return Material.dragonEgg;
-			case "fire":
-				return Material.fire;
-			case "glass":
-				return Material.glass;
-			case "gourd":
-				return Material.gourd;
-			case "grass":
-				return Material.grass;
-			case "ground":
-				return Material.ground;
-			case "ice":
-				return Material.ice;
-			case "iron":
-				return Material.iron;
-			case "lava":
-				return Material.lava;
-			case "leaves":
-				return Material.leaves;
-			case "packedIce":
-				return Material.packedIce;
-			case "piston":
-				return Material.piston;
-			case "plants":
-				return Material.plants;
-			case "portal":
-				return Material.portal;
-			case "redstoneLight":
-				return Material.redstoneLight;
-			case "rock":
-				return Material.rock;
-			case "sand":
-				return Material.sand;
-			case "snow":
-				return Material.snow;
-			case "sponge":
-				return Material.sponge;
-			case "tnt":
-				return Material.tnt;
-			case "vine":
-				return Material.vine;
-			case "water":
-				return Material.water;
-			case "web":
-				return Material.web;
-			case "wood":
-				return Material.wood;		
-			default:
-				return Material.rock;
+		if(material.equals("air"))
+		{
+			return Material.air;
+		}else if(material.equals("anvil"))
+		{
+			return Material.anvil;
+		}else if(material.equals("cactus"))
+		{
+			return Material.cactus;
+		}else if(material.equals("cake"))
+		{
+			return Material.cake;
+		}else if(material.equals("carpet"))
+		{
+			return Material.carpet;
+		}else if(material.equals("circuits"))
+		{
+			return Material.circuits;
+		}else if(material.equals("clay"))
+		{
+			return Material.clay;
+		}else if(material.equals("cloth"))
+		{
+			return Material.cloth;
+		}else if(material.equals("coral"))
+		{
+			return Material.coral;
+		}else if(material.equals("craftedSnow"))
+		{
+			return Material.craftedSnow;
+		}else if(material.equals("dragonEgg"))
+		{
+			return Material.dragonEgg;
+		}else if(material.equals("fire"))
+		{
+			return Material.fire;
+		}else if(material.equals("glass"))
+		{
+			return Material.glass;
+		}else if(material.equals("gourd"))
+		{
+			return Material.gourd;
+		}else if(material.equals("grass"))
+		{
+			return Material.grass;
+		}else if(material.equals("ground"))
+		{
+			return Material.ground;
+		}else if(material.equals("ice"))
+		{
+			return Material.ice;
+		}else if(material.equals("iron"))
+		{
+			return Material.iron;
+		}else if(material.equals("lava"))
+		{
+			return Material.lava;
+		}else if(material.equals("leaves"))
+		{
+			return Material.leaves;
+		}else if(material.equals("packedIce"))
+		{
+			return Material.packedIce;
+		}else if(material.equals("piston"))
+		{
+			return Material.piston;
+		}else if(material.equals("plants"))
+		{
+			return Material.plants;
+		}else if(material.equals("portal"))
+		{
+			return Material.portal;
+		}else if(material.equals("redstoneLight"))
+		{
+			return Material.redstoneLight;
+		}else if(material.equals("rock"))
+		{
+			return Material.rock;
+		}else if(material.equals("sand"))
+		{
+			return Material.sand;
+		}else if(material.equals("snow"))
+		{
+			return Material.snow;
+		}else if(material.equals("sponge"))
+		{
+			return Material.sponge;
+		}else if(material.equals("tnt"))
+		{
+			return Material.tnt;
+		}else if(material.equals("vine"))
+		{
+			return Material.vine;
+		}else if(material.equals("water"))
+		{
+			return Material.water;
+		}else if(material.equals("web"))
+		{
+			return Material.web;
+		}else if(material.equals("wood"))
+		{
+			return Material.wood;		
+		}else 
+		{
+			return Material.rock;
 		}
 	}
 }

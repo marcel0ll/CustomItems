@@ -16,7 +16,7 @@
 		{
 			"name":"Test Item",
 			"textureName":"test",
-			"maxstackssize": 5,
+			"maxstackSize": 5,
 		}
 	],
 	"liquids":[],
@@ -85,5 +85,31 @@
 		"leggings":[],
 		"boots":[],
 	},
-	"music_disks":[],
+	"music_disks":
+	[
+		{
+			"name":"wonderfull",
+			"textureName":"wonderfull",
+			"music":"wonderfull",			
+		}
+	],
+	"foods":
+	[
+		{
+			"name":"raiuva",
+			"textureName":"raiuva",
+
+			"healAmount": 0,
+			"saturationModifier":3,
+			"isWolfsFavoriteMeat":false,
+
+			"potionEffect":
+			{
+				"effect": "moveSpeed",
+				"potionDuration": 20,
+				"potionAmplifier": 3,
+				"potionEffectProbability": 1.0,
+			}			
+		}
+	]
 }

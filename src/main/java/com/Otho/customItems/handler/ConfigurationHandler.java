@@ -4,11 +4,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-
-
-
-import org.json.simple.*;
-import org.json.simple.parser.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.util.logHelper;
@@ -22,6 +21,7 @@ public class ConfigurationHandler {
 	public static JSONObject tools;
 	public static JSONObject armor;
 	public static JSONArray musicDisks;
+	public static JSONArray foods;
 	
 	
 	public static void init (String filePath)
@@ -42,6 +42,7 @@ public class ConfigurationHandler {
 			tools = (JSONObject) config.get("tools");
 			armor = (JSONObject) config.get("armor");
 			musicDisks = (JSONArray) config.get("music_disks");
+			foods = (JSONArray) config.get("foods");
 			 
 		}catch (FileNotFoundException e) 
 		{

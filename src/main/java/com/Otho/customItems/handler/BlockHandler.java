@@ -3,18 +3,13 @@ package com.Otho.customItems.handler;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.blocks.CustomBlock;
 import com.Otho.customItems.mod.materials.CI_Material;
-import com.Otho.customItems.handler.ConfigurationHandler;
-import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.util.logHelper;
-
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.util.JsonBlendingMode;
 
 
 public class BlockHandler {	
@@ -38,12 +33,8 @@ public class BlockHandler {
         	float hardness = ((Number) blockData.get("hardness")).floatValue();
         	float resistance = ((Number) blockData.get("resistance")).floatValue();
         	float lightLevel = ((Number) blockData.get("lightLevel")).floatValue();
-        	int harvestLevel = ((Number) blockData.get("harvestLevel")).intValue();
-        	
-        	
-        	
-        	
-        	
+        	int harvestLevel = ((Number) blockData.get("harvestLevel")).intValue();        	
+        
         	//Make Custom Block
         	CustomBlock block = new CustomBlock(CI_Material.getMaterial(material));
         	

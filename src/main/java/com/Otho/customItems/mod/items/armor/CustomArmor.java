@@ -1,14 +1,15 @@
 package com.Otho.customItems.mod.items.armor;
 
-import com.Otho.customItems.mod.creativeTab.customItemsTab;
-import com.Otho.customItems.lib.constants;
-import com.Otho.customItems.util.logHelper;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+
+import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.mod.creativeTab.customItemsTab;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomArmor extends ItemArmor {
     protected int type;

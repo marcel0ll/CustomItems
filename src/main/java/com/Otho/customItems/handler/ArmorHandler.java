@@ -1,13 +1,7 @@
 package com.Otho.customItems.handler;
 
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
-
-
-
-
-
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -15,8 +9,6 @@ import org.json.simple.JSONObject;
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.items.armor.CustomArmor;
 import com.Otho.customItems.util.logHelper;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;

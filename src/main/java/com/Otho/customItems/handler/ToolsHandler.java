@@ -1,16 +1,21 @@
 package com.Otho.customItems.handler;
 
+import net.minecraft.item.Item;
+import net.minecraftforge.common.util.EnumHelper;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.mod.items.tools.CustomAxe;
+import com.Otho.customItems.mod.items.tools.CustomHoe;
+import com.Otho.customItems.mod.items.tools.CustomPickaxe;
+import com.Otho.customItems.mod.items.tools.CustomShovel;
+import com.Otho.customItems.mod.items.tools.CustomSword;
 import com.Otho.customItems.util.logHelper;
-import com.Otho.customItems.mod.items.tools.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.item.*;
-import net.minecraftforge.common.util.EnumHelper;
 
 public class ToolsHandler {
 	
@@ -64,26 +69,25 @@ public class ToolsHandler {
         	Item.ToolMaterial material = EnumHelper.addToolMaterial(textureName, harvestLevel, maxUses, efficiencyOnProperMaterial, damageVsEntity, enchantability);
         	Item tool;
         	
-        	switch(type)
+        	
+        	if(type.equals("axe"))
         	{
-        	case "axe":
+        		tool = new CustomAxe(material);        
+        	}else if(type.equals("shovel"))
+        	{
+        		tool = new CustomShovel(material);        
+        	}else if(type.equals("pickaxe"))
+        	{
+        		tool = new CustomPickaxe(material);        
+        	}else if(type.equals("hoe"))
+        	{
+        		tool = new CustomHoe(material);        
+        	}else if(type.equals("sword"))
+        	{
+        		tool = new CustomSword(material);        
+        	}else 
+        	{	
         		tool = new CustomAxe(material);
-        		break;
-        	case "shovel":
-        		tool = new CustomShovel(material);
-        		break;
-        	case "pickaxe":
-        		tool = new CustomPickaxe(material);
-        		break;
-        	case "hoe":
-        		tool = new CustomHoe(material);
-        		break;
-        	case "sword":
-        		tool = new CustomSword(material);
-        		break;
-			default: 
-				tool = new CustomAxe(material);
-        		break;
         	}
         	//Register Tool
         	

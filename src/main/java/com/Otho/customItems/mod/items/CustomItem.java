@@ -1,11 +1,12 @@
 package com.Otho.customItems.mod.items;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.Item;
+
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 
 public class CustomItem extends Item {
     public CustomItem(int stackSize) {
