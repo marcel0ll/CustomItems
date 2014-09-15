@@ -6,13 +6,13 @@ import net.minecraftforge.common.util.EnumHelper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonNull;
-
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.items.tools.CustomAxe;
 import com.Otho.customItems.mod.items.tools.CustomHoe;
 import com.Otho.customItems.mod.items.tools.CustomPickaxe;
 import com.Otho.customItems.mod.items.tools.CustomShovel;
 import com.Otho.customItems.mod.items.tools.CustomSword;
+import com.Otho.customItems.util.StringUtil;
 import com.Otho.customItems.util.logHelper;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -62,6 +62,7 @@ public class ToolsHandler {
 			//Parse tool attributes			
 			String name = data.get("name").getAsString();
         	String textureName = data.get("textureName").getAsString();
+        	textureName = StringUtil.parseTextureName(textureName);
         	
         	int harvestLevel = data.get("harvestLevel").getAsInt();
         	int maxUses = data.get("maxUses").getAsInt();
@@ -95,8 +96,8 @@ public class ToolsHandler {
         	}
         	//Register Tool
         	
-        	GameRegistry.registerItem(tool, name);
-            tool.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+name);
+        	GameRegistry.registerItem(tool, textureName);
+            tool.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+textureName);
             LanguageRegistry.instance().addStringLocalization(tool.getUnlocalizedName()+".name","en_US",name.substring(0, 1).toUpperCase()+name.substring(1));
             
 		}

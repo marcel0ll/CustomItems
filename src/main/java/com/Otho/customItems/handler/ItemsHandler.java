@@ -2,9 +2,9 @@ package com.Otho.customItems.handler;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.items.CustomItem;
+import com.Otho.customItems.util.StringUtil;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -28,6 +28,8 @@ public class ItemsHandler {
 				
 				String name = data.get("name").getAsString();
 				String textureName = data.get("textureName").getAsString();
+				textureName = StringUtil.parseTextureName(textureName);
+				
 				int maxstackSize = data.get("maxstackSize").getAsInt();
 				
 				

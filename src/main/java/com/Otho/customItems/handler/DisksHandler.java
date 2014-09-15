@@ -11,6 +11,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.items.disks.CustomDisk;
+import com.Otho.customItems.util.StringUtil;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -31,6 +32,8 @@ public class DisksHandler {
 				
 				String name =  data.get("name").getAsString();
 				String textureName =  data.get("textureName").getAsString();
+				textureName = StringUtil.parseTextureName(textureName);
+				
 				String music =  data.get("music").getAsString();
 				
 				CustomDisk disk = new CustomDisk(music);
@@ -38,7 +41,7 @@ public class DisksHandler {
 				GameRegistry.registerItem(disk, textureName);
 				disk.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+name);
 				
-				ResourceLocation rl = new ResourceLocation(constants.MOD_ID.toLowerCase()+":sounds/records/"+name.substring(name.indexOf('.')+1));
+				ResourceLocation rl = new ResourceLocation(constants.MOD_ID.toLowerCase()+":sounds/records/"+textureName);
 				SoundCategory a = SoundCategory.valueOf("RECORDS");
 				SoundEventAccessorComposite b = new SoundEventAccessorComposite(rl, 2.0, 2.0, a);
 				

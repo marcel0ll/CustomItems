@@ -11,6 +11,9 @@ import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.blocks.CustomFluidBlock;
 import com.Otho.customItems.mod.fluids.CustomFluid;
 import com.Otho.customItems.mod.items.CustomBucket;
+import com.Otho.customItems.util.StringUtil;
+
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -34,6 +37,8 @@ public class FluidsHandler {
 				
 				String name = data.get("name").getAsString();
 				String textureName = data.get("textureName").getAsString();
+				textureName = StringUtil.parseTextureName(textureName);
+				
 				int luminosity = data.get("luminosity").getAsInt();
 				int density = data.get("density").getAsInt();
 				int temperature = data.get("temperature").getAsInt();
@@ -53,7 +58,7 @@ public class FluidsHandler {
 				
 				CustomFluidBlock fluidBlock = new CustomFluidBlock(fluid, Material.water);
 				fluidBlock.setBlockName(constants.MOD_ID.toLowerCase()+":"+name);
-				GameRegistry.registerBlock(fluidBlock, name);
+				GameRegistry.registerBlock(fluidBlock, textureName);
 				
 				fluid.setUnlocalizedName(fluidBlock.getUnlocalizedName().substring(fluidBlock.getUnlocalizedName().indexOf(":") + 1));
 	            LanguageRegistry.instance().addStringLocalization(fluidBlock.getUnlocalizedName()+".name","en_US", name);
@@ -68,7 +73,7 @@ public class FluidsHandler {
 				bucket = new CustomBucket(fluidBlock);
 				bucket.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+name+"Bucket");
 				bucket.setContainerItem(Items.bucket);
-		        GameRegistry.registerItem(bucket,name+"Bucket");
+		        GameRegistry.registerItem(bucket,textureName+"Bucket");
 		        
 		        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(fluid.getName(),FluidContainerRegistry.BUCKET_VOLUME),new ItemStack(bucket),new ItemStack(Items.bucket));
 		        LanguageRegistry.instance().addStringLocalization(bucket.getUnlocalizedName()+".name","en_US",name+" Bucket");

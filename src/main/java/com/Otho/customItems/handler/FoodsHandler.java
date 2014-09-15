@@ -2,9 +2,9 @@ package com.Otho.customItems.handler;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.items.food.CustomFood;
+import com.Otho.customItems.util.StringUtil;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -25,6 +25,7 @@ public class FoodsHandler {
 				
 				String name = (String) data.get("name").getAsString();
 				String textureName =(String) data.get("textureName").getAsString();
+				textureName = StringUtil.parseTextureName(textureName);
 				
 				int healAmount = data.get("healAmount").getAsInt();
 				float saturationModifier = data.get("saturationModifier").getAsFloat();

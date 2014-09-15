@@ -4,9 +4,9 @@ import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.google.gson.*;
-
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.items.armor.CustomArmor;
+import com.Otho.customItems.util.StringUtil;
 import com.Otho.customItems.util.logHelper;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -49,6 +49,7 @@ public class ArmorHandler {
 			//Parse Armor attributes
 			String name = data.get("name").getAsString();
         	String textureName = data.get("textureName").getAsString();
+        	textureName = StringUtil.parseTextureName(textureName);
         	
         	int durability = data.get("durability").getAsInt();
         	int reductionNum = data.get("reduction").getAsInt();
@@ -61,7 +62,7 @@ public class ArmorHandler {
         	CustomArmor armor = new CustomArmor(material, 0, type, textureName);
 			//Register Armor
         	
-        	GameRegistry.registerItem(armor, name);
+        	GameRegistry.registerItem(armor, textureName);
             armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+name);
             LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",name.substring(0, 1).toUpperCase()+name.substring(1));        	 	
 		}
