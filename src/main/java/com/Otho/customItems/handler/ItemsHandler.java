@@ -1,7 +1,7 @@
 package com.Otho.customItems.handler;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.items.CustomItem;
@@ -15,19 +15,20 @@ public class ItemsHandler {
 	
 	public static void init()
 	{
+		JsonArray items = ConfigurationHandler.items;
+		
 		int i;
 		
-		JSONArray items = ConfigurationHandler.items;
-		
+	
 		if(items != null)
 		{
 			for(i=0;i<items.size();i++)
 			{
-				JSONObject data = (JSONObject) items.get(i);
+				JsonObject data = (JsonObject) items.get(i);
 				
-				String name = (String) data.get("name");
-				String textureName = (String) data.get("textureName");
-				int maxstackSize = ((Number) data.get("maxstackSize")).intValue();
+				String name = data.get("name").getAsString();
+				String textureName = data.get("textureName").getAsString();
+				int maxstackSize = data.get("maxstackSize").getAsInt();
 				
 				
 				

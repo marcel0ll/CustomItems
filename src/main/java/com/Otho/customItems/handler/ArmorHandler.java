@@ -3,8 +3,7 @@ package com.Otho.customItems.handler;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import com.google.gson.*;
 
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.items.armor.CustomArmor;
@@ -16,41 +15,44 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class ArmorHandler {
 	public static void init()
 	{
-		JSONObject armors = ConfigurationHandler.armor;
+		JsonObject armors = ConfigurationHandler.armor;
 		
-		JSONArray helmets = (JSONArray) armors.get("helmets");
-		JSONArray chestplates = (JSONArray) armors.get("chestplates");
-		JSONArray leggings = (JSONArray) armors.get("leggings");
-		JSONArray boots = (JSONArray) armors.get("boots");
-		
-		if(helmets != null)
-			NewArmors(helmets, 0);
-		if(chestplates != null)
-			NewArmors(chestplates, 1);
-		if(leggings != null)
-			NewArmors(leggings, 2);
-		if(boots != null)
-			NewArmors(boots, 3);
+		if(armors != null)
+		{
+			JsonArray helmets = (JsonArray) armors.get("helmets");
+			JsonArray chestplates = (JsonArray) armors.get("chestplates");
+			JsonArray leggings = (JsonArray) armors.get("leggings");
+			JsonArray boots = (JsonArray) armors.get("boots");
+			
+			if(helmets != null)
+				NewArmors(helmets, 0);
+			if(chestplates != null)
+				NewArmors(chestplates, 1);
+			if(leggings != null)
+				NewArmors(leggings, 2);
+			if(boots != null)
+				NewArmors(boots, 3);
+		}
 		
 	}
 	
-	private static void NewArmors(JSONArray armors, int type)
+	private static void NewArmors(JsonArray armors, int type)
 	{
 		int i;
 		
 		for(i=0;i<armors.size();i++)
 		{
 			//Get Armor Json
-			JSONObject data = (JSONObject) armors.get(i);
-			logHelper.log(constants.MOD_ID, logHelper.debug, data.toJSONString());
+			JsonObject data = (JsonObject) armors.get(i);
+			logHelper.log(constants.MOD_ID, logHelper.debug, data.toString());
 			
 			//Parse Armor attributes
-			String name = (String) data.get("name");
-        	String textureName = (String) data.get("textureName");
+			String name = data.get("name").getAsString();
+        	String textureName = data.get("textureName").getAsString();
         	
-        	int durability = ((Number) data.get("durability")).intValue();
-        	int reductionNum = ((Number) data.get("reduction")).intValue();
-        	int enchantability = ((Number) data.get("enchantability")).intValue();
+        	int durability = data.get("durability").getAsInt();
+        	int reductionNum = data.get("reduction").getAsInt();
+        	int enchantability = data.get("enchantability").getAsInt();
         	
 			//Make Custom Armor
         	int reduction[] = {0,0,0,0};

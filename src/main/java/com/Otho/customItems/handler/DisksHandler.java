@@ -1,8 +1,14 @@
 package com.Otho.customItems.handler;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import net.minecraft.client.audio.SoundCategory;
+import net.minecraft.client.audio.SoundEventAccessorComposite;
+import net.minecraft.client.audio.SoundRegistry;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.EnumHelperClient;
+import net.minecraftforge.common.util.EnumHelper;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.items.disks.CustomDisk;
 
@@ -13,25 +19,32 @@ public class DisksHandler {
 
 	public static void init()
 	{
-		JSONArray blocksData = ConfigurationHandler.musicDisks;
+		JsonArray disksData = ConfigurationHandler.musicDisks;
 		
 		int i;
 		
-		if(blocksData != null)
+		if(disksData != null)
 		{
-			for(i=0;i<blocksData.size();i++)
+			for(i=0;i<disksData.size();i++)
 			{
-				JSONObject data = (JSONObject) blocksData.get(i);
+				JsonObject data = (JsonObject) disksData.get(i);
 				
-				String name = (String) data.get("name");
-				String textureName = (String) data.get("textureName");
-				String music = (String) data.get("music");
+				String name =  data.get("name").getAsString();
+				String textureName =  data.get("textureName").getAsString();
+				String music =  data.get("music").getAsString();
 				
 				CustomDisk disk = new CustomDisk(music);
 				
-				 GameRegistry.registerItem(disk, textureName);
-				 disk.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+name);
-				 LanguageRegistry.instance().addStringLocalization(disk.getUnlocalizedName()+".name","en_US","Music Disc");				
+				GameRegistry.registerItem(disk, textureName);
+				disk.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+name);
+				
+				ResourceLocation rl = new ResourceLocation(constants.MOD_ID.toLowerCase()+":sounds/records/"+name.substring(name.indexOf('.')+1));
+				SoundCategory a = SoundCategory.valueOf("RECORDS");
+				SoundEventAccessorComposite b = new SoundEventAccessorComposite(rl, 2.0, 2.0, a);
+				
+				
+				
+				LanguageRegistry.instance().addStringLocalization(disk.getUnlocalizedName()+".name","en_US","Music Disc");				
 			}
 		}
 	}

@@ -3,8 +3,9 @@ package com.Otho.customItems.handler;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.util.EnumHelper;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonNull;
 
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.items.tools.CustomAxe;
@@ -21,49 +22,52 @@ public class ToolsHandler {
 	
 	public static void init()
 	{
-		JSONObject tools = ConfigurationHandler.tools;
+		JsonObject tools = ConfigurationHandler.tools;
 		
-		JSONArray shovels = (JSONArray) tools.get("shovels");
-		JSONArray axes = (JSONArray) tools.get("axes");
-		JSONArray pickaxes = (JSONArray) tools.get("pickaxes");
-		JSONArray swords = (JSONArray) tools.get("swords");
-		JSONArray hoes = (JSONArray) tools.get("hoes");
-		
-		logHelper.log(constants.MOD_ID, logHelper.debug, "Registering custom Tools");
-		
-		if(shovels != null)
-			NewTools (shovels, "shovel");
-		if(axes != null)
-			NewTools (axes, "axe");
-		if(pickaxes != null)
-			NewTools (pickaxes, "pickaxe");
-		if(swords != null)
-			NewTools (swords, "sword");
-		if(hoes != null)
-			NewTools (hoes, "hoe");
+		if(tools != null)
+		{
+			JsonArray shovels = (JsonArray) tools.get("shovels");
+			JsonArray axes = (JsonArray) tools.get("axes");
+			JsonArray pickaxes = (JsonArray) tools.get("pickaxes");
+			JsonArray swords = (JsonArray) tools.get("swords");
+			JsonArray hoes = (JsonArray) tools.get("hoes");
 		
 		
+			logHelper.log(constants.MOD_ID, logHelper.debug, "Registering custom Tools");
+			
+			if(shovels != null)
+				NewTools (shovels, "shovel");
+			if(axes != null)
+				NewTools (axes, "axe");
+			if(pickaxes != null)
+				NewTools (pickaxes, "pickaxe");
+			if(swords != null)
+				NewTools (swords, "sword");
+			if(hoes != null)
+				NewTools (hoes, "hoe");
+		
+		}
 	}
 	
-	private static void NewTools(JSONArray tools, String type)
+	private static void NewTools(JsonArray tools, String type)
 	{
 		int i;
 		
 		for(i=0;i<tools.size();i++)
 		{
 			//Get tool Json
-			JSONObject data = (JSONObject) tools.get(i);
-			logHelper.log(constants.MOD_ID, logHelper.debug, data.toJSONString());
+			JsonObject data = (JsonObject) tools.get(i);
+			logHelper.log(constants.MOD_ID, logHelper.debug, data.toString());
 			
 			//Parse tool attributes			
-			String name = (String) data.get("name");
-        	String textureName = (String) data.get("textureName");
+			String name = data.get("name").getAsString();
+        	String textureName = data.get("textureName").getAsString();
         	
-        	int harvestLevel = ((Number) data.get("harvestLevel")).intValue();
-        	int maxUses = ((Number) data.get("maxUses")).intValue();
-        	float efficiencyOnProperMaterial = ((Number) data.get("efficiencyOnProperMaterial")).floatValue();
-        	float damageVsEntity = ((Number) data.get("damageVsEntity")).floatValue();
-        	int enchantability = ((Number) data.get("enchantability")).intValue();
+        	int harvestLevel = data.get("harvestLevel").getAsInt();
+        	int maxUses = data.get("maxUses").getAsInt();
+        	float efficiencyOnProperMaterial = data.get("efficiencyOnProperMaterial").getAsFloat();
+        	float damageVsEntity = data.get("damageVsEntity").getAsFloat();
+        	int enchantability = data.get("enchantability").getAsInt();
 			
 			//Make Custom Tool
         	Item.ToolMaterial material = EnumHelper.addToolMaterial(textureName, harvestLevel, maxUses, efficiencyOnProperMaterial, damageVsEntity, enchantability);

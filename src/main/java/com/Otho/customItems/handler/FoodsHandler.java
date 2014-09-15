@@ -1,7 +1,7 @@
 package com.Otho.customItems.handler;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.items.food.CustomFood;
@@ -13,7 +13,7 @@ public class FoodsHandler {
 
 	public static void init()
 	{
-		JSONArray foodsData = ConfigurationHandler.foods;
+		JsonArray foodsData = ConfigurationHandler.foods;
 		
 		int i;
 		
@@ -21,24 +21,24 @@ public class FoodsHandler {
 		{
 			for(i=0;i<foodsData.size();i++)
 			{
-				JSONObject data = (JSONObject) foodsData.get(i);
+				JsonObject data = (JsonObject) foodsData.get(i);
 				
-				String name = (String) data.get("name");
-				String textureName =(String) data.get("textureName");
+				String name = (String) data.get("name").getAsString();
+				String textureName =(String) data.get("textureName").getAsString();
 				
-				int healAmount = ((Number) data.get("healAmount")).intValue();
-				float saturationModifier = ((Number) data.get("saturationModifier")).floatValue();
-				boolean isWolfsFavoriteMeat = ((Boolean) data.get("isWolfsFavoriteMeat")).booleanValue();
+				int healAmount = data.get("healAmount").getAsInt();
+				float saturationModifier = data.get("saturationModifier").getAsFloat();
+				//boolean isWolfsFavoriteMeat = data.get("isWolfsFavoriteMeat").getAsBoolean();
 				
-				CustomFood food = new CustomFood(healAmount, saturationModifier, isWolfsFavoriteMeat);
+				CustomFood food = new CustomFood(healAmount, saturationModifier, false);
 				
-				JSONObject potionEffect = (JSONObject) data.get("potionEffect");
+				JsonObject potionEffect = (JsonObject) data.get("potionEffect");
 				if(potionEffect != null)
 				{
-					String effect = (String) potionEffect.get("effect");
-					int potionDuration = ((Number) potionEffect.get("potionDuration")).intValue();
-					int potionAmplifier = ((Number) potionEffect.get("potionAmplifier")).intValue();
-					float potionEffectProbability = ((Number) potionEffect.get("potionEffectProbability")).floatValue();
+					String effect = potionEffect.get("effect").getAsString();
+					int potionDuration = potionEffect.get("potionDuration").getAsInt();
+					int potionAmplifier = potionEffect.get("potionAmplifier").getAsInt();
+					float potionEffectProbability = potionEffect.get("potionEffectProbability").getAsFloat();
 					
 					food.setPotionEffect(potionEffectId(effect), potionDuration, potionAmplifier, potionEffectProbability);
 				}
