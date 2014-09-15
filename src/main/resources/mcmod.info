@@ -2,14 +2,14 @@
 {
   "modid": "customItems",
   "name": "Custom Items",
-  "description": "This mod intends to add a simple way to add custom items",
-  "version": "1.0 - beta",
+  "description": "A simple way to add your stuff to minecraft.",
+  "version": "1.0 - beta2",
   "mcversion": "1.7.10",
   "url": "https://github.com/0tho/CustomItems",
   "updateUrl": "",
   "authorList": ["Otho, InfinityRaider"],
   "credits": "",
-  "logoFile": "",
+  "logoFile": "customItems.png",
   "screenshots": [],
   "dependencies": []
 }
