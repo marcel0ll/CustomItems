@@ -62,7 +62,7 @@ public class ArmorHandler {
         	CustomArmor armor = new CustomArmor(material, 0, type, textureName);
 			//Register Armor
         	
-        	GameRegistry.registerItem(armor, textureName);
+        	GameRegistry.registerItem(armor, textureName+"_"+type);
             armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+name);
             LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",name.substring(0, 1).toUpperCase()+name.substring(1));        	 	
 		}
