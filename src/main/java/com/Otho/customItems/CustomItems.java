@@ -18,6 +18,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 import net.minecraft.client.audio.SoundRegistry;
 
+import java.io.File;
+
 @Mod(dependencies=constants.DEPENDENCIES, modid  = constants.MOD_ID, version = constants.VERSION, name=constants.MOD_NAME)
 public class CustomItems
 {	
@@ -26,7 +28,7 @@ public class CustomItems
 	{
 		logHelper.permission = 5;
 				
-		String path = event.getModConfigurationDirectory().toString()+"\\"+constants.MOD_ID+".json";		
+		String path = event.getModConfigurationDirectory().toString()+File.separator+constants.MOD_ID+".json";		
 		logHelper.log(constants.MOD_ID, logHelper.debug, path);		
 		ConfigurationHandler.init(path);
 		BlockHandler.init();
