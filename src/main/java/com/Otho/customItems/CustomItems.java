@@ -1,5 +1,7 @@
 package com.Otho.customItems;
 
+import java.io.File;
+
 import com.Otho.customItems.handler.ArmorHandler;
 import com.Otho.customItems.handler.BlockHandler;
 import com.Otho.customItems.handler.ConfigurationHandler;
@@ -15,10 +17,11 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-
 import net.minecraft.client.audio.SoundRegistry;
 
-import java.io.File;
+
+
+
 
 @Mod(dependencies=constants.DEPENDENCIES, modid  = constants.MOD_ID, version = constants.VERSION, name=constants.MOD_NAME)
 public class CustomItems
@@ -28,7 +31,7 @@ public class CustomItems
 	{
 		logHelper.permission = 5;
 				
-		String path = event.getModConfigurationDirectory().toString()+File.separator+constants.MOD_ID+".json";		
+		String path = event.getModConfigurationDirectory().toString()+File.separator+constants.MOD_ID+".json";	
 		logHelper.log(constants.MOD_ID, logHelper.debug, path);		
 		ConfigurationHandler.init(path);
 		BlockHandler.init();
@@ -38,6 +41,8 @@ public class CustomItems
 		//DisksHandler.init();
 		FoodsHandler.init();	
 		FluidsHandler.init();
+		
+		
 	}	
 	
     @Mod.EventHandler

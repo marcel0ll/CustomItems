@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 
 import com.google.gson.*;
+
 import com.google.gson.stream.JsonReader;
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.util.logHelper;
@@ -34,7 +35,8 @@ public class ConfigurationHandler {
 			InputStream is = new FileInputStream(filePath);
 	        InputStreamReader isr = new InputStreamReader(is);
 			 
-			JsonParser parser = new JsonParser();			
+			JsonParser parser = new JsonParser();	
+			
 			  //create JsonReader object
 	        JsonReader reader = new JsonReader(isr);
 	        JsonObject config = (JsonObject) parser.parse(reader);
