@@ -1,10 +1,13 @@
 package com.Otho.customItems.configuration;
 
+import com.Otho.customItems.lib.constants;
+
 public class Helmet {
 	public String name;
 	public String textureName;
+	public String creativeTab = constants.MOD_ID;
 	
-	public int durability;
-	public int reductionNum;
-	public int enchantability;
+	public int durability = 5;
+	public int reductionNum = 2;
+	public int enchantability = 15;
 }

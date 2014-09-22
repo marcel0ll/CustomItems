@@ -41,6 +41,8 @@ import org.apache.logging.log4j.Level;
 
 public class Register {
 	
+	
+	public static int registerId = -1;
 //	public static void init(){
 //		registerBlocks();
 //		registerFoods();
@@ -112,6 +114,8 @@ public class Register {
 	        	GameRegistry.registerBlock(block, registerName);
 	        	block.setBlockName(constants.MOD_ID.toLowerCase()+":"+blockData.textureName); 
 	        	LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", blockData.name);
+	        	
+	        	registerId++;
 	        }
 		}
 	}
@@ -130,7 +134,7 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);				
+				String registerName = StringUtil.parseRegisterName(data.name);				
 			
 				CustomFood food = new CustomFood(data.healAmount, data.saturationModifier, false);
 				
@@ -145,9 +149,11 @@ public class Register {
 				
 					
 				
-				GameRegistry.registerItem(food, data.textureName);
+				GameRegistry.registerItem(food, registerName);
 				food.setUnlocalizedName(constants.MOD_ID.toLowerCase() + ":"+data.textureName);
-				LanguageRegistry.instance().addStringLocalization(food.getUnlocalizedName()+".name","en_US", data.name);				
+				LanguageRegistry.instance().addStringLocalization(food.getUnlocalizedName()+".name","en_US", data.name);	
+				
+				registerId++;
 			}
 		}
 	}
@@ -166,13 +172,15 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				String registerName = StringUtil.parseRegisterName(data.name);
 				
 				CustomItem item = new CustomItem(data.maxStackSize);
 	           
-	            GameRegistry.registerItem(item, data.textureName);
+	            GameRegistry.registerItem(item, registerName);
 	            item.setUnlocalizedName(constants.MOD_ID.toLowerCase() + ":"+data.textureName);
 	            LanguageRegistry.instance().addStringLocalization(item.getUnlocalizedName()+".name","en_US",data.name);
+	            
+	            registerId++;
 			}
 		}
 	}
@@ -191,7 +199,7 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				String registerName = StringUtil.parseRegisterName(data.name);
 				
 								
 				CustomFluid fluid = new CustomFluid(data.name);
@@ -205,7 +213,7 @@ public class Register {
 				
 				CustomFluidBlock fluidBlock = new CustomFluidBlock(fluid, Material.water);
 				fluidBlock.setBlockName(constants.MOD_ID.toLowerCase()+":"+data.name);
-				GameRegistry.registerBlock(fluidBlock, data.textureName);
+				GameRegistry.registerBlock(fluidBlock, registerName);
 				
 				fluid.setUnlocalizedName(fluidBlock.getUnlocalizedName().substring(fluidBlock.getUnlocalizedName().indexOf(":") + 1));
 	            LanguageRegistry.instance().addStringLocalization(fluidBlock.getUnlocalizedName()+".name","en_US", data.name);
@@ -220,13 +228,14 @@ public class Register {
 				bucket = new CustomBucket(fluidBlock);
 				bucket.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name+"Bucket");
 				bucket.setContainerItem(Items.bucket);
-		        GameRegistry.registerItem(bucket,data.textureName+"Bucket");
+		        GameRegistry.registerItem(bucket,registerName+"Bucket");
 		        
 		        FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(fluid.getName(),FluidContainerRegistry.BUCKET_VOLUME),new ItemStack(bucket),new ItemStack(Items.bucket));
 		        LanguageRegistry.instance().addStringLocalization(bucket.getUnlocalizedName()+".name","en_US",data.name+" Bucket");
 		        BucketHandler.INSTANCE.buckets.put(fluidBlock, bucket);
 		        MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
 				
+		        registerId++;
 			}
 		}
 	}
@@ -245,7 +254,7 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				String registerName = StringUtil.parseRegisterName(data.name);
 				
 				Item.ToolMaterial material = EnumHelper.addToolMaterial(
 						data.textureName, 
@@ -257,9 +266,11 @@ public class Register {
 				
 				CustomPickaxe pickaxe = new CustomPickaxe(material);
 				
-				GameRegistry.registerItem(pickaxe, data.textureName);
+				GameRegistry.registerItem(pickaxe, registerName);
 				pickaxe.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
 	            LanguageRegistry.instance().addStringLocalization(pickaxe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+	            
+	            registerId++;
 			}
 		}
 	}
@@ -278,7 +289,7 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				String registerName = StringUtil.parseRegisterName(data.name);
 				
 				Item.ToolMaterial material = EnumHelper.addToolMaterial(
 						data.textureName, 
@@ -290,9 +301,11 @@ public class Register {
 				
 				CustomAxe axe = new CustomAxe(material);
 				
-				GameRegistry.registerItem(axe, data.textureName);
+				GameRegistry.registerItem(axe, registerName);
 				axe.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
 	            LanguageRegistry.instance().addStringLocalization(axe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+	            
+	            registerId++;
 			}
 		}
 	}
@@ -311,7 +324,7 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				String registerName = StringUtil.parseRegisterName(data.name);
 				
 				Item.ToolMaterial material = EnumHelper.addToolMaterial(
 						data.textureName, 
@@ -323,9 +336,11 @@ public class Register {
 				
 				CustomShovel shovel = new CustomShovel(material);
 				
-				GameRegistry.registerItem(shovel, data.textureName);
+				GameRegistry.registerItem(shovel, registerName);
 				shovel.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
 	            LanguageRegistry.instance().addStringLocalization(shovel.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+	            
+	            registerId++;
 			}
 		}
 	}
@@ -344,7 +359,7 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				String registerName = StringUtil.parseRegisterName(data.name);
 				
 				Item.ToolMaterial material = EnumHelper.addToolMaterial(
 						data.textureName, 
@@ -356,9 +371,11 @@ public class Register {
 				
 				CustomHoe hoe = new CustomHoe(material);
 				
-				GameRegistry.registerItem(hoe, data.textureName);
+				GameRegistry.registerItem(hoe, registerName);
 				hoe.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
 	            LanguageRegistry.instance().addStringLocalization(hoe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+	            
+	            registerId++;
 			}
 		}
 	}
@@ -376,7 +393,7 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				String registerName = StringUtil.parseRegisterName(data.name);
 				
 				Item.ToolMaterial material = EnumHelper.addToolMaterial(
 						data.textureName, 
@@ -388,9 +405,11 @@ public class Register {
 				
 				CustomSword sword = new CustomSword(material);
 				
-				GameRegistry.registerItem(sword, data.textureName);
+				GameRegistry.registerItem(sword, registerName);
 				sword.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
 	            LanguageRegistry.instance().addStringLocalization(sword.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+	            
+	            registerId++;
 			}
 		}
 	}
@@ -408,7 +427,7 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				String registerName = StringUtil.parseRegisterName(data.name);
 	        	
 	        	
 				//Make Custom Armor
@@ -419,9 +438,11 @@ public class Register {
 	        	CustomArmor armor = new CustomArmor(material, 0, 0, data.textureName);
 				//Register Armor
 	        	
-	        	GameRegistry.registerItem(armor, data.textureName+"_"+0);
+	        	GameRegistry.registerItem(armor, registerName);
 	            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
-	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1)); 
+	            
+	            registerId++;
 			}
 		}
 	}
@@ -440,7 +461,7 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				String registerName = StringUtil.parseRegisterName(data.name);
 	        	
 	        	
 				//Make Custom Armor
@@ -451,9 +472,11 @@ public class Register {
 	        	CustomArmor armor = new CustomArmor(material, 0, 1, data.textureName);
 				//Register Armor
 	        	
-	        	GameRegistry.registerItem(armor, data.textureName+"_"+1);
+	        	GameRegistry.registerItem(armor, registerName);
 	            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
-	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1)); 
+	            
+	            registerId++;
 			}
 		}
 	}
@@ -474,7 +497,7 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				String registerName = StringUtil.parseRegisterName(data.name);
 	        	
 	        	
 				//Make Custom Armor
@@ -485,9 +508,11 @@ public class Register {
 	        	CustomArmor armor = new CustomArmor(material, 0, 2, data.textureName);
 				//Register Armor
 	        	
-	        	GameRegistry.registerItem(armor, data.textureName+"_"+2);
+	        	GameRegistry.registerItem(armor, registerName);
 	            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
-	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));   
+	            
+	            registerId++;
 			}
 		}
 	}
@@ -506,7 +531,7 @@ public class Register {
 				
 				LogHelper.log(Level.INFO, data.name, 1);
 				
-				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				String registerName = StringUtil.parseRegisterName(data.name);
 	        	
 	        	
 				//Make Custom Armor
@@ -517,9 +542,11 @@ public class Register {
 	        	CustomArmor armor = new CustomArmor(material, 0, 3, data.textureName);
 				//Register Armor
 	        	
-	        	GameRegistry.registerItem(armor, data.textureName+"_"+3);
+	        	GameRegistry.registerItem(armor, registerName);
 	            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
-	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));  
+	            
+	            registerId++;
 			}
 		}
 	}
