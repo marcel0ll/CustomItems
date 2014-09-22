@@ -2,11 +2,11 @@ package com.Otho.customItems.util;
 
 public class StringUtil {
 	
-	public static String parseTextureName(String textureName)
+	public static String parseRegisterName(String name)
 	{
-		textureName = textureName.replaceAll("\\s+","_");
-		textureName = textureName.toLowerCase();
+		name = name.replaceAll("\\s+","_");
+		name = name.toLowerCase();
 		
-		return textureName;
+		return name;
 	}
 }

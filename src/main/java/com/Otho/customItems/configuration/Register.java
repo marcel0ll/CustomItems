@@ -37,6 +37,8 @@ import com.google.gson.JsonObject;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
+import org.apache.logging.log4j.Level;
+
 public class Register {
 	
 //	public static void init(){
@@ -55,7 +57,9 @@ public class Register {
 //		registerBoots();
 //	}
 	
-	public static void register(JsonSchema data){
+	public static void register(JsonSchema data, String fileName){
+		LogHelper.log(Level.INFO, fileName);
+		
 		registerBlocks(data.blocks);
 		registerFoods(data.foods);
 		registerItems(data.items);
@@ -78,12 +82,14 @@ public class Register {
 		int i;
 		
 		if(blocksData != null)
-		{		
-			LogHelper.log(constants.MOD_ID, LogHelper.debug, "Registering custom Blocks");
-	        
+		{	        
+			LogHelper.log(Level.INFO, "Registering Blocks:");
 	        for(i=0;i<blocksData.length;i++) {            
-	        	Block blockData = blocksData[i];	        	
-	        	blockData.textureName = StringUtil.parseTextureName(blockData.textureName);
+	        	Block blockData = blocksData[i];
+	        	
+	        	LogHelper.log(Level.INFO, blockData.name, 1);
+	        	
+	        	String registerName = StringUtil.parseRegisterName(blockData.name);
 	        	
 	        	blockData.toolClass = validateToolClass(blockData.toolClass);
 	        	if(!blockData.toolClass.equals("pickaxe"))
@@ -103,7 +109,7 @@ public class Register {
 	        	
 	        	
 	        	//Register Block
-	        	GameRegistry.registerBlock(block, blockData.textureName);
+	        	GameRegistry.registerBlock(block, registerName);
 	        	block.setBlockName(constants.MOD_ID.toLowerCase()+":"+blockData.textureName); 
 	        	LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", blockData.name);
 	        }
@@ -113,15 +119,18 @@ public class Register {
 	{
 		Food[] foods = input;
 		
-		int i;
+		int i;		
 		
 		if(foods != null)
 		{
+			LogHelper.log(Level.INFO, "Registering Foods:");
 			for(i=0;i<foods.length;i++)
 			{
 				Food data = foods[i];
 				
-				data.textureName = StringUtil.parseTextureName(data.textureName);				
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);				
 			
 				CustomFood food = new CustomFood(data.healAmount, data.saturationModifier, false);
 				
@@ -150,10 +159,14 @@ public class Register {
 	
 		if(items != null)
 		{
+			LogHelper.log(Level.INFO, "Registering Items:");
 			for(i=0;i<items.length;i++)
 			{
 				ReaderItem data = items[i];
-				data.textureName = StringUtil.parseTextureName(data.textureName);
+				
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);
 				
 				CustomItem item = new CustomItem(data.maxStackSize);
 	           
@@ -171,11 +184,14 @@ public class Register {
 		
 		if(fluids != null)
 		{
+			LogHelper.log(Level.INFO, "Registering Fluids:");
 			for(i=0;i<fluids.length;i++)
 			{
 				Fluid data = fluids[i];
 				
-				data.textureName = StringUtil.parseTextureName(data.textureName);
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);
 				
 								
 				CustomFluid fluid = new CustomFluid(data.name);
@@ -220,25 +236,31 @@ public class Register {
 		
 		int i;
 		
-		for(i=0;i<pickaxes.length;i++)
+		if(pickaxes != null)
 		{
-			Pickaxe data = pickaxes[i];
-			
-			data.textureName = StringUtil.parseTextureName(data.textureName);
-			
-			Item.ToolMaterial material = EnumHelper.addToolMaterial(
-					data.textureName, 
-					data.harvestLevel, 
-					data.maxUses, 
-					data.efficiencyOnProperMaterial, 
-					data.damageVsEntity, 
-					data.enchantability);
-			
-			CustomPickaxe pickaxe = new CustomPickaxe(material);
-			
-			GameRegistry.registerItem(pickaxe, data.textureName);
-			pickaxe.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
-            LanguageRegistry.instance().addStringLocalization(pickaxe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+			LogHelper.log(Level.INFO, "Registering Pickaxes:");
+			for(i=0;i<pickaxes.length;i++)
+			{
+				Pickaxe data = pickaxes[i];
+				
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				
+				Item.ToolMaterial material = EnumHelper.addToolMaterial(
+						data.textureName, 
+						data.harvestLevel, 
+						data.maxUses, 
+						data.efficiencyOnProperMaterial, 
+						data.damageVsEntity, 
+						data.enchantability);
+				
+				CustomPickaxe pickaxe = new CustomPickaxe(material);
+				
+				GameRegistry.registerItem(pickaxe, data.textureName);
+				pickaxe.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
+	            LanguageRegistry.instance().addStringLocalization(pickaxe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+			}
 		}
 	}
 	private static void registerAxes(Axe[] input)
@@ -247,25 +269,31 @@ public class Register {
 		
 		int i;
 		
-		for(i=0;i<axes.length;i++)
+		if(axes != null)
 		{
-			Axe data = axes[i];
-			
-			data.textureName = StringUtil.parseTextureName(data.textureName);
-			
-			Item.ToolMaterial material = EnumHelper.addToolMaterial(
-					data.textureName, 
-					data.harvestLevel, 
-					data.maxUses, 
-					data.efficiencyOnProperMaterial, 
-					data.damageVsEntity, 
-					data.enchantability);
-			
-			CustomAxe axe = new CustomAxe(material);
-			
-			GameRegistry.registerItem(axe, data.textureName);
-			axe.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
-            LanguageRegistry.instance().addStringLocalization(axe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+			LogHelper.log(Level.INFO, "Registering Axes:");
+			for(i=0;i<axes.length;i++)
+			{
+				Axe data = axes[i];
+				
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				
+				Item.ToolMaterial material = EnumHelper.addToolMaterial(
+						data.textureName, 
+						data.harvestLevel, 
+						data.maxUses, 
+						data.efficiencyOnProperMaterial, 
+						data.damageVsEntity, 
+						data.enchantability);
+				
+				CustomAxe axe = new CustomAxe(material);
+				
+				GameRegistry.registerItem(axe, data.textureName);
+				axe.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
+	            LanguageRegistry.instance().addStringLocalization(axe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+			}
 		}
 	}
 	private static void registerShovels(Shovel[] input)
@@ -274,25 +302,31 @@ public class Register {
 		
 		int i;
 		
-		for(i=0;i<shovels.length;i++)
+		if(shovels != null)
 		{
-			Shovel data = shovels[i];
-			
-			data.textureName = StringUtil.parseTextureName(data.textureName);
-			
-			Item.ToolMaterial material = EnumHelper.addToolMaterial(
-					data.textureName, 
-					data.harvestLevel, 
-					data.maxUses, 
-					data.efficiencyOnProperMaterial, 
-					data.damageVsEntity, 
-					data.enchantability);
-			
-			CustomShovel shovel = new CustomShovel(material);
-			
-			GameRegistry.registerItem(shovel, data.textureName);
-			shovel.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
-            LanguageRegistry.instance().addStringLocalization(shovel.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+			LogHelper.log(Level.INFO, "Registering Shovels:");		
+			for(i=0;i<shovels.length;i++)
+			{
+				Shovel data = shovels[i];
+				
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				
+				Item.ToolMaterial material = EnumHelper.addToolMaterial(
+						data.textureName, 
+						data.harvestLevel, 
+						data.maxUses, 
+						data.efficiencyOnProperMaterial, 
+						data.damageVsEntity, 
+						data.enchantability);
+				
+				CustomShovel shovel = new CustomShovel(material);
+				
+				GameRegistry.registerItem(shovel, data.textureName);
+				shovel.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
+	            LanguageRegistry.instance().addStringLocalization(shovel.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+			}
 		}
 	}
 	private static void registerHoes(Hoe[] input)
@@ -301,25 +335,31 @@ public class Register {
 		
 		int i;
 		
-		for(i=0;i<hoes.length;i++)
+		if(hoes != null)
 		{
-			Hoe data = hoes[i];
-			
-			data.textureName = StringUtil.parseTextureName(data.textureName);
-			
-			Item.ToolMaterial material = EnumHelper.addToolMaterial(
-					data.textureName, 
-					data.harvestLevel, 
-					data.maxUses, 
-					data.efficiencyOnProperMaterial, 
-					data.damageVsEntity, 
-					data.enchantability);
-			
-			CustomHoe hoe = new CustomHoe(material);
-			
-			GameRegistry.registerItem(hoe, data.textureName);
-			hoe.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
-            LanguageRegistry.instance().addStringLocalization(hoe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+			LogHelper.log(Level.INFO, "Registering Hoes:");
+			for(i=0;i<hoes.length;i++)
+			{
+				Hoe data = hoes[i];
+				
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				
+				Item.ToolMaterial material = EnumHelper.addToolMaterial(
+						data.textureName, 
+						data.harvestLevel, 
+						data.maxUses, 
+						data.efficiencyOnProperMaterial, 
+						data.damageVsEntity, 
+						data.enchantability);
+				
+				CustomHoe hoe = new CustomHoe(material);
+				
+				GameRegistry.registerItem(hoe, data.textureName);
+				hoe.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
+	            LanguageRegistry.instance().addStringLocalization(hoe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+			}
 		}
 	}
 	private static void registerSwords(Sword[] input)
@@ -327,26 +367,31 @@ public class Register {
 		Sword[] swords = input;
 		
 		int i;
-		
-		for(i=0;i<swords.length;i++)
+		if(swords != null)
 		{
-			Sword data = swords[i];
-			
-			data.textureName = StringUtil.parseTextureName(data.textureName);
-			
-			Item.ToolMaterial material = EnumHelper.addToolMaterial(
-					data.textureName, 
-					data.harvestLevel, 
-					data.maxUses, 
-					data.efficiencyOnProperMaterial, 
-					data.damageVsEntity, 
-					data.enchantability);
-			
-			CustomSword sword = new CustomSword(material);
-			
-			GameRegistry.registerItem(sword, data.textureName);
-			sword.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
-            LanguageRegistry.instance().addStringLocalization(sword.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+			LogHelper.log(Level.INFO, "Registering Swords:");
+			for(i=0;i<swords.length;i++)
+			{
+				Sword data = swords[i];
+				
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);
+				
+				Item.ToolMaterial material = EnumHelper.addToolMaterial(
+						data.textureName, 
+						data.harvestLevel, 
+						data.maxUses, 
+						data.efficiencyOnProperMaterial, 
+						data.damageVsEntity, 
+						data.enchantability);
+				
+				CustomSword sword = new CustomSword(material);
+				
+				GameRegistry.registerItem(sword, data.textureName);
+				sword.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.textureName);
+	            LanguageRegistry.instance().addStringLocalization(sword.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+			}
 		}
 	}
 	private static void registerHelmets(Helmet[] input)
@@ -354,24 +399,30 @@ public class Register {
 		Helmet[] helmets = input;
 		int i;
 		
-		for(i=0;i<helmets.length;i++)
+		if(helmets != null)
 		{
-			Helmet data = helmets[i];
-			
-			data.textureName = StringUtil.parseTextureName(data.textureName);
-        	
-        	
-			//Make Custom Armor
-        	int reduction[] = {0,0,0,0};
-        	reduction[0] = data.reductionNum;
-        	
-        	ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
-        	CustomArmor armor = new CustomArmor(material, 0, 0, data.textureName);
-			//Register Armor
-        	
-        	GameRegistry.registerItem(armor, data.textureName+"_"+0);
-            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
-            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+			LogHelper.log(Level.INFO, "Registering Helmets:");
+			for(i=0;i<helmets.length;i++)
+			{
+				Helmet data = helmets[i];
+				
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);
+	        	
+	        	
+				//Make Custom Armor
+	        	int reduction[] = {0,0,0,0};
+	        	reduction[0] = data.reductionNum;
+	        	
+	        	ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
+	        	CustomArmor armor = new CustomArmor(material, 0, 0, data.textureName);
+				//Register Armor
+	        	
+	        	GameRegistry.registerItem(armor, data.textureName+"_"+0);
+	            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
+	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+			}
 		}
 	}
 	
@@ -380,24 +431,30 @@ public class Register {
 		Chestplate[] chestplates = input;
 		int i;
 		
-		for(i=0;i<chestplates.length;i++)
+		if(chestplates != null)
 		{
-			Chestplate data = chestplates[i];
-			
-			data.textureName = StringUtil.parseTextureName(data.textureName);
-        	
-        	
-			//Make Custom Armor
-        	int reduction[] = {0,0,0,0};
-        	reduction[1] = data.reductionNum;
-        	
-        	ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
-        	CustomArmor armor = new CustomArmor(material, 0, 1, data.textureName);
-			//Register Armor
-        	
-        	GameRegistry.registerItem(armor, data.textureName+"_"+1);
-            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
-            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+			LogHelper.log(Level.INFO, "Registering Chestplates:");
+			for(i=0;i<chestplates.length;i++)
+			{
+				Chestplate data = chestplates[i];
+				
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);
+	        	
+	        	
+				//Make Custom Armor
+	        	int reduction[] = {0,0,0,0};
+	        	reduction[1] = data.reductionNum;
+	        	
+	        	ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
+	        	CustomArmor armor = new CustomArmor(material, 0, 1, data.textureName);
+				//Register Armor
+	        	
+	        	GameRegistry.registerItem(armor, data.textureName+"_"+1);
+	            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
+	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+			}
 		}
 	}
 	
@@ -408,24 +465,30 @@ public class Register {
 		Leggings[] leggings = input;
 		int i;
 		
-		for(i=0;i<leggings.length;i++)
+		if(leggings != null)
 		{
-			Leggings data = leggings[i];
-			
-			data.textureName = StringUtil.parseTextureName(data.textureName);
-        	
-        	
-			//Make Custom Armor
-        	int reduction[] = {0,0,0,0};
-        	reduction[2] = data.reductionNum;
-        	
-        	ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
-        	CustomArmor armor = new CustomArmor(material, 0, 2, data.textureName);
-			//Register Armor
-        	
-        	GameRegistry.registerItem(armor, data.textureName+"_"+2);
-            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
-            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+			LogHelper.log(Level.INFO, "Registering Leggings:");
+			for(i=0;i<leggings.length;i++)
+			{
+				Leggings data = leggings[i];
+				
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);
+	        	
+	        	
+				//Make Custom Armor
+	        	int reduction[] = {0,0,0,0};
+	        	reduction[2] = data.reductionNum;
+	        	
+	        	ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
+	        	CustomArmor armor = new CustomArmor(material, 0, 2, data.textureName);
+				//Register Armor
+	        	
+	        	GameRegistry.registerItem(armor, data.textureName+"_"+2);
+	            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
+	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+			}
 		}
 	}
 	
@@ -434,24 +497,30 @@ public class Register {
 		Boots[] boots = input;
 		int i;
 		
-		for(i=0;i<boots.length;i++)
-		{
-			Boots data = boots[i];
-			
-			data.textureName = StringUtil.parseTextureName(data.textureName);
-        	
-        	
-			//Make Custom Armor
-        	int reduction[] = {0,0,0,0};
-        	reduction[3] = data.reductionNum;
-        	
-        	ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
-        	CustomArmor armor = new CustomArmor(material, 0, 3, data.textureName);
-			//Register Armor
-        	
-        	GameRegistry.registerItem(armor, data.textureName+"_"+3);
-            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
-            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+		if(boots != null)
+		{			
+			LogHelper.log(Level.INFO, "Registering Boots:");
+			for(i=0;i<boots.length;i++)
+			{
+				Boots data = boots[i];
+				
+				LogHelper.log(Level.INFO, data.name, 1);
+				
+				data.textureName = StringUtil.parseRegisterName(data.textureName);
+	        	
+	        	
+				//Make Custom Armor
+	        	int reduction[] = {0,0,0,0};
+	        	reduction[3] = data.reductionNum;
+	        	
+	        	ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
+	        	CustomArmor armor = new CustomArmor(material, 0, 3, data.textureName);
+				//Register Armor
+	        	
+	        	GameRegistry.registerItem(armor, data.textureName+"_"+3);
+	            armor.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+data.name);
+	            LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));        	 	
+			}
 		}
 	}
 	

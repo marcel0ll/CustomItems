@@ -12,6 +12,15 @@ public class LogHelper {
     		FMLLog.log(constants.MOD_NAME, logLevel, String.valueOf(object));
 		}
     }
+    public static void log(Level logLevel, Object object, int tab)
+    {
+    	String spaces = "";
+    	int i;
+    	for(i=0; i<tab; i++)
+    		spaces = spaces.concat("  ");
+    	
+    	log(logLevel, spaces.concat(object.toString()));
+    }
     public static void all(Object object) {
         log(Level.ALL, object);
     }
