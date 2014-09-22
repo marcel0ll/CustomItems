@@ -23,13 +23,10 @@ public class CustomItems
 {	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
-	{
-		LogHelper.permission = 5;
-				
+	{			
 		String path = event.getModConfigurationDirectory().toString()+File.separator+constants.MOD_ID+".json";
 		String folderPath = event.getModConfigurationDirectory().toString()+File.separator+constants.MOD_ID+File.separator;
-		LogHelper.log(constants.MOD_ID, LogHelper.debug, path);
-		LogHelper.log(constants.MOD_ID, LogHelper.debug, folderPath);	
+
 		JsonConfigurationHandler.init(path, folderPath);
 		forgeCustomConfigHandler.init(event.getSuggestedConfigurationFile());
 		//Register.init();
