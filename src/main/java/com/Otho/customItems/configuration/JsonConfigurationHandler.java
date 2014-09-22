@@ -1,4 +1,4 @@
-package com.Otho.customItems.handler;
+package com.Otho.customItems.configuration;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,22 +11,14 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 
 import com.google.gson.*;
-
 import com.google.gson.stream.JsonReader;
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.util.logHelper;
 
 
-public class ConfigurationHandler {
-	
-	public static JsonArray blocks;
-	public static JsonArray items;
-	public static JsonArray fluids;
-	public static JsonObject tools;
-	public static JsonObject armor;
-	public static JsonArray musicDisks;
-	public static JsonArray foods;	
-	
+public class JsonConfigurationHandler 
+{
+	public static JsonSchema data;
 	
 	public static void init (String filePath)
 	{	
@@ -35,20 +27,11 @@ public class ConfigurationHandler {
 			InputStream is = new FileInputStream(filePath);
 	        InputStreamReader isr = new InputStreamReader(is);
 			 
-			JsonParser parser = new JsonParser();	
-			
-			  //create JsonReader object
+	        Gson gson = new Gson();
+	        
 	        JsonReader reader = new JsonReader(isr);
-	        JsonObject config = (JsonObject) parser.parse(reader);
-			
-			blocks = (JsonArray) config.get("blocks");
-			items = (JsonArray) config.get("items");
-			fluids = (JsonArray) config.get("fluids");
-			tools = (JsonObject) config.get("tools");
-			armor = (JsonObject) config.get("armor");
-			musicDisks = (JsonArray) config.get("music_disks");
-			foods = (JsonArray) config.get("foods");
-			 
+	        
+	        data = gson.fromJson(reader, JsonSchema.class);    
 		}catch (FileNotFoundException e) 
 		{
 			try 

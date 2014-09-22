@@ -2,14 +2,8 @@ package com.Otho.customItems;
 
 import java.io.File;
 
-import com.Otho.customItems.handler.ArmorHandler;
-import com.Otho.customItems.handler.BlockHandler;
-import com.Otho.customItems.handler.ConfigurationHandler;
-import com.Otho.customItems.handler.DisksHandler;
-import com.Otho.customItems.handler.FluidsHandler;
-import com.Otho.customItems.handler.FoodsHandler;
-import com.Otho.customItems.handler.ItemsHandler;
-import com.Otho.customItems.handler.ToolsHandler;
+import com.Otho.customItems.configuration.JsonConfigurationHandler;
+import com.Otho.customItems.configuration.Register;
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.util.logHelper;
 
@@ -33,14 +27,10 @@ public class CustomItems
 				
 		String path = event.getModConfigurationDirectory().toString()+File.separator+constants.MOD_ID+".json";	
 		logHelper.log(constants.MOD_ID, logHelper.debug, path);		
-		ConfigurationHandler.init(path);
-		BlockHandler.init();
-		ToolsHandler.init();
-		ArmorHandler.init();
-		ItemsHandler.init();
-		//DisksHandler.init();
-		FoodsHandler.init();	
-		FluidsHandler.init();
+		JsonConfigurationHandler.init(path);
+		Register.init();
+		
+		
 		
 		
 	}	
