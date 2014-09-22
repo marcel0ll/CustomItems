@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
-import com.Otho.customItems.util.logHelper;
+import com.Otho.customItems.util.LogHelper;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -13,7 +13,7 @@ import java.nio.file.Files;
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import com.Otho.customItems.lib.constants;
-import com.Otho.customItems.util.logHelper;
+import com.Otho.customItems.util.LogHelper;
 
 
 public class JsonConfigurationHandler 

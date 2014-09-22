@@ -2,7 +2,7 @@ package com.Otho.customItems.mod.blocks;
 
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 import com.Otho.customItems.lib.constants;
-import com.Otho.customItems.util.logHelper;
+import com.Otho.customItems.util.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;

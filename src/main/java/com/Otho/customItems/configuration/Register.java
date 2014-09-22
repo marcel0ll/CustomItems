@@ -30,7 +30,7 @@ import com.Otho.customItems.mod.items.tools.CustomShovel;
 import com.Otho.customItems.mod.items.tools.CustomSword;
 import com.Otho.customItems.mod.materials.CI_Material;
 import com.Otho.customItems.util.StringUtil;
-import com.Otho.customItems.util.logHelper;
+import com.Otho.customItems.util.LogHelper;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
@@ -79,7 +79,7 @@ public class Register {
 		
 		if(blocksData != null)
 		{		
-			logHelper.log(constants.MOD_ID, logHelper.debug, "Registering custom Blocks");
+			LogHelper.log(constants.MOD_ID, LogHelper.debug, "Registering custom Blocks");
 	        
 	        for(i=0;i<blocksData.length;i++) {            
 	        	Block blockData = blocksData[i];	        	
