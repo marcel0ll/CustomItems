@@ -25,14 +25,12 @@ public class CustomItems
 	{
 		logHelper.permission = 5;
 				
-		String path = event.getModConfigurationDirectory().toString()+File.separator+constants.MOD_ID+".json";	
-		logHelper.log(constants.MOD_ID, logHelper.debug, path);		
-		JsonConfigurationHandler.init(path);
-		Register.init();
-		
-		
-		
-		
+		String path = event.getModConfigurationDirectory().toString()+File.separator+constants.MOD_ID+".json";
+		String folderPath = event.getModConfigurationDirectory().toString()+File.separator+constants.MOD_ID+File.separator;
+		logHelper.log(constants.MOD_ID, logHelper.debug, path);
+		logHelper.log(constants.MOD_ID, logHelper.debug, folderPath);	
+		JsonConfigurationHandler.init(path, folderPath);
+		//Register.init();
 	}	
 	
     @Mod.EventHandler

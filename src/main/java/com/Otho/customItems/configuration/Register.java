@@ -39,25 +39,41 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Register {
 	
-	public static void init(){
-		registerBlocks();
-		registerFoods();
-		registerItems();
-		registerFluids();
-		registerPickaxes();
-		registerAxes();
-		registerShovels();
-		registerHoes();
-		registerSwords();
-		registerHelmets();
-		registerChestplates();
-		registerLeggings();
-		registerBoots();
+//	public static void init(){
+//		registerBlocks();
+//		registerFoods();
+//		registerItems();
+//		registerFluids();
+//		registerPickaxes();
+//		registerAxes();
+//		registerShovels();
+//		registerHoes();
+//		registerSwords();
+//		registerHelmets();
+//		registerChestplates();
+//		registerLeggings();
+//		registerBoots();
+//	}
+	
+	public static void register(JsonSchema data){
+		registerBlocks(data.blocks);
+		registerFoods(data.foods);
+		registerItems(data.items);
+		registerFluids(data.fluids);
+		registerPickaxes(data.pickaxes);
+		registerAxes(data.axes);
+		registerShovels(data.shovels);
+		registerHoes(data.hoes);
+		registerSwords(data.swords);
+		registerHelmets(data.helmets);
+		registerChestplates(data.chestplates);
+		registerLeggings(data.leggings);
+		registerBoots(data.boots);
 	}
 	
-	private static void registerBlocks ()
+	private static void registerBlocks (Block[] input)
 	{
-		Block[] blocksData = JsonConfigurationHandler.data.blocks; 
+		Block[] blocksData = input;
 		
 		int i;
 		
@@ -93,9 +109,9 @@ public class Register {
 	        }
 		}
 	}
-	private static void registerFoods()
+	private static void registerFoods(Food[] input)
 	{
-		Food[] foods = JsonConfigurationHandler.data.foods;
+		Food[] foods = input;
 		
 		int i;
 		
@@ -126,8 +142,8 @@ public class Register {
 			}
 		}
 	}
-	private static void registerItems(){
-		ReaderItem[] items = JsonConfigurationHandler.data.items;
+	private static void registerItems(ReaderItem[] input){
+		ReaderItem[] items = input;
 		
 		int i;
 		
@@ -147,8 +163,8 @@ public class Register {
 			}
 		}
 	}
-	private static void registerFluids(){
-		Fluid[] fluids = JsonConfigurationHandler.data.fluids;
+	private static void registerFluids(Fluid[] input){
+		Fluid[] fluids = input;
 		int i;
 		
 		
@@ -198,9 +214,9 @@ public class Register {
 			}
 		}
 	}
-	private static void registerPickaxes()
+	private static void registerPickaxes(Pickaxe[] input)
 	{
-		Pickaxe[] pickaxes = JsonConfigurationHandler.data.pickaxes;
+		Pickaxe[] pickaxes = input;
 		
 		int i;
 		
@@ -225,9 +241,9 @@ public class Register {
             LanguageRegistry.instance().addStringLocalization(pickaxe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
 		}
 	}
-	private static void registerAxes()
+	private static void registerAxes(Axe[] input)
 	{
-		Axe[] axes = JsonConfigurationHandler.data.axes;
+		Axe[] axes = input;
 		
 		int i;
 		
@@ -252,9 +268,9 @@ public class Register {
             LanguageRegistry.instance().addStringLocalization(axe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
 		}
 	}
-	private static void registerShovels()
+	private static void registerShovels(Shovel[] input)
 	{
-		Shovel[] shovels = JsonConfigurationHandler.data.shovels;
+		Shovel[] shovels = input;
 		
 		int i;
 		
@@ -279,9 +295,9 @@ public class Register {
             LanguageRegistry.instance().addStringLocalization(shovel.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
 		}
 	}
-	private static void registerHoes()
+	private static void registerHoes(Hoe[] input)
 	{
-		Hoe[] hoes = JsonConfigurationHandler.data.hoes;
+		Hoe[] hoes = input;
 		
 		int i;
 		
@@ -306,9 +322,9 @@ public class Register {
             LanguageRegistry.instance().addStringLocalization(hoe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
 		}
 	}
-	private static void registerSwords()
+	private static void registerSwords(Sword[] input)
 	{
-		Sword[] swords = JsonConfigurationHandler.data.swords;
+		Sword[] swords = input;
 		
 		int i;
 		
@@ -333,9 +349,9 @@ public class Register {
             LanguageRegistry.instance().addStringLocalization(sword.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
 		}
 	}
-	private static void registerHelmets()
+	private static void registerHelmets(Helmet[] input)
 	{
-		Helmet[] helmets = JsonConfigurationHandler.data.helmets;
+		Helmet[] helmets = input;
 		int i;
 		
 		for(i=0;i<helmets.length;i++)
@@ -359,9 +375,9 @@ public class Register {
 		}
 	}
 	
-	private static void registerChestplates()
+	private static void registerChestplates(Chestplate[] input)
 	{
-		Chestplate[] chestplates = JsonConfigurationHandler.data.chestplates;
+		Chestplate[] chestplates = input;
 		int i;
 		
 		for(i=0;i<chestplates.length;i++)
@@ -387,9 +403,9 @@ public class Register {
 	
 	
 	
-	private static void registerLeggings()
+	private static void registerLeggings(Leggings[] input)
 	{
-		Leggings[] leggings = JsonConfigurationHandler.data.leggings;
+		Leggings[] leggings = input;
 		int i;
 		
 		for(i=0;i<leggings.length;i++)
@@ -413,9 +429,9 @@ public class Register {
 		}
 	}
 	
-	private static void registerBoots()
+	private static void registerBoots(Boots[] input)
 	{
-		Boots[] boots = JsonConfigurationHandler.data.boots;
+		Boots[] boots = input;
 		int i;
 		
 		for(i=0;i<boots.length;i++)
