@@ -1,32 +1,47 @@
 {
-        "blocks":[
-        ],
-        "items":[
-        ],
-        "foods":[
-        ],     
-        "tools":{
-                "pickaxes":[
-                ],
-                "axes":[
-                ],
-                "shovels":[
-                ],
-                "hoes":[
-                ],
-                "swords":[
-                ]
-        },
-        "armor":{
-                "helmets":[
-                ],
-                "chestplates":[
-                ],
-                "leggings":[
-                ],
-                "boots":[
-                ]
-        },
-        "fluids":[
-        ]
+    "creativeTabs":[
+ 
+    ],
+    "blocks":[
+ 
+    ],
+    "items":[
+ 
+    ],
+    "foods":[
+ 
+    ],
+    "pickaxes":[
+ 
+    ],
+    "axes":[
+ 
+    ],
+    "shovels":[
+ 
+    ],
+    "hoes":[
+ 
+    ],
+    "swords":[
+ 
+    ],
+    "helmets":[
+ 
+    ],
+    "chestplates":[
+ 
+    ],
+    "leggings":[
+ 
+    ],
+    "boots":[
+ 
+    ],        
+    "fluids":[
+ 
+    ],
+    "crops":[
+ 
+    ]
 }
