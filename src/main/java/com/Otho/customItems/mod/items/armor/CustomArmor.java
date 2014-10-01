@@ -15,8 +15,7 @@ public class CustomArmor extends ItemArmor {
     protected int type;
     protected String name = "";
     public CustomArmor(ArmorMaterial mat,int id,int type,String name) {
-        super(mat,id,type);
-        this.setCreativeTab(customItemsTab.customItemsTab);
+        super(mat,id,type);        
         this.type=type;
         this.name=name;
     }
@@ -35,7 +34,13 @@ public class CustomArmor extends ItemArmor {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void registerIcons(IIconRegister register) {
-        this.itemIcon = register.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+    public void registerIcons(IIconRegister iconRegister) {        
+        if(this.iconString == null)
+    	{
+    		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+    	}else
+    	{
+    		itemIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.iconString);
+    	}
     }
 }

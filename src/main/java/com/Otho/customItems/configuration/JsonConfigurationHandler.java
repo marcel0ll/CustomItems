@@ -47,7 +47,7 @@ public class JsonConfigurationHandler
 							reader = new JsonReader(new FileReader(file));
 							
 							JsonSchema data = gson.fromJson(reader, JsonSchema.class);
-							Register.register(data, file.getName());
+							RegisterCustomItems.register(data, file.getName());
 						}catch(FileNotFoundException e)
 						{
 							

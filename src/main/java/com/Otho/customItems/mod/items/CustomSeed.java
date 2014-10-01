@@ -1,21 +1,28 @@
-package com.Otho.customItems.mod.items.tools;
-
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemSpade;
+package com.Otho.customItems.mod.items;
 
 import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemSeeds;
 
-public class CustomShovel extends ItemSpade {
-    public CustomShovel(ToolMaterial mat) {
-        super(mat);
+public class CustomSeed extends ItemSeeds {
+
+    public CustomSeed(Block plant) {
+        super(plant, Blocks.farmland);        
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
+    public String getUnlocalizedName() {
+        return super.getUnlocalizedName();
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
     	if(this.iconString == null)
     	{

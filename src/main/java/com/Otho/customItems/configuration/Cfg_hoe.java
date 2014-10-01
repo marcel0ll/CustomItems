@@ -2,10 +2,10 @@ package com.Otho.customItems.configuration;
 
 import com.Otho.customItems.lib.constants;
 
-public class Hoe {
+public class Cfg_hoe {
 	public String name;
 	public String textureName;
-	public String creativeTab = constants.MOD_ID;
+	public String creativeTab = constants.MOD_NAME;
 	
 	public int harvestLevel = 0;
 	public int maxUses = 59;

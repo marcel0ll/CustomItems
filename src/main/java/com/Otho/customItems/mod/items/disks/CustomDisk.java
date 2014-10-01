@@ -20,11 +20,8 @@ import java.util.List;
 public class CustomDisk extends ItemRecord {
     protected String song;
     public CustomDisk(String song) {
-        super(song);
-        this.setCreativeTab(customItemsTab.customItemsTab);
+        super(song);        
         this.song = song;
-        
-        
     }
 
     @Override

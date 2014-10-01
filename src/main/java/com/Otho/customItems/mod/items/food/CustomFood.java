@@ -1,5 +1,6 @@
 package com.Otho.customItems.mod.items.food;
 
+import com.Otho.customItems.lib.constants;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
 import cpw.mods.fml.relauncher.Side;
@@ -13,10 +14,7 @@ import net.minecraft.item.ItemSeeds;
 public class CustomFood extends ItemFood{
 	
 	public CustomFood (int healAmount, float saturationModifier, boolean isWolfsFavoriteMeat){
-		super(healAmount, saturationModifier, isWolfsFavoriteMeat);
-		
-		this.setCreativeTab(customItemsTab.customItemsTab);
-        
+		super(healAmount, saturationModifier, isWolfsFavoriteMeat);   
 	}
 	
 	@Override
@@ -27,7 +25,13 @@ public class CustomFood extends ItemFood{
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-        itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+    	if(this.iconString == null)
+    	{
+    		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+    	}else
+    	{
+    		itemIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.iconString);
+    	}
     }	
 
 }

@@ -2,10 +2,10 @@ package com.Otho.customItems.configuration;
 
 import com.Otho.customItems.lib.constants;
 
-public class Block {
+public class Cfg_block {
 	public String name;
 	public String textureName;
-	public String creativeTab = constants.MOD_ID;
+	public String creativeTab = constants.MOD_NAME;
 	
 	public String material = "rock";
 	public String toolClass = "pickaxe";

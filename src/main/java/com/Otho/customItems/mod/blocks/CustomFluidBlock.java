@@ -15,8 +15,7 @@ import net.minecraftforge.fluids.Fluid;
 
 public class CustomFluidBlock extends BlockFluidClassic {
     public CustomFluidBlock(Fluid fluid, Material material) {
-        super(fluid, material);
-        this.setCreativeTab(customItemsTab.customItemsTab);
+        super(fluid, material);        
     }
     @SideOnly(Side.CLIENT)
     protected IIcon stillIcon;
@@ -30,10 +29,24 @@ public class CustomFluidBlock extends BlockFluidClassic {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void registerBlockIcons(IIconRegister reg) {
+    public void registerBlockIcons(IIconRegister iconRegister) {
        
-        stillIcon = reg.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
-        flowingIcon = reg.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1)+"_flowing");
+//        stillIcon = reg.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+//        flowingIcon = reg.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1)+"_flowing");
+        
+        if(this.textureName == null)
+    	{
+        	stillIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+        	flowingIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1)+"_flowing");
+        	
+    	}else
+    	{
+    		blockIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.textureName);
+    		
+    		stillIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.textureName);
+            flowingIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.textureName + "_flowing");
+    	}
+        
     }
 
     @Override

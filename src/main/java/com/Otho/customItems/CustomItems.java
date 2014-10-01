@@ -3,9 +3,10 @@ package com.Otho.customItems;
 import java.io.File;
 
 import com.Otho.customItems.configuration.JsonConfigurationHandler;
-import com.Otho.customItems.configuration.Register;
+import com.Otho.customItems.configuration.RegisterCustomItems;
 import com.Otho.customItems.configuration.forgeCustomConfigHandler;
 import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.mod.creativeTab.customItemsTab;
 import com.Otho.customItems.util.LogHelper;
 
 import cpw.mods.fml.common.Mod;
@@ -27,6 +28,8 @@ public class CustomItems
 		String path = event.getModConfigurationDirectory().toString()+File.separator+constants.MOD_ID+".json";
 		String folderPath = event.getModConfigurationDirectory().toString()+File.separator+constants.MOD_ID+File.separator;
 
+		customItemsTab.init();
+		
 		JsonConfigurationHandler.init(path, folderPath);
 		forgeCustomConfigHandler.init(event.getSuggestedConfigurationFile());
 		//Register.init();
