@@ -534,6 +534,8 @@ public class RegisterCustomItems {
 
 		CustomFood food = new CustomFood(foodData.healAmount, foodData.saturationModifier, false);
 		
+		if(foodData.alwaysEdible)
+			food.setAlwaysEdible();
 		
 		if(foodData.potionEffect != null)
 		{	

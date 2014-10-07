@@ -6,7 +6,9 @@ public class Cfg_food extends Cfg_item
 {
 	public int healAmount = 1;
 	public float saturationModifier = 1;
+	public boolean alwaysEdible = false;
 	public PotionEffect potionEffect;
+	
 	
 	public class PotionEffect{
 		public String effect = "moveSpeed";
