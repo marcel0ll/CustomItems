@@ -29,6 +29,7 @@ public class CustomChest extends Block implements ITileEntityProvider{
 	private int invHeight = 3;
 	private String name = "Custom Chest";
 	private boolean hasOwner = false;
+	private int slotMaxStackSize = 64;
 	
 	public CustomChest(Material material,int w, int h, String name)
 	{
@@ -39,6 +40,11 @@ public class CustomChest extends Block implements ITileEntityProvider{
 		this.name = name;
 	}
 	
+	public void setSlotMaxStackSize(int max)
+	{
+		this.slotMaxStackSize = max;
+	}
+	
 	public void setHasOwner(boolean hasOwner)
 	{
 		this.hasOwner = hasOwner;
@@ -47,25 +53,16 @@ public class CustomChest extends Block implements ITileEntityProvider{
 	public boolean getHasOwner()
 	{
 		return this.hasOwner;
-	}
-	
+	}	
 	
 	public int getInvWidth() {
 		return invWidth;
 	}
 
-//	public void setInvWidth(int invWidth) {
-//		this.invWidth = invWidth;
-//	}
-
 	public int getInvHeight() {
 		return invHeight;
 	}
-
-//	public void setInvHeight(int invHeight) {
-//		this.invHeight = invHeight;
-//	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -95,6 +92,7 @@ public class CustomChest extends Block implements ITileEntityProvider{
 		customChest.setHeight(this.invHeight);
 		customChest.setSlots();
 		customChest.setName(this.name);
+		customChest.setSlotMaxStackSize(this.slotMaxStackSize);
     	
     	return customChest;
     }
@@ -124,29 +122,24 @@ public class CustomChest extends Block implements ITileEntityProvider{
     {
     	TileEntityCustomChest tile = (TileEntityCustomChest) world.getTileEntity(x, y, z);
     	
-    	if(!world.isRemote)
+    	
+    	if (tile == null || player.isSneaking()) {
+            return false;
+	    }
+    	else
     	{
-	    	if (tile == null || player.isSneaking()) {
-	            return false;
-		    }
-	    	else
-	    	{
-	    		if(!this.hasOwner ||tile.getOwner().equals(player.getUniqueID().toString()))
-	    		{	    			
-		    		player.openGui(CustomItems.instance, 0, world, x, y, z);
-				    return true;
-	    		}else
-	    		{
-	    			player.addChatComponentMessage(new ChatComponentText("You can't open what is not yours"));
-	    			
-	    			return false;
-	    		}
-	    	}
-    	}else
-    	{
-    		LogHelper.info("Treta");
-    		return false;
+    		if(!this.hasOwner ||tile.getOwner().equals(player.getUniqueID().toString()))
+    		{	    			
+	    		player.openGui(CustomItems.instance, 0, world, x, y, z);
+			    return true;
+    		}else
+    		{
+    			player.addChatComponentMessage(new ChatComponentText("You can't open what is not yours"));
+    			
+    			return false;
+    		}
     	}
+    	
     }
     
     @Override

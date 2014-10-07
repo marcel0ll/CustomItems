@@ -47,30 +47,7 @@ public class CustomItems
 		JsonConfigurationHandler.init(path, folderPath);
 		forgeCustomConfigHandler.init(event.getSuggestedConfigurationFile());
 		
-//		CustomChest block = new CustomChest(5, 2, "Caixa");
-//		block.setHasOwner(true);
-//		String registerName = "custom_chest";		        	
-//    	block.setBlockName(ModReference.MOD_ID.toLowerCase() + ":" + registerName);	
-//    	GameRegistry.registerBlock(block, registerName);
-//    	LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", "Custom Chest"); 
-//    	
-//    	block = new CustomChest(1, 1, "Bau");
-//		registerName = "custom_chest2";		        	
-//		block.setHasOwner(true);
-//    	block.setBlockName(ModReference.MOD_ID.toLowerCase() + ":" + registerName);	
-//    	GameRegistry.registerBlock(block, registerName);
-//    	LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", "Custom Chest2");
-//    	
-//    	block = new CustomChest(15, 1, "Cinto");
-//		registerName = "custom_chest3";		        	
-//    	block.setBlockName(ModReference.MOD_ID.toLowerCase() + ":" + registerName);	
-//    	GameRegistry.registerBlock(block, registerName);
-//    	LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", "Custom Chest3"); 
-		
     	proxy.registerTileEntities();
-    	
-    	
-    	//Register.init();
 	}	
 	
     @Mod.EventHandler

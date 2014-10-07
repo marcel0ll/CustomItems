@@ -23,10 +23,16 @@ public class TileEntityCustomChest extends TileEntity implements IInventory{
 		private int width;
 		private int height;
 		private int slots;
+		private int slotMaxStackSize;
 		
 		public TileEntityCustomChest ()
 		{
 			super();
+		}
+		
+		public void setSlotMaxStackSize(int max)
+		{
+			this.slotMaxStackSize = max;
 		}
 		
 		public void setWidth(int width)
@@ -56,6 +62,7 @@ public class TileEntityCustomChest extends TileEntity implements IInventory{
 	        this.owner = nbttagcompound.getString("owner");
 	        this.width = nbttagcompound.getInteger("invWidth");
 	        this.height = nbttagcompound.getInteger("invHeight");
+	        this.slotMaxStackSize = nbttagcompound.getInteger("slotMaxStackSize");
 	        this.setSlots();
 	        
 	        NBTTagList nbttaglist = nbttagcompound.getTagList("Items", Constants.NBT.TAG_COMPOUND);
@@ -80,6 +87,7 @@ public class TileEntityCustomChest extends TileEntity implements IInventory{
 	        nbttagcompound.setString("owner", this.owner);
 	        nbttagcompound.setInteger("invWidth", this.width);
 	        nbttagcompound.setInteger("invHeight", this.height);
+	        nbttagcompound.setInteger("slotMaxStackSize", this.slotMaxStackSize);
 	        
 	        NBTTagList nbttaglist = new NBTTagList();
 	        for (int i = 0; i < inventory.length; i++)
@@ -184,7 +192,7 @@ public class TileEntityCustomChest extends TileEntity implements IInventory{
 	
 		@Override
 		public int getInventoryStackLimit() {			
-			return 64;
+			return this.slotMaxStackSize;
 		}
 	
 		@Override

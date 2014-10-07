@@ -478,6 +478,7 @@ public class RegisterCustomItems {
 		
 		//Chest Stuff		
 		block.setHasOwner(blockData.hasOwner);
+		block.setSlotMaxStackSize(blockData.slotMaxStackSize);
 		
 		blocksList.add(block);
 		blocksList.add(blockData.creativeTab);	        		        	
