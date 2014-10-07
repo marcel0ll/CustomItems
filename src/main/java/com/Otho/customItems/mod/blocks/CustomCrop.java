@@ -3,7 +3,7 @@ package com.Otho.customItems.mod.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 import com.Otho.customItems.mod.items.CustomSeed;
 import com.Otho.customItems.util.LogHelper;
@@ -186,7 +186,7 @@ public class CustomCrop extends BlockCrops {
         		this.icons[i-1] = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf('.') + 1)+i);
         	}else
         	{
-        		this.icons[i-1] = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.textureName+i);
+        		this.icons[i-1] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName+i);
         	}
             
         }

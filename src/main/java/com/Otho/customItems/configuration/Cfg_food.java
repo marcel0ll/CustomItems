@@ -1,13 +1,9 @@
 package com.Otho.customItems.configuration;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 
-public class Cfg_food {
-	public String name;
-	public String textureName;
-	public String creativeTab = constants.MOD_NAME;
-	public int maxStackSize = 64;
-	
+public class Cfg_food extends Cfg_item
+{
 	public int healAmount = 1;
 	public float saturationModifier = 1;
 	public PotionEffect potionEffect;

@@ -1,7 +1,7 @@
 package com.Otho.customItems.mod.fluids;
 
 import com.Otho.customItems.mod.blocks.CustomFluidBlock;
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 import com.Otho.customItems.util.LogHelper;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;

@@ -1,6 +1,6 @@
 package com.Otho.customItems.mod.items;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 import com.Otho.customItems.mod.blocks.CustomFluidBlock;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
@@ -21,7 +21,7 @@ public class CustomBucket extends ItemBucket {
     		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
     	}else
     	{
-    		itemIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.iconString);
+    		itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);
     	}
     }
 }

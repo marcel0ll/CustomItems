@@ -1,11 +1,9 @@
 package com.Otho.customItems.configuration;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 
-public class Cfg_crop {
-    public String name;
-    public String textureName;
-    public String creativeTab = constants.MOD_ID;
+public class Cfg_crop extends Cfg_basicData
+{
     public String fruitName;
     public int renderType = 1;
     public int dropFromGrassChance = 10;

@@ -2,7 +2,7 @@ package com.Otho.customItems.mod.items.disks;
 
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 import com.Otho.customItems.util.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -38,7 +38,7 @@ public class CustomDisk extends ItemRecord {
 
     @Override
     public ResourceLocation getRecordResource(String name) {
-        ResourceLocation loc = new ResourceLocation(constants.MOD_ID.toLowerCase()+":sounds/records/"+name.substring(name.indexOf('.')+1));
+        ResourceLocation loc = new ResourceLocation(ModReference.MOD_ID.toLowerCase()+":sounds/records/"+name.substring(name.indexOf('.')+1));
        
         return loc;
     }

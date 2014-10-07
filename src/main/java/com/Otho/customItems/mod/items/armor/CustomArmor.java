@@ -5,7 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
 import cpw.mods.fml.relauncher.Side;
@@ -23,7 +23,7 @@ public class CustomArmor extends ItemArmor {
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
         if(stack.getItem() instanceof CustomArmor) {
-            String path = constants.MOD_ID.toLowerCase() + ":textures/models/armor/" + this.name + "layer";
+            String path = ModReference.MOD_ID.toLowerCase() + ":textures/models/armor/" + this.name + "layer";
             String end = slot == 2 ? "2.png" : "1.png";
             return path + end;
         }
@@ -40,7 +40,7 @@ public class CustomArmor extends ItemArmor {
     		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
     	}else
     	{
-    		itemIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.iconString);
+    		itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);
     	}
     }
 }

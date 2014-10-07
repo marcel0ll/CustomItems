@@ -1,12 +1,9 @@
 package com.Otho.customItems.configuration;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 
-public class Cfg_shovel {
-	public String name;
-	public String textureName;
-	public String creativeTab = constants.MOD_NAME;
-	
+public class Cfg_shovel extends Cfg_basicData
+{
 	public int harvestLevel = 0;
 	public int maxUses = 59;
 	public float efficiencyOnProperMaterial = 2;

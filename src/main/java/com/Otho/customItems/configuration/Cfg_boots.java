@@ -1,13 +1,8 @@
 package com.Otho.customItems.configuration;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 
-public class Cfg_boots {
-	public String name;
-	public String textureName;
-	public String creativeTab = constants.MOD_NAME;
+public class Cfg_boots extends Cfg_basicArmor
+{
 	
-	public int durability = 5;
-	public int reductionNum = 2;
-	public int enchantability = 15;
 }

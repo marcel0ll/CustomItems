@@ -2,11 +2,12 @@ package com.Otho.customItems.configuration;
 
 import java.io.File;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 
 import net.minecraftforge.common.config.Configuration;
 
-public class forgeCustomConfigHandler {
+public class forgeCustomConfigHandler 
+{
 	public static Configuration config;
 	
 	public static boolean debug;
@@ -23,7 +24,7 @@ public class forgeCustomConfigHandler {
 	{
 		debug = config.getBoolean("debug", "DEBUG", false, "Set to true if you wish to output debug info");
 		
-		constants.debug = debug;
+		ModReference.debug = debug;
 		
 		if(config.hasChanged()) {
             config.save();

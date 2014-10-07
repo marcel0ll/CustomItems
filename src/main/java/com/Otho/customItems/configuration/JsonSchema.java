@@ -2,9 +2,10 @@ package com.Otho.customItems.configuration;
 
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
-public class JsonSchema {
-	
+public class JsonSchema 
+{	
 	public Cfg_block[] blocks;
+	public Cfg_chest[] chests;
 	public Cfg_item[] items;	
 	public Cfg_food[] foods;
 	public Cfg_pickaxe[] pickaxes;

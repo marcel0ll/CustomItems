@@ -10,9 +10,12 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.nio.file.Files;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.logging.log4j.Level;
+
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 import com.Otho.customItems.util.LogHelper;
 
 
@@ -24,7 +27,7 @@ public class JsonConfigurationHandler
 	{	
 	
 		File folder = new File(folderPath);
-		
+		JsonSchema allData = new JsonSchema();
 		
 		if(folder.exists())
 		{
@@ -47,51 +50,40 @@ public class JsonConfigurationHandler
 							reader = new JsonReader(new FileReader(file));
 							
 							JsonSchema data = gson.fromJson(reader, JsonSchema.class);
-							RegisterCustomItems.register(data, file.getName());
+							mergeGson(data, allData);
+							
 						}catch(FileNotFoundException e)
 						{
 							
 						}
 					}
-				}				
+				}
+				
+				RegisterCustomItems.register(allData);
 			}
 		}else
 		{
 			folder.mkdir();
 		}
-		
-		
-		
-		
-//		try 
-//		{			
-//			InputStream is = new FileInputStream(filePath);
-//	        InputStreamReader isr = new InputStreamReader(is);
-//			 
-//	        Gson gson = new Gson();
-//	        
-//	        JsonReader reader = new JsonReader(isr);
-//	        
-//	        data = gson.fromJson(reader, JsonSchema.class);    
-//		}catch (FileNotFoundException e) 
-//		{
-//			try 
-//			{
-//				File config = new File(filePath);
-//				// create a new writer
-//				PrintWriter pw = new PrintWriter(config);
-//
-//				// print object
-//				pw.println("{}");
-//				
-//				pw.flush();
-//				pw.close();
-//
-//			} catch (Exception ex) 
-//			{
-//				ex.printStackTrace();
-//			}
-//			 
-//		}
+	}
+	
+	private static void mergeGson(JsonSchema data, JsonSchema mergeTo)
+	{
+		mergeTo.blocks = ArrayUtils.addAll(data.blocks, mergeTo.blocks);
+		mergeTo.chests = ArrayUtils.addAll(data.chests, mergeTo.chests);
+		mergeTo.items = ArrayUtils.addAll(data.items, mergeTo.items);	
+		mergeTo.foods = ArrayUtils.addAll(data.foods, mergeTo.foods);
+		mergeTo.pickaxes = ArrayUtils.addAll(data.pickaxes, mergeTo.pickaxes);
+		mergeTo.axes = ArrayUtils.addAll(data.axes, mergeTo.axes);
+		mergeTo.shovels = ArrayUtils.addAll(data.shovels, mergeTo.shovels);
+		mergeTo.hoes = ArrayUtils.addAll(data.hoes, mergeTo.hoes);
+		mergeTo.swords = ArrayUtils.addAll(data.swords, mergeTo.swords);
+		mergeTo.helmets = ArrayUtils.addAll(data.helmets, mergeTo.helmets);
+		mergeTo.chestplates = ArrayUtils.addAll(data.chestplates, mergeTo.chestplates);
+		mergeTo.leggings = ArrayUtils.addAll(data.leggings, mergeTo.leggings);
+		mergeTo.boots = ArrayUtils.addAll(data.boots, mergeTo.boots);
+		mergeTo.fluids = ArrayUtils.addAll(data.fluids, mergeTo.fluids);
+		mergeTo.creativeTabs = ArrayUtils.addAll(data.creativeTabs, mergeTo.creativeTabs);
+		mergeTo.crops = ArrayUtils.addAll(data.crops, mergeTo.crops);		
 	}
 }

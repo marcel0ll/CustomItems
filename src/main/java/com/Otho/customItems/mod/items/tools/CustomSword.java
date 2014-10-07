@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 import com.Otho.customItems.util.LogHelper;
 
@@ -27,7 +27,7 @@ public class CustomSword extends ItemSword {
     		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
     	}else
     	{
-    		itemIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.iconString);
+    		itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);
     	}
     }
     

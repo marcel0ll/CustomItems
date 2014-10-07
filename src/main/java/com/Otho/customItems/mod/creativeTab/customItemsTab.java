@@ -6,7 +6,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 
 public class customItemsTab extends CreativeTabs{
     public Item iconItem;
@@ -21,7 +21,7 @@ public class customItemsTab extends CreativeTabs{
 
     public customItemsTab(Item iconItem, String labelName)
     {
-    	super(constants.MOD_ID.toLowerCase()+tabId);
+    	super(ModReference.MOD_ID.toLowerCase()+tabId);
     	tabId++;
     	if(iconItem != null)
     	{

@@ -1,15 +1,15 @@
 package com.Otho.customItems.util;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 
 import cpw.mods.fml.common.FMLLog;
 import org.apache.logging.log4j.Level;
 
 public class LogHelper {
     public static void log(Level logLevel, Object object) {
-    	if(constants.debug)
+    	if(ModReference.debug)
 		{
-    		FMLLog.log(constants.MOD_NAME, logLevel, String.valueOf(object));
+    		FMLLog.log(ModReference.MOD_NAME, logLevel, String.valueOf(object));
 		}
     }
     public static void log(Level logLevel, Object object, int tab)

@@ -1,7 +1,7 @@
 package com.Otho.customItems.mod.blocks;
 
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 import com.Otho.customItems.util.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -41,10 +41,10 @@ public class CustomFluidBlock extends BlockFluidClassic {
         	
     	}else
     	{
-    		blockIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.textureName);
+    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
     		
-    		stillIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.textureName);
-            flowingIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.textureName + "_flowing");
+    		stillIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
+            flowingIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_flowing");
     	}
         
     }

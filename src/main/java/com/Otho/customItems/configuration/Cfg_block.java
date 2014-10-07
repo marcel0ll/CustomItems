@@ -1,12 +1,9 @@
 package com.Otho.customItems.configuration;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 
-public class Cfg_block {
-	public String name;
-	public String textureName;
-	public String creativeTab = constants.MOD_NAME;
-	
+public class Cfg_block extends Cfg_basicData
+{
 	public String material = "rock";
 	public String toolClass = "pickaxe";
 	public float resistance = 10;

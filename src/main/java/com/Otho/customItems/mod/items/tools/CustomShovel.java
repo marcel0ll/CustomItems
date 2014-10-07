@@ -3,7 +3,7 @@ package com.Otho.customItems.mod.items.tools;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemSpade;
 
-import com.Otho.customItems.lib.constants;
+import com.Otho.customItems.lib.ModReference;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
 import cpw.mods.fml.relauncher.Side;
@@ -22,7 +22,7 @@ public class CustomShovel extends ItemSpade {
     		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
     	}else
     	{
-    		itemIcon = iconRegister.registerIcon(constants.MOD_ID.toLowerCase() + ":" + this.iconString);
+    		itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);
     	}
     }
 }
