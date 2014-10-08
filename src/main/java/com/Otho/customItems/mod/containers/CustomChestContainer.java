@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import invtweaks.api.container.ChestContainer;
 
-//@ChestContainer(isLargeChest = true, rowSize = 7)
+@ChestContainer(isLargeChest = true, rowSize = 7)
 public class CustomChestContainer extends Container
 {
 	
@@ -29,7 +29,7 @@ public class CustomChestContainer extends Container
 		int maxH = 0;
 		
 		int baseX = ((maxW - width) /2)+1;
-		int baseY = -h*9 + 26;
+		int baseY = -h*9 + 58;
 				
 		
 		for (int i = 0; i < h;i++) {
@@ -48,7 +48,7 @@ public class CustomChestContainer extends Container
 	}
 	
 	 protected void bindPlayerInventory(InventoryPlayer inventoryPlayer) {
-		 int baseY = 115;
+		 int baseY = 128;
 		 int baseX = 8;
          for (int i = 0; i < 3; i++) {
                  for (int j = 0; j < 9; j++) {
@@ -202,7 +202,12 @@ public class CustomChestContainer extends Container
 	                         break;
 	                	}else
 	                	{
-		                	if(incomingStack.stackSize < tileEntity.getInventoryStackLimit())
+	                		if(incomingStack.stackSize == 0)
+	                		{
+	                			flag1 = true;
+	                			break;
+	                		}
+		                	if(incomingStack.stackSize <= tileEntity.getInventoryStackLimit())
 		                	{	                	
 			                    slot.putStack(incomingStack.copy());
 			                    slot.onSlotChanged();
@@ -225,9 +230,10 @@ public class CustomChestContainer extends Container
 		                			newStack.stackSize = tileEntity.getInventoryStackLimit();
 		                			incomingStack.stackSize = -diff;
 		                		}
+		                		
 		                		slot.putStack(newStack);
 			                    slot.onSlotChanged();		                    
-			                    flag1 = true;
+			                    flag1 = true;			                    
 		                	}
 	                	}
 	                }

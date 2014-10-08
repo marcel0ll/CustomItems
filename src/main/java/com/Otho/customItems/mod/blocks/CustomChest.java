@@ -35,8 +35,8 @@ public class CustomChest extends Block implements ITileEntityProvider{
 	{
 		super(material);
 		
-		this.invWidth = w;
-		this.invHeight = h;
+		this.invWidth = (w<=9) ? w : 9;
+		this.invHeight = (h<=6) ? h : 6;
 		this.name = name;
 	}
 	

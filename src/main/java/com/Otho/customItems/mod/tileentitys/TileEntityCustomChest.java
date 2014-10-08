@@ -18,7 +18,7 @@ public class TileEntityCustomChest extends TileEntity implements IInventory{
 		public static final String publicName = "tileEntityCustomChest";
 		
 		private String owner = "null";
-		private String name = "Custom Chest";
+		private String name;
 		private ItemStack[] inventory;
 		private int width;
 		private int height;
@@ -103,15 +103,20 @@ public class TileEntityCustomChest extends TileEntity implements IInventory{
 	        nbttagcompound.setTag("Items", nbttaglist);
 	    }
 	   
-	   public void registerOwner(String owner)
-	   {
-		   this.owner = owner;
-	   }
-	   
-	   public String getOwner()
-	   {		   
-		   return this.owner;
-	   }
+		public void registerOwner(String owner)
+		{
+			this.owner = owner;
+		}
+		   
+		public String getOwner()
+		{		   
+			return this.owner;
+		}
+		   
+		public String getName()
+		{		   
+			return this.name;
+		}
 	   
 	   	public int getWidth()
 	   	{
