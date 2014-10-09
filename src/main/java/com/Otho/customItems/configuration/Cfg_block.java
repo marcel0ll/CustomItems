@@ -11,6 +11,8 @@ public class Cfg_block extends Cfg_basicData
 	public float lightLevel = 0;		
 	public int harvestLevel = 0;	
 	
+	public String stepSound = "stone";
+	
 	public boolean falls = false;
 	
 	public boolean canSilkHarvest = false;

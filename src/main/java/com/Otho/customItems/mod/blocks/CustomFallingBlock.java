@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 
 public class CustomFallingBlock  extends BlockFalling
 {
+	
 	private boolean canSilkHarvest = false;
 	private int maxStackSize = 64;
 	private int itemQuantityDrop = 1;
@@ -29,7 +30,7 @@ public class CustomFallingBlock  extends BlockFalling
 	}
 	
 	public void setOpaque(boolean isOpaque)
-	{
+	{		
 		this.opaque = isOpaque;
 		this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
 	}

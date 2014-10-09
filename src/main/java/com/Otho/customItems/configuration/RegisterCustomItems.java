@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.Block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.audio.SoundCategory;
 import net.minecraft.client.audio.SoundEventAccessorComposite;
@@ -451,7 +452,7 @@ public class RegisterCustomItems {
 			block.slipperiness = blockData.slipperiness;
 			block.setOpaque(blockData.isOpaque);
 			block.setItemQuantityDrop(blockData.quantityDropped);
-			
+			block.setStepSound(parseSoundType(blockData.stepSound));
 			
 			blocksList.add(block);
 			blocksList.add(blockData.creativeTab);	        		        	
@@ -476,6 +477,7 @@ public class RegisterCustomItems {
 			block.slipperiness = blockData.slipperiness;
 			block.setOpaque(blockData.isOpaque);
 			block.setItemQuantityDrop(blockData.quantityDropped);
+			block.setStepSound(parseSoundType(blockData.stepSound));
 			
 			
 			blocksList.add(block);
@@ -489,7 +491,7 @@ public class RegisterCustomItems {
 			LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", blockData.name);
 		}
 	}
-	
+
 	private static void registerSingleChest (Cfg_chest blockData)
 	{        	
 		LogHelper.log(Level.INFO, blockData.name, 1);
@@ -879,6 +881,49 @@ public class RegisterCustomItems {
 	//Utils
 	//----------------------------------------------------------------------------------------------------------
 
+	private static SoundType parseSoundType(String stepSound) {
+		if(stepSound.equals("anvil"))
+		{
+			return Block.soundTypeAnvil;
+		}else if(stepSound.equals("cloth"))
+		{
+			return Block.soundTypeCloth;
+		}else if(stepSound.equals("glass"))
+		{
+			return Block.soundTypeGlass;
+		}else if(stepSound.equals("grass"))
+		{
+			return Block.soundTypeGrass;
+		}else if(stepSound.equals("gravel"))
+		{
+			return Block.soundTypeGravel;
+		}else if(stepSound.equals("ladder"))
+		{
+			return Block.soundTypeLadder;
+		}else if(stepSound.equals("metal"))
+		{
+			return Block.soundTypeMetal;
+		}else if(stepSound.equals("piston"))
+		{
+			return Block.soundTypePiston;
+		}else if(stepSound.equals("sand"))
+		{
+			return Block.soundTypeSand;
+		}else if(stepSound.equals("snow"))
+		{
+			return Block.soundTypeSnow;
+		}else if(stepSound.equals("stone"))
+		{
+			return Block.soundTypeStone;
+		}else if(stepSound.equals("wood"))
+		{
+			return Block.soundTypeWood;
+		}else 
+		{
+			return Block.soundTypeStone;
+		}
+	}
+	
 	
 	private static String validateToolClass(String toolClass){		
 		if(toolClass.equals("pickaxe"))
