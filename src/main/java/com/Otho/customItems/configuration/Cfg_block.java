@@ -8,7 +8,20 @@ public class Cfg_block extends Cfg_basicData
 	public String toolClass = "pickaxe";
 	public float resistance = 10;
 	public float hardness = 2;
-	public float lightLevel = 0;
+	public float lightLevel = 0;		
+	public int harvestLevel = 0;	
 	
-	public int harvestLevel = 0;
+	public boolean falls = false;
+	
+	public boolean canSilkHarvest = false;
+	
+	public boolean isOpaque = true;
+	public float slipperiness = 0.6f;
+	public int quantityDropped = 1;
+	public int maxStackSize = 64;
+	
+	public String dropItemName;
+	public int minItemDrop = 1;
+    public int maxItemDrop = 1;    
+    public int eachExtraItemDropChance = 50;
 }

@@ -2,22 +2,23 @@ package com.Otho.customItems.mod.blocks;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.World;
-
 import com.Otho.customItems.lib.ModReference;
-import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFalling;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.item.EntityFallingBlock;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.world.World;
 
-public class CustomBlock extends Block {
-	
+public class CustomFallingBlock  extends BlockFalling
+{
 	private boolean canSilkHarvest = false;
 	private int maxStackSize = 64;
 	private int itemQuantityDrop = 1;
@@ -32,10 +33,10 @@ public class CustomBlock extends Block {
 		this.opaque = isOpaque;
 		this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
 	}
-    public CustomBlock() {
-        this(Material.rock);
+    public CustomFallingBlock() {
+        this(Material.sand);
     }
-    public CustomBlock(Material material) {
+    public CustomFallingBlock(Material material) {
         super(material); 
     }
     
@@ -80,5 +81,4 @@ public class CustomBlock extends Block {
     {
 		return this.canSilkHarvest;
     }
-
 }

@@ -5,7 +5,7 @@ import com.Otho.customItems.lib.ModReference;
 public class Cfg_crop extends Cfg_basicData
 {
     public String fruitName;
-    public int renderType = 1;
+    public String renderType = "crops";
     public int dropFromGrassChance = 10;
     public boolean dropSeedWhenMature = true;
     public boolean acceptBoneMeal = true;

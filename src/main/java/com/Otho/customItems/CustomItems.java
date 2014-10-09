@@ -23,8 +23,12 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.client.audio.SoundRegistry;
+import net.minecraftforge.common.IExtendedEntityProperties;
 
-import net.minecraft.inventory.ContainerChest;
+
+
+
+
 
 
 @Mod(dependencies=ModReference.DEPENDENCIES, modid  = ModReference.MOD_ID, version = ModReference.VERSION, name=ModReference.MOD_NAME)
@@ -35,6 +39,8 @@ public class CustomItems
 	
     @SidedProxy(clientSide = ModReference.CLIENT_PROXY_CLASS, serverSide = ModReference.SERVER_PROXY_CLASS)
     public static ServerProxy proxy;
+    
+    
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)

@@ -24,6 +24,7 @@ import com.Otho.customItems.lib.ModReference;
 import com.Otho.customItems.mod.blocks.CustomBlock;
 import com.Otho.customItems.mod.blocks.CustomChest;
 import com.Otho.customItems.mod.blocks.CustomCrop;
+import com.Otho.customItems.mod.blocks.CustomFallingBlock;
 import com.Otho.customItems.mod.blocks.CustomFluidBlock;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 import com.Otho.customItems.mod.fluids.CustomFluid;
@@ -435,24 +436,58 @@ public class RegisterCustomItems {
 		{
 			blockData.harvestLevel = 0;
 		}       	
-
+		
 		//Make Custom Block
-		CustomBlock block = new CustomBlock(CI_Material.getMaterial(blockData.material));
-		
-		block.setHardness(blockData.hardness);
-		block.setResistance(blockData.resistance);
-		block.setLightLevel(blockData.lightLevel);	        	
-		block.setHarvestLevel(blockData.toolClass, blockData.harvestLevel);
-		block.setBlockTextureName(blockData.textureName);
-		
-		blocksList.add(block);
-		blocksList.add(blockData.creativeTab);	        		        	
-		
-		//Register Block
-		GameRegistry.registerBlock(block, registerName);	        	
-		block.setBlockName(ModReference.MOD_ID.toLowerCase() + ":" + registerName);	
-		
-		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", blockData.name);
+		if(!blockData.falls)
+		{
+			CustomBlock block = new CustomBlock(CI_Material.getMaterial(blockData.material));
+			
+			block.setHardness(blockData.hardness);
+			block.setResistance(blockData.resistance);
+			block.setLightLevel(blockData.lightLevel);	        	
+			block.setHarvestLevel(blockData.toolClass, blockData.harvestLevel);
+			block.setBlockTextureName(blockData.textureName);
+			
+			block.slipperiness = blockData.slipperiness;
+			block.setOpaque(blockData.isOpaque);
+			block.setItemQuantityDrop(blockData.quantityDropped);
+			
+			
+			blocksList.add(block);
+			blocksList.add(blockData.creativeTab);	        		        	
+			
+			//Register Block
+			GameRegistry.registerBlock(block, registerName);
+			block.setMaxStackSize(blockData.maxStackSize);
+			block.setBlockName(ModReference.MOD_ID.toLowerCase() + ":" + registerName);	
+			
+			LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", blockData.name);
+		}
+		else
+		{
+			CustomFallingBlock block = new CustomFallingBlock(CI_Material.getMaterial(blockData.material));
+			
+			block.setHardness(blockData.hardness);
+			block.setResistance(blockData.resistance);
+			block.setLightLevel(blockData.lightLevel);	        	
+			block.setHarvestLevel(blockData.toolClass, blockData.harvestLevel);
+			block.setBlockTextureName(blockData.textureName);
+			
+			block.slipperiness = blockData.slipperiness;
+			block.setOpaque(blockData.isOpaque);
+			block.setItemQuantityDrop(blockData.quantityDropped);
+			
+			
+			blocksList.add(block);
+			blocksList.add(blockData.creativeTab);	        		        	
+			
+			//Register Block
+			GameRegistry.registerBlock(block, registerName);
+			block.setMaxStackSize(blockData.maxStackSize);
+			block.setBlockName(ModReference.MOD_ID.toLowerCase() + ":" + registerName);	
+			
+			LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", blockData.name);
+		}
 	}
 	
 	private static void registerSingleChest (Cfg_chest blockData)
@@ -478,6 +513,10 @@ public class RegisterCustomItems {
 		
 		//Chest Stuff		
 		block.setHasOwner(blockData.hasOwner);
+		if(blockData.slotMaxStackSize < 0)
+			blockData.slotMaxStackSize = 0;
+		if(blockData.slotMaxStackSize > 64)
+			blockData.slotMaxStackSize = 64;
 		block.setSlotMaxStackSize(blockData.slotMaxStackSize);
 		
 		blocksList.add(block);
@@ -496,7 +535,19 @@ public class RegisterCustomItems {
 		
 		String registerName = StringUtil.parseRegisterName(cropData.name);	        	
 		
-	    CustomCrop crop = new CustomCrop((Item) Item.itemRegistry.getObject(cropData.fruitName), cropData.renderType);
+		int cropRender;
+		
+		if(cropData.renderType.equals("crops"))
+		{
+			cropRender = 6;
+		}else if(cropData.renderType.equals("flower"))
+		{
+			cropRender = 1;
+		}else{
+			cropRender = 6;
+		}
+		
+	    CustomCrop crop = new CustomCrop((Item) Item.itemRegistry.getObject(cropData.fruitName), cropRender);
 	    CustomSeed seed = new CustomSeed(crop);
 	    crop.setSeed(seed);
 	    
