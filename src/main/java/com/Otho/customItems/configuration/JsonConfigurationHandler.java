@@ -23,7 +23,7 @@ public class JsonConfigurationHandler
 {
 	public static JsonSchema data;
 	
-	public static void init (String filePath, String folderPath)
+	public static void init (String folderPath)
 	{	
 	
 		File folder = new File(folderPath);

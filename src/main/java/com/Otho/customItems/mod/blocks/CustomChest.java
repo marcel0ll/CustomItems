@@ -40,6 +40,12 @@ public class CustomChest extends Block implements ITileEntityProvider{
 		this.name = name;
 	}
 	
+	public void setOpaque(boolean isOpaque)
+	{
+		this.opaque = isOpaque;
+		this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
+	}
+	
 	public void setSlotMaxStackSize(int max)
 	{
 		this.slotMaxStackSize = max;

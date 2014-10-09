@@ -94,8 +94,6 @@ public class CustomCrop extends BlockCrops {
     {
         ArrayList<ItemStack> drops = new ArrayList(); 
         
-//        int seedQuantity = world.rand.nextInt((this.maxSeedDrop - this.minSeedDrop) + 1) + this.minSeedDrop;
-//        int fruitQuantity = world.rand.nextInt((this.maxFruitDrop - this.minFruitDrop) + 1) + this.minFruitDrop;;
         int seedQuantity = getSeedDropQuantity(world, fortune);
         int fruitQuantity = getFruitDropQuantity(world, fortune);
         

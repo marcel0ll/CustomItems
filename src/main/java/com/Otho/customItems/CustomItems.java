@@ -45,13 +45,21 @@ public class CustomItems
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{			
-		String path = event.getModConfigurationDirectory().toString()+File.separator+ModReference.MOD_ID+".json";
+		
 		String folderPath = event.getModConfigurationDirectory().toString()+File.separator+ModReference.MOD_ID+File.separator;
 
 		customItemsTab.init();
 		
-		JsonConfigurationHandler.init(path, folderPath);
+		JsonConfigurationHandler.init(folderPath);
 		forgeCustomConfigHandler.init(event.getSuggestedConfigurationFile());
+		
+		if(ModReference.makeRP)
+		{
+			File myFile = event.getSuggestedConfigurationFile();
+			String path;
+			
+			
+		}
 		
     	proxy.registerTileEntities();
 	}	

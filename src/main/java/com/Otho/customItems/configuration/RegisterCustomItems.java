@@ -451,8 +451,15 @@ public class RegisterCustomItems {
 			
 			block.slipperiness = blockData.slipperiness;
 			block.setOpaque(blockData.isOpaque);
-			block.setItemQuantityDrop(blockData.quantityDropped);
 			block.setStepSound(parseSoundType(blockData.stepSound));
+			
+			if(blockData.dropItemName != null)
+			{
+				block.setDropItem((Item) Item.itemRegistry.getObject(blockData.dropItemName));
+				block.setMaxItemDrop(blockData.maxItemDrop);
+				block.setMinItemDrop(blockData.minItemDrop);
+				block.setEachExtraItemDropChance(blockData.eachExtraItemDropChance);
+			}
 			
 			blocksList.add(block);
 			blocksList.add(blockData.creativeTab);	        		        	
@@ -476,9 +483,15 @@ public class RegisterCustomItems {
 			
 			block.slipperiness = blockData.slipperiness;
 			block.setOpaque(blockData.isOpaque);
-			block.setItemQuantityDrop(blockData.quantityDropped);
 			block.setStepSound(parseSoundType(blockData.stepSound));
 			
+			if(blockData.dropItemName != null)
+			{
+				block.setDropItem((Item) Item.itemRegistry.getObject(blockData.dropItemName));
+				block.setMaxItemDrop(blockData.maxItemDrop);
+				block.setMinItemDrop(blockData.minItemDrop);
+				block.setEachExtraItemDropChance(blockData.eachExtraItemDropChance);
+			}
 			
 			blocksList.add(block);
 			blocksList.add(blockData.creativeTab);	        		        	
@@ -506,12 +519,19 @@ public class RegisterCustomItems {
 
 		//Make Custom Block
 		CustomChest block = new CustomChest(CI_Material.getMaterial(blockData.material), blockData.invWidth, blockData.invHeight, blockData.invName);
-		
+			
 		block.setHardness(blockData.hardness);
 		block.setResistance(blockData.resistance);
 		block.setLightLevel(blockData.lightLevel);	        	
 		block.setHarvestLevel(blockData.toolClass, blockData.harvestLevel);
 		block.setBlockTextureName(blockData.textureName);
+		
+		block.slipperiness = blockData.slipperiness;
+		block.setOpaque(blockData.isOpaque);		
+		block.setStepSound(parseSoundType(blockData.stepSound));
+		
+		blocksList.add(block);
+		blocksList.add(blockData.creativeTab);	        		
 		
 		//Chest Stuff		
 		block.setHasOwner(blockData.hasOwner);

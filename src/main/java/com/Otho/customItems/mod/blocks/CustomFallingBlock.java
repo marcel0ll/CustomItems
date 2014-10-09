@@ -1,5 +1,6 @@
 package com.Otho.customItems.mod.blocks;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 import com.Otho.customItems.lib.ModReference;
@@ -15,31 +16,67 @@ import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class CustomFallingBlock  extends BlockFalling
-{
-	
-	private boolean canSilkHarvest = false;
-	private int maxStackSize = 64;
-	private int itemQuantityDrop = 1;
-	
-	public void setItemQuantityDrop(int itemQuantityDrop) {
-		this.itemQuantityDrop = itemQuantityDrop;
-		
-	}
-	
-	public void setOpaque(boolean isOpaque)
-	{		
-		this.opaque = isOpaque;
-		this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
-	}
-    public CustomFallingBlock() {
+{	
+	public CustomFallingBlock() {
         this(Material.sand);
     }
     public CustomFallingBlock(Material material) {
         super(material); 
     }
+	
+	private boolean canSilkHarvest = false;
+	private int maxStackSize = 64;
+
+	private boolean dropsItem = false;
+	
+	private int maxItemDrop;
+	
+	private int minItemDrop;
+	private int eachExtraItemDropChance;
+	
+	private Item dropItem;
+		
+	private int getItemDropQuantity(World world, int fortune)
+    {
+    	int ret = 0;
+    	int i;
+    	for(i=0;i < this.maxItemDrop + fortune;i++)
+    	{
+    		boolean willDrop = world.rand.nextInt(100) < this.eachExtraItemDropChance;
+    		if(willDrop)
+    			ret++;
+    	}
+    	if(ret < this.minItemDrop)
+    		ret = this.minItemDrop;
+    	
+    	return ret;
+    }
+	
+	
+	public void setMaxItemDrop(int maxItemDrop) {
+		this.maxItemDrop = maxItemDrop;
+	}
+
+	public void setMinItemDrop(int minItemDrop) {
+		this.minItemDrop = minItemDrop;
+	}
+
+	public void setEachExtraItemDropChance(int eachExtraItemDropChance) {
+		this.eachExtraItemDropChance = eachExtraItemDropChance;
+	}
+
+	public void setDropItem(Item dropItem) {
+		this.dropItem = dropItem;
+	}
+	public void setOpaque(boolean isOpaque)
+	{
+		this.opaque = isOpaque;
+		this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
+	}    
     
     public void setCanSilkHarvest(boolean canSilkHarvest) {
 		this.canSilkHarvest = canSilkHarvest;
@@ -53,9 +90,20 @@ public class CustomFallingBlock  extends BlockFalling
 	}   
 	
 	@Override
-	public int quantityDropped(Random rand)
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
     {
-        return this.itemQuantityDrop;
+        ArrayList<ItemStack> drops = new ArrayList(); 
+        
+        if(dropItem == null)
+        {
+        	drops.add(new ItemStack(Item.getItemFromBlock(this)));
+        }else
+        {
+        	int itemQuantity = getItemDropQuantity(world, fortune);
+           	drops.add(new ItemStack(dropItem, itemQuantity));
+        }          
+        
+        return drops;
     }
    
     @Override
@@ -82,4 +130,5 @@ public class CustomFallingBlock  extends BlockFalling
     {
 		return this.canSilkHarvest;
     }
+
 }

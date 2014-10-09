@@ -19,7 +19,6 @@ public class Cfg_block extends Cfg_basicData
 	
 	public boolean isOpaque = true;
 	public float slipperiness = 0.6f;
-	public int quantityDropped = 1;
 	public int maxStackSize = 64;
 	
 	public String dropItemName;
