@@ -51,8 +51,6 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 import org.apache.logging.log4j.Level;
 
-import scala.actors.threadpool.Arrays;
-
 public class RegisterCustomItems {
 	
 	private static  ArrayList<Object> itemsList = new ArrayList();
@@ -60,116 +58,119 @@ public class RegisterCustomItems {
 	
 	public static int registerId = -1;
 	
+	private static void mergeArrays(ArrayList<Cfg_basicData> arrL, Cfg_basicData[] arr)
+	{
+		for(int i=0; i<arr.length;i++)
+			arrL.add(arr[i]);
+	}
+	
 	public static void register(JsonSchema data){
 		
 		ArrayList<Cfg_basicData> allData = new ArrayList<Cfg_basicData>();
 		
-		if(data.blocks != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.blocks));
-		if(data.chests != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.chests));
-		if(data.foods != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.foods));
-		if(data.items != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.items));
-		if(data.fluids != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.fluids));
-		if(data.pickaxes != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.pickaxes));
-		if(data.axes != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.axes));
-		if(data.shovels != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.shovels));
-		if(data.hoes != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.hoes));
-		if(data.swords != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.swords));
-		if(data.helmets != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.helmets));
-		if(data.chestplates != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.chestplates));
-		if(data.leggings != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.leggings));
-		if(data.boots != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.boots));
-		if(data.crops != null)
-			allData.addAll(Arrays.asList((Cfg_basicData[]) data.crops));
-		
-		Collections.sort(allData, new Comparator<Cfg_basicData>()
+		if(data != null)
 		{
-			@Override
-			public int compare(Cfg_basicData d1, Cfg_basicData d2)
+			if(data.blocks != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.blocks);
+			if(data.chests != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.chests);
+			if(data.foods != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.foods);
+			if(data.items != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.items);
+			if(data.fluids != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.fluids);
+			if(data.pickaxes != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.pickaxes);
+			if(data.axes != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.axes);
+			if(data.shovels != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.shovels);
+			if(data.hoes != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.hoes);
+			if(data.swords != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.swords);
+			if(data.helmets != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.helmets);
+			if(data.chestplates != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.chestplates);
+			if(data.leggings != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.leggings);
+			if(data.boots != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.boots);
+			if(data.crops != null)
+				mergeArrays(allData, (Cfg_basicData[]) data.crops);
+			
+			
+			Collections.sort(allData, new Comparator<Cfg_basicData>()
 			{
-				return d1.registerOrder - d2.registerOrder;
+				@Override
+				public int compare(Cfg_basicData d1, Cfg_basicData d2)
+				{
+					return d1.registerOrder - d2.registerOrder;
+				}
+			});
+			
+			for(int i = 0; i<allData.size();i++)
+			{	
+				LogHelper.log(Level.INFO,  allData.get(i).getClass(), 1);
+				
+				Cfg_basicData toRegister = allData.get(i);
+				
+				if(toRegister instanceof Cfg_chest)
+				{
+					registerSingleChest((Cfg_chest) toRegister);	
+				}else if(toRegister instanceof Cfg_block)
+				{
+					registerSingleBlock((Cfg_block) toRegister);
+				}else if(toRegister instanceof Cfg_food)
+				{
+					registerSingleFood((Cfg_food) toRegister);	
+				}else if(toRegister instanceof Cfg_item)
+				{
+					registerSingleItem((Cfg_item) toRegister);	
+				}else if(toRegister instanceof Cfg_fluid)
+				{
+					registerSingleFluid((Cfg_fluid) toRegister);	
+				}else if(toRegister instanceof Cfg_pickaxe)
+				{
+					registerSinglePickaxe((Cfg_pickaxe) toRegister);	
+				}else if(toRegister instanceof Cfg_axe)
+				{
+					registerSingleAxe((Cfg_axe) toRegister);	
+				}else if(toRegister instanceof Cfg_shovel)
+				{
+					registerSingleShovel((Cfg_shovel) toRegister);	
+				}else if(toRegister instanceof Cfg_hoe)
+				{
+					registerSingleHoe((Cfg_hoe) toRegister);	
+				}else if(toRegister instanceof Cfg_sword)
+				{
+					registerSingleSword((Cfg_sword) toRegister);	
+				}else if(toRegister instanceof Cfg_helmet)
+				{
+					registerSingleHelmet((Cfg_helmet) toRegister);	
+				}else if(toRegister instanceof Cfg_chestplate)
+				{
+					registerSingleChestplate((Cfg_chestplate) toRegister);	
+				}else if(toRegister instanceof Cfg_leggings)
+				{
+					registerSingleLeggings((Cfg_leggings) toRegister);	
+				}else if(toRegister instanceof Cfg_boots)
+				{
+					registerSingleBoots((Cfg_boots) toRegister);	
+				}else if(toRegister instanceof Cfg_crop)
+				{
+					registerSingleCrop((Cfg_crop) toRegister);
+				}
+				
 			}
-		});
-		
-		for(int i = 0; i<allData.size();i++)
-		{	
-			LogHelper.log(Level.INFO,  allData.get(i).getClass(), 1);
 			
-			Cfg_basicData toRegister = allData.get(i);
 			
-			if(toRegister instanceof Cfg_chest)
-			{
-				registerSingleChest((Cfg_chest) toRegister);	
-			}else if(toRegister instanceof Cfg_block)
-			{
-				registerSingleBlock((Cfg_block) toRegister);
-			}else if(toRegister instanceof Cfg_food)
-			{
-				registerSingleFood((Cfg_food) toRegister);	
-			}else if(toRegister instanceof Cfg_item)
-			{
-				registerSingleItem((Cfg_item) toRegister);	
-			}else if(toRegister instanceof Cfg_fluid)
-			{
-				registerSingleFluid((Cfg_fluid) toRegister);	
-			}else if(toRegister instanceof Cfg_pickaxe)
-			{
-				registerSinglePickaxe((Cfg_pickaxe) toRegister);	
-			}else if(toRegister instanceof Cfg_axe)
-			{
-				registerSingleAxe((Cfg_axe) toRegister);	
-			}else if(toRegister instanceof Cfg_shovel)
-			{
-				registerSingleShovel((Cfg_shovel) toRegister);	
-			}else if(toRegister instanceof Cfg_hoe)
-			{
-				registerSingleHoe((Cfg_hoe) toRegister);	
-			}else if(toRegister instanceof Cfg_sword)
-			{
-				registerSingleSword((Cfg_sword) toRegister);	
-			}else if(toRegister instanceof Cfg_helmet)
-			{
-				registerSingleHelmet((Cfg_helmet) toRegister);	
-			}else if(toRegister instanceof Cfg_chestplate)
-			{
-				registerSingleChestplate((Cfg_chestplate) toRegister);	
-			}else if(toRegister instanceof Cfg_leggings)
-			{
-				registerSingleLeggings((Cfg_leggings) toRegister);	
-			}else if(toRegister instanceof Cfg_boots)
-			{
-				registerSingleBoots((Cfg_boots) toRegister);	
-			}else if(toRegister instanceof Cfg_crop)
-			{
-				registerSingleCrop((Cfg_crop) toRegister);
-			}
+			registerTabs(data.creativeTabs);
 			
+			setCreativeTabs();
 		}
-		
-//		for(int i=0;i<3000;i++)
-//		{
-//			Cfg_block blocker = new Cfg_block();
-//			blocker.name = "BlockNum" + i;
-//			blocker.textureName = "none";
-//			registerSingleBlock(blocker);
-//		}
-		
-		registerTabs(data.creativeTabs);
-		
-		setCreativeTabs();		
 	}
 	
 	private static void registerTabs(Cfg_creativeTab[] tabs)

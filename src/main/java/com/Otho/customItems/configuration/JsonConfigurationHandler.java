@@ -58,8 +58,8 @@ public class JsonConfigurationHandler
 						}
 					}
 				}
-				
-				RegisterCustomItems.register(allData);
+				if(listOfFiles.length > 0)
+					RegisterCustomItems.register(allData);
 			}
 		}else
 		{
