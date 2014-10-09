@@ -1,6 +1,8 @@
 package com.Otho.customItems;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import com.Otho.customItems.configuration.JsonConfigurationHandler;
 import com.Otho.customItems.configuration.RegisterCustomItems;
@@ -43,23 +45,88 @@ public class CustomItems
     
 	
 	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event)
+	public void preInit(FMLPreInitializationEvent event) throws IOException
 	{			
 		
 		String folderPath = event.getModConfigurationDirectory().toString()+File.separator+ModReference.MOD_ID+File.separator;
 
 		customItemsTab.init();
 		
-		JsonConfigurationHandler.init(folderPath);
+		
 		forgeCustomConfigHandler.init(event.getSuggestedConfigurationFile());
 		
-		if(ModReference.makeRP)
-		{
-			File myFile = event.getSuggestedConfigurationFile();
-			String path;
-			
-			
-		}
+//		if(ModReference.makeRP)
+//		{
+//			boolean makeRPFolder = false;
+//			boolean makeCIFolder = false;
+//			
+//			File myFile = event.getSuggestedConfigurationFile();
+//			File configFolder = myFile.getParentFile();
+//			File mineFolder = configFolder.getParentFile();
+//			File RPFolder = new File(mineFolder.getPath()+ File.separator + "resourcepacks");
+//			
+//			File CIfolder = myFile;
+//			File meta;
+//			
+//			if(RPFolder.exists())
+//			{
+//				LogHelper.info("RPFolder already exist");
+//				CIfolder = new File(RPFolder.getPath()+ File.separator + "CustomItemsPack");
+//				if(!CIfolder.exists())
+//				{
+//					LogHelper.info("CIFolder does not exist");
+//					makeCIFolder = true;
+//				}else
+//				{
+//					LogHelper.info("CIFolder already exist");					
+//				}
+//			}else
+//			{
+//				LogHelper.info("RPFolder does not exist");
+//				makeRPFolder = true;
+//				makeCIFolder = true;
+//			}
+//			
+//			if(makeRPFolder)
+//			{
+//				RPFolder.mkdir();
+//			}
+//			
+//			if(makeCIFolder)
+//			{
+//				CIfolder.mkdir();
+//				meta = new File(CIfolder.getPath() + File.separator + "pack.mcmeta");
+//				
+//				meta.createNewFile();
+//				PrintWriter out = new PrintWriter(meta);
+//				out.println('{');
+//				out.println("\t"+'"'+"pack" +'"'+ ": {");
+//				out.println("\t\t"+'"'+"pack_format" +'"'+ ": 1,");
+//				out.println("\t\t"+'"'+"description" +'"'+ ": "+'"'+"Custom Items Pack"+'"');
+//				out.println("\t}");
+//				out.println("}");
+//				
+//				out.close();
+//				
+//				File assets = new File(CIfolder.getPath() + File.separator + "assets");
+//				assets.mkdir();
+//				File modId = new File(assets.getPath() + File.separator + "customitems");
+//				modId.mkdir();
+//				File textures = new File(modId.getPath() + File.separator + "textures");
+//				textures.mkdir();
+//				
+//				File blocks = new File(textures.getPath() + File.separator + "blocks");
+//				blocks.mkdir();
+//				File gui = new File(textures.getPath() + File.separator + "gui");
+//				gui.mkdir();
+//				File items = new File(textures.getPath() + File.separator + "items");
+//				items.mkdir();
+//				File models = new File(textures.getPath() + File.separator + "models");
+//				models.mkdir();
+//			}
+//		}
+		
+		JsonConfigurationHandler.init(folderPath);
 		
     	proxy.registerTileEntities();
 	}	

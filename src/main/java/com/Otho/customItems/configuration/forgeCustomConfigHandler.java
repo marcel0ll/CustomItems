@@ -24,7 +24,7 @@ public class forgeCustomConfigHandler
 	private static void loadConfiguration()
 	{
 		debug = config.getBoolean("debug", "DEBUG", false, "Set to true if you wish to output debug info");
-		makeRP = config.getBoolean("makeCustomItemsResourcePack", "OPTIONS", false, "Set to false if you dont wish a CI ResourcePack");
+		//makeRP = config.getBoolean("makeCustomItemsResourcePack", "OPTIONS", true, "Set to false if you dont wish a CI ResourcePack");
 		
 		ModReference.debug = debug;
 		ModReference.makeRP = makeRP;
