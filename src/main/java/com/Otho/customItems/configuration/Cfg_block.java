@@ -9,11 +9,13 @@ public class Cfg_block extends Cfg_basicData
 	public float resistance = 10;
 	public float hardness = 2;
 	public float lightLevel = 0;		
-	public int harvestLevel = 0;	
+	public int harvestLevel = 0;
+	public SideTextures multipleTextures;
 	
 	public String stepSound = "stone";
 	
 	public boolean falls = false;
+	public boolean renderAsNormalBlock = true;
 	
 	public boolean canSilkHarvest = false;
 	

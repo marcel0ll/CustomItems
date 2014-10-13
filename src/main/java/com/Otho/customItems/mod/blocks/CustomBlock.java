@@ -7,9 +7,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Facing;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import com.Otho.customItems.lib.ModReference;
@@ -28,7 +31,11 @@ public class CustomBlock extends Block {
         super(material); 
     }
 	
+    private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest = false;
+	private boolean renderNormaly;
+	private boolean isAlpha = true;
+
 	private int maxStackSize = 64;
 
 	private boolean dropsItem = false;
@@ -39,6 +46,32 @@ public class CustomBlock extends Block {
 	private int eachExtraItemDropChance;
 	
 	private Item dropItem;
+	
+	private String[] textureNames;
+	
+	@Override
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered (IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+    {
+        Block i1 = par1IBlockAccess.getBlock(par2, par3, par4);
+        return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+    }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public int getRenderBlockPass()
+    {
+		if(isAlpha)
+			return 1;
+		else
+			return 0;
+    }
+	
+	@Override
+	public int getRenderType()
+    {
+        return 0;
+    }
 		
 	private int getItemDropQuantity(World world, int fortune)
     {
@@ -85,10 +118,34 @@ public class CustomBlock extends Block {
 	public void setMaxStackSize(int maxStackSize) {
 		this.maxStackSize = maxStackSize;
 		
+		maxStackSize = Math.max(maxStackSize, 0);
+		maxStackSize = Math.min(maxStackSize, 64);
+		
 		Item itemBlock = Item.getItemFromBlock(this);
         itemBlock.setMaxStackSize(this.maxStackSize);
-	}   
+	}  
 	
+	public void setRenderNormaly(boolean renderNormaly) {
+		this.renderNormaly = renderNormaly;
+	}
+	
+	@Override
+	public IIcon getIcon(int side, int meta) {
+		if(this.textureName != null)
+		{
+			return blockIcon;
+		}else
+		{
+			return icons[side];
+		}
+	}
+	
+	@Override
+	public boolean renderAsNormalBlock()
+    {
+        return this.renderNormaly;
+    }
+			
 	@Override
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
     {
@@ -112,17 +169,35 @@ public class CustomBlock extends Block {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {        
-        if(this.textureName == null)
+    @SideOnly(Side.CLIENT)    
+    public void registerBlockIcons(IIconRegister iconRegister) {
+    	if(textureNames == null)
     	{
-        	blockIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+	        if(this.textureName == null)
+	    	{
+	        	blockIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+	    	}else
+	    	{
+	    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
+	    	}
     	}else
     	{
-    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
+    		for (int i = 0; i < icons.length; i++) {
+    	        icons[i] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + textureNames[i]);
+    	    }
     	}
     }
     
+    public void registerBlockTextures(String[] textureNames)
+    {
+    	this.textureNames = textureNames;
+    }
+    
+    @Override
+    public boolean isOpaqueCube ()
+    {
+        return this.opaque;
+    }
 	
 	
 	@Override

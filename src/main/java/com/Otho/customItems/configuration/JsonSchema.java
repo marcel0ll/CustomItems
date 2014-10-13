@@ -21,5 +21,8 @@ public class JsonSchema
 	public Cfg_creativeTab[] creativeTabs;
 	public Cfg_crop[] crops;
 	
+	public Cfg_change_block[] changeBlocks;
+	public Cfg_change_item[] changeItems;
+	
 	JsonSchema(){};
 }

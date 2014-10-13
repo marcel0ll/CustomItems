@@ -22,12 +22,13 @@ import com.Otho.customItems.util.LogHelper;
 public class JsonConfigurationHandler 
 {
 	public static JsonSchema data;
+	public static JsonSchema allData;
 	
 	public static void init (String folderPath)
 	{	
 	
 		File folder = new File(folderPath);
-		JsonSchema allData = new JsonSchema();
+		allData = new JsonSchema();
 		
 		if(folder.exists())
 		{
@@ -67,6 +68,10 @@ public class JsonConfigurationHandler
 		}
 	}
 	
+	public static void post_init() {
+		Changer.change(allData);
+	}
+	
 	private static void mergeGson(JsonSchema data, JsonSchema mergeTo)
 	{
 		mergeTo.blocks = ArrayUtils.addAll(data.blocks, mergeTo.blocks);
@@ -84,6 +89,11 @@ public class JsonConfigurationHandler
 		mergeTo.boots = ArrayUtils.addAll(data.boots, mergeTo.boots);
 		mergeTo.fluids = ArrayUtils.addAll(data.fluids, mergeTo.fluids);
 		mergeTo.creativeTabs = ArrayUtils.addAll(data.creativeTabs, mergeTo.creativeTabs);
-		mergeTo.crops = ArrayUtils.addAll(data.crops, mergeTo.crops);		
+		mergeTo.crops = ArrayUtils.addAll(data.crops, mergeTo.crops);
+		
+		mergeTo.changeBlocks = ArrayUtils.addAll(data.changeBlocks, mergeTo.changeBlocks);
+		mergeTo.changeItems = ArrayUtils.addAll(data.changeItems, mergeTo.changeItems);
 	}
+
+	
 }

@@ -139,5 +139,6 @@ public class CustomItems
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+    	JsonConfigurationHandler.post_init();
     }
 }

@@ -179,11 +179,11 @@ public class RegisterCustomItems {
 		
 		if(tabs != null)
 		{
-			LogHelper.log(Level.INFO, "Registering Creative Tabs:");
+			LogHelper.info("Registering Creative Tabs: ");
 			for(i=0;i<tabs.length;i++)
 			{
 				Cfg_creativeTab data = tabs[i];
-				
+				LogHelper.info("Registering Creative Tab: "+ data.tabLabel);
 				String[] itemName = data.iconItem.split(":");
 				Item iconItem = GameRegistry.findItem(itemName[0], itemName[1]);
 				
@@ -209,235 +209,22 @@ public class RegisterCustomItems {
 			block.setCreativeTab(customItemsTab.getTabByName((String) blocksList.get(i+1)));
 		}
 	}
-	
-	private static void registerBlocks (Cfg_block[] blocksData)
-	{
-		int i;
 
-		if(blocksData != null)
-		{
-			LogHelper.log(Level.INFO, "Registering blocksData");
-			for(i=0;i<blocksData.length;i++)
-			{
-				registerSingleBlock(blocksData[i]);
-			}
-		}	
-	}
-	
-	private static void registerCrops(Cfg_crop[] cropsData) 
-	{
-		int i;
-
-		if(cropsData != null)
-		{
-			LogHelper.log(Level.INFO, "Registering cropsData");
-			for(i=0;i<cropsData.length;i++)
-			{
-				registerSingleCrop(cropsData[i]);
-			}
-		}	
-	}
-	private static void registerFoods(Cfg_food[] foods)
-	{
-		int i;
-
-		if(foods != null)
-		{
-			LogHelper.log(Level.INFO, "Registering foods");
-			for(i=0;i<foods.length;i++)
-			{
-				registerSingleFood(foods[i]);
-			}
-		}	
-	}
-	private static void registerItems(Cfg_item[] items)
-	{
-		int i;
-
-		if(items != null)
-		{
-			LogHelper.log(Level.INFO, "Registering items");
-			for(i=0;i<items.length;i++)
-			{
-				registerSingleItem(items[i]);
-			}
-		}	
-	}
-	private static void registerFluids(Cfg_fluid[] fluids)
-	{
-		int i;
-
-		if(fluids != null)
-		{
-			LogHelper.log(Level.INFO, "Registering fluids");
-			for(i=0;i<fluids.length;i++)
-			{
-				registerSingleFluid(fluids[i]);
-			}
-		}	
-	}
-	private static void registerPickaxes(Cfg_pickaxe[] pickaxes)
-	{
-		int i;
-
-		if(pickaxes != null)
-		{
-			LogHelper.log(Level.INFO, "Registering pickaxes");
-			for(i=0;i<pickaxes.length;i++)
-			{
-				registerSinglePickaxe(pickaxes[i]);
-			}
-		}	
-	}
-	private static void registerAxes(Cfg_axe[] axes)
-	{
-		int i;
-
-		if(axes != null)
-		{
-			LogHelper.log(Level.INFO, "Registering axes");
-			for(i=0;i<axes.length;i++)
-			{
-				registerSingleAxe(axes[i]);
-			}
-		}	
-	}
-	private static void registerShovels(Cfg_shovel[] shovels)
-	{
-		int i;
-
-		if(shovels != null)
-		{
-			LogHelper.log(Level.INFO, "Registering shovels");
-			for(i=0;i<shovels.length;i++)
-			{
-				registerSingleShovel(shovels[i]);
-			}
-		}	
-	}
-	private static void registerHoes(Cfg_hoe[] hoes)
-	{
-		int i;
-
-		if(hoes != null)
-		{
-			LogHelper.log(Level.INFO, "Registering hoes");
-			for(i=0;i<hoes.length;i++)
-			{
-				registerSingleHoe(hoes[i]);
-			}
-		}	
-	}
-	private static void registerSwords(Cfg_sword[] swords)
-	{
-		int i;
-
-		if(swords != null)
-		{
-			LogHelper.log(Level.INFO, "Registering swords");
-			for(i=0;i<swords.length;i++)
-			{
-				registerSingleSword(swords[i]);
-			}
-		}	
-	}
-	private static void registerHelmets(Cfg_helmet[] helmets)
-	{
-		int i;
-
-		if(helmets != null)
-		{
-			LogHelper.log(Level.INFO, "Registering helmets");
-			for(i=0;i<helmets.length;i++)
-			{
-				registerSingleHelmet(helmets[i]);
-			}
-		}	
-	}
-	private static void registerChestplates(Cfg_chestplate[] chestplates)
-	{
-		int i;
-
-		if(chestplates != null)
-		{
-			LogHelper.log(Level.INFO, "Registering chestplates");
-			for(i=0;i<chestplates.length;i++)
-			{
-				registerSingleChestplate(chestplates[i]);
-			}
-		}	
-	}
-	private static void registerLeggings(Cfg_leggings[] leggings)
-	{
-		int i;
-
-		if(leggings != null)
-		{
-			LogHelper.log(Level.INFO, "Registering leggings");
-			for(i=0;i<leggings.length;i++)
-			{
-				registerSingleLeggings(leggings[i]);
-			}
-		}	
-	}
-	private static void registerBoots(Cfg_boots[] boots)
-	{
-		int i;
-
-		if(boots != null)
-		{
-			LogHelper.log(Level.INFO, "Registering boots");
-			for(i=0;i<boots.length;i++)
-			{
-				registerSingleBoots(boots[i]);
-			}
-		}	
-	}
-	
-	private static void registerDisks(){
-//		JsonArray disksData = JsonConfigurationHandler.musicDisks;
-//		
-//		int i;
-//		
-//		if(disksData != null)
-//		{
-//			for(i=0;i<disksData.size();i++)
-//			{
-//				JsonObject data = (JsonObject) disksData.get(i);
-//				
-//				String name =  data.get("name").getAsString();
-//				String textureName =  data.get("textureName").getAsString();
-//				textureName = StringUtil.parseTextureName(textureName);
-//				
-//				String music =  data.get("music").getAsString();
-//				
-//				CustomDisk disk = new CustomDisk(music);
-//				
-//				GameRegistry.registerItem(disk, textureName);
-//				disk.setUnlocalizedName(constants.MOD_ID.toLowerCase()+":"+name);
-//				
-//				ResourceLocation rl = new ResourceLocation(constants.MOD_ID.toLowerCase()+":sounds/records/"+textureName);
-//				SoundCategory a = SoundCategory.valueOf("RECORDS");
-//				SoundEventAccessorComposite b = new SoundEventAccessorComposite(rl, 2.0, 2.0, a);
-//				
-//				
-//				
-//				LanguageRegistry.instance().addStringLocalization(disk.getUnlocalizedName()+".name","en_US","Music Disc");				
-//			}
-//		}
-	}
-	
+	//Register Singles
 	private static void registerSingleBlock (Cfg_block blockData)
 	{        	
-		LogHelper.log(Level.INFO, blockData.name, 1);
+		LogHelper.log(Level.INFO, "Register Block: "+ blockData.name, 1);
 		
 		String registerName = StringUtil.parseRegisterName(blockData.name);
 		
-		blockData.toolClass = validateToolClass(blockData.toolClass);
-		if(!blockData.toolClass.equals("pickaxe"))
+		if(blockData.toolClass != null)
 		{
-			blockData.harvestLevel = 0;
-		}       	
+			blockData.toolClass = validateToolClass(blockData.toolClass);		
+			if(!blockData.toolClass.equals("pickaxe"))
+			{
+				blockData.harvestLevel = 0;
+			}     
+		}
 		
 		//Make Custom Block
 		if(!blockData.falls)
@@ -446,10 +233,28 @@ public class RegisterCustomItems {
 			
 			block.setHardness(blockData.hardness);
 			block.setResistance(blockData.resistance);
-			block.setLightLevel(blockData.lightLevel);	        	
-			block.setHarvestLevel(blockData.toolClass, blockData.harvestLevel);
-			block.setBlockTextureName(blockData.textureName);
 			
+			blockData.lightLevel = range(blockData.lightLevel, 0, 1);
+			
+			block.setLightLevel(blockData.lightLevel);
+			if(blockData.toolClass != null)
+				block.setHarvestLevel(blockData.toolClass, blockData.harvestLevel);
+			if(blockData.multipleTextures == null)
+			{
+				block.setBlockTextureName(blockData.textureName);
+			}else
+			{
+				String[] textureNames = new String[6];
+				textureNames[0] = blockData.multipleTextures.yneg;
+				textureNames[1] = blockData.multipleTextures.ypos;
+				textureNames[2] = blockData.multipleTextures.zneg;
+				textureNames[3] = blockData.multipleTextures.zpos;
+				textureNames[4] = blockData.multipleTextures.xneg;
+				textureNames[5] = blockData.multipleTextures.xpos;
+				block.registerBlockTextures(textureNames);
+			}
+			
+			block.setRenderNormaly(blockData.renderAsNormalBlock);
 			block.slipperiness = blockData.slipperiness;
 			block.setOpaque(blockData.isOpaque);
 			block.setStepSound(parseSoundType(blockData.stepSound));
@@ -478,10 +283,27 @@ public class RegisterCustomItems {
 			
 			block.setHardness(blockData.hardness);
 			block.setResistance(blockData.resistance);
+			
+			blockData.lightLevel = range(blockData.lightLevel, 0, 1);
+			
 			block.setLightLevel(blockData.lightLevel);	        	
 			block.setHarvestLevel(blockData.toolClass, blockData.harvestLevel);
-			block.setBlockTextureName(blockData.textureName);
+			if(blockData.multipleTextures == null)
+			{
+				block.setBlockTextureName(blockData.textureName);
+			}else
+			{
+				String[] textureNames = new String[6];
+				textureNames[0] = blockData.multipleTextures.yneg;
+				textureNames[1] = blockData.multipleTextures.ypos;
+				textureNames[2] = blockData.multipleTextures.zneg;
+				textureNames[3] = blockData.multipleTextures.zpos;
+				textureNames[4] = blockData.multipleTextures.xneg;
+				textureNames[5] = blockData.multipleTextures.xpos;
+				block.registerBlockTextures(textureNames);
+			}
 			
+			block.setRenderNormaly(blockData.renderAsNormalBlock);
 			block.slipperiness = blockData.slipperiness;
 			block.setOpaque(blockData.isOpaque);
 			block.setStepSound(parseSoundType(blockData.stepSound));
@@ -902,7 +724,27 @@ public class RegisterCustomItems {
 	//Utils
 	//----------------------------------------------------------------------------------------------------------
 
-	private static SoundType parseSoundType(String stepSound) {
+	public static float range(float var, float min, float max)
+	{
+		if(var < min)
+			var = min;
+		if(var > max)
+			var = max;
+		
+		return var;
+	}
+	
+	public static int range(int var, int min, int max)
+	{
+		if(var < min)
+			var = min;
+		if(var > max)
+			var = max;
+		
+		return var;
+	}
+	
+	public static SoundType parseSoundType(String stepSound) {
 		if(stepSound.equals("anvil"))
 		{
 			return Block.soundTypeAnvil;
@@ -946,7 +788,7 @@ public class RegisterCustomItems {
 	}
 	
 	
-	private static String validateToolClass(String toolClass){		
+	public static String validateToolClass(String toolClass){		
 		if(toolClass.equals("pickaxe"))
 		{
 			return toolClass;
@@ -962,7 +804,7 @@ public class RegisterCustomItems {
 		}
 	}
 	
-	private static int potionEffectId (String effect)
+	public static int potionEffectId (String effect)
 	{
 		if(effect.equals("moveSpeed"))
 		{

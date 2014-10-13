@@ -1,16 +1,16 @@
 [
-{
-  "modid": "customItems",
-  "name": "Custom Items",
-  "description": "A simple way to add your stuff to minecraft.",
-  "version": "1.0 - beta3",
-  "mcversion": "1.7.10",
-  "url": "https://github.com/0tho/CustomItems",
-  "updateUrl": "",
-  "authorList": ["Otho, InfinityRaider"],
-  "credits": "",
-  "logoFile": "customItems.png",
-  "screenshots": [],
-  "dependencies": []
-}
+    {
+      "modid": "customitems",
+      "name": "Custom Items",
+      "description": "A simple way to add your stuff to minecraft.",
+      "version": "1.0 - beta4",
+      "mcversion": "1.7.10",
+      "url": "https://github.com/0tho/CustomItems",
+      "updateUrl": "",
+      "authorList": ["Otho, InfinityRaider"],
+      "credits": "",
+      "logoFile": "customItems.png",
+      "screenshots": [],
+      "dependencies": []
+    }
 ]
