@@ -233,7 +233,8 @@ public class RegisterCustomItems {
 			
 			block.setHardness(blockData.hardness);
 			block.setResistance(blockData.resistance);
-			
+			block.setBreaks(blockData.breaks);
+			block.setCanSilkHarvest(blockData.canSilkHarvest);
 			blockData.lightLevel = range(blockData.lightLevel, 0, 1);
 			
 			block.setLightLevel(blockData.lightLevel);
@@ -286,8 +287,9 @@ public class RegisterCustomItems {
 			
 			blockData.lightLevel = range(blockData.lightLevel, 0, 1);
 			
-			block.setLightLevel(blockData.lightLevel);	        	
-			block.setHarvestLevel(blockData.toolClass, blockData.harvestLevel);
+			block.setLightLevel(blockData.lightLevel);	
+			if(blockData.toolClass != null)
+				block.setHarvestLevel(blockData.toolClass, blockData.harvestLevel);
 			if(blockData.multipleTextures == null)
 			{
 				block.setBlockTextureName(blockData.textureName);
@@ -334,11 +336,14 @@ public class RegisterCustomItems {
 		
 		String registerName = StringUtil.parseRegisterName(blockData.name);
 		
-		blockData.toolClass = validateToolClass(blockData.toolClass);
-		if(!blockData.toolClass.equals("pickaxe"))
+		if(blockData.toolClass != null)
 		{
-			blockData.harvestLevel = 0;
-		}       	
+			blockData.toolClass = validateToolClass(blockData.toolClass);
+			if(!blockData.toolClass.equals("pickaxe"))
+			{
+				blockData.harvestLevel = 0;
+			}
+		}
 
 		//Make Custom Block
 		CustomChest block = new CustomChest(CI_Material.getMaterial(blockData.material), blockData.invWidth, blockData.invHeight, blockData.invName);

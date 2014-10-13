@@ -5,7 +5,7 @@ import com.Otho.customItems.lib.ModReference;
 public class Cfg_block extends Cfg_basicData
 {
 	public String material = "rock";
-	public String toolClass = "pickaxe";
+	public String toolClass;
 	public float resistance = 10;
 	public float hardness = 2;
 	public float lightLevel = 0;		
@@ -22,6 +22,7 @@ public class Cfg_block extends Cfg_basicData
 	public boolean isOpaque = true;
 	public float slipperiness = 0.6f;
 	public int maxStackSize = 64;
+	public boolean breaks = false;
 	
 	public String dropItemName;
 	public int minItemDrop = 1;

@@ -32,7 +32,7 @@ public class CustomBlock extends Block {
     }
 	
     private IIcon[] icons = new IIcon[6];
-	private boolean canSilkHarvest = false;
+	private boolean canSilkHarvest;
 	private boolean renderNormaly;
 	private boolean isAlpha = true;
 
@@ -48,6 +48,7 @@ public class CustomBlock extends Block {
 	private Item dropItem;
 	
 	private String[] textureNames;
+	private boolean breaks;
 	
 	@Override
     @SideOnly(Side.CLIENT)
@@ -153,7 +154,8 @@ public class CustomBlock extends Block {
         
         if(dropItem == null)
         {
-        	drops.add(new ItemStack(Item.getItemFromBlock(this)));
+        	if(!breaks)
+        		drops.add(new ItemStack(Item.getItemFromBlock(this)));
         }else
         {
         	int itemQuantity = getItemDropQuantity(world, fortune);
@@ -201,9 +203,12 @@ public class CustomBlock extends Block {
 	
 	
 	@Override
-	public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata)
+	public boolean canSilkHarvest()
     {
 		return this.canSilkHarvest;
     }
+	public void setBreaks(boolean breaks) {
+		this.breaks = breaks;
+	}
 
 }
