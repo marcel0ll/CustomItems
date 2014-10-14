@@ -284,10 +284,11 @@ public class RegisterCustomItems {
 			
 			block.setHardness(blockData.hardness);
 			block.setResistance(blockData.resistance);
-			
+			block.setBreaks(blockData.breaks);
+			block.setCanSilkHarvest(blockData.canSilkHarvest);
 			blockData.lightLevel = range(blockData.lightLevel, 0, 1);
 			
-			block.setLightLevel(blockData.lightLevel);	
+			block.setLightLevel(blockData.lightLevel);
 			if(blockData.toolClass != null)
 				block.setHarvestLevel(blockData.toolClass, blockData.harvestLevel);
 			if(blockData.multipleTextures == null)
@@ -352,7 +353,21 @@ public class RegisterCustomItems {
 		block.setResistance(blockData.resistance);
 		block.setLightLevel(blockData.lightLevel);	        	
 		block.setHarvestLevel(blockData.toolClass, blockData.harvestLevel);
-		block.setBlockTextureName(blockData.textureName);
+		
+		if(blockData.multipleTextures == null)
+		{
+			block.setBlockTextureName(blockData.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = blockData.multipleTextures.yneg;
+			textureNames[1] = blockData.multipleTextures.ypos;
+			textureNames[2] = blockData.multipleTextures.zneg;
+			textureNames[3] = blockData.multipleTextures.zpos;
+			textureNames[4] = blockData.multipleTextures.xneg;
+			textureNames[5] = blockData.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
 		
 		block.slipperiness = blockData.slipperiness;
 		block.setOpaque(blockData.isOpaque);		

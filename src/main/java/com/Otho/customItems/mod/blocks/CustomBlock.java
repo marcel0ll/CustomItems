@@ -190,11 +190,11 @@ public class CustomBlock extends Block {
     	}
     }
     
-    public void registerBlockTextures(String[] textureNames)
-    {
-    	this.textureNames = textureNames;
-    }
-    
+	    public void registerBlockTextures(String[] textureNames)
+	    {
+	    	this.textureNames = textureNames;
+	    }
+	    
     @Override
     public boolean isOpaqueCube ()
     {

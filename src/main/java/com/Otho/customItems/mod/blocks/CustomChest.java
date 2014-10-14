@@ -22,6 +22,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.world.World;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IIcon;
 
 public class CustomChest extends Block implements ITileEntityProvider{ 
 
@@ -30,6 +31,9 @@ public class CustomChest extends Block implements ITileEntityProvider{
 	private String name = "Custom Chest";
 	private boolean hasOwner = false;
 	private int slotMaxStackSize = 64;
+	
+	private String[] textureNames;
+	private IIcon[] icons = new IIcon[6];
 	
 	public CustomChest(Material material,int w, int h, String name)
 	{
@@ -78,10 +82,39 @@ public class CustomChest extends Block implements ITileEntityProvider{
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister p_149651_1_)
+	public IIcon getIcon(int side, int meta) {
+		if(this.textureName != null)
+		{
+			return blockIcon;
+		}else
+		{
+			return icons[side];
+		}
+	}
+	
+    @Override
+    @SideOnly(Side.CLIENT)    
+    public void registerBlockIcons(IIconRegister iconRegister) {
+    	if(textureNames == null)
+    	{
+	        if(this.textureName == null)
+	    	{
+	        	blockIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+	    	}else
+	    	{
+	    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
+	    	}
+    	}else
+    	{
+    		for (int i = 0; i < icons.length; i++) {
+    	        icons[i] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + textureNames[i]);
+    	    }
+    	}
+    }
+    
+    public void registerBlockTextures(String[] textureNames)
     {
-        this.blockIcon = p_149651_1_.registerIcon("none");
+    	this.textureNames = textureNames;
     }
 	
 	@Override

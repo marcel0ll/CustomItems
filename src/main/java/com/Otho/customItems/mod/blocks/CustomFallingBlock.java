@@ -31,7 +31,7 @@ public class CustomFallingBlock  extends BlockFalling
     }
 
     private IIcon[] icons = new IIcon[6];
-	private boolean canSilkHarvest = false;
+	private boolean canSilkHarvest;
 	private boolean renderNormaly;
 	private boolean isAlpha = true;
 
@@ -47,6 +47,7 @@ public class CustomFallingBlock  extends BlockFalling
 	private Item dropItem;
 	
 	private String[] textureNames;
+	private boolean breaks;
 	
 	@Override
     @SideOnly(Side.CLIENT)
@@ -54,6 +55,22 @@ public class CustomFallingBlock  extends BlockFalling
     {
         Block i1 = par1IBlockAccess.getBlock(par2, par3, par4);
         return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+    }
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public int getRenderBlockPass()
+    {
+		if(isAlpha)
+			return 1;
+		else
+			return 0;
+    }
+	
+	@Override
+	public int getRenderType()
+    {
+        return 0;
     }
 		
 	private int getItemDropQuantity(World world, int fortune)
@@ -136,7 +153,8 @@ public class CustomFallingBlock  extends BlockFalling
         
         if(dropItem == null)
         {
-        	drops.add(new ItemStack(Item.getItemFromBlock(this)));
+        	if(!breaks)
+        		drops.add(new ItemStack(Item.getItemFromBlock(this)));
         }else
         {
         	int itemQuantity = getItemDropQuantity(world, fortune);
@@ -184,9 +202,12 @@ public class CustomFallingBlock  extends BlockFalling
 	
 	
 	@Override
-	public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata)
+	public boolean canSilkHarvest()
     {
 		return this.canSilkHarvest;
     }
+	public void setBreaks(boolean breaks) {
+		this.breaks = breaks;
+	}
 
 }
