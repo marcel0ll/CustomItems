@@ -63,36 +63,58 @@ public class CustomChestContainer extends Container
 	 }
 	
 	 @Override
-	 public ItemStack transferStackInSlot(EntityPlayer player, int i) 
+	 public ItemStack transferStackInSlot(EntityPlayer player, int slot) 
 	 {
+		 //TODO: FIX THIS THING
 	 	ItemStack itemstack = null;
-        Slot slot = (Slot) inventorySlots.get(i);
+        Slot slotObj = (Slot) inventorySlots.get(slot);
         int invSize = tileEntity.getSizeInventory();
         int maxStackSize = tileEntity.getInventoryStackLimit();
         
-        if (slot != null && slot.getHasStack())
+        if (slotObj != null && slotObj.getHasStack())
         {
-            ItemStack itemstack1 = slot.getStack();
+            ItemStack itemstack1 = slotObj.getStack();
             itemstack = itemstack1.copy();
-            if (i < invSize)
+            
+            //From chest to player
+            if (slot < invSize)
             {
                 if (!mergeItemStack(itemstack1, invSize, inventorySlots.size(), true))
                 {
+                	if (itemstack1.stackSize == 0)
+                    {
+                    	slotObj.putStack(null);            	
+                    }
+                    else
+                    {
+                    	slotObj.onSlotChanged();
+                    }
+                	
                     return null;
                 }
-            }	            
+            }
+            //From player to chest
             else if (!mergeItemStack(itemstack1, 0, invSize, false))
             {
+            	if (itemstack1.stackSize == 0)
+                {
+                	slotObj.putStack(null);            	
+                }
+                else
+                {
+                	slotObj.onSlotChanged();
+                }
+            	
                 return null;
             }
+            
             if (itemstack1.stackSize == 0)
             {
-                slot.putStack(null);
-            	//mergeItemStack(itemstack1, size, inventorySlots.size(), true);
+            	slotObj.putStack(null);            	
             }
             else
             {
-                slot.onSlotChanged();
+            	slotObj.onSlotChanged();
             }
         }
         return itemstack;
@@ -141,26 +163,27 @@ public class CustomChestContainer extends Container
 		                    }
 	                	}else
 	                	{
-                		 	int l = itemstack1.stackSize + incomingStack.stackSize;
-                			
-		                    if (l <= incomingStack.getMaxStackSize() && l <= tileEntity.getInventoryStackLimit())
-		                    {
-		                        incomingStack.stackSize = 0;
-		                        itemstack1.stackSize = l;
+                		 	int sum = itemstack1.stackSize + incomingStack.stackSize;
+                		 	int maxInInvSlot = tileEntity.getInventoryStackLimit();
+                		 	int maxStackSize = itemstack1.getMaxStackSize();
+                		 	int incoming = incomingStack.stackSize;
+                		 	int actual = itemstack1.stackSize;
+                		 	
+                		 	int cabe = Math.min((maxInInvSlot - actual), (maxStackSize - actual));
+                		 	
+                		 	if(incoming <= cabe){
+                		 		//soma
+                		 		incomingStack.stackSize = 0;
+		                        itemstack1.stackSize += incoming;
 		                        slot.onSlotChanged();
 		                        flag1 = true;
-		                    }
-		                    else if (itemstack1.stackSize < tileEntity.getInventoryStackLimit())
-		                    {
-		                        incomingStack.stackSize -= tileEntity.getInventoryStackLimit() - itemstack1.stackSize;
-		                        itemstack1.stackSize = tileEntity.getInventoryStackLimit();
+                		 	}else{
+                		 		incomingStack.stackSize -= cabe;
+		                        itemstack1.stackSize += cabe;
 		                        slot.onSlotChanged();
 		                        flag1 = false;
-		                    }else
-		                    {
-		                    	flag1 = false;
-		                    	break;
-		                    }
+
+                		 	}          		 	
 	                	}
 	                }
 

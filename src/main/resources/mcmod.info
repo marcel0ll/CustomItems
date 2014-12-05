@@ -2,8 +2,8 @@
     {
       "modid": "customitems",
       "name": "Custom Items",
-      "description": "A simple way to add your stuff to minecraft.",
-      "version": "1.0.4beta",
+      "description": "A simple way to add your custom stuff to minecraft.",
+      "version": "1.0.4 beta",
       "mcversion": "1.7.10",
       "url": "https://github.com/0tho/CustomItems",
       "updateUrl": "",

@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0_beta_4-1.7.10"
+version = "1.0.4_beta_1.7.10"
 group= "com.Otho.customItems" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "customItems"
 
