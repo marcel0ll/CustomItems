@@ -449,17 +449,14 @@ public class RegisterCustomItems {
 		
 		String registerName = StringUtil.parseRegisterName(foodData.name);				
 
-		CustomFood food = new CustomFood(foodData.healAmount, foodData.saturationModifier, false);
+		CustomFood food = new CustomFood(foodData.healAmount, foodData.saturationModifier, foodData.isWolfFood);
 		
 		if(foodData.alwaysEdible)
 			food.setAlwaysEdible();
 		
-		if(foodData.potionEffect != null)
+		if(foodData.potionEffects.length > 0)
 		{	
-			food.setPotionEffect(potionEffectId(foodData.potionEffect.effect), 
-					foodData.potionEffect.potionDuration, 
-					foodData.potionEffect.potionAmplifier, 
-					foodData.potionEffect.potionEffectProbability);
+			food.setFoodEffectsArray(foodData.potionEffects);
 		}
 		
 		
@@ -664,7 +661,7 @@ public class RegisterCustomItems {
 		reduction[0] = helmetData.reductionNum;
 		
 		ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(helmetData.textureName, helmetData.durability, reduction, helmetData.enchantability);
-		CustomArmor armor = new CustomArmor(material, 0, 0, helmetData.textureName);
+		CustomArmor armor = new CustomArmor(material, 0, 0, helmetData.textureName, helmetData.durability);
 		//Register Armor
 		
 		itemsList.add(armor);
@@ -686,7 +683,7 @@ public class RegisterCustomItems {
 		reduction[1] = chestplateData.reductionNum;
 		
 		ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(chestplateData.textureName, chestplateData.durability, reduction, chestplateData.enchantability);
-		CustomArmor armor = new CustomArmor(material, 0, 1, chestplateData.textureName);
+		CustomArmor armor = new CustomArmor(material, 0, 1, chestplateData.textureName, chestplateData.durability);
 		//Register Armor
 		
 		itemsList.add(armor);
@@ -707,7 +704,7 @@ public class RegisterCustomItems {
 		reduction[2] = leggingData.reductionNum;
 		
 		ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(leggingData.textureName, leggingData.durability, reduction, leggingData.enchantability);
-		CustomArmor armor = new CustomArmor(material, 0, 2, leggingData.textureName);
+		CustomArmor armor = new CustomArmor(material, 0, 2, leggingData.textureName, leggingData.durability);
 		//Register Armor
 		
 		itemsList.add(armor);
@@ -729,7 +726,7 @@ public class RegisterCustomItems {
 		reduction[3] = bootsData.reductionNum;
 		
 		ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(bootsData.textureName, bootsData.durability, reduction, bootsData.enchantability);
-		CustomArmor armor = new CustomArmor(material, 0, 3, bootsData.textureName);
+		CustomArmor armor = new CustomArmor(material, 0, 3, bootsData.textureName, bootsData.durability);				
 		//Register Armor
 		
 		itemsList.add(armor);
@@ -822,105 +819,5 @@ public class RegisterCustomItems {
 		{
 			return "pickaxe";
 		}
-	}
-	
-	public static int potionEffectId (String effect)
-	{
-		if(effect.equals("moveSpeed"))
-		{
-			return 1;
-		}
-		else if(effect.equals("moveSlowdown"))
-		{
-			return 2;
-		}
-		else if(effect.equals("digSpeed"))
-		{
-			return 3;
-		}
-		else if(effect.equals("digSlowdown"))
-		{
-			return 4;
-		}
-		else if(effect.equals("damageBoost"))
-		{
-			return 5;
-		}
-		else if(effect.equals("heal"))
-		{
-			return 6;
-		}
-		else if(effect.equals("harm"))
-		{
-			return 7;
-		}
-		else if(effect.equals("jump"))
-		{
-			return 8;
-		}
-		else if(effect.equals("confusion"))
-		{
-			return 9;
-		}
-		else if(effect.equals("regeneration"))
-		{
-			return 10;
-		}
-		else if(effect.equals("resistance"))
-		{
-			return 11;
-		}
-		else if(effect.equals("fireResistance"))
-		{
-			return 12;
-		}
-		else if(effect.equals("waterBreathing"))
-		{
-			return 13;
-		}
-		else if(effect.equals("invisibility"))
-		{
-			return 14;
-		}
-		else if(effect.equals("blindness"))
-		{
-			return 15;
-		}
-		else if(effect .equals("nightVision"))
-		{
-			return 16;
-		}
-		else if(effect.equals("hunger"))
-		{
-			return 17;
-		}
-		else if(effect.equals("weakness"))
-		{
-			return 18;
-		}
-		else if(effect.equals("poison"))
-		{
-			return 19;
-		}
-		else if(effect.equals("wither"))
-		{
-			return 20;
-		}
-		else if(effect.equals("healthBoost"))
-		{
-		    return 21;
-		}
-		else if(effect.equals("healthBoost"))
-		{
-		    return 22;
-		}
-		else if(effect.equals("healthBoost"))
-		{
-		    return 23;
-		}
-		else
-		{
-			return 6;
-		}		
 	}
 }

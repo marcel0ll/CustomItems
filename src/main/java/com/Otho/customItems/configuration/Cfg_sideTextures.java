@@ -1,6 +1,6 @@
 package com.Otho.customItems.configuration;
 
-public class SideTextures {
+public class Cfg_sideTextures {
 	public String ypos;
 	public String yneg;
 	public String xpos;

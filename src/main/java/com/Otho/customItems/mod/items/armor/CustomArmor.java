@@ -13,17 +13,32 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomArmor extends ItemArmor {
     protected int type;
-    protected String name = "";
-    public CustomArmor(ArmorMaterial mat,int id,int type,String name) {
+    private String typeName;
+    protected String textureName = "";
+    
+    public CustomArmor(ArmorMaterial mat, int id,int type, String textureName, int durability) {
         super(mat,id,type);        
         this.type=type;
-        this.name=name;
+        this.textureName= textureName;  
+        this.setMaxDamage(durability);
+        
+        if(type == 0){
+        	typeName = "helmet";
+        }else if(type == 1){
+        	typeName = "chestplate";
+        }else if(type == 2){
+        	typeName = "leggings";
+        }else if(type == 3){
+        	typeName = "boots";
+        }
+        
+        
     }
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
         if(stack.getItem() instanceof CustomArmor) {
-            String path = ModReference.MOD_ID.toLowerCase() + ":textures/models/armor/" + this.name + "layer";
+            String path = ModReference.MOD_ID.toLowerCase() + ":textures/models/armor/" + this.textureName + "_layer_";
             String end = slot == 2 ? "2.png" : "1.png";
             return path + end;
         }
@@ -31,16 +46,16 @@ public class CustomArmor extends ItemArmor {
             return null;
         }
     }
-
+    
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iconRegister) {        
-        if(this.iconString == null)
+        if(this.textureName == null)
     	{
-    		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+        	itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
     	}else
     	{
-    		itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);
-    	}
+    		itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_" + this.typeName);
+    	}    	
     }
 }

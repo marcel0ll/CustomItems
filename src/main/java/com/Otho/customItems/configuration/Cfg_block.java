@@ -10,7 +10,7 @@ public class Cfg_block extends Cfg_basicData
 	public float hardness = 2;
 	public float lightLevel = 0;		
 	public int harvestLevel = 0;
-	public SideTextures multipleTextures;
+	public Cfg_sideTextures multipleTextures;
 	
 	public String stepSound = "stone";
 	

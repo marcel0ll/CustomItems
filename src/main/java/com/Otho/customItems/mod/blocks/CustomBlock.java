@@ -78,18 +78,16 @@ public class CustomBlock extends Block {
     {
     	int ret = 0;
     	int i;
-    	for(i=0;i < this.maxItemDrop + fortune;i++)
+    	ret = this.minItemDrop;
+    	for(i= this.minItemDrop;i < this.maxItemDrop + fortune;i++)
     	{
     		boolean willDrop = world.rand.nextInt(100) < this.eachExtraItemDropChance;
     		if(willDrop)
     			ret++;
     	}
-    	if(ret < this.minItemDrop)
-    		ret = this.minItemDrop;
     	
     	return ret;
-    }
-	
+    }	
 	
 	public void setMaxItemDrop(int maxItemDrop) {
 		this.maxItemDrop = maxItemDrop;

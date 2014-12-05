@@ -77,14 +77,14 @@ public class CustomCrop extends BlockCrops {
     {
     	int ret = 0;
     	int i;
-    	for(i=0;i < this.maxSeedDrop + fortune;i++)
+    	ret = this.minSeedDrop;
+    	
+    	for(i=this.minSeedDrop;i < this.maxSeedDrop + fortune;i++)
     	{
     		boolean willDrop = world.rand.nextInt(100) < this.eachExtraSeedDropChance;
     		if(willDrop)
     			ret++;
     	}
-    	if(ret < this.minSeedDrop)
-    		ret = this.minSeedDrop;
     	
     	return ret;
     }
