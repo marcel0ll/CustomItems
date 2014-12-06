@@ -454,9 +454,11 @@ public class RegisterCustomItems {
 		if(foodData.alwaysEdible)
 			food.setAlwaysEdible();
 		
-		if(foodData.potionEffects.length > 0)
-		{	
-			food.setFoodEffectsArray(foodData.potionEffects);
+		if(foodData.potionEffects != null){
+			if(foodData.potionEffects.length > 0)
+			{	
+				food.setFoodEffectsArray(foodData.potionEffects);
+			}
 		}
 		
 		
