@@ -33,8 +33,7 @@ public class CustomBlock extends Block {
 	
     private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;
-	private boolean renderNormaly;
-	private boolean isAlpha = true;
+	private boolean renderNormaly;	
 
 	private int maxStackSize = 64;
 
@@ -62,7 +61,7 @@ public class CustomBlock extends Block {
 	@SideOnly(Side.CLIENT)
     public int getRenderBlockPass()
     {
-		if(isAlpha)
+		if(!this.opaque)
 			return 1;
 		else
 			return 0;
