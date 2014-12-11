@@ -45,14 +45,15 @@ public class CustomFood extends ItemFood{
     protected void onFoodEaten(ItemStack p_77849_1_, World p_77849_2_, EntityPlayer p_77849_3_)
     {
         if (!p_77849_2_.isRemote)
-        {
-        	//TODO: Make loop trhough all potion effects array adding each effect on the player based on each effect probability
-            //p_77849_3_.addPotionEffect(new PotionEffect(this.potionId, this.potionDuration * 20, this.potionAmplifier));
-        	for(int i = 0; i < effectsArray.length; i++){
-        		Cfg_PotionEffect effect = effectsArray[i];
-        		if(p_77849_2_.rand.nextFloat() < effect.potionEffectProbability){
-        			p_77849_3_.addPotionEffect(new PotionEffect(Cfg_PotionEffect.potionEffectId(effect.effect), effect.potionDuration * 20, effect.potionAmplifier));
-        		}
+        {        	
+        	if(effectsArray != null)
+        	{
+	        	for(int i = 0; i < effectsArray.length; i++){
+	        		Cfg_PotionEffect effect = effectsArray[i];
+	        		if(p_77849_2_.rand.nextFloat() < effect.potionEffectProbability){
+	        			p_77849_3_.addPotionEffect(new PotionEffect(Cfg_PotionEffect.potionEffectId(effect.effect), effect.potionDuration * 20, effect.potionAmplifier));
+	        		}
+	        	}
         	}
         }
     }
