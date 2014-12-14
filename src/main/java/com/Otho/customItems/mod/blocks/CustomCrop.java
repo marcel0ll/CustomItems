@@ -3,7 +3,7 @@ package com.Otho.customItems.mod.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.Otho.customItems.lib.ModReference;
+import com.Otho.customItems.ModReference;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 import com.Otho.customItems.mod.items.CustomSeed;
 import com.Otho.customItems.util.LogHelper;

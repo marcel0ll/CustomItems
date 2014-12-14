@@ -15,7 +15,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.Otho.customItems.lib.ModReference;
+import com.Otho.customItems.ModReference;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
 import cpw.mods.fml.common.registry.GameRegistry;

@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import org.lwjgl.opengl.GL11;
 
-import com.Otho.customItems.lib.ModReference;
+import com.Otho.customItems.ModReference;
 import com.Otho.customItems.mod.containers.CustomChestContainer;
 import com.Otho.customItems.mod.tileentitys.TileEntityCustomChest;
 

@@ -3,7 +3,7 @@ package com.Otho.customItems.mod.blocks;
 import org.apache.logging.log4j.Level;
 
 import com.Otho.customItems.CustomItems;
-import com.Otho.customItems.lib.ModReference;
+import com.Otho.customItems.ModReference;
 import com.Otho.customItems.mod.tileentitys.TileEntityCustomChest;
 import com.Otho.customItems.util.LogHelper;
 

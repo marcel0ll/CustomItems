@@ -1,5 +1,23 @@
 package com.Otho.customItems.configuration;
 
+import com.Otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
+import com.Otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
+import com.Otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
+import com.Otho.customItems.configuration.jsonReaders.common.Cfg_creativeTab;
+import com.Otho.customItems.configuration.jsonReaders.items.Cfg_item;
+import com.Otho.customItems.configuration.jsonReaders.items.armor.Cfg_boots;
+import com.Otho.customItems.configuration.jsonReaders.items.armor.Cfg_chestplate;
+import com.Otho.customItems.configuration.jsonReaders.items.armor.Cfg_helmet;
+import com.Otho.customItems.configuration.jsonReaders.items.armor.Cfg_leggings;
+import com.Otho.customItems.configuration.jsonReaders.items.food.Cfg_food;
+import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_axe;
+import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_hoe;
+import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_pickaxe;
+import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_shovel;
+import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_sword;
+import com.Otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
+import com.Otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_block;
+import com.Otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_item;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
 public class JsonSchema 

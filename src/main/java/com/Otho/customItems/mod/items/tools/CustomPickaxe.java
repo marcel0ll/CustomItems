@@ -3,7 +3,7 @@ package com.Otho.customItems.mod.items.tools;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemPickaxe;
 
-import com.Otho.customItems.lib.ModReference;
+import com.Otho.customItems.ModReference;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
 import cpw.mods.fml.relauncher.Side;

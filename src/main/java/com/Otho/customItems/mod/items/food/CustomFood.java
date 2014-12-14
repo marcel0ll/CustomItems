@@ -1,8 +1,9 @@
 package com.Otho.customItems.mod.items.food;
 
-import com.Otho.customItems.configuration.Cfg_PotionEffect;
-import com.Otho.customItems.lib.ModReference;
+import com.Otho.customItems.ModReference;
+import com.Otho.customItems.configuration.jsonReaders.common.Cfg_PotionEffect;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
+import com.Otho.customItems.util.Util;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -51,7 +52,7 @@ public class CustomFood extends ItemFood{
 	        	for(int i = 0; i < effectsArray.length; i++){
 	        		Cfg_PotionEffect effect = effectsArray[i];
 	        		if(p_77849_2_.rand.nextFloat() < effect.potionEffectProbability){
-	        			p_77849_3_.addPotionEffect(new PotionEffect(Cfg_PotionEffect.potionEffectId(effect.effect), effect.potionDuration * 20, effect.potionAmplifier));
+	        			p_77849_3_.addPotionEffect(new PotionEffect(Util.potionEffectId(effect.effect), effect.potionDuration * 20, effect.potionAmplifier));
 	        		}
 	        	}
         	}

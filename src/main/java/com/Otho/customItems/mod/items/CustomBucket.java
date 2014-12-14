@@ -1,6 +1,6 @@
 package com.Otho.customItems.mod.items;
 
-import com.Otho.customItems.lib.ModReference;
+import com.Otho.customItems.ModReference;
 import com.Otho.customItems.mod.blocks.CustomFluidBlock;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 

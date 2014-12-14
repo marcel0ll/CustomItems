@@ -15,7 +15,9 @@ import org.apache.logging.log4j.Level;
 
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
-import com.Otho.customItems.lib.ModReference;
+import com.Otho.customItems.ModReference;
+import com.Otho.customItems.registry.Changer;
+import com.Otho.customItems.registry.Registry;
 import com.Otho.customItems.util.LogHelper;
 
 
@@ -25,8 +27,7 @@ public class JsonConfigurationHandler
 	public static JsonSchema allData;
 	
 	public static void init (String folderPath)
-	{	
-	
+	{		
 		File folder = new File(folderPath);
 		allData = new JsonSchema();
 		
@@ -51,8 +52,7 @@ public class JsonConfigurationHandler
 							reader = new JsonReader(new FileReader(file));
 							
 							JsonSchema data = gson.fromJson(reader, JsonSchema.class);
-							mergeGson(data, allData);
-							
+							mergeGson(data, allData);							
 						}catch(FileNotFoundException e)
 						{
 							
@@ -60,7 +60,7 @@ public class JsonConfigurationHandler
 					}
 				}
 				if(listOfFiles.length > 0)
-					RegisterCustomItems.register(allData);
+					Registry.register(allData);
 			}
 		}else
 		{

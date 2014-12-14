@@ -3,7 +3,7 @@ package com.Otho.customItems.mod.blocks;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.Otho.customItems.lib.ModReference;
+import com.Otho.customItems.ModReference;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

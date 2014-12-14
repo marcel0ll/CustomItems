@@ -1,7 +1,7 @@
 package com.Otho.customItems.proxy;
 
 import com.Otho.customItems.CustomItems;
-import com.Otho.customItems.lib.ModReference;
+import com.Otho.customItems.ModReference;
 import com.Otho.customItems.mod.GUI.GuiHandler;
 import com.Otho.customItems.mod.tileentitys.TileEntityCustomChest;
 

@@ -6,7 +6,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
-import com.Otho.customItems.lib.ModReference;
+import com.Otho.customItems.ModReference;
 
 public class customItemsTab extends CreativeTabs{
     public Item iconItem;
