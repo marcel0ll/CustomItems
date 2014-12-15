@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 
 import com.Otho.customItems.ModReference;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
+import com.Otho.customItems.util.Util;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -34,8 +35,6 @@ public class CustomBlock extends Block {
     private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;
 	private boolean renderNormaly;	
-
-	private int maxStackSize = 64;
 
 	private boolean dropsItem = false;
 	
@@ -112,16 +111,6 @@ public class CustomBlock extends Block {
     public void setCanSilkHarvest(boolean canSilkHarvest) {
 		this.canSilkHarvest = canSilkHarvest;
 	}
-
-	public void setMaxStackSize(int maxStackSize) {
-		this.maxStackSize = maxStackSize;
-		
-		maxStackSize = Math.max(maxStackSize, 0);
-		maxStackSize = Math.min(maxStackSize, 64);
-		
-		Item itemBlock = Item.getItemFromBlock(this);
-        itemBlock.setMaxStackSize(this.maxStackSize);
-	}  
 	
 	public void setRenderNormaly(boolean renderNormaly) {
 		this.renderNormaly = renderNormaly;

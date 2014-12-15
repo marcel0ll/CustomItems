@@ -34,8 +34,6 @@ public class CustomFallingBlock  extends BlockFalling
 	private boolean canSilkHarvest;
 	private boolean renderNormaly;	
 
-	private int maxStackSize = 64;
-
 	private boolean dropsItem = false;
 	
 	private int maxItemDrop;
@@ -76,18 +74,16 @@ public class CustomFallingBlock  extends BlockFalling
     {
     	int ret = 0;
     	int i;
-    	for(i=0;i < this.maxItemDrop + fortune;i++)
+    	ret = this.minItemDrop;
+    	for(i= this.minItemDrop;i < this.maxItemDrop + fortune;i++)
     	{
     		boolean willDrop = world.rand.nextInt(100) < this.eachExtraItemDropChance;
     		if(willDrop)
     			ret++;
     	}
-    	if(ret < this.minItemDrop)
-    		ret = this.minItemDrop;
     	
     	return ret;
-    }
-	
+    }	
 	
 	public void setMaxItemDrop(int maxItemDrop) {
 		this.maxItemDrop = maxItemDrop;
@@ -113,16 +109,6 @@ public class CustomFallingBlock  extends BlockFalling
     public void setCanSilkHarvest(boolean canSilkHarvest) {
 		this.canSilkHarvest = canSilkHarvest;
 	}
-
-	public void setMaxStackSize(int maxStackSize) {
-		this.maxStackSize = maxStackSize;
-		
-		maxStackSize = Math.max(maxStackSize, 0);
-		maxStackSize = Math.min(maxStackSize, 64);
-		
-		Item itemBlock = Item.getItemFromBlock(this);
-        itemBlock.setMaxStackSize(this.maxStackSize);
-	}  
 	
 	public void setRenderNormaly(boolean renderNormaly) {
 		this.renderNormaly = renderNormaly;
@@ -188,11 +174,11 @@ public class CustomFallingBlock  extends BlockFalling
     	}
     }
     
-    public void registerBlockTextures(String[] textureNames)
-    {
-    	this.textureNames = textureNames;
-    }
-    
+	    public void registerBlockTextures(String[] textureNames)
+	    {
+	    	this.textureNames = textureNames;
+	    }
+	    
     @Override
     public boolean isOpaqueCube ()
     {

@@ -24,7 +24,7 @@ public class Changer {
 			for(i=0; i<data.changeBlocks.length; i++)
 			{
 				LogHelper.info("Changing: " +data.changeBlocks[i].name);
-				changeSingleBlock(data.changeBlocks[i]);
+				changeBlock(data.changeBlocks[i]);
 			}
 		}
 		
@@ -33,12 +33,12 @@ public class Changer {
 			for(i=0; i<data.changeItems.length; i++)
 			{
 				LogHelper.info("Changing: " +data.changeItems[i].name);
-				changeSingleItem(data.changeItems[i]);
+				changeItem(data.changeItems[i]);
 			}
 		}
 	}
 	
-	public static void changeSingleBlock(Cfg_change_block blockData)
+	public static void changeBlock(Cfg_change_block blockData)
 	{
 		String[] parsing = blockData.name.split(":");
 		
@@ -78,16 +78,14 @@ public class Changer {
 			{
 				Item itemBlock = Item.getItemFromBlock(block);
 				
-				blockData.maxStackSize = Math.max(blockData.maxStackSize, 0);
-				blockData.maxStackSize = Math.min(blockData.maxStackSize, 64);
+				int size = Util.range(blockData.maxStackSize, 1, 64);
 				
-				
-		        itemBlock.setMaxStackSize(blockData.maxStackSize);
+		        itemBlock.setMaxStackSize(size);
 			}
 		}
 	}
 	
-	public static void changeSingleItem(Cfg_change_item itemData)
+	public static void changeItem(Cfg_change_item itemData)
 	{
 		String[] parsing = itemData.name.split(":");
 		if(parsing[0] != null && parsing[1] != null)
@@ -96,11 +94,9 @@ public class Changer {
 			
 			if(itemData.maxStackSize != null)
 			{
-				itemData.maxStackSize = Math.max(itemData.maxStackSize, 1);
-				itemData.maxStackSize = Math.min(itemData.maxStackSize, 64);
+				int size = Util.range(itemData.maxStackSize, 1, 64);
 				
-				
-				item.setMaxStackSize(itemData.maxStackSize);
+				item.setMaxStackSize(size);
 			}
 		}
 	}

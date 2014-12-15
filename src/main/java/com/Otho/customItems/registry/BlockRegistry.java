@@ -53,7 +53,7 @@ public class BlockRegistry {
 			
 			block.setHardness(data.hardness);
 			block.setResistance(data.resistance);
-			block.setBreaks(data.breaks);
+			block.setBreaks(data.dropsItSelf);
 			block.setCanSilkHarvest(data.canSilkHarvest);
 			data.lightLevel = Util.range(data.lightLevel, 0, 1);
 			
@@ -91,11 +91,14 @@ public class BlockRegistry {
 			Registry.blocksList.add(block);
 			Registry.blocksList.add(data.creativeTab);	        		        	
 			
-			//Register Block
-			GameRegistry.registerBlock(block, registerName);
-			block.setMaxStackSize(data.maxStackSize);
-			block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);	
 			
+			Item itemBlock = Item.getItemFromBlock(block);			
+			int size = Util.range(data.maxStackSize, 1, 64);			
+	        itemBlock.setMaxStackSize(size);
+			
+			//Register Block
+			GameRegistry.registerBlock(block, registerName);			
+			block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
 			LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
 		}
 		else
@@ -104,7 +107,7 @@ public class BlockRegistry {
 			
 			block.setHardness(data.hardness);
 			block.setResistance(data.resistance);
-			block.setBreaks(data.breaks);
+			block.setBreaks(data.dropsItSelf);
 			block.setCanSilkHarvest(data.canSilkHarvest);
 			data.lightLevel = Util.range(data.lightLevel, 0, 1);
 			
@@ -142,11 +145,14 @@ public class BlockRegistry {
 			Registry.blocksList.add(block);
 			Registry.blocksList.add(data.creativeTab);	        		        	
 			
-			//Register Block
-			GameRegistry.registerBlock(block, registerName);
-			block.setMaxStackSize(data.maxStackSize);
-			block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);	
 			
+			Item itemBlock = Item.getItemFromBlock(block);			
+			int size = Util.range(data.maxStackSize, 1, 64);			
+	        itemBlock.setMaxStackSize(size);
+			
+			//Register Block
+			GameRegistry.registerBlock(block, registerName);			
+			block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
 			LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
 		}
     	
