@@ -12,7 +12,6 @@ import com.Otho.customItems.mod.blocks.CustomChest;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
 import com.Otho.customItems.mod.tileentitys.TileEntityCustomChest;
 import com.Otho.customItems.proxy.ServerProxy;
-import com.Otho.customItems.util.FileGenerator;
 import com.Otho.customItems.util.LogHelper;
 
 import cpw.mods.fml.common.Mod;
@@ -41,18 +40,14 @@ public class CustomItems
 	{			
 		String folderPath = event.getModConfigurationDirectory().toString()+File.separator+ModReference.MOD_ID+File.separator;
 		
-	    JsonConfigurationHandler.unpackConfigFile(CustomItems.class, "defaultConfigs", folderPath);
+		if(ForgeConfig.remake)
+			JsonConfigurationHandler.unpackConfigFile(CustomItems.class, "defaultConfigs", folderPath);
 		
 		
 		customItemsTab.init();
 		
 		ForgeConfig.init(event.getSuggestedConfigurationFile());
-		
-		if(ForgeConfig.makeRP)
-		{
-			FileGenerator.generateResourcePack(event.getSuggestedConfigurationFile());
-		}
-		
+				
 		JsonConfigurationHandler.init(folderPath);
 		
     	proxy.registerTileEntities();

@@ -89,17 +89,16 @@ public class BlockRegistry {
 			}
 			
 			Registry.blocksList.add(block);
-			Registry.blocksList.add(data.creativeTab);	        		        	
-			
-			
-			Item itemBlock = Item.getItemFromBlock(block);			
-			int size = Util.range(data.maxStackSize, 1, 64);			
-	        itemBlock.setMaxStackSize(size);
+			Registry.blocksList.add(data.creativeTab);	
 			
 			//Register Block
 			GameRegistry.registerBlock(block, registerName);			
 			block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
 			LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+			
+			Item itemBlock = Item.getItemFromBlock(block);			
+			int size = Util.range(data.maxStackSize, 1, 64);			
+	        itemBlock.setMaxStackSize(size);
 		}
 		else
 		{
@@ -143,17 +142,16 @@ public class BlockRegistry {
 			}
 			
 			Registry.blocksList.add(block);
-			Registry.blocksList.add(data.creativeTab);	        		        	
-			
-			
-			Item itemBlock = Item.getItemFromBlock(block);			
-			int size = Util.range(data.maxStackSize, 1, 64);			
-	        itemBlock.setMaxStackSize(size);
+			Registry.blocksList.add(data.creativeTab);	 			
 			
 			//Register Block
 			GameRegistry.registerBlock(block, registerName);			
 			block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
 			LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+			
+			Item itemBlock = Item.getItemFromBlock(block);			
+			int size = Util.range(data.maxStackSize, 1, 64);			
+	        itemBlock.setMaxStackSize(size);
 		}
     	
         return true;

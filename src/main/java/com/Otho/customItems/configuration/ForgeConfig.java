@@ -24,10 +24,8 @@ public class ForgeConfig
 	
 	private static void loadConfiguration()
 	{		
-		remake = config.getBoolean("remake", "OPTIONS", false, "Set true if you want to restore the default config on the next time the mod is loaded");
-		debug = config.getBoolean("debug", "DEBUG", false, "Set to true if you wish to output debug info");
-		makeRP = config.getBoolean("makeCustomItemsResourcePack", "OPTIONS", false, "Set true if you want to make a CI ResourcePack on the next time the mod is loaded");
-		
+		remake = config.getBoolean("remake", "OPTIONS", true, "Set true if you want to restore the default config on the next time the mod is loaded");
+		debug = config.getBoolean("debug", "DEBUG", false, "Set to true if you wish to output debug info");		
 		
 		if(config.hasChanged()) {
             config.save();
