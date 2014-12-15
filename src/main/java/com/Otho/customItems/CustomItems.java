@@ -3,6 +3,7 @@ package com.Otho.customItems;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
 
 import com.Otho.customItems.configuration.JsonConfigurationHandler;
 import com.Otho.customItems.configuration.ForgeConfig;
@@ -36,10 +37,13 @@ public class CustomItems
     public static ServerProxy proxy;
 	
 	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event) throws IOException
+	public void preInit(FMLPreInitializationEvent event) throws IOException, URISyntaxException
 	{			
 		String folderPath = event.getModConfigurationDirectory().toString()+File.separator+ModReference.MOD_ID+File.separator;
-
+		
+	    JsonConfigurationHandler.unpackConfigFile(CustomItems.class, "defaultConfigs", folderPath);
+		
+		
 		customItemsTab.init();
 		
 		ForgeConfig.init(event.getSuggestedConfigurationFile());

@@ -177,4 +177,16 @@ public class Registry {
             setCreativeTabs();
         }
     }
+
+    public static void change(JsonSchema data){
+		int i;
+		LogHelper.info("Starting to change:");
+		if(data.changeBlocks != null){
+			TweakerRegistry.changeBlock(data.changeBlocks);			
+		}
+		
+		if(data.changeItems != null){			
+			TweakerRegistry.changeItem(data.changeItems);			
+		}
+	}
 }

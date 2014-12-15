@@ -1,22 +1,32 @@
 package com.Otho.customItems.configuration;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.file.Files;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
+import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.logging.log4j.Level;
 
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import com.Otho.customItems.ModReference;
-import com.Otho.customItems.registry.Changer;
 import com.Otho.customItems.registry.Registry;
 import com.Otho.customItems.util.LogHelper;
 
@@ -69,7 +79,7 @@ public class JsonConfigurationHandler
 	}
 	
 	public static void post_init() {
-		Changer.change(allData);
+		Registry.change(allData);
 	}
 	
 	private static void mergeGson(JsonSchema data, JsonSchema mergeTo)
@@ -95,5 +105,55 @@ public class JsonConfigurationHandler
 		mergeTo.changeItems = ArrayUtils.addAll(data.changeItems, mergeTo.changeItems);
 	}
 
+	public static boolean unpackConfigFile(Class obj, String path, String destinationPath) throws IOException, URISyntaxException
+    {
+		String[] resources = getResourceListing(obj, path);
+		int i;
+		if(resources != null){
+			for(i=0; i< resources.length; i++){			
+				String resourceName = path + "/" + resources[i];
+				
+				if(resourceName.endsWith(".json")){
+					File destination = new File(destinationPath +File.separator + resources[i]);
+					
+			    	Enumeration<URL> a = obj.getClassLoader().getResources(path);
+			    	String b = a.nextElement().getPath();
+			    	String c = b;
+			        try
+			            {
+			        	    InputStream ex = obj.getClassLoader().getResourceAsStream(resourceName);
+			                BufferedOutputStream streamOut = new BufferedOutputStream(new FileOutputStream(destination));
+			                byte[] buffer = new byte[1024];
+			                boolean len = false;
+			                int len1;
+		
+			                while ((len1 = ex.read(buffer)) >= 0)
+			                {
+			                    streamOut.write(buffer, 0, len1);
+			                }
+		
+			                ex.close();
+			                streamOut.close();	                
+			            }
+			            catch (Exception var6)
+			            {
+			                throw new RuntimeException("Failed to unpack resource \'" + resourceName + "\'", var6);
+			            }
+				}
+			}
+		}
+		
+		return true;    	
+    }
+	
+	public static String[] getResourceListing(Class clazz, String path) throws URISyntaxException, IOException {
+	      URL dirURL = clazz.getClassLoader().getResource(path);
+	      if (dirURL != null && dirURL.getProtocol().equals("file")) {
+	    	String[] list = new File(dirURL.toURI()).list();
+	        return list;
+	      }	      
+	        
+	      throw new UnsupportedOperationException("Cannot list files for URL "+dirURL);
+	  }
 	
 }
