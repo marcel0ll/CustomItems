@@ -1,20 +1,17 @@
 package com.Otho.customItems.mod.items.disks;
 
-import com.Otho.customItems.ModReference;
-import com.Otho.customItems.mod.creativeTab.customItemsTab;
-import com.Otho.customItems.util.LogHelper;
+import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.client.audio.SoundManager;
-import net.minecraft.client.audio.SoundRegistry;
 
-import java.util.List;
+import com.Otho.customItems.ModReference;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomDisk extends ItemRecord {
     protected String song;

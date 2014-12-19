@@ -1,6 +1,5 @@
 package com.Otho.customItems.configuration.jsonReaders.tileEntity;
 
-import com.Otho.customItems.ModReference;
 import com.Otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
 
 public class Cfg_chest extends Cfg_block

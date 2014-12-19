@@ -2,8 +2,6 @@ package com.Otho.customItems.configuration;
 
 import java.io.File;
 
-import com.Otho.customItems.ModReference;
-
 import net.minecraftforge.common.config.Configuration;
 
 public class ForgeConfig 

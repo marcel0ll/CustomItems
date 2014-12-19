@@ -7,7 +7,6 @@ import com.Otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
 import com.Otho.customItems.mod.blocks.CustomChest;
 import com.Otho.customItems.mod.materials.CI_Material;
 import com.Otho.customItems.util.LogHelper;
-import com.Otho.customItems.util.StringUtil;
 import com.Otho.customItems.util.Util;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -17,7 +16,7 @@ public class TileEntityRegistry {
 	public static boolean registerChest(Cfg_chest data){
 		LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 		if(data.toolClass != null)
 		{

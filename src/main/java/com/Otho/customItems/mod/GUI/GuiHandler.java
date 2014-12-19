@@ -1,11 +1,12 @@
 package com.Otho.customItems.mod.GUI;
 
-import com.Otho.customItems.mod.containers.CustomChestContainer;
-import com.Otho.customItems.mod.tileentitys.TileEntityCustomChest;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+
+import com.Otho.customItems.mod.containers.CustomChestContainer;
+import com.Otho.customItems.mod.tileentitys.TileEntityCustomChest;
+
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {

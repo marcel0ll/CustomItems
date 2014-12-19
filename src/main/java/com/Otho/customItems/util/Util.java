@@ -187,4 +187,12 @@ public class Util {
 	public static String parseBlockType(String type){
 		return "NORMAL";
 	}
+
+	public static String parseRegisterName(String name)
+	{
+		name = name.replaceAll("\\s+","_");
+		name = name.toLowerCase();
+		
+		return name;
+	}
 }

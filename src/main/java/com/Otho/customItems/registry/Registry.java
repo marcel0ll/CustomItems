@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import net.minecraft.block.Block;	
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraftforge.common.util.EnumHelper;
 
 import org.apache.logging.log4j.Level;
 
@@ -18,7 +17,6 @@ import com.Otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
 import com.Otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
 import com.Otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
 import com.Otho.customItems.configuration.jsonReaders.common.Cfg_basicData;
-import com.Otho.customItems.configuration.jsonReaders.common.Cfg_creativeTab;
 import com.Otho.customItems.configuration.jsonReaders.items.Cfg_item;
 import com.Otho.customItems.configuration.jsonReaders.items.armor.Cfg_boots;
 import com.Otho.customItems.configuration.jsonReaders.items.armor.Cfg_chestplate;
@@ -32,12 +30,7 @@ import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_shovel;
 import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_sword;
 import com.Otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
 import com.Otho.customItems.mod.creativeTab.customItemsTab;
-import com.Otho.customItems.mod.items.tools.CustomAxe;
 import com.Otho.customItems.util.LogHelper;
-import com.Otho.customItems.util.StringUtil;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class Registry {
     

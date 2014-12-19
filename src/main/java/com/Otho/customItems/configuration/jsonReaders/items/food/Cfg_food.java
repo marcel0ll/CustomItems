@@ -1,6 +1,5 @@
 package com.Otho.customItems.configuration.jsonReaders.items.food;
 
-import com.Otho.customItems.ModReference;
 import com.Otho.customItems.configuration.jsonReaders.common.Cfg_PotionEffect;
 import com.Otho.customItems.configuration.jsonReaders.items.Cfg_item;
 

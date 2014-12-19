@@ -10,7 +10,6 @@ import net.minecraftforge.fluids.FluidRegistry;
 
 import org.apache.logging.log4j.Level;
 
-import com.Otho.customItems.ModReference;
 import com.Otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
 import com.Otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
 import com.Otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
@@ -24,7 +23,6 @@ import com.Otho.customItems.mod.items.CustomBucket;
 import com.Otho.customItems.mod.items.CustomSeed;
 import com.Otho.customItems.mod.materials.CI_Material;
 import com.Otho.customItems.util.LogHelper;
-import com.Otho.customItems.util.StringUtil;
 import com.Otho.customItems.util.Util;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -35,7 +33,7 @@ public class BlockRegistry {
     public static boolean registerBlock(Cfg_block data){
     	LogHelper.log(Level.INFO, "Register Block: "+ data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 		if(data.toolClass != null)
 		{
@@ -175,7 +173,7 @@ public class BlockRegistry {
     public static boolean registerCrop(Cfg_crop data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);	        	
+		String registerName = Util.parseRegisterName(data.name);	        	
 		
 		int cropRender;
 		
@@ -189,7 +187,7 @@ public class BlockRegistry {
 			cropRender = 6;
 		}
 		
-	    CustomCrop crop = new CustomCrop((Item) Item.itemRegistry.getObject(data.fruitName), cropRender);
+	    CustomCrop crop = new CustomCrop(data.fruitName, cropRender);
 	    CustomSeed seed = new CustomSeed(crop);
 	    crop.setSeed(seed);
 	    
@@ -242,7 +240,7 @@ public class BlockRegistry {
     public static boolean registerFluid(Cfg_fluid data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 						
 		CustomFluid fluid = new CustomFluid(data.name);

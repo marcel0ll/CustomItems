@@ -1,14 +1,5 @@
 package com.Otho.customItems.mod.blocks;
 
-import org.apache.logging.log4j.Level;
-
-import com.Otho.customItems.CustomItems;
-import com.Otho.customItems.ModReference;
-import com.Otho.customItems.mod.tileentitys.TileEntityCustomChest;
-import com.Otho.customItems.util.LogHelper;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -19,10 +10,16 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.world.World;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
+
+import com.Otho.customItems.CustomItems;
+import com.Otho.customItems.ModReference;
+import com.Otho.customItems.mod.tileentitys.TileEntityCustomChest;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomChest extends Block implements ITileEntityProvider{ 
 

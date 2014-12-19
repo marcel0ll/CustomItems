@@ -1,24 +1,15 @@
 package com.Otho.customItems.mod.GUI;
 
-import java.awt.Color;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
 import com.Otho.customItems.ModReference;
 import com.Otho.customItems.mod.containers.CustomChestContainer;
 import com.Otho.customItems.mod.tileentitys.TileEntityCustomChest;
-
-import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.gui.inventory.GuiFurnace;
-import net.minecraft.client.gui.inventory.GuiInventory;
-import net.minecraft.client.gui.inventory.GuiBeacon;
-import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
 
 public class CustomChestGui extends GuiContainer{
 	

@@ -1,12 +1,9 @@
 package com.Otho.customItems.mod.fluids;
 
-import com.Otho.customItems.ModReference;
-import com.Otho.customItems.mod.blocks.CustomFluidBlock;
-import com.Otho.customItems.util.LogHelper;
-
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.fluids.Fluid;
+
+import com.Otho.customItems.mod.blocks.CustomFluidBlock;
 
 public class CustomFluid extends Fluid {
     public IIcon stillIcon;

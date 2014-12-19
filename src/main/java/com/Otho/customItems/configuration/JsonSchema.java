@@ -18,7 +18,6 @@ import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_sword;
 import com.Otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
 import com.Otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_block;
 import com.Otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_item;
-import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
 public class JsonSchema 
 {	

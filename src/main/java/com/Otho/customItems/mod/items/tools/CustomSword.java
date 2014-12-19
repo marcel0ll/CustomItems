@@ -1,15 +1,9 @@
 package com.Otho.customItems.mod.items.tools;
 
-import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
 import com.Otho.customItems.ModReference;
-import com.Otho.customItems.mod.creativeTab.customItemsTab;
-import com.Otho.customItems.util.LogHelper;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

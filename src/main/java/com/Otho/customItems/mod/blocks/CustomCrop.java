@@ -1,26 +1,24 @@
 package com.Otho.customItems.mod.blocks;
 
 import java.util.ArrayList;
-import java.util.Random;
 
-import com.Otho.customItems.ModReference;
-import com.Otho.customItems.mod.creativeTab.customItemsTab;
-import com.Otho.customItems.mod.items.CustomSeed;
-import com.Otho.customItems.util.LogHelper;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import com.Otho.customItems.ModReference;
+import com.Otho.customItems.mod.items.CustomSeed;
+import com.Otho.customItems.util.LogHelper;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 public class CustomCrop extends BlockCrops {
-    private Item fruit;
+    private String fruit;
     private Item seed;
     
     private boolean dropSeedWhenMature;
@@ -38,7 +36,7 @@ public class CustomCrop extends BlockCrops {
     private int renderType;
 	private int dropFruitDamage;
 
-    public CustomCrop(Item fruit, int renderType) {
+    public CustomCrop(String fruit, int renderType) {
         super();
         this.fruit = fruit;
         this.renderType = renderType;
@@ -106,8 +104,19 @@ public class CustomCrop extends BlockCrops {
         }        
         //Mature
         else{
+        	String[] parser = fruit.split(":");
+            Item item = GameRegistry.findItem(parser[0], parser[1]);
+            
+            int damage;
+        	
+        	if(parser.length > 2){
+        		damage = Integer.parseInt(parser[2]);
+        	}else{
+        		damage = 0;
+        	}
+        	
         	if(fruitQuantity > 0)
-        		drops.add(new ItemStack(this.fruit, fruitQuantity));
+        		drops.add(new ItemStack(item, fruitQuantity, damage));
         	if(this.dropSeedWhenMature)
         		if(seedQuantity > 0)
         			drops.add(new ItemStack(this.seed, seedQuantity, dropFruitDamage));
@@ -166,7 +175,10 @@ public class CustomCrop extends BlockCrops {
 
     @Override
     protected Item func_149865_P() {
-        return this.fruit;
+    	String[] parser = fruit.split(":");
+        Item item = GameRegistry.findItem(parser[0], parser[1]);
+    	
+        return item;
     }
 
     @Override

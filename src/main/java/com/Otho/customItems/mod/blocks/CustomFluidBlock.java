@@ -1,11 +1,5 @@
 package com.Otho.customItems.mod.blocks;
 
-import com.Otho.customItems.ModReference;
-import com.Otho.customItems.mod.creativeTab.customItemsTab;
-import com.Otho.customItems.util.LogHelper;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
@@ -13,6 +7,11 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
+
+import com.Otho.customItems.ModReference;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomFluidBlock extends BlockFluidClassic {
     public CustomFluidBlock(Fluid fluid, Material material) {

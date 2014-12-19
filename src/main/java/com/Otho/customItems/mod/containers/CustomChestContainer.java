@@ -1,14 +1,13 @@
 package com.Otho.customItems.mod.containers;
 
-import com.Otho.customItems.mod.tileentitys.TileEntityCustomChest;
-
+import invtweaks.api.container.ChestContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import invtweaks.api.container.ChestContainer;
+
+import com.Otho.customItems.mod.tileentitys.TileEntityCustomChest;
 
 @ChestContainer(isLargeChest = true, rowSize = 7)
 public class CustomChestContainer extends Container

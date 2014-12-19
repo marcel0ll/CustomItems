@@ -1,12 +1,11 @@
 package com.Otho.customItems.registry;
 
-import org.apache.logging.log4j.Level;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 
-import com.Otho.customItems.ModReference;
+import org.apache.logging.log4j.Level;
+
 import com.Otho.customItems.configuration.jsonReaders.items.Cfg_item;
 import com.Otho.customItems.configuration.jsonReaders.items.armor.Cfg_boots;
 import com.Otho.customItems.configuration.jsonReaders.items.armor.Cfg_chestplate;
@@ -18,7 +17,6 @@ import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_hoe;
 import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_pickaxe;
 import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_shovel;
 import com.Otho.customItems.configuration.jsonReaders.items.tools.Cfg_sword;
-import com.Otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
 import com.Otho.customItems.mod.items.CustomItem;
 import com.Otho.customItems.mod.items.armor.CustomArmor;
 import com.Otho.customItems.mod.items.food.CustomFood;
@@ -28,7 +26,7 @@ import com.Otho.customItems.mod.items.tools.CustomPickaxe;
 import com.Otho.customItems.mod.items.tools.CustomShovel;
 import com.Otho.customItems.mod.items.tools.CustomSword;
 import com.Otho.customItems.util.LogHelper;
-import com.Otho.customItems.util.StringUtil;
+import com.Otho.customItems.util.Util;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -39,7 +37,7 @@ public class ItemRegistry {
         
         LogHelper.info(data.name, 1);
         
-        String registerName = StringUtil.parseRegisterName(data.name);
+        String registerName = Util.parseRegisterName(data.name);
         
         Item.ToolMaterial material = EnumHelper.addToolMaterial(
                 data.textureName, 
@@ -79,7 +77,7 @@ public class ItemRegistry {
     public static boolean registerBoots(Cfg_boots data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 		
 		//Make Custom Armor
@@ -117,7 +115,7 @@ public class ItemRegistry {
     public static boolean registerChestplate(Cfg_chestplate data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 		
 		//Make Custom Armor
@@ -156,7 +154,7 @@ public class ItemRegistry {
     public static boolean registerFood(Cfg_food data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);				
+		String registerName = Util.parseRegisterName(data.name);				
 
 		CustomFood food = new CustomFood(data.healAmount, data.saturationModifier, data.isWolfFood);
 		
@@ -201,7 +199,7 @@ public class ItemRegistry {
     public static boolean registerHelmet(Cfg_helmet data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 		
 		//Make Custom Armor
@@ -240,7 +238,7 @@ public class ItemRegistry {
     public static boolean registerHoe(Cfg_hoe data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 		Item.ToolMaterial material = EnumHelper.addToolMaterial(
 				data.textureName, 
@@ -280,7 +278,7 @@ public class ItemRegistry {
     public static boolean registerItem(Cfg_item data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 		CustomItem item = new CustomItem(data.maxStackSize);
 	   
@@ -313,7 +311,7 @@ public class ItemRegistry {
     public static boolean registerLeggings(Cfg_leggings data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 		//Make Custom Armor
 		int reduction[] = {0,0,0,0};
@@ -351,7 +349,7 @@ public class ItemRegistry {
     public static boolean registerPickaxe(Cfg_pickaxe data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 		Item.ToolMaterial material = EnumHelper.addToolMaterial(
 				data.textureName, 
@@ -391,7 +389,7 @@ public class ItemRegistry {
     public static boolean registerShovel(Cfg_shovel data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 		Item.ToolMaterial material = EnumHelper.addToolMaterial(
 				data.textureName, 
@@ -431,7 +429,7 @@ public class ItemRegistry {
     public static boolean registerSword(Cfg_sword data){
     	LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = StringUtil.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);
 		
 		Item.ToolMaterial material = EnumHelper.addToolMaterial(
 				data.textureName, 

@@ -2,33 +2,20 @@ package com.Otho.customItems.configuration;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.net.URLDecoder;
-import java.nio.file.Files;
 import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
 
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.logging.log4j.Level;
 
-import com.google.gson.*;
-import com.google.gson.stream.JsonReader;
-import com.Otho.customItems.ModReference;
 import com.Otho.customItems.registry.Registry;
-import com.Otho.customItems.util.LogHelper;
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
 
 
 public class JsonConfigurationHandler 

@@ -6,7 +6,6 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
 import com.Otho.customItems.ModReference;
-import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

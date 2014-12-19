@@ -4,7 +4,6 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemHoe;
 
 import com.Otho.customItems.ModReference;
-import com.Otho.customItems.mod.creativeTab.customItemsTab;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

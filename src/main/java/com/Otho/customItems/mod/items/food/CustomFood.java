@@ -1,21 +1,18 @@
 package com.Otho.customItems.mod.items.food;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
+
 import com.Otho.customItems.ModReference;
 import com.Otho.customItems.configuration.jsonReaders.common.Cfg_PotionEffect;
-import com.Otho.customItems.mod.creativeTab.customItemsTab;
 import com.Otho.customItems.util.Util;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemSeedFood;
-import net.minecraft.item.ItemSeeds;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.world.World;
 
 public class CustomFood extends ItemFood{
 	

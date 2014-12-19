@@ -1,11 +1,11 @@
 package com.Otho.customItems.util;
 
+import org.apache.logging.log4j.Level;
+
 import com.Otho.customItems.ModReference;
 import com.Otho.customItems.configuration.ForgeConfig;
 
 import cpw.mods.fml.common.FMLLog;
-
-import org.apache.logging.log4j.Level;
 
 public class LogHelper {
     public static void log(Level logLevel, Object object) {
