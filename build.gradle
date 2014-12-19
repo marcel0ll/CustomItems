@@ -18,11 +18,11 @@ buildscript {
 apply plugin: 'forge'
 
 version = "1.0.5_beta_1.7.10"
-group= "com.Otho.customItems" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "customItems"
+group= "me.otho.customItems" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "customitems"
 
 minecraft {
-    version = "1.7.10-10.13.0.1208"
+    version = "1.7.10-10.13.2.1272"
     assetDir = "eclipse/assets"
 }
 
