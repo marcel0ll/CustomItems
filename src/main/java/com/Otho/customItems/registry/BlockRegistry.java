@@ -81,9 +81,8 @@ public class BlockRegistry {
 			block.setStepSound(Util.parseSoundType(data.stepSound));
 			
 			if(data.dropItemName != null)
-			{				
-				block.setDropItem((Item) Item.itemRegistry.getObject(data.dropItemName));
-				block.setDropItemDamage(data.dropItemDamage);
+			{			
+				block.setDropItem(data.dropItemName);				
 				block.setMaxItemDrop(data.maxItemDrop);
 				block.setMinItemDrop(data.minItemDrop);
 				block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
@@ -135,15 +134,15 @@ public class BlockRegistry {
 			block.setStepSound(Util.parseSoundType(data.stepSound));
 			
 			if(data.dropItemName != null)
-			{
-				block.setDropItem((Item) Item.itemRegistry.getObject(data.dropItemName));
+			{			
+				block.setDropItem(data.dropItemName);				
 				block.setMaxItemDrop(data.maxItemDrop);
 				block.setMinItemDrop(data.minItemDrop);
 				block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
 			}
 			
 			Registry.blocksList.add(block);
-			Registry.blocksList.add(data.creativeTab);	 			
+			Registry.blocksList.add(data.creativeTab);	
 			
 			//Register Block
 			GameRegistry.registerBlock(block, registerName);			

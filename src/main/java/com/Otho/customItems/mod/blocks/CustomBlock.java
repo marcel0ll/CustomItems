@@ -43,11 +43,10 @@ public class CustomBlock extends Block {
 	private int minItemDrop;
 	private int eachExtraItemDropChance;
 	
-	private Item dropItem;
+	private String dropItem;
 	
 	private String[] textureNames;
 	private boolean breaks;
-	private int dropItemDamage;
 	
 	@Override
     @SideOnly(Side.CLIENT)
@@ -100,7 +99,7 @@ public class CustomBlock extends Block {
 		this.eachExtraItemDropChance = eachExtraItemDropChance;
 	}
 
-	public void setDropItem(Item dropItem) {
+	public void setDropItem(String dropItem) {
 		this.dropItem = dropItem;
 	}
 	public void setOpaque(boolean isOpaque)
@@ -138,16 +137,28 @@ public class CustomBlock extends Block {
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
     {
         ArrayList<ItemStack> drops = new ArrayList(); 
-        
-        if(dropItem == null)
-        {
-        	if(!breaks)
-        		drops.add(new ItemStack(Item.getItemFromBlock(this)));
-        }else
-        {
-        	int itemQuantity = getItemDropQuantity(world, fortune);
-           	drops.add(new ItemStack(dropItem, itemQuantity, dropItemDamage));
-        }          
+       
+        if(dropItem != null){
+	        String[] parser = dropItem.split(":");
+	        Item item = GameRegistry.findItem(parser[0], parser[1]);
+	        
+	        if(item == null)
+	        {
+	        	if(!breaks)
+	        		drops.add(new ItemStack(Item.getItemFromBlock(this)));
+	        }else
+	        {
+	        	int itemQuantity = getItemDropQuantity(world, fortune);
+	        	int damage;
+	        	
+	        	if(parser.length > 2){
+	        		damage = Integer.parseInt(parser[2]);
+	        	}else{
+	        		damage = 0;
+	        	}
+	           	drops.add(new ItemStack(item, itemQuantity, damage));
+	        }          
+        }
         
         return drops;
     }
@@ -177,10 +188,10 @@ public class CustomBlock extends Block {
     	}
     }
     
-	    public void registerBlockTextures(String[] textureNames)
-	    {
-	    	this.textureNames = textureNames;
-	    }
+    public void registerBlockTextures(String[] textureNames)
+    {
+    	this.textureNames = textureNames;
+    }
 	    
     @Override
     public boolean isOpaqueCube ()
@@ -197,8 +208,4 @@ public class CustomBlock extends Block {
 	public void setBreaks(boolean breaks) {
 		this.breaks = breaks;
 	}
-	public void setDropItemDamage(int dropItemDamage) {
-		this.dropItemDamage = dropItemDamage;		
-	}
-
 }
