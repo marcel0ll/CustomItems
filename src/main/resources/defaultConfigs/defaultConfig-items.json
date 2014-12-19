@@ -1,19 +1,11 @@
-{
-    
-       "creativeTabs":[
-            {
-                "tabLabel":"novoTab",
-                "iconItem":"customitems:god_sword"                
-            }
-        ],
+{      
         "blocks":[
             {
                 "name": "Red Sand",
                 "textureName": "red_sand",
                 "material": "sand",
                 "toolClass":"shovel",
-                "hardness": 0.5,
-                "type": "STAIRS",
+                "hardness": 0.5,                
                 "resistance": 2.5,                        
                 "falls": true,
                 "stepSound": "sand"
@@ -66,7 +58,7 @@
                 "maxStackSize": 16
             },
             {
-                "name": "BlockXOR",
+                "name": "Multi Tex Block",
                 "textureName": "Block2TextureName",
                 "material": "rock",
                 "toolClass":"pickaxe",
@@ -87,91 +79,44 @@
                     "xneg":"side_5",
                     "xpos":"side_6"
                 }
-            },
-            {
-                "name": "Saquaguara Block",
-                "textureName": "Block1TextureName",
-                "material": "rock",
-                "toolClass":"pickaxe",
-                "hardness": 1,
-                "resistance": 0,
-                "slipperiness": 0.9,
-                "harvestLevel": 0,
-                "falls": true,
-                "stepSound": "sand"
-            }
+            }            
         ],
 
-        "chests":[
-            {
-                "name": "Saquaguara Chest",
-                "textureName": "Block1TextureName",
-                "lightLevel": 1.0
-            },
+        "chests":[            
             {
                 "name": "Single item Chest",
-                "textureName": "Block1TextureName",
-                "slotMaxStackSize": 3                
-            },
-            {
-                "name": "Saquaguara Chest2",
-                "textureName": "Block1TextureName",
-                "lightLevel": 1.0,
-                "invWidth": 1,
-                "invHeight": 6
-            },
-            {
-                "name": "Single item Chest3",
-                "textureName": "Block1TextureName",
-                "slotMaxStackSize": 150 ,
-                "invWidth": 9,
-                "invHeight": 1,
-                "invName":"Nano"               
-            },
-            {
-                "name": "Single item Chest4",
-                "textureName": "Block1TextureName",
+                "invName": "Tiny",
+                "textureName": "crate",                
                 "slotMaxStackSize": 1,
-                "invWidth": 9,
-                "invHeight":  6             
+                "invWidth": 1,
+                "invHeight":  1             
             }
         ],
         
         "items":[
             {
             "name":"Blue Metal",
+            "creativeTab": "New Tab",
             "textureName":"blue_metal",
             "maxStackSize": 64
-            },
-            {
-            "name":"Blue Pill",
-            "textureName":"blue_pill",
-            "maxStackSize": 64
-            },
+            },            
             {
             "name":"Red Metal",
+            "creativeTab": "New Tab",
             "textureName":"red_metal",
             "maxStackSize": 64
-            },
-            {
-            "name":"Red Pill",
-            "textureName":"red_pill",
-            "maxStackSize": 64
-            },
+            },           
             {
             "name":"Gray Metal",
+            "creativeTab": "New Tab",
             "textureName":"gray_metal",
             "maxStackSize": 64
-            },
-            {
-            "name":"Gray Pill",
-            "textureName":"gray_pill",
-            "maxStackSize": 64
-            },
+            },           
             {
             "name":"Coin",
+            "creativeTab": "New Tab",
             "textureName":"coin2",
-            "maxStackSize": 64
+            "maxStackSize": 9
             }
         ],
         "foods":[
@@ -187,47 +132,14 @@
                         "effect": "jump"
                     }
                 ]
-            },
-            {
-                "name":"Beetroot",
-                "textureName":"beetroot",
-                "healAmount": 1,
-                "saturationModifier":1                                     
-            },
-            {
-                "name":"Beetroot Soup",
-                "textureName":"soup_beetroot",
-                "healAmount": 8,
-                "saturationModifier":8,
-                "potionEffects": [
-                    {
-                        "potionEffectProbability": 0
-                    }
-                ]                  
-            }
+            }           
 
-    ],
-        "pickaxes":[
-            {
-                "name":"Banana pick",
-                "textureName":"BaNaNa PiCk",
-                "harvestLevel":0,
-                "maxUses":10,
-                "efficiencyOnProperMaterial":10,
-                "damageVsEntity":0,
-                "enchantability":0
-            }
-        ],
-        "axes":[
-        ],
-        "shovels":[
-        ],
-        "hoes":[
-        ],
+    ],        
         "swords":[
             {
                 "name":"God Sword",
                 "textureName":"godsword",
+                "creativeTab": "New Tab",
                 "harvestLevel":0,
                 "maxUses":10,
                 "efficiencyOnProperMaterial":10,
@@ -235,26 +147,10 @@
                 "enchantability":0
             }
         ],
-
-        "helmets":[
-        ],
-        "chestplates":[
-            {
-                "name":"Gold Armor",
-                "textureName":"gold"
-            }
-        ],
-        "leggings":[
-        ],
-        "boots":[
-        ],
-        
-        "fluids":[
-        ],
         "changeItems":[
             {
-                "name":"minecraft:apple",
-                "maxStackSize": 3
+                "name":"minecraft:boat",
+                "maxStackSize": 6
             }
         ]
 }

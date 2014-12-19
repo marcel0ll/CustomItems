@@ -28,10 +28,10 @@ public class CustomItems
 	{			
 		String folderPath = event.getModConfigurationDirectory().toString()+File.separator+ModReference.MOD_ID+File.separator;
 		
-		if(ForgeConfig.remake)
-			JsonConfigurationHandler.unpackConfigFile(CustomItems.class, "defaultConfigs", folderPath);
-								
 		ForgeConfig.init(event.getSuggestedConfigurationFile());
+		
+//		if(ForgeConfig.remake)
+//			JsonConfigurationHandler.unpackConfigFile(CustomItems.class, "defaultConfigs", folderPath);
 		
 		customItemsTab.init();
 				
