@@ -42,11 +42,10 @@ public class CustomItems
 		
 		if(ForgeConfig.remake)
 			JsonConfigurationHandler.unpackConfigFile(CustomItems.class, "defaultConfigs", folderPath);
-		
+								
+		ForgeConfig.init(event.getSuggestedConfigurationFile());
 		
 		customItemsTab.init();
-		
-		ForgeConfig.init(event.getSuggestedConfigurationFile());
 				
 		JsonConfigurationHandler.init(folderPath);
 		
