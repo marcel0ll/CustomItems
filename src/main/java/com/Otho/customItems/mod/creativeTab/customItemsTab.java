@@ -7,6 +7,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
 import com.Otho.customItems.ModReference;
+import com.Otho.customItems.configuration.ForgeConfig;
 
 public class customItemsTab extends CreativeTabs{
     public Item iconItem;
@@ -15,8 +16,10 @@ public class customItemsTab extends CreativeTabs{
     private static ArrayList<customItemsTab> customTabs = new ArrayList(); 
     
     public static void init(){
-    	customTabs.add(new customItemsTab(Items.item_frame, "Custom Items"));
-    	tabId++;
+    	if(ForgeConfig.defaultTab){
+	    	customTabs.add(new customItemsTab(Items.item_frame, "Custom Items"));
+	    	tabId++;
+    	}
     }
 
     public customItemsTab(Item iconItem, String labelName)
@@ -64,6 +67,6 @@ public class customItemsTab extends CreativeTabs{
  				return customTabs.get(i);
  			} 				
  		}
- 		return customTabs.get(0);
+ 		return null;
  	}
 }

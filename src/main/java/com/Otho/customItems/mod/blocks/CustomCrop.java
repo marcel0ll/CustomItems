@@ -36,6 +36,7 @@ public class CustomCrop extends BlockCrops {
     
     private IIcon[] icons;
     private int renderType;
+	private int dropFruitDamage;
 
     public CustomCrop(Item fruit, int renderType) {
         super();
@@ -109,7 +110,7 @@ public class CustomCrop extends BlockCrops {
         		drops.add(new ItemStack(this.fruit, fruitQuantity));
         	if(this.dropSeedWhenMature)
         		if(seedQuantity > 0)
-        			drops.add(new ItemStack(this.seed, seedQuantity));
+        			drops.add(new ItemStack(this.seed, seedQuantity, dropFruitDamage));
         }        
         
         return drops;
@@ -204,5 +205,10 @@ public class CustomCrop extends BlockCrops {
         }
         return this.icons[(int)Math.floor(meta/5)];
     }
+
+
+	public void setFruitItemDamage(int dropFruitDamage) {
+		this.dropFruitDamage = dropFruitDamage;		
+	}
 
 }

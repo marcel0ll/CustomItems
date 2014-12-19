@@ -45,6 +45,7 @@ public class CustomFallingBlock  extends BlockFalling
 	
 	private String[] textureNames;
 	private boolean breaks;
+	private int dropItemDamage;
 	
 	@Override
     @SideOnly(Side.CLIENT)
@@ -143,7 +144,7 @@ public class CustomFallingBlock  extends BlockFalling
         }else
         {
         	int itemQuantity = getItemDropQuantity(world, fortune);
-           	drops.add(new ItemStack(dropItem, itemQuantity));
+           	drops.add(new ItemStack(dropItem, itemQuantity, dropItemDamage));
         }          
         
         return drops;
@@ -194,5 +195,7 @@ public class CustomFallingBlock  extends BlockFalling
 	public void setBreaks(boolean breaks) {
 		this.breaks = breaks;
 	}
-
+	public void setDropItemDamage(int dropItemDamage) {
+		this.dropItemDamage = dropItemDamage;		
+	}
 }

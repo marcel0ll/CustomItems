@@ -75,14 +75,15 @@ public class BlockRegistry {
 				block.registerBlockTextures(textureNames);
 			}
 			
-			block.setRenderNormaly(data.renderAsNormalBlock);
+			//block.setRenderNormaly(data.renderAsNormalBlock);
 			block.slipperiness = data.slipperiness;
 			block.setOpaque(data.isOpaque);
 			block.setStepSound(Util.parseSoundType(data.stepSound));
 			
 			if(data.dropItemName != null)
-			{
+			{				
 				block.setDropItem((Item) Item.itemRegistry.getObject(data.dropItemName));
+				block.setDropItemDamage(data.dropItemDamage);
 				block.setMaxItemDrop(data.maxItemDrop);
 				block.setMinItemDrop(data.minItemDrop);
 				block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
@@ -128,7 +129,7 @@ public class BlockRegistry {
 				block.registerBlockTextures(textureNames);
 			}
 			
-			block.setRenderNormaly(data.renderAsNormalBlock);
+			//block.setRenderNormaly(data.renderAsNormalBlock);
 			block.slipperiness = data.slipperiness;
 			block.setOpaque(data.isOpaque);
 			block.setStepSound(Util.parseSoundType(data.stepSound));
@@ -199,6 +200,7 @@ public class BlockRegistry {
 	    crop.setEachExtraSeedDropChance(data.eachExtraSeedDropChance);
 	    crop.setFruitQuantityDropRange(data.minFruitDrop, data.maxFruitDrop);
 	    crop.setSeedQuantityDropRange(data.minSeedDrop, data.maxSeedDrop);
+	    crop.setFruitItemDamage(data.dropFruitDamage);
 	    
 	    crop.setBlockTextureName(data.textureName);
 	    

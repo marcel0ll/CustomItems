@@ -184,4 +184,7 @@ public class Util {
 		}
 	}
 	
+	public static String parseBlockType(String type){
+		return "NORMAL";
+	}
 }

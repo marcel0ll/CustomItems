@@ -47,6 +47,7 @@ public class CustomBlock extends Block {
 	
 	private String[] textureNames;
 	private boolean breaks;
+	private int dropItemDamage;
 	
 	@Override
     @SideOnly(Side.CLIENT)
@@ -145,7 +146,7 @@ public class CustomBlock extends Block {
         }else
         {
         	int itemQuantity = getItemDropQuantity(world, fortune);
-           	drops.add(new ItemStack(dropItem, itemQuantity));
+           	drops.add(new ItemStack(dropItem, itemQuantity, dropItemDamage));
         }          
         
         return drops;
@@ -195,6 +196,9 @@ public class CustomBlock extends Block {
     }
 	public void setBreaks(boolean breaks) {
 		this.breaks = breaks;
+	}
+	public void setDropItemDamage(int dropItemDamage) {
+		this.dropItemDamage = dropItemDamage;		
 	}
 
 }

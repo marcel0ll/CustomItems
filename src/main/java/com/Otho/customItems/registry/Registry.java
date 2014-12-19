@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import net.minecraft.block.Block;	
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.util.EnumHelper;
 
@@ -54,13 +55,17 @@ public class Registry {
         for(i=0;i<itemsList.size();i+=2)
         {
             Item item = (Item) itemsList.get(i);
-            item.setCreativeTab(customItemsTab.getTabByName((String) itemsList.get(i+1)));
+            CreativeTabs tab = customItemsTab.getTabByName((String) itemsList.get(i+1));
+            if(tab != null)
+            	item.setCreativeTab(tab);
         }
         
         for(i=0;i<blocksList.size();i+=2)
         {
-            Block block = (Block) blocksList.get(i);            
-            block.setCreativeTab(customItemsTab.getTabByName((String) blocksList.get(i+1)));
+            Block block = (Block) blocksList.get(i);  
+            CreativeTabs tab = customItemsTab.getTabByName((String) blocksList.get(i+1));
+            if(tab != null)
+            	block.setCreativeTab(tab);            
         }
     }
         

@@ -6,6 +6,7 @@ import com.Otho.customItems.configuration.jsonReaders.common.Cfg_basicData;
 public class Cfg_crop extends Cfg_basicData
 {
     public String fruitName;
+    public int dropFruitDamage = 0;
     public String renderType = "crops";
     public int dropFromGrassChance = 10;
     public boolean dropSeedWhenMature = true;

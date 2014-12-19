@@ -20,6 +20,7 @@ public class Cfg_block extends Cfg_basicData
 	
 	public boolean dropsItSelf = false;
 	public String dropItemName;
+	public int dropItemDamage = 0;
 	public int minItemDrop = 1;
     public int maxItemDrop = 1;    
     public int eachExtraItemDropChance = 50;
@@ -28,6 +29,5 @@ public class Cfg_block extends Cfg_basicData
 	public boolean isOpaque = true;
 	public boolean falls = false;	
 	
-	public String type = "NORMAL";
-	public boolean renderAsNormalBlock = true;
+	public String type = "NORMAL";	
 }
