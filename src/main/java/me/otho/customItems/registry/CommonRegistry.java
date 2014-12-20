@@ -24,13 +24,16 @@ public class CommonRegistry {
     public static boolean registerCreativeTabs(Cfg_creativeTab[] data){
         int i;
 
-        for(i=0;i<data.length;i++){
-            boolean registered = registerCreativeTabs(data[i]);
-
-            if(!registered){
-                LogHelper.error("Failed to register: CreativeTabs " + i);
-                return false;
-            }
+        if(data != null)
+        {
+	        for(i=0;i<data.length;i++){
+	            boolean registered = registerCreativeTabs(data[i]);
+	
+	            if(!registered){
+	                LogHelper.error("Failed to register: CreativeTabs " + i);
+	                return false;
+	            }
+	        }
         }
 
         return true;
