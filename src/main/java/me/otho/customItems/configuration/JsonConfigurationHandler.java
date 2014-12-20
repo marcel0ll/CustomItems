@@ -98,6 +98,8 @@ public class JsonConfigurationHandler
 		
 		mergeTo.changeBlocks = ArrayUtils.addAll(data.changeBlocks, mergeTo.changeBlocks);
 		mergeTo.changeItems = ArrayUtils.addAll(data.changeItems, mergeTo.changeItems);
+		
+		mergeTo.oreGen = ArrayUtils.addAll(data.oreGen, mergeTo.oreGen);
 	}
 
 	public static boolean unpackConfigFile(Class obj, String path, String destinationPath) throws IOException, URISyntaxException

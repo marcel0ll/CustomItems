@@ -7,12 +7,14 @@ import java.net.URISyntaxException;
 import me.otho.customItems.configuration.ForgeConfig;
 import me.otho.customItems.configuration.JsonConfigurationHandler;
 import me.otho.customItems.mod.creativeTab.customItemsTab;
+import me.otho.customItems.mod.worldGen.CustomWorldGenerator;
 import me.otho.customItems.proxy.ServerProxy;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(dependencies=ModReference.DEPENDENCIES, modid  = ModReference.MOD_ID, version = ModReference.VERSION, name=ModReference.MOD_NAME)
 public class CustomItems
@@ -36,6 +38,8 @@ public class CustomItems
 		customItemsTab.init();
 				
 		JsonConfigurationHandler.init(folderPath);
+		
+		GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 1);
 		
     	proxy.registerTileEntities();
 	}	
