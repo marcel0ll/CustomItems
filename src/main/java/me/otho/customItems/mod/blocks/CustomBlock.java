@@ -35,10 +35,10 @@ public class CustomBlock extends Block {
 	private int minItemDrop;
 	private int eachExtraItemDropChance;
 	
-	private String dropItem;
+	protected String dropItem;
 	
 	private String[] textureNames;
-	private boolean breaks;
+	protected boolean breaks;
 	
 	@Override
     @SideOnly(Side.CLIENT)
@@ -64,7 +64,7 @@ public class CustomBlock extends Block {
         return 0;
     }
 		
-	private int getItemDropQuantity(World world, int fortune)
+	protected int getItemDropQuantity(World world, int fortune)
     {
     	int ret = 0;
     	int i;
