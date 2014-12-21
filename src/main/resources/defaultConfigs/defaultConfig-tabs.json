@@ -1,8 +1,8 @@
 {
-	"creativeTabs":[
-            {
-                "tabLabel":"New Tab",
-                "iconItem":"customitems:god_sword"                
-            }
-        ]	
+    "creativeTabs": [
+        {
+            "tabLabel": "New Tab",
+            "iconItem": "customitems:god_sword"
+        }
+    ]
 }

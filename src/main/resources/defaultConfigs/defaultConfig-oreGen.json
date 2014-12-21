@@ -1,0 +1,14 @@
+{
+	"oreGen":[
+		{
+			"blockToSpawn": "customitems:red_sand",
+			"blockToReplace": "minecraft:sand",
+			"dimensionId": 0,			
+			"minVeinSize": 10, 
+			"maxVeinSize": 15,
+			"chancesToSpawn": 10, 
+			"minY": 40, 
+			"maxY": 90
+		}
+	]	
+}

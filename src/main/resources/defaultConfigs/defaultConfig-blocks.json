@@ -1,0 +1,92 @@
+{
+    "chests": [
+        {
+            "name": "Single item Chest",
+            "invName": "Tiny",
+            "textureName": "crate",
+            "slotMaxStackSize": 1,
+            "invHeight": 1,
+            "invWidth": 1
+        }
+    ],
+    "blocks": [
+        {
+            "textureName": "red_sand",
+            "name": "Red Sand",
+            "toolClass": "shovel",
+            "stepSound": "sand",
+            "material": "sand",
+            "resistance": 2.5,
+            "falls": true,
+            "hardness": 0.5
+        },
+        {
+            "textureName": "pink_sand",
+            "name": "Pink Sand",
+            "toolClass": "shovel",
+            "stepSound": "sand",
+            "material": "sand",
+            "resistance": 2.5,
+            "falls": true,
+            "hardness": 0.5
+        },
+        {
+            "textureName": "green_sand",
+            "name": "Green Sand",
+            "toolClass": "shovel",
+            "stepSound": "sand",
+            "material": "sand",
+            "resistance": 2.5,
+            "falls": true,
+            "hardness": 0.5
+        },
+        {
+            "textureName": "blue_sand",
+            "name": "Blue Sand",
+            "toolClass": "shovel",
+            "stepSound": "sand",
+            "material": "sand",
+            "resistance": 2.5,
+            "falls": true,
+            "hardness": 0.5
+        },
+        {
+            "textureName": "customGlass",
+            "registerOrder": 1,
+            "name": "Custom Glass",
+            "renderAsNormalBlock": false,
+            "stepSound": "glass",
+            "material": "glass",
+            "resistance": 0,
+            "creativeTab": "novoTab",
+            "isOpaque": false,
+            "canSilkHarvest": true,
+            "lightLevel": 0,
+            "maxStackSize": 16,
+            "breaks": true,
+            "hardness": 1
+        },
+        {            
+            "registerOrder": 1,
+            "name": "Multi Tex Block",
+            "maxItemDrop": 10,
+            "toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 0,
+            "harvestLevel": 0,
+            "dropItemName": "customitems:saquaguara_chest",
+            "lightLevel": 0,
+            "eachExtraItemDropChance": 15,
+            "multipleTextures": {
+                "xpos": "side_6",
+                "xneg": "side_5",
+                "zpos": "side_4",
+                "zneg": "side_3",
+                "ypos": "side_2",
+                "yneg": "side_1"
+            },
+            "hardness": 1,
+            "minItemDrop": 1
+        }
+    ]
+}

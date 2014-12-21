@@ -1,156 +1,61 @@
-{      
-        "blocks":[
-            {
-                "name": "Red Sand",
-                "textureName": "red_sand",
-                "material": "sand",
-                "toolClass":"shovel",
-                "hardness": 0.5,                
-                "resistance": 2.5,                        
-                "falls": true,
-                "stepSound": "sand"
-            },
-            {
-                "name": "Pink Sand",
-                "textureName": "pink_sand",
-                "material": "sand",
-                "toolClass":"shovel",
-                "hardness": 0.5,
-                "resistance": 2.5,                        
-                "falls": true,
-                "stepSound": "sand"
-            },
-            {
-                "name": "Green Sand",
-                "textureName": "green_sand",
-                "material": "sand",
-                "toolClass":"shovel",
-                "hardness": 0.5,
-                "resistance": 2.5,                        
-                "falls": true,
-                "stepSound": "sand"
-            },
-            {
-                "name": "Blue Sand",
-                "textureName": "blue_sand",
-                "material": "sand",
-                "toolClass":"shovel",
-                "hardness": 0.5,
-                "resistance": 2.5,                        
-                "falls": true,
-                "stepSound": "sand"
-            },
-            {
-                "name": "Custom Glass",
-                "textureName": "customGlass",
-                "material": "glass",
-                "stepSound": "glass",
-                "renderAsNormalBlock": false,
-                
-                "isOpaque": false,
-                "creativeTab":"novoTab",
-                "hardness": 1,
-                "resistance": 0,
-                "lightLevel": 0,
-                "breaks": true,
-                "canSilkHarvest": true,
-                "registerOrder":1,
-                "maxStackSize": 16
-            },
-            {
-                "name": "Multi Tex Block",
-                "textureName": "Block2TextureName",
-                "material": "rock",
-                "toolClass":"pickaxe",
-                "hardness": 1,
-                "resistance": 0,
-                "lightLevel": 0,
-                "harvestLevel": 0,
-                "registerOrder":1,
-                "dropItemName": "customitems:saquaguara_chest",
-                "minItemDrop": 1,
-                "maxItemDrop": 10,                
-                "eachExtraItemDropChance": 15,
-                "multipleTextures":{
-                    "yneg":"side_1",
-                    "ypos":"side_2",
-                    "zneg":"side_3",
-                    "zpos":"side_4",
-                    "xneg":"side_5",
-                    "xpos":"side_6"
+{
+    "items": [
+        {
+            "maxStackSize": 64,
+            "textureName": "blue_metal",
+            "name": "Blue Metal",
+            "creativeTab": "New Tab"
+        },
+        {
+            "maxStackSize": 64,
+            "textureName": "red_metal",
+            "name": "Red Metal",
+            "creativeTab": "New Tab"
+        },
+        {
+            "maxStackSize": 64,
+            "textureName": "gray_metal",
+            "name": "Gray Metal",
+            "creativeTab": "New Tab"
+        },
+        {
+            "maxStackSize": 9,
+            "textureName": "coin2",
+            "name": "Coin",
+            "creativeTab": "New Tab"
+        }
+    ],
+    "foods": [
+        {
+            "maxStackSize": 64,
+            "textureName": "banana",
+            "potionEffects": [
+                {
+                    "effect": "fireResistance"
+                },
+                {
+                    "effect": "jump"
                 }
-            }            
-        ],
-
-        "chests":[            
-            {
-                "name": "Single item Chest",
-                "invName": "Tiny",
-                "textureName": "crate",                
-                "slotMaxStackSize": 1,
-                "invWidth": 1,
-                "invHeight":  1             
-            }
-        ],
-        
-        "items":[
-            {
-            "name":"Blue Metal",
+            ],
+            "name": "Banana"
+        }
+    ],
+    "swords": [
+        {
+            "name": "God Sword",
+            "textureName": "godsword",
+            "maxUses": 10,
+            "harvestLevel": 0,
+            "efficiencyOnProperMaterial": 10,
+            "enchantability": 0,
             "creativeTab": "New Tab",
-            "textureName":"blue_metal",
-            "maxStackSize": 64
-            },            
-            {
-            "name":"Red Metal",
-            "creativeTab": "New Tab",
-            "textureName":"red_metal",
-            "maxStackSize": 64
-            },           
-            {
-            "name":"Gray Metal",
-            "creativeTab": "New Tab",
-            "textureName":"gray_metal",
-            "maxStackSize": 64
-            },           
-            {
-            "name":"Coin",
-            "creativeTab": "New Tab",
-            "textureName":"coin2",
-            "maxStackSize": 9
-            }
-        ],
-        "foods":[
-            {
-                "name":"Banana",
-                "textureName":"banana",
-                "maxStackSize": 64,
-                "potionEffects": [
-                    {
-                        "effect": "fireResistance"
-                    },
-                    {
-                        "effect": "jump"
-                    }
-                ]
-            }           
-
-    ],        
-        "swords":[
-            {
-                "name":"God Sword",
-                "textureName":"godsword",
-                "creativeTab": "New Tab",
-                "harvestLevel":0,
-                "maxUses":10,
-                "efficiencyOnProperMaterial":10,
-                "damageVsEntity":10000,
-                "enchantability":0
-            }
-        ],
-        "changeItems":[
-            {
-                "name":"minecraft:boat",
-                "maxStackSize": 6
-            }
-        ]
+            "damageVsEntity": 10000
+        }
+    ],
+    "changeItems": [
+        {
+            "maxStackSize": 6,
+            "name": "minecraft:boat"
+        }
+    ]
 }

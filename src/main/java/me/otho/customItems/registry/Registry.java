@@ -124,6 +124,7 @@ public class Registry {
                     TileEntityRegistry.registerChest((Cfg_chest) toRegister);    
                 }else if(toRegister instanceof Cfg_block)
                 {
+                	//TODO add switch based on block type
                     BlockRegistry.registerBlock((Cfg_block) toRegister);
                 }else if(toRegister instanceof Cfg_food)
                 {
