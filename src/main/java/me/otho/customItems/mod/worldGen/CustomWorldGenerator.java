@@ -21,16 +21,17 @@ public class CustomWorldGenerator implements IWorldGenerator {
 
 		Cfg_oreGen[] oresToSpawn = JsonConfigurationHandler.allData.oreGen;
 		
-		
-		for(i=0;i < oresToSpawn.length; i++)
-		{
-			Cfg_oreGen oreInfo = oresToSpawn[i];
-			
-			if(oreInfo.dimensionId == world.provider.dimensionId){
-				Block oreBlock = (Block) Block.blockRegistry.getObject(oreInfo.blockToSpawn);
-				Block toReplace = (Block) Block.blockRegistry.getObject(oreInfo.blockToReplace);
+		if(oresToSpawn != null){
+			for(i=0;i < oresToSpawn.length; i++)
+			{
+				Cfg_oreGen oreInfo = oresToSpawn[i];
 				
-				this.addOreSpawn(oreBlock, toReplace, world, random, chunkX*16, chunkZ*16, oreInfo.minVeinSize, oreInfo.maxVeinSize, oreInfo.chancesToSpawn, oreInfo.minY, oreInfo.maxY); 
+				if(oreInfo.dimensionId == world.provider.dimensionId){
+					Block oreBlock = (Block) Block.blockRegistry.getObject(oreInfo.blockToSpawn);
+					Block toReplace = (Block) Block.blockRegistry.getObject(oreInfo.blockToReplace);
+					
+					this.addOreSpawn(oreBlock, toReplace, world, random, chunkX*16, chunkZ*16, oreInfo.minVeinSize, oreInfo.maxVeinSize, oreInfo.chancesToSpawn, oreInfo.minY, oreInfo.maxY); 
+				}
 			}
 		}
 	}

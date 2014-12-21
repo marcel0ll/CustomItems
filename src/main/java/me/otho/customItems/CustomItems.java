@@ -1,14 +1,27 @@
 package me.otho.customItems;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+import java.util.zip.ZipEntry;
+
+import org.apache.commons.io.FileUtils;
 
 import me.otho.customItems.configuration.ForgeConfig;
 import me.otho.customItems.configuration.JsonConfigurationHandler;
 import me.otho.customItems.mod.creativeTab.customItemsTab;
 import me.otho.customItems.mod.worldGen.CustomWorldGenerator;
 import me.otho.customItems.proxy.ServerProxy;
+import me.otho.customItems.util.LogHelper;
+import cpw.mods.fml.client.FMLFileResourcePack;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
@@ -28,16 +41,56 @@ public class CustomItems
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) throws IOException, URISyntaxException
 	{			
-		String folderPath = event.getModConfigurationDirectory().toString()+File.separator+ModReference.MOD_ID+File.separator;
+		String configFolderPath = event.getModConfigurationDirectory().toString()+File.separator+ModReference.MOD_ID+File.separator;
 		
 		ForgeConfig.init(event.getSuggestedConfigurationFile());
 		
-//		if(ForgeConfig.remake)
-//			JsonConfigurationHandler.unpackConfigFile(CustomItems.class, "defaultConfigs", folderPath);
+		if(ForgeConfig.remake){
+			File source = event.getSourceFile();
+			if(source.isFile()){
+				JarFile file = new JarFile(source);
+				
+				ZipEntry defaultConfigs = file.getEntry("defaultConfigs/");
+				
+				for (Enumeration<JarEntry> e = file.entries(); e.hasMoreElements();){
+					ZipEntry entry = (ZipEntry) e.nextElement();
+					
+	                System.out.println("File name: " + entry.getName()
+	                        + "; size: " + entry.getSize()
+	                        + "; compressed size: "
+	                        + entry.getCompressedSize());
+	                System.out.println();
+	                if(entry.getName().contains("defaultConfigs/")){
+	                	String[] parser = entry.getName().split("defaultConfigs/");
+	                	if(parser.length > 1){
+	                		String fileName = parser[1];
+	                		if(fileName.endsWith(".json")){		                	
+			                	File configFile = new File(configFolderPath + parser[1]);
+			                	if(configFile.exists())
+			                		configFile.delete();
+				                InputStream is = file.getInputStream(entry);
+				                
+				                InputStreamReader isr = new InputStreamReader(is);
+				 
+				                System.out.println();
+				                char[] buffer = new char[1];
+				                while (isr.read(buffer, 0, buffer.length) != -1) {
+				                    String s = new String(buffer);
+				                    FileUtils.write(configFile, s, true);		                    
+				                }	 
+	                		}
+	                	}
+	                }
+				}
+				
+				LogHelper.info("End of Default Config Files");
+				file.close();
+			}
+		}
 		
 		customItemsTab.init();
 				
-		JsonConfigurationHandler.init(folderPath);
+		JsonConfigurationHandler.init(configFolderPath);
 		
 		GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 1);
 		
