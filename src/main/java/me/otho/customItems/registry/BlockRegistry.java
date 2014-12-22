@@ -250,9 +250,11 @@ public class BlockRegistry {
 		fluid.setViscosity(data.viscosity);
 		fluid.setGaseous(data.isGas);
 		FluidRegistry.registerFluid(fluid);
+
 		
 		CustomFluidBlock fluidBlock = new CustomFluidBlock(fluid, Material.water);
-		
+		fluidBlock.setBlockTextureName(data.textureName);
+
 		Registry.blocksList.add(fluidBlock);
 		Registry.blocksList.add(data.creativeTab);	       
 		
@@ -276,7 +278,8 @@ public class BlockRegistry {
 		
 		Registry.itemsList.add(bucket);
 		Registry.itemsList.add(data.creativeTab);
-		
+
+		bucket.setTextureName(data.textureName+"Bucket");
 	    GameRegistry.registerItem(bucket,registerName+"Bucket");
 	    
 	    FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(fluid.getName(),FluidContainerRegistry.BUCKET_VOLUME),new ItemStack(bucket),new ItemStack(Items.bucket));
