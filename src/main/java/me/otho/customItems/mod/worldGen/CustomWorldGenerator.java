@@ -4,15 +4,18 @@ import java.util.Random;
 
 import me.otho.customItems.configuration.JsonConfigurationHandler;
 import me.otho.customItems.configuration.jsonReaders.worldGen.Cfg_oreGen;
+import me.otho.customItems.util.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import cpw.mods.fml.common.IWorldGenerator;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CustomWorldGenerator implements IWorldGenerator {
-
+	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -27,18 +30,38 @@ public class CustomWorldGenerator implements IWorldGenerator {
 				Cfg_oreGen oreInfo = oresToSpawn[i];
 				
 				if(oreInfo.dimensionId == world.provider.dimensionId){
-					Block oreBlock = (Block) Block.blockRegistry.getObject(oreInfo.blockToSpawn);
-					Block toReplace = (Block) Block.blockRegistry.getObject(oreInfo.blockToReplace);
 					
-					this.addOreSpawn(oreBlock, toReplace, world, random, chunkX*16, chunkZ*16, oreInfo.minVeinSize, oreInfo.maxVeinSize, oreInfo.chancesToSpawn, oreInfo.minY, oreInfo.maxY); 
+					int toSpawnMetadata = 0;
+					int toRelaceMetadata = 0;
+					
+					String[] parser = oreInfo.blockToSpawn.split(":");
+					String modid = parser[0];
+					String block = parser[1];
+					if(parser.length > 2)
+						toSpawnMetadata = Integer.parseInt(parser[2]);
+					
+					Block oreBlock = (Block) GameRegistry.findBlock(modid, block);
+					
+					parser = oreInfo.blockToReplace.split(":");
+					modid = parser[0];
+					block = parser[1];
+					if(parser.length > 2)
+						toRelaceMetadata = Integer.parseInt(parser[2]);
+					
+					Block toReplace = (Block) GameRegistry.findBlock(modid, block);
+					
+					BiomeGenBase biome = world.provider.getBiomeGenForCoords(chunkX*16, chunkZ*16);
+					if(oreInfo.biomeId == biome.biomeID)					
+						this.addOreSpawn(oreBlock, toSpawnMetadata, toReplace, world, random, chunkX*16, chunkZ*16, oreInfo.minVeinSize, oreInfo.maxVeinSize, oreInfo.chancesToSpawn, oreInfo.minY, oreInfo.maxY); 
 				}
 			}
 		}
 	}
 
-	public void addOreSpawn(Block block, Block toReplace, World world, Random random, int blockXPos, int blockZPos, int minVeinSize, int maxVeinSize, int chancesToSpawn, int minY, int maxY )
+	public void addOreSpawn(Block block, int metadata, Block toReplace, World world, Random random, int blockXPos, int blockZPos, int minVeinSize, int maxVeinSize, int chancesToSpawn, int minY, int maxY )
     {
-        WorldGenMinable minable = new WorldGenMinable(block, (minVeinSize + random.nextInt(maxVeinSize - minVeinSize)), toReplace);
+		
+        WorldGenMinable minable = new WorldGenMinable(block, (minVeinSize + random.nextInt(maxVeinSize - minVeinSize)), metadata, toReplace);        
         for(int i = 0; i < chancesToSpawn; i++)
         {
             int posX = blockXPos + random.nextInt(16);
