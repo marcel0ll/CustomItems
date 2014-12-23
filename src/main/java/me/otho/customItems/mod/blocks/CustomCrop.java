@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import me.otho.customItems.ModReference;
 import me.otho.customItems.mod.items.CustomSeed;
 import me.otho.customItems.util.LogHelper;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
@@ -177,6 +178,24 @@ public class CustomCrop extends BlockCrops {
         Item item = GameRegistry.findItem(parser[0], parser[1]);
     	
         return item;
+    }
+
+    //neighboring blocks get updated
+    @Override
+    public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
+        //check if crops can stay
+        if(!this.canBlockStay(world,x,y,z)) {
+            //the crop will be destroyed
+            this.dropBlockAsItem(world, x, y, z, world.getBlockMetadata(x, y, z), 0);
+            world.setBlockToAir(x, y, z);
+        }
+    }
+
+    //see if the block can stay
+    @Override
+    public boolean canBlockStay(World world, int x, int y, int z) {
+        Block soil = world.getBlock(x,y-1,z);
+        return (soil instanceof net.minecraft.block.BlockFarmland);
     }
 
     @Override
