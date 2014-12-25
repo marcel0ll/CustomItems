@@ -4,7 +4,7 @@ public class Cfg_oreGen {
 	public String blockToSpawn;
 	public String blockToReplace;
 	public int dimensionId;
-	public int biomeId;
+	public Integer[] biomeId = null;
 //	public int blockXPos; 
 //	public int blockZPos;
 	public int minVeinSize; 

@@ -10,6 +10,19 @@
         }
     ],
     "blocks": [
+         {
+            "name": "Flint Pile",
+            "creativeTab": "Omega Dawn",
+            "textureName": "flintpile",
+            "material": "dirt",
+            "hardness": 1,
+            "resistance": 1,
+            "dropItemName": "minecraft:flint",
+            "minItemDrop": 1,
+            "maxItemDrop": 4,                
+            "eachExtraItemDropChance": 75,
+            "lightLevel": 0
+        },
         {
             "textureName": "red_sand",
             "name": "Red Sand",

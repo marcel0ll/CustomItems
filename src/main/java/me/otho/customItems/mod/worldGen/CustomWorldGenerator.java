@@ -1,6 +1,9 @@
 package me.otho.customItems.mod.worldGen;
 
+import java.util.Arrays;
 import java.util.Random;
+
+import org.apache.commons.lang3.ArrayUtils;
 
 import me.otho.customItems.configuration.JsonConfigurationHandler;
 import me.otho.customItems.configuration.jsonReaders.worldGen.Cfg_oreGen;
@@ -51,7 +54,7 @@ public class CustomWorldGenerator implements IWorldGenerator {
 					Block toReplace = (Block) GameRegistry.findBlock(modid, block);
 					
 					BiomeGenBase biome = world.provider.getBiomeGenForCoords(chunkX*16, chunkZ*16);
-					if(oreInfo.biomeId == biome.biomeID)					
+					if(oreInfo.biomeId == null || Arrays.asList(oreInfo.biomeId).contains(biome.biomeID))					
 						this.addOreSpawn(oreBlock, toSpawnMetadata, toReplace, world, random, chunkX*16, chunkZ*16, oreInfo.minVeinSize, oreInfo.maxVeinSize, oreInfo.chancesToSpawn, oreInfo.minY, oreInfo.maxY); 
 				}
 			}
@@ -60,8 +63,14 @@ public class CustomWorldGenerator implements IWorldGenerator {
 
 	public void addOreSpawn(Block block, int metadata, Block toReplace, World world, Random random, int blockXPos, int blockZPos, int minVeinSize, int maxVeinSize, int chancesToSpawn, int minY, int maxY )
     {
+		WorldGenMinable minable;
 		
-        WorldGenMinable minable = new WorldGenMinable(block, (minVeinSize + random.nextInt(maxVeinSize - minVeinSize)), metadata, toReplace);        
+		if(metadata == 0){
+			minable = new WorldGenMinable(block, (minVeinSize + random.nextInt(maxVeinSize - minVeinSize)), toReplace);
+		}else{
+			minable = new WorldGenMinable(block, (minVeinSize + random.nextInt(maxVeinSize - minVeinSize)), metadata, toReplace);
+		}        
+        
         for(int i = 0; i < chancesToSpawn; i++)
         {
             int posX = blockXPos + random.nextInt(16);

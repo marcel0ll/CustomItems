@@ -1,11 +1,16 @@
 package me.otho.customItems.registry;
 
+import java.lang.reflect.Field;
+
 import me.otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_block;
+import me.otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_food;
 import me.otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_item;
 import me.otho.customItems.util.LogHelper;
 import me.otho.customItems.util.Util;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TweakerRegistry {
@@ -97,7 +102,7 @@ public class TweakerRegistry {
 		return true;
 	}
 
-	public static boolean changeItem(Cfg_change_item[] data){		
+	public static boolean changeItem(Cfg_change_item[] data){
 		int i;
 		
 		for(i=0;i<data.length;i++){
@@ -105,6 +110,68 @@ public class TweakerRegistry {
 
             if(!tweaked){
                 LogHelper.error("Failed to tweak: Item " + i);
+                return false;
+            }
+		}
+		
+		return true;
+	}
+
+	public static boolean changeFood(Cfg_change_food data){		
+		String[] nameParsing = data.name.split(":");
+		String modId = nameParsing[0];
+		String name = nameParsing[1];
+		
+		ItemFood food = (ItemFood) GameRegistry.findItem(modId, name);
+		try {
+			Field healAmount = ItemFood.class.getDeclaredField("healAmount");
+			Field saturationModifier = ItemFood.class.getDeclaredField("saturationModifier");
+			Field isWolfsFavoriteMeat = ItemFood.class.getDeclaredField("isWolfsFavoriteMeat");
+			
+			healAmount.setAccessible(true);
+			saturationModifier.setAccessible(true);
+			isWolfsFavoriteMeat.setAccessible(true);
+			
+			try {
+				healAmount.setInt(food, data.healAmount);
+				saturationModifier.setFloat(food, data.saturationModifier);
+				isWolfsFavoriteMeat.set(food, data.isWolfFood);
+				
+				if(data.alwaysEdible)
+					food.setAlwaysEdible();
+				
+				if(data.potionEffect != null){
+					food.setPotionEffect(Util.potionEffectId(data.potionEffect.effect), data.potionEffect.potionDuration * 20, data.potionEffect.potionAmplifier, data.potionEffect.potionEffectProbability);
+				}
+					
+				
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (NoSuchFieldException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return true;
+	}
+	
+	public static boolean changeFood(Cfg_change_food[] data){
+		int i;
+		
+		for(i=0;i<data.length;i++){
+			boolean tweaked = changeFood(data[i]);
+
+            if(!tweaked){
+                LogHelper.error("Failed to tweak: food " + i);
                 return false;
             }
 		}

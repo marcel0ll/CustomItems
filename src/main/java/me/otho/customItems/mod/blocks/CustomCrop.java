@@ -195,7 +195,7 @@ public class CustomCrop extends BlockCrops {
     @Override
     public boolean canBlockStay(World world, int x, int y, int z) {
         Block soil = world.getBlock(x,y-1,z);
-        return (soil instanceof net.minecraft.block.BlockFarmland);
+        return soil instanceof net.minecraft.block.BlockFarmland;
     }
 
     @Override

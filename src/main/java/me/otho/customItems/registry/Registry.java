@@ -186,5 +186,9 @@ public class Registry {
 		if(data.changeItems != null){			
 			TweakerRegistry.changeItem(data.changeItems);			
 		}
+		
+		if(data.changeFoods != null){
+			TweakerRegistry.changeFood(data.changeFoods);
+		}
 	}
 }

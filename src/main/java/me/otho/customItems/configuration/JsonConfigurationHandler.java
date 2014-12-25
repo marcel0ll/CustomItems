@@ -99,6 +99,7 @@ public class JsonConfigurationHandler
 		
 		mergeTo.changeBlocks = ArrayUtils.addAll(data.changeBlocks, mergeTo.changeBlocks);
 		mergeTo.changeItems = ArrayUtils.addAll(data.changeItems, mergeTo.changeItems);
+		mergeTo.changeFoods = ArrayUtils.addAll(data.changeFoods, mergeTo.changeFoods);
 		
 		mergeTo.oreGen = ArrayUtils.addAll(data.oreGen, mergeTo.oreGen);
 	}

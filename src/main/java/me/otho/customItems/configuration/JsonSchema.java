@@ -17,6 +17,7 @@ import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_shovel;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_sword;
 import me.otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
 import me.otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_block;
+import me.otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_food;
 import me.otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_item;
 import me.otho.customItems.configuration.jsonReaders.worldGen.Cfg_oreGen;
 
@@ -41,6 +42,7 @@ public class JsonSchema
 	
 	public Cfg_change_block[] changeBlocks;
 	public Cfg_change_item[] changeItems;
+	public Cfg_change_food[] changeFoods;
 	
 	public Cfg_oreGen[] oreGen;
 	
