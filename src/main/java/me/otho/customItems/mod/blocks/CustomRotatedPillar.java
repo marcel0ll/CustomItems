@@ -2,8 +2,12 @@ package me.otho.customItems.mod.blocks;
 
 import java.util.ArrayList;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import me.otho.customItems.ModReference;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
@@ -11,24 +15,25 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class CustomBlock extends Block {
+public class CustomRotatedPillar extends BlockRotatedPillar {
+
+	public CustomRotatedPillar(Material p_i45425_1_) {
+		super(p_i45425_1_);
+	}
+
+	@Override
+	protected IIcon getSideIcon(int side) {
+		// TODO Auto-generated method stub
+		return icons[side];
+	}
 	
-	public CustomBlock() {
-        this(Material.rock);
-    }
-    public CustomBlock(Material material) {
-        super(material); 
-    }
-	
-    @Override
-	public int getRenderType()
-    {
-        return 0;
-    }
+
+//    @Override
+//	public int getRenderType()
+//    {
+//        return 0;
+//    }
     
     private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;
@@ -114,8 +119,11 @@ public class CustomBlock extends Block {
 		{
 			return blockIcon;
 		}else
-		{
-			return icons[side];
+		{	
+	        int k = meta & 12;
+	        int l = meta & 3;
+	        return k == 0 && (side == 1 || side == 0) ? this.getTopIcon(l) : (k == 4 && (side == 5 || side == 4) ? this.getTopIcon(l) : (k == 8 && (side == 2 || side == 3) ? this.getTopIcon(l) : this.getSideIcon(l)));
+//			return icons[side];
 		}
 	}
 	

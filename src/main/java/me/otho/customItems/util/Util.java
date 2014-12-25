@@ -184,10 +184,6 @@ public class Util {
 		}
 	}
 	
-	public static String parseBlockType(String type){
-		return "NORMAL";
-	}
-
 	public static String parseRegisterName(String name)
 	{
 		name = name.replaceAll("\\s+","_");
@@ -195,4 +191,35 @@ public class Util {
 		
 		return name;
 	}
+
+
+	public enum BlockType {
+		NORMAL(0),
+		SLAB(0),
+		LOG(31),
+		PILLARS(31),
+		STAIRS(10),		
+		PANE(18),
+		FENCE(11),
+		WALL(32);
+    	
+    	private int renderType;
+    	private boolean falls;
+    	private boolean slab;
+    	
+    	private BlockType(int renderType){
+    		this.renderType = renderType;
+    	}
+    	
+    }
+    
+    public static boolean validateType(String value){    	
+    	for(BlockType test: BlockType.values()){
+    		if(test.name().toUpperCase().equals(value.toUpperCase()))
+    			return true;
+    	}
+    	
+    	return false;
+    }
+
 }

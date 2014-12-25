@@ -141,7 +141,7 @@ public class TweakerRegistry {
 					food.setAlwaysEdible();
 				
 				if(data.potionEffect != null){
-					food.setPotionEffect(Util.potionEffectId(data.potionEffect.effect), data.potionEffect.potionDuration * 20, data.potionEffect.potionAmplifier, data.potionEffect.potionEffectProbability);
+					food.setPotionEffect(Util.potionEffectId(data.potionEffect.effect), data.potionEffect.potionDuration, data.potionEffect.potionAmplifier, data.potionEffect.potionEffectProbability);
 				}
 					
 				

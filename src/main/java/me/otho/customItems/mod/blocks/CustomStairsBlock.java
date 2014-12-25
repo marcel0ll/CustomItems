@@ -2,33 +2,31 @@ package me.otho.customItems.mod.blocks;
 
 import java.util.ArrayList;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import me.otho.customItems.ModReference;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
+import net.minecraft.block.BlockStairs;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class CustomBlock extends Block {
+public class CustomStairsBlock extends BlockStairs{
+
+	public CustomStairsBlock(Block p_i45428_1_, int p_i45428_2_) {
+		super(p_i45428_1_, p_i45428_2_);
+		// TODO Auto-generated constructor stub
+	}
 	
-	public CustomBlock() {
-        this(Material.rock);
-    }
-    public CustomBlock(Material material) {
-        super(material); 
-    }
-	
-    @Override
-	public int getRenderType()
-    {
-        return 0;
-    }
+//	@Override
+//	public int getRenderType()
+//    {
+//        return 0;
+//    }
     
     private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;
@@ -46,13 +44,13 @@ public class CustomBlock extends Block {
 	private String[] textureNames;
 	protected boolean breaks;
 	
-	@Override
-    @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered (IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-    {
-        Block i1 = par1IBlockAccess.getBlock(par2, par3, par4);
-        return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
-    }
+//	@Override
+//    @SideOnly(Side.CLIENT)
+//    public boolean shouldSideBeRendered (IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
+//    {
+//        Block i1 = par1IBlockAccess.getBlock(par2, par3, par4);
+//        return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+//    }
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -122,7 +120,8 @@ public class CustomBlock extends Block {
 	@Override
 	public boolean renderAsNormalBlock()
     {
-        return this.renderNormaly;
+        //return this.renderNormaly;
+		return false;
     }
 			
 	@Override

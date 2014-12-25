@@ -6,11 +6,18 @@ import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
 import me.otho.customItems.mod.blocks.CustomBlock;
 import me.otho.customItems.mod.blocks.CustomCrop;
 import me.otho.customItems.mod.blocks.CustomFallingBlock;
+import me.otho.customItems.mod.blocks.CustomFenceBlock;
+import me.otho.customItems.mod.blocks.CustomFenceBlock;
 import me.otho.customItems.mod.blocks.CustomFluidBlock;
+import me.otho.customItems.mod.blocks.CustomRotatedPillar;
+import me.otho.customItems.mod.blocks.CustomSlabBlock;
+import me.otho.customItems.mod.blocks.CustomStairsBlock;
+import me.otho.customItems.mod.blocks.CustomWallBlock;
 import me.otho.customItems.mod.fluids.CustomFluid;
 import me.otho.customItems.mod.handler.BucketHandler;
 import me.otho.customItems.mod.items.CustomBucket;
 import me.otho.customItems.mod.items.CustomSeed;
+import me.otho.customItems.mod.items.CustomSlabItem;
 import me.otho.customItems.mod.materials.CI_Material;
 import me.otho.customItems.util.LogHelper;
 import me.otho.customItems.util.Util;
@@ -31,130 +38,509 @@ public class BlockRegistry {
 	
     public static boolean registerBlock(Cfg_block data){
     	LogHelper.log(Level.INFO, "Register Block: "+ data.name, 1);
-		
-		String registerName = Util.parseRegisterName(data.name);
-		
-		if(data.toolClass != null)
+    	
+    	if(data.toolClass != null)
 		{
 			data.toolClass = Util.validateToolClass(data.toolClass);		
 			if(!data.toolClass.equals("pickaxe"))
 			{
 				data.harvestLevel = 0;
 			}     
-		}
+		}		
 		
-		//Make Custom Block
-		if(!data.falls)
-		{
-			CustomBlock block = new CustomBlock(CI_Material.getMaterial(data.material));
-			
-			block.setHardness(data.hardness);
-			block.setResistance(data.resistance);
-			block.setBreaks(data.dropsItSelf);
-			block.setCanSilkHarvest(data.canSilkHarvest);
-			data.lightLevel = Util.range(data.lightLevel, 0, 1);
-			
-			block.setLightLevel(data.lightLevel);
-			if(data.toolClass != null)
-				block.setHarvestLevel(data.toolClass, data.harvestLevel);
-			if(data.multipleTextures == null)
-			{
-				block.setBlockTextureName(data.textureName);
-			}else
-			{
-				String[] textureNames = new String[6];
-				textureNames[0] = data.multipleTextures.yneg;
-				textureNames[1] = data.multipleTextures.ypos;
-				textureNames[2] = data.multipleTextures.zneg;
-				textureNames[3] = data.multipleTextures.zpos;
-				textureNames[4] = data.multipleTextures.xneg;
-				textureNames[5] = data.multipleTextures.xpos;
-				block.registerBlockTextures(textureNames);
+		if(Util.validateType(data.type)){
+			Util.BlockType blockType = Util.BlockType.valueOf(data.type.toUpperCase());
+			switch(blockType){				
+				case FENCE:
+					registerFenceBlock(data);
+					break;
+				case LOG:
+				case PILLARS:
+					registerLogBlock(data);
+					break;				
+				case PANE:
+					registerPaneBlock(data);
+					break;				
+				case SLAB:
+					registerSlabBlock(data);
+					break;
+				case STAIRS:
+					registerStairsBlock(data);
+					break;
+				case WALL:
+					registerWallBlock(data);
+					break;
+				case NORMAL:
+				default:				
+					if(!data.falls)
+						registerNormalBlock(data);
+					else
+						registerFallingBlock(data);
+					break;								
 			}
-			
-			//block.setRenderNormaly(data.renderAsNormalBlock);
-			block.slipperiness = data.slipperiness;
-			block.setOpaque(data.isOpaque);
-			block.setStepSound(Util.parseSoundType(data.stepSound));
-			
-			if(data.dropItemName != null)
-			{			
-				block.setDropItem(data.dropItemName);				
-				block.setMaxItemDrop(data.maxItemDrop);
-				block.setMinItemDrop(data.minItemDrop);
-				block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
-			}
-			
-			Registry.blocksList.add(block);
-			Registry.blocksList.add(data.creativeTab);	
-			
-			//Register Block
-			GameRegistry.registerBlock(block, registerName);			
-			block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
-			LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
-			
-			Item itemBlock = Item.getItemFromBlock(block);			
-			int size = Util.range(data.maxStackSize, 1, 64);			
-	        itemBlock.setMaxStackSize(size);
-		}
-		else
-		{
-			CustomFallingBlock block = new CustomFallingBlock(CI_Material.getMaterial(data.material));
-			
-			block.setHardness(data.hardness);
-			block.setResistance(data.resistance);
-			block.setBreaks(data.dropsItSelf);
-			block.setCanSilkHarvest(data.canSilkHarvest);
-			data.lightLevel = Util.range(data.lightLevel, 0, 1);
-			
-			block.setLightLevel(data.lightLevel);
-			if(data.toolClass != null)
-				block.setHarvestLevel(data.toolClass, data.harvestLevel);
-			if(data.multipleTextures == null)
-			{
-				block.setBlockTextureName(data.textureName);
-			}else
-			{
-				String[] textureNames = new String[6];
-				textureNames[0] = data.multipleTextures.yneg;
-				textureNames[1] = data.multipleTextures.ypos;
-				textureNames[2] = data.multipleTextures.zneg;
-				textureNames[3] = data.multipleTextures.zpos;
-				textureNames[4] = data.multipleTextures.xneg;
-				textureNames[5] = data.multipleTextures.xpos;
-				block.registerBlockTextures(textureNames);
-			}
-			
-			//block.setRenderNormaly(data.renderAsNormalBlock);
-			block.slipperiness = data.slipperiness;
-			block.setOpaque(data.isOpaque);
-			block.setStepSound(Util.parseSoundType(data.stepSound));
-			
-			if(data.dropItemName != null)
-			{			
-				block.setDropItem(data.dropItemName);				
-				block.setMaxItemDrop(data.maxItemDrop);
-				block.setMinItemDrop(data.minItemDrop);
-				block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
-			}
-			
-			Registry.blocksList.add(block);
-			Registry.blocksList.add(data.creativeTab);	
-			
-			//Register Block
-			GameRegistry.registerBlock(block, registerName);			
-			block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
-			LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
-			
-			Item itemBlock = Item.getItemFromBlock(block);			
-			int size = Util.range(data.maxStackSize, 1, 64);			
-	        itemBlock.setMaxStackSize(size);
 		}
     	
         return true;
     }
 
-    public static boolean registerBlock(Cfg_block[] data){
+    private static void registerWallBlock(Cfg_block data) {
+    	String registerName = Util.parseRegisterName(data.name);
+		
+		CustomWallBlock block = new CustomWallBlock(new CustomBlock(CI_Material.getMaterial(data.material)));
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		//block.setRenderNormaly(data.renderAsNormalBlock);
+		block.slipperiness = data.slipperiness;
+		block.setOpaque(data.isOpaque);
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		if(data.dropItemName != null)
+		{			
+			block.setDropItem(data.dropItemName);				
+			block.setMaxItemDrop(data.maxItemDrop);
+			block.setMinItemDrop(data.minItemDrop);
+			block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+		}
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+		
+	}
+
+	private static void registerStairsBlock(Cfg_block data) {
+		String registerName = Util.parseRegisterName(data.name);
+		
+		CustomStairsBlock block = new CustomStairsBlock(new CustomBlock(CI_Material.getMaterial(data.material)), 0);
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		//block.setRenderNormaly(data.renderAsNormalBlock);
+		block.slipperiness = data.slipperiness;
+		block.setOpaque(data.isOpaque);
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		if(data.dropItemName != null)
+		{			
+			block.setDropItem(data.dropItemName);				
+			block.setMaxItemDrop(data.maxItemDrop);
+			block.setMinItemDrop(data.minItemDrop);
+			block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+		}
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+		
+	}
+
+	private static void registerSlabBlock(Cfg_block data) {
+		String registerName = Util.parseRegisterName(data.name);
+		
+		CustomSlabBlock slabBlock = new CustomSlabBlock(false, CI_Material.getMaterial(data.material), registerName);
+		
+		
+		slabBlock.setHardness(data.hardness);
+		slabBlock.setResistance(data.resistance);
+		slabBlock.setBreaks(data.dropsItSelf);
+		slabBlock.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		slabBlock.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			slabBlock.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			slabBlock.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			slabBlock.registerBlockTextures(textureNames);
+		}
+		
+		//slabBlock.setRenderNormaly(data.renderAsNormalBlock);
+		slabBlock.slipperiness = data.slipperiness;
+		slabBlock.setOpaque(data.isOpaque);
+		slabBlock.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		if(data.dropItemName != null)
+		{
+			slabBlock.setDropItem(data.dropItemName);
+			slabBlock.setMaxItemDrop(data.maxItemDrop);
+			slabBlock.setMinItemDrop(data.minItemDrop);
+			slabBlock.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+		}
+		
+		Registry.blocksList.add(slabBlock);
+		Registry.blocksList.add(data.creativeTab);
+		
+		CustomSlabBlock doubleBlock = new CustomSlabBlock(true, CI_Material.getMaterial(data.material), registerName);
+		
+		
+		doubleBlock.setHardness(data.hardness);
+		doubleBlock.setResistance(data.resistance);
+		doubleBlock.setBreaks(data.dropsItSelf);
+		doubleBlock.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		doubleBlock.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			doubleBlock.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			doubleBlock.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			doubleBlock.registerBlockTextures(textureNames);
+		}
+		
+		//doubleBlock.setRenderNormaly(data);
+		doubleBlock.slipperiness = data.slipperiness;
+		doubleBlock.setOpaque(data.isOpaque);
+		doubleBlock.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		if(data.dropItemName != null)
+		{
+			doubleBlock.setDropItem(data.dropItemName);
+			doubleBlock.setMaxItemDrop(data.maxItemDrop);
+			doubleBlock.setMinItemDrop(data.minItemDrop);
+			doubleBlock.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+		}
+		
+		
+		
+		
+		//Register Blocks
+		
+		//Register Block
+		GameRegistry.registerBlock(slabBlock, CustomSlabItem.class, registerName, slabBlock, doubleBlock, false);
+		
+		slabBlock.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);	
+		
+		LanguageRegistry.instance().addStringLocalization(slabBlock.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(slabBlock);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+		
+
+		GameRegistry.registerBlock(doubleBlock, CustomSlabItem.class, "double_" + registerName, slabBlock, doubleBlock, true);
+		
+		doubleBlock.setBlockName(Registry.mod_id.toLowerCase() + ":" + "double_" + registerName);	
+		
+		LanguageRegistry.instance().addStringLocalization(doubleBlock.getUnlocalizedName()+".name","en_US", data.name);
+		
+		itemBlock = Item.getItemFromBlock(slabBlock);			
+		size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+		
+	}
+
+	private static void registerPaneBlock(Cfg_block data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void registerFallingBlock(Cfg_block data) {
+		String registerName = Util.parseRegisterName(data.name);		
+		
+		CustomFallingBlock block = new CustomFallingBlock(CI_Material.getMaterial(data.material));
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		//block.setRenderNormaly(data.renderAsNormalBlock);
+		block.slipperiness = data.slipperiness;
+		block.setOpaque(data.isOpaque);
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		if(data.dropItemName != null)
+		{			
+			block.setDropItem(data.dropItemName);				
+			block.setMaxItemDrop(data.maxItemDrop);
+			block.setMinItemDrop(data.minItemDrop);
+			block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+		}
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+        
+		
+	}
+
+	private static void registerNormalBlock(Cfg_block data) {
+		String registerName = Util.parseRegisterName(data.name);
+		
+		CustomBlock block = new CustomBlock(CI_Material.getMaterial(data.material));
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		//block.setRenderNormaly(data.renderAsNormalBlock);
+		block.slipperiness = data.slipperiness;
+		block.setOpaque(data.isOpaque);
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		if(data.dropItemName != null)
+		{			
+			block.setDropItem(data.dropItemName);				
+			block.setMaxItemDrop(data.maxItemDrop);
+			block.setMinItemDrop(data.minItemDrop);
+			block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+		}
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+		
+	}
+
+	private static void registerLogBlock(Cfg_block data) {
+		String registerName = Util.parseRegisterName(data.name);
+		
+		CustomRotatedPillar block = new CustomRotatedPillar(CI_Material.getMaterial(data.material));
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		//block.setRenderNormaly(data.renderAsNormalBlock);
+		block.slipperiness = data.slipperiness;
+		block.setOpaque(data.isOpaque);
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		if(data.dropItemName != null)
+		{			
+			block.setDropItem(data.dropItemName);				
+			block.setMaxItemDrop(data.maxItemDrop);
+			block.setMinItemDrop(data.minItemDrop);
+			block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+		}
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+		
+	}
+
+	private static void registerFenceBlock(Cfg_block data) {
+		String registerName = Util.parseRegisterName(data.name);
+		
+		CustomFenceBlock block = new CustomFenceBlock(data.textureName, CI_Material.getMaterial(data.material));
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		block.setRenderNormaly(false);
+		block.slipperiness = data.slipperiness;
+		block.setOpaque(data.isOpaque);
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		if(data.dropItemName != null)
+		{			
+			block.setDropItem(data.dropItemName);				
+			block.setMaxItemDrop(data.maxItemDrop);
+			block.setMinItemDrop(data.minItemDrop);
+			block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+		}
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+		
+	}
+
+	public static boolean registerBlock(Cfg_block[] data){
         int i;
 
         for(i=0;i<data.length;i++){
@@ -304,4 +690,7 @@ public class BlockRegistry {
 
         return true;
     }
+
+
+    
 }
