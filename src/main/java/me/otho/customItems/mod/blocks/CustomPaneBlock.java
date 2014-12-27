@@ -7,7 +7,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import me.otho.customItems.ModReference;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRotatedPillar;
+import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
@@ -16,28 +16,15 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class CustomRotatedPillar extends BlockRotatedPillar {
+public class CustomPaneBlock extends BlockPane{
 
-	public CustomRotatedPillar(Material p_i45425_1_) {
-		super(p_i45425_1_);
+	public CustomPaneBlock(String top, String side, Material p_i45432_3_, boolean p_i45432_4_) {
+		super(top, side, p_i45432_3_, p_i45432_4_);		
+		
+		field_150100_a = side;
 	}
-
 	
-
-//    @Override
-//	public int getRenderType()
-//    {
-//        return 0;
-//    }
-    
-//	@Override
-//	public int onBlockPlaced (World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta){
-//		
-//		
-//		return side;		
-//	}
-	
-    private IIcon[] icons = new IIcon[6];
+	private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;
 	private boolean renderNormaly;	
 
@@ -52,6 +39,8 @@ public class CustomRotatedPillar extends BlockRotatedPillar {
 	
 	private String[] textureNames;
 	protected boolean breaks;
+	private IIcon field_150102_N;
+	private String field_150100_a;
 	
 	@Override
     @SideOnly(Side.CLIENT)
@@ -70,6 +59,12 @@ public class CustomRotatedPillar extends BlockRotatedPillar {
 		else
 			return 0;
     }		
+	
+	@SideOnly(Side.CLIENT)
+    public IIcon func_150097_e()
+    {
+        return this.field_150102_N;
+    }
 		
 	protected int getItemDropQuantity(World world, int fortune)
     {
@@ -121,24 +116,11 @@ public class CustomRotatedPillar extends BlockRotatedPillar {
 		{
 			return blockIcon;
 		}else
-		{	
-	        int k = meta & 12;
-	        int l = meta & 3;
-	        return k == 0 && (side == 1 || side == 0) ? this.getTopIcon(l) : (k == 4 && (side == 5 || side == 4) ? this.getTopIcon(l) : (k == 8 && (side == 2 || side == 3) ? this.getTopIcon(l) : this.getSideIcon(l)));
-//			return icons[side];
+		{
+			return icons[side];
 		}
 	}
 	
-	@SideOnly(Side.CLIENT)
-    protected IIcon getSideIcon(int p_150163_1_){
-		return icons[5];
-	}
-
-    @SideOnly(Side.CLIENT)
-    protected IIcon getTopIcon(int p_150161_1_)
-    {
-    	return icons[1];
-    }
 	@Override
 	public boolean renderAsNormalBlock()
     {
@@ -187,9 +169,11 @@ public class CustomRotatedPillar extends BlockRotatedPillar {
 	        if(this.textureName == null)
 	    	{
 	        	blockIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+	        	this.field_150102_N = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName+"_top");
 	    	}else
 	    	{
 	    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
+	    		this.field_150102_N = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName+"_top");
 	    	}
     	}else
     	{

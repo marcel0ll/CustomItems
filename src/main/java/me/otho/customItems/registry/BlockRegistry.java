@@ -9,6 +9,7 @@ import me.otho.customItems.mod.blocks.CustomFallingBlock;
 import me.otho.customItems.mod.blocks.CustomFenceBlock;
 import me.otho.customItems.mod.blocks.CustomFenceBlock;
 import me.otho.customItems.mod.blocks.CustomFluidBlock;
+import me.otho.customItems.mod.blocks.CustomPaneBlock;
 import me.otho.customItems.mod.blocks.CustomRotatedPillar;
 import me.otho.customItems.mod.blocks.CustomSlabBlock;
 import me.otho.customItems.mod.blocks.CustomStairsBlock;
@@ -311,7 +312,58 @@ public class BlockRegistry {
 	}
 
 	private static void registerPaneBlock(Cfg_block data) {
-		// TODO Auto-generated method stub
+		String registerName = Util.parseRegisterName(data.name);
+		
+		CustomPaneBlock block = new CustomPaneBlock("side", "top", Material.glass, true);
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		//block.setRenderNormaly(data.renderAsNormalBlock);
+		block.slipperiness = data.slipperiness;
+		block.setOpaque(data.isOpaque);
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		if(data.dropItemName != null)
+		{			
+			block.setDropItem(data.dropItemName);				
+			block.setMaxItemDrop(data.maxItemDrop);
+			block.setMinItemDrop(data.minItemDrop);
+			block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+		}
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
 		
 	}
 
