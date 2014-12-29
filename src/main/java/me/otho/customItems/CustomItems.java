@@ -43,49 +43,10 @@ public class CustomItems
 	{			
 		String configFolderPath = event.getModConfigurationDirectory().toString()+File.separator+ModReference.MOD_ID+File.separator;
 		
-		ForgeConfig.init(event.getSuggestedConfigurationFile());
+		ForgeConfig.init(event.getSuggestedConfigurationFile());		
 		
 		if(ForgeConfig.remake){
-			File source = event.getSourceFile();
-			if(source.isFile()){
-				JarFile file = new JarFile(source);
-				
-				ZipEntry defaultConfigs = file.getEntry("defaultConfigs/");
-				
-				for (Enumeration<JarEntry> e = file.entries(); e.hasMoreElements();){
-					ZipEntry entry = (ZipEntry) e.nextElement();
-					
-	                System.out.println("File name: " + entry.getName()
-	                        + "; size: " + entry.getSize()
-	                        + "; compressed size: "
-	                        + entry.getCompressedSize());
-	                System.out.println();
-	                if(entry.getName().contains("defaultConfigs/")){
-	                	String[] parser = entry.getName().split("defaultConfigs/");
-	                	if(parser.length > 1){
-	                		String fileName = parser[1];
-	                		if(fileName.endsWith(".json")){		                	
-			                	File configFile = new File(configFolderPath + parser[1]);
-			                	if(configFile.exists())
-			                		configFile.delete();
-				                InputStream is = file.getInputStream(entry);
-				                
-				                InputStreamReader isr = new InputStreamReader(is);
-				 
-				                System.out.println();
-				                char[] buffer = new char[1];
-				                while (isr.read(buffer, 0, buffer.length) != -1) {
-				                    String s = new String(buffer);
-				                    FileUtils.write(configFile, s, true);		                    
-				                }	 
-	                		}
-	                	}
-	                }
-				}
-				
-				LogHelper.info("End of Default Config Files");
-				file.close();
-			}
+			remakeConfigFiles(event.getSourceFile(), configFolderPath);
 		}
 		
 		customItemsTab.init();
@@ -101,5 +62,47 @@ public class CustomItems
     public void postInit(FMLPostInitializationEvent event)
     {
     	JsonConfigurationHandler.post_init();
+    }
+    
+    private void remakeConfigFiles(File source, String configFolderPath) throws IOException{    	
+		if(source.isFile()){
+			JarFile file = new JarFile(source);
+			
+			ZipEntry defaultConfigs = file.getEntry("defaultConfigs/");
+			
+			for (Enumeration<JarEntry> e = file.entries(); e.hasMoreElements();){
+				ZipEntry entry = (ZipEntry) e.nextElement();
+				
+                System.out.println("File name: " + entry.getName()
+                        + "; size: " + entry.getSize()
+                        + "; compressed size: "
+                        + entry.getCompressedSize());
+                System.out.println();
+                if(entry.getName().contains("defaultConfigs/")){
+                	String[] parser = entry.getName().split("defaultConfigs/");
+                	if(parser.length > 1){
+                		String fileName = parser[1];
+                		if(fileName.endsWith(".json")){		                	
+		                	File configFile = new File(configFolderPath + parser[1]);
+		                	if(configFile.exists())
+		                		configFile.delete();
+			                InputStream is = file.getInputStream(entry);
+			                
+			                InputStreamReader isr = new InputStreamReader(is);
+			 
+			                System.out.println();
+			                char[] buffer = new char[1];
+			                while (isr.read(buffer, 0, buffer.length) != -1) {
+			                    String s = new String(buffer);
+			                    FileUtils.write(configFile, s, true);		                    
+			                }	 
+                		}
+                	}
+                }
+			}
+			
+			LogHelper.info("End of Default Config Files");
+			file.close();
+		}
     }
 }

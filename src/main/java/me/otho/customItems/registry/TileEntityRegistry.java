@@ -16,17 +16,10 @@ public class TileEntityRegistry {
 	public static boolean registerChest(Cfg_chest data){
 		LogHelper.log(Level.INFO, data.name, 1);
 		
-		String registerName = Util.parseRegisterName(data.name);
+		String registerName = Util.parseRegisterName(data.name);		
 		
-		if(data.toolClass != null)
-		{
-			data.toolClass = Util.validateToolClass(data.toolClass);
-			if(!data.toolClass.equals("pickaxe"))
-			{
-				data.harvestLevel = 0;
-			}
-		}
-
+		data.toolClass = Util.validateToolClass(data.toolClass);
+			
 		//Make Custom Block
 		CustomChest block = new CustomChest(CI_Material.getMaterial(data.material), data.invWidth, data.invHeight, data.invName);
 			

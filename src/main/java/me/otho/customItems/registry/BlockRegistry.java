@@ -38,16 +38,9 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class BlockRegistry {
 	
     public static boolean registerBlock(Cfg_block data){
-    	LogHelper.log(Level.INFO, "Register Block: "+ data.name, 1);
+    	LogHelper.log(Level.INFO, "Register Block: "+ data.name, 1);    	
     	
-    	if(data.toolClass != null)
-		{
-			data.toolClass = Util.validateToolClass(data.toolClass);		
-			if(!data.toolClass.equals("pickaxe"))
-			{
-				data.harvestLevel = 0;
-			}     
-		}		
+		data.toolClass = Util.validateToolClass(data.toolClass);				
 		
 		if(Util.validateType(data.type)){
 			Util.BlockType blockType = Util.BlockType.valueOf(data.type.toUpperCase());
@@ -71,12 +64,12 @@ public class BlockRegistry {
 				case WALL:
 					registerWallBlock(data);
 					break;
+				case FALLING:
+					registerFallingBlock(data);
+					break;
 				case NORMAL:
-				default:				
-					if(!data.falls)
-						registerNormalBlock(data);
-					else
-						registerFallingBlock(data);
+				default:
+					registerNormalBlock(data);					
 					break;								
 			}
 		}
@@ -84,7 +77,7 @@ public class BlockRegistry {
         return true;
     }
 
-    private static void registerWallBlock(Cfg_block data) {
+    public static void registerWallBlock(Cfg_block data) {
     	String registerName = Util.parseRegisterName(data.name);
 		
 		CustomWallBlock block = new CustomWallBlock(new CustomBlock(CI_Material.getMaterial(data.material)));
@@ -140,7 +133,7 @@ public class BlockRegistry {
 		
 	}
 
-	private static void registerStairsBlock(Cfg_block data) {
+    public static void registerStairsBlock(Cfg_block data) {
 		String registerName = Util.parseRegisterName(data.name);
 		
 		CustomStairsBlock block = new CustomStairsBlock(new CustomBlock(CI_Material.getMaterial(data.material)), 0);
@@ -196,7 +189,7 @@ public class BlockRegistry {
 		
 	}
 
-	private static void registerSlabBlock(Cfg_block data) {
+	public static void registerSlabBlock(Cfg_block data) {
 		String registerName = Util.parseRegisterName(data.name);
 		
 		CustomSlabBlock slabBlock = new CustomSlabBlock(false, CI_Material.getMaterial(data.material), registerName);
@@ -311,7 +304,7 @@ public class BlockRegistry {
 		
 	}
 
-	private static void registerPaneBlock(Cfg_block data) {
+	public static void registerPaneBlock(Cfg_block data) {
 		String registerName = Util.parseRegisterName(data.name);
 		
 		CustomPaneBlock block = new CustomPaneBlock("side", "top", Material.glass, true);
@@ -367,7 +360,7 @@ public class BlockRegistry {
 		
 	}
 
-	private static void registerFallingBlock(Cfg_block data) {
+	public static void registerFallingBlock(Cfg_block data) {
 		String registerName = Util.parseRegisterName(data.name);		
 		
 		CustomFallingBlock block = new CustomFallingBlock(CI_Material.getMaterial(data.material));
@@ -424,7 +417,7 @@ public class BlockRegistry {
 		
 	}
 
-	private static void registerNormalBlock(Cfg_block data) {
+	public static void registerNormalBlock(Cfg_block data) {
 		String registerName = Util.parseRegisterName(data.name);
 		
 		CustomBlock block = new CustomBlock(CI_Material.getMaterial(data.material));
@@ -480,7 +473,7 @@ public class BlockRegistry {
 		
 	}
 
-	private static void registerLogBlock(Cfg_block data) {
+	public static void registerLogBlock(Cfg_block data) {
 		String registerName = Util.parseRegisterName(data.name);
 		
 		CustomRotatedPillar block = new CustomRotatedPillar(CI_Material.getMaterial(data.material));
@@ -536,7 +529,7 @@ public class BlockRegistry {
 		
 	}
 
-	private static void registerFenceBlock(Cfg_block data) {
+	public static void registerFenceBlock(Cfg_block data) {
 		String registerName = Util.parseRegisterName(data.name);
 		
 		CustomFenceBlock block = new CustomFenceBlock(data.textureName, CI_Material.getMaterial(data.material));

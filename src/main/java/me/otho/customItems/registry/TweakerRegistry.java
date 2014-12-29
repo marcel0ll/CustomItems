@@ -19,17 +19,10 @@ public class TweakerRegistry {
 	{
 		String[] nameParsing = data.name.split(":");
 		String modId = nameParsing[0];
-		String name = nameParsing[1];
+		String name = nameParsing[1];		
 		
-		if(data.toolClass != null)
-		{
-			data.toolClass = Util.validateToolClass(data.toolClass);
-			if(!data.toolClass.equals("pickaxe"))
-			{
-				data.harvestLevel = 0;
-			}       
-		}
-		
+		data.toolClass = Util.validateToolClass(data.toolClass);
+			
 		if(modId != null && name != null)
 		{
 			Block block = GameRegistry.findBlock(modId, name);
@@ -43,15 +36,15 @@ public class TweakerRegistry {
 			if(data.hardness != null)
 				block.setHardness(data.hardness);
 			if(data.resistance != null)
-			block.setResistance(data.resistance);
+				block.setResistance(data.resistance);
 			if(data.lightLevel != null)
-			block.setLightLevel(data.lightLevel);	
+				block.setLightLevel(data.lightLevel);	
 			if(data.harvestLevel != null)
-			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+				block.setHarvestLevel(data.toolClass, data.harvestLevel);
 			if(data.slipperiness != null)
-			block.slipperiness = data.slipperiness;
+				block.slipperiness = data.slipperiness;
 			if(data.stepSound != null)
-			block.setStepSound(Util.parseSoundType(data.stepSound));
+				block.setStepSound(Util.parseSoundType(data.stepSound));
 			
 			if(data.maxStackSize != null)
 			{
@@ -145,18 +138,14 @@ public class TweakerRegistry {
 				}
 					
 				
-			} catch (IllegalArgumentException e) {
-				// TODO Auto-generated catch block
+			} catch (IllegalArgumentException e) {				
 				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				// TODO Auto-generated catch block
+			} catch (IllegalAccessException e) {				
 				e.printStackTrace();
 			}
-		} catch (NoSuchFieldException e) {
-			// TODO Auto-generated catch block
+		} catch (NoSuchFieldException e) {			
 			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
+		} catch (SecurityException e) {			
 			e.printStackTrace();
 		}
 		

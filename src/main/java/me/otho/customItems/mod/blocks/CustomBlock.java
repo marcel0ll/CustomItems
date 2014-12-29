@@ -59,9 +59,9 @@ public class CustomBlock extends Block {
     public int getRenderBlockPass()
     {
 		if(!this.opaque)
-			return 1;
-		else
 			return 0;
+		else
+			return 1;
     }		
 		
 	protected int getItemDropQuantity(World world, int fortune)

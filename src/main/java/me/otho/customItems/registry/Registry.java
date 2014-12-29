@@ -165,10 +165,8 @@ public class Registry {
                 }else if(toRegister instanceof Cfg_crop)
                 {
                 	BlockRegistry.registerCrop((Cfg_crop) toRegister);
-                }
-                
-            }
-            
+                }                
+            }            
             
             CommonRegistry.registerCreativeTabs(data.creativeTabs);
             

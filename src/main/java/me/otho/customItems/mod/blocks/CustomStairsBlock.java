@@ -19,14 +19,8 @@ public class CustomStairsBlock extends BlockStairs{
 
 	public CustomStairsBlock(Block p_i45428_1_, int p_i45428_2_) {
 		super(p_i45428_1_, p_i45428_2_);
-		// TODO Auto-generated constructor stub
+		
 	}
-	
-//	@Override
-//	public int getRenderType()
-//    {
-//        return 0;
-//    }
     
     private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;
@@ -44,23 +38,15 @@ public class CustomStairsBlock extends BlockStairs{
 	private String[] textureNames;
 	protected boolean breaks;
 	
-//	@Override
-//    @SideOnly(Side.CLIENT)
-//    public boolean shouldSideBeRendered (IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-//    {
-//        Block i1 = par1IBlockAccess.getBlock(par2, par3, par4);
-//        return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
-//    }
-	
 	@Override
 	@SideOnly(Side.CLIENT)
     public int getRenderBlockPass()
     {
-		if(!this.opaque)
-			return 1;
-		else
+		if(this.opaque)
 			return 0;
-    }		
+		else
+			return 1;
+    }	
 		
 	protected int getItemDropQuantity(World world, int fortune)
     {
@@ -95,16 +81,12 @@ public class CustomStairsBlock extends BlockStairs{
 	public void setOpaque(boolean isOpaque)
 	{
 		this.opaque = isOpaque;
-		this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
+		this.lightOpacity = isOpaque ? 255 : 0;
 	}    
     
     public void setCanSilkHarvest(boolean canSilkHarvest) {
 		this.canSilkHarvest = canSilkHarvest;
-	}
-	
-	public void setRenderNormaly(boolean renderNormaly) {
-		this.renderNormaly = renderNormaly;
-	}
+	}	
 	
 	@Override
 	public IIcon getIcon(int side, int meta) {
@@ -120,7 +102,6 @@ public class CustomStairsBlock extends BlockStairs{
 	@Override
 	public boolean renderAsNormalBlock()
     {
-        //return this.renderNormaly;
 		return false;
     }
 			
@@ -186,7 +167,7 @@ public class CustomStairsBlock extends BlockStairs{
     @Override
     public boolean isOpaqueCube ()
     {
-        return this.opaque;
+        return false;
     }
 	
 	

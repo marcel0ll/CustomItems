@@ -169,9 +169,9 @@ public class Util {
 	}
 		
 	public static String validateToolClass(String toolClass){
-		if(toolClass.equals("pickaxe"))
+		if(toolClass == null || toolClass.equals("pickaxe"))
 		{
-			return toolClass;
+			return "pickaxe";
 		}else if(toolClass.equals("axe"))
 		{
 			return toolClass;
@@ -201,7 +201,8 @@ public class Util {
 		STAIRS(10),		
 		PANE(18),
 		FENCE(11),
-		WALL(32);
+		WALL(32),
+		FALLING(0);
     	
     	private int renderType;
     	private boolean falls;
