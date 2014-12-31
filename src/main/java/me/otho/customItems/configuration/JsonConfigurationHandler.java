@@ -55,7 +55,9 @@ public class JsonConfigurationHandler
 					{					
 						try{
 							reader = new JsonReader(new FileReader(file));
-							reader.setLenient(true);
+							//reader.setLenient(true);
+							
+							LogHelper.info("Reading json file:"+file.getName());
 							
 							JsonSchema data = gson.fromJson(reader, JsonSchema.class);
 							mergeGson(data, allData);							

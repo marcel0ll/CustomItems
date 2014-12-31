@@ -1,28 +1,9 @@
 {
     "items": [
         {
-            "maxStackSize": 64,
-            "textureName": "blue_metal",
-            "name": "Blue Metal",
-            "creativeTab": "New Tab"
-        },
-        {
-            "maxStackSize": 64,
-            "textureName": "red_metal",
-            "name": "Red Metal",
-            "creativeTab": "New Tab"
-        },
-        {
-            "maxStackSize": 64,
-            "textureName": "gray_metal",
-            "name": "Gray Metal",
-            "creativeTab": "New Tab"
-        },
-        {
-            "maxStackSize": 9,
+            "maxStackSize": 16,
             "textureName": "coin2",
-            "name": "Coin",
-            "creativeTab": "New Tab"
+            "name": "Coin"            
         }
     ],
     "foods": [
@@ -37,7 +18,7 @@
                     "effect": "jump"
                 }
             ],
-            "name": "Banana"
+            "name": "Fire Jumping Banana"
         }
     ],
     "swords": [
@@ -47,8 +28,7 @@
             "maxUses": 10,
             "harvestLevel": 0,
             "efficiencyOnProperMaterial": 10,
-            "enchantability": 0,
-            "creativeTab": "New Tab",
+            "enchantability": 0,            
             "damageVsEntity": 10000
         }
     ],

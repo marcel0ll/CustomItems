@@ -1,0 +1,358 @@
+{
+    "creativeTabs": [
+	    {
+	        "tabLabel": "1.8 Stuff",
+	        "iconItem": "customitems:sea_lantern"
+	    }
+    ],
+	"blocks":[
+		{
+			"name": "Diorite",
+			"textureName": "stone_diorite",
+
+			"toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 30,
+            "harvestLevel": 0,
+            "hardness": 1.5,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Polished Diorite",
+			"textureName": "stone_diorite_smooth",
+
+			"toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 30,
+            "harvestLevel": 0,
+            "hardness": 1.5,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Andesite",
+			"textureName": "stone_andesite",
+
+			"toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 30,
+            "harvestLevel": 0,
+            "hardness": 1.5,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Polished Andesite",
+			"textureName": "stone_andesite_smooth",
+
+			"toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 30,
+            "harvestLevel": 0,
+            "hardness": 1.5,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Granite",
+			"textureName": "stone_granite",
+
+			"toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 30,
+            "harvestLevel": 0,
+            "hardness": 1.5,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Polished Granite",
+			"textureName": "stone_granite_smooth",
+
+			"toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 30,
+            "harvestLevel": 0,
+            "hardness": 1.5,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Coarse Dirt",
+			"textureName": "coarse_dirt",
+
+			"toolClass": "shovel",
+            "material": "grass",
+            "stepSound": "grass",
+            "resistance": 2.5,
+            "harvestLevel": 0,
+            "hardness": 0.5,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Red Sandstone",
+			"multipleTextures": {
+                "xpos": "red_sandstone_normal",
+                "xneg": "red_sandstone_normal",
+                "zpos": "red_sandstone_normal",
+                "zneg": "red_sandstone_normal",
+                "ypos": "red_sandstone_top",
+                "yneg": "red_sandstone_bottom"
+            },
+
+            "toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 4,
+            "harvestLevel": 0,
+            "hardness": 0.8,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Chiseled Red Sandstone",
+			"multipleTextures": {
+                "xpos": "red_sandstone_carved",
+                "xneg": "red_sandstone_carved",
+                "zpos": "red_sandstone_carved",
+                "zneg": "red_sandstone_carved",
+                "ypos": "red_sandstone_top",
+                "yneg": "red_sandstone_bottom"
+            },
+
+            "toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 4,
+            "harvestLevel": 0,
+            "hardness": 0.8,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Smooth Red Sandstone",
+			"multipleTextures": {
+                "xpos": "red_sandstone_smooth",
+                "xneg": "red_sandstone_smooth",
+                "zpos": "red_sandstone_smooth",
+                "zneg": "red_sandstone_smooth",
+                "ypos": "red_sandstone_top",
+                "yneg": "red_sandstone_bottom"
+            },
+
+           	"toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 4,
+            "harvestLevel": 0,
+            "hardness": 0.8,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Red Sandstone Slab",
+			"multipleTextures": {
+                "xpos": "red_sandstone_normal",
+                "xneg": "red_sandstone_normal",
+                "zpos": "red_sandstone_normal",
+                "zneg": "red_sandstone_normal",
+                "ypos": "red_sandstone_top",
+                "yneg": "red_sandstone_bottom"
+            },
+
+            "toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 4,
+            "harvestLevel": 0,
+            "hardness": 0.8,
+
+            "type": "slab",
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Red Sandstone Stairs",
+			"multipleTextures": {
+                "xpos": "red_sandstone_normal",
+                "xneg": "red_sandstone_normal",
+                "zpos": "red_sandstone_normal",
+                "zneg": "red_sandstone_normal",
+                "ypos": "red_sandstone_top",
+                "yneg": "red_sandstone_bottom"
+            },
+
+            "toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 4,
+            "harvestLevel": 0,
+            "hardness": 0.8,
+
+            "type": "stairs",
+
+            "creativeTab": "1.8 Stuff"
+		},		
+		{
+			"name": "Prismarine",
+			"textureName": "prismarine_rough",
+
+			"toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 30,
+            "harvestLevel": 0,
+            "hardness": 1.5,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Prismarine Bricks",
+			"textureName": "prismarine_bricks",
+
+			"toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 30,
+            "harvestLevel": 0,
+            "hardness": 1.2,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Dark Prismarine",
+			"textureName": "prismarine_dark",
+
+			"toolClass": "pickaxe",
+            "material": "rock",
+            "resistance": 30,
+            "harvestLevel": 0,
+            "hardness": 1.5,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Sea Lantern",
+			"textureName": "sea_lantern",
+			
+            "material": "rock",
+            "resistance": 1.5,
+            "harvestLevel": 0,
+            "hardness": 0.3,
+
+            "lightLevel": 1.0,
+            "stepSound": "glass",
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Spruce Fence",
+			"textureName": "planks_spruce",
+
+			"toolClass": "axe",
+			"material": "wood",
+            "resistance": 15,
+            "harvestLevel": 0,
+            "hardness": 2,
+            "stepSound": "wood",
+
+            "type": "fence",
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Birch Fence",
+			"textureName": "planks_birch",
+
+			"toolClass": "axe",
+			"material": "wood",
+            "resistance": 15,
+            "harvestLevel": 0,
+            "hardness": 2,
+            "stepSound": "wood",
+
+            "type": "fence",
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Jungle Fence",
+			"textureName": "planks_jungle",
+
+			"toolClass": "axe",
+			"material": "wood",
+            "resistance": 15,
+            "harvestLevel": 0,
+            "hardness": 2,
+            "stepSound": "wood",
+
+            "type": "fence",
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Dark Oak Fence",
+			"textureName": "planks_big_oak",
+
+			"toolClass": "axe",
+			"material": "wood",
+            "resistance": 15,
+            "harvestLevel": 0,
+            "hardness": 2,
+            "stepSound": "wood",
+
+            "type": "fence",
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Acacia Fence",
+			"textureName": "planks_acacia",
+
+			"toolClass": "axe",
+			"material": "wood",
+            "resistance": 15,
+            "harvestLevel": 0,
+            "hardness": 2,
+            "stepSound": "wood",
+
+            "type": "fence",
+
+            "creativeTab": "1.8 Stuff"
+		}
+	],
+
+	"items":[
+		{
+            "name": "Prismarine Crystals",
+            "textureName": "prismarine_crystals",
+			"maxStackSize": 64,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+            "name": "Prismarine Shard",
+            "textureName": "prismarine_shard",
+			"maxStackSize": 64,
+
+            "creativeTab": "1.8 Stuff"
+		}
+	],
+
+	"foods":[
+		{
+			"name": "Raw Mutton",
+            "textureName": "mutton_raw",
+			"maxStackSize": 64,
+			"healAmount": 2,
+			"saturationModifier": 1.2,
+
+            "creativeTab": "1.8 Stuff"
+		},
+		{
+			"name": "Cooked Mutton",
+            "textureName": "mutton_cooked",
+			"maxStackSize": 64,
+			"healAmount": 6,
+			"saturationModifier": 9.6,
+			"isWolfFood": true,
+
+            "creativeTab": "1.8 Stuff"
+		}
+	]
+}

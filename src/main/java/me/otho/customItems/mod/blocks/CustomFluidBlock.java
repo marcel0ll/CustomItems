@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.BlockFluidBase;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import cpw.mods.fml.relauncher.Side;
@@ -31,15 +32,15 @@ public class CustomFluidBlock extends BlockFluidClassic {
            
         if(this.textureName == null)
     	{
-        	stillIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
-        	flowingIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1)+"_flowing");
+        	stillIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1) + "_still");
+        	flowingIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1)+"_flow");
         	
     	}else
     	{
-    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
+    		//blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
     		
-    		stillIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
-            flowingIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_flowing");
+    		stillIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_still");
+            flowingIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_flow");
     	}
         
     }
@@ -54,5 +55,16 @@ public class CustomFluidBlock extends BlockFluidClassic {
     public boolean displaceIfPossible(World world, int x, int y, int z) {
         if(world.getBlock(x,y,z).getMaterial().isLiquid()) {return false;}
         return super.displaceIfPossible(world,x,y,z);
+    }
+    
+    @Override
+    public BlockFluidBase setQuantaPerBlock(int quantaPerBlock)
+    {
+        if (quantaPerBlock > 16) quantaPerBlock = 16;
+        if (quantaPerBlock < 1) quantaPerBlock = 1;
+        
+        this.quantaPerBlock = quantaPerBlock;
+        this.quantaPerBlockFloat = quantaPerBlock;
+        return this;
     }
 }

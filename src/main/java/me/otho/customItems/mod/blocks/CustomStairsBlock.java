@@ -20,8 +20,7 @@ public class CustomStairsBlock extends BlockStairs{
 	public CustomStairsBlock(Block p_i45428_1_, int p_i45428_2_) {
 		super(p_i45428_1_, p_i45428_2_);
 		
-	}
-    
+	}    
     private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;
 	private boolean renderNormaly;	
@@ -38,6 +37,30 @@ public class CustomStairsBlock extends BlockStairs{
 	private String[] textureNames;
 	protected boolean breaks;
 	
+	//Visual
+	@Override
+	public IIcon getIcon(int side, int meta) {
+		if(this.textureName != null)
+		{
+			return blockIcon;
+		}else
+		{
+			return icons[side];
+		}
+	}
+	
+	@Override
+	public boolean renderAsNormalBlock()
+    {
+		return false;
+    }
+
+	 @Override
+    public boolean isOpaqueCube ()
+    {
+        return false;
+    }
+	
 	@Override
 	@SideOnly(Side.CLIENT)
     public int getRenderBlockPass()
@@ -48,6 +71,37 @@ public class CustomStairsBlock extends BlockStairs{
 			return 1;
     }	
 		
+	public void setOpaque(boolean isOpaque)
+	{
+		this.opaque = isOpaque;
+		this.lightOpacity = isOpaque ? 255 : 0;
+	}    
+	
+	@Override
+    @SideOnly(Side.CLIENT)    
+    public void registerBlockIcons(IIconRegister iconRegister) {
+    	if(textureNames == null)
+    	{
+	        if(this.textureName == null)
+	    	{
+	        	blockIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+	    	}else
+	    	{
+	    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
+	    	}
+    	}else
+    	{
+    		for (int i = 0; i < icons.length; i++) {
+    	        icons[i] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + textureNames[i]);
+    	    }
+    	}
+    }
+    
+    public void registerBlockTextures(String[] textureNames)
+    {
+    	this.textureNames = textureNames;
+    }
+	//Drops
 	protected int getItemDropQuantity(World world, int fortune)
     {
     	int ret = 0;
@@ -78,32 +132,10 @@ public class CustomStairsBlock extends BlockStairs{
 	public void setDropItem(String dropItem) {
 		this.dropItem = dropItem;
 	}
-	public void setOpaque(boolean isOpaque)
-	{
-		this.opaque = isOpaque;
-		this.lightOpacity = isOpaque ? 255 : 0;
-	}    
     
     public void setCanSilkHarvest(boolean canSilkHarvest) {
 		this.canSilkHarvest = canSilkHarvest;
 	}	
-	
-	@Override
-	public IIcon getIcon(int side, int meta) {
-		if(this.textureName != null)
-		{
-			return blockIcon;
-		}else
-		{
-			return icons[side];
-		}
-	}
-	
-	@Override
-	public boolean renderAsNormalBlock()
-    {
-		return false;
-    }
 			
 	@Override
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
@@ -138,44 +170,13 @@ public class CustomStairsBlock extends BlockStairs{
     public String getUnlocalizedName() {
         return super.getUnlocalizedName();
     }
-
-    @Override
-    @SideOnly(Side.CLIENT)    
-    public void registerBlockIcons(IIconRegister iconRegister) {
-    	if(textureNames == null)
-    	{
-	        if(this.textureName == null)
-	    	{
-	        	blockIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
-	    	}else
-	    	{
-	    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
-	    	}
-    	}else
-    	{
-    		for (int i = 0; i < icons.length; i++) {
-    	        icons[i] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + textureNames[i]);
-    	    }
-    	}
-    }
-    
-    public void registerBlockTextures(String[] textureNames)
-    {
-    	this.textureNames = textureNames;
-    }
-	    
-    @Override
-    public boolean isOpaqueCube ()
-    {
-        return false;
-    }
-	
 	
 	@Override
 	public boolean canSilkHarvest()
     {
 		return this.canSilkHarvest;
     }
+	
 	public void setBreaks(boolean breaks) {
 		this.breaks = breaks;
 	}

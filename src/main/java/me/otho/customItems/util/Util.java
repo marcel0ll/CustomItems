@@ -169,7 +169,10 @@ public class Util {
 	}
 		
 	public static String validateToolClass(String toolClass){
-		if(toolClass == null || toolClass.equals("pickaxe"))
+		if(toolClass == null)
+		{
+			return null;
+		}else if(toolClass.equals("pickaxe"))
 		{
 			return "pickaxe";
 		}else if(toolClass.equals("axe"))
@@ -180,7 +183,7 @@ public class Util {
 			return toolClass;
 		}else
 		{
-			return "pickaxe";
+			return toolClass;
 		}
 	}
 	

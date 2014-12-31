@@ -9,29 +9,16 @@
             "invWidth": 1
         }
     ],
-    "blocks": [
-         {
-            "name": "Flint Pile",
-            "creativeTab": "Omega Dawn",
-            "textureName": "flintpile",
-            "material": "dirt",
-            "hardness": 1,
-            "resistance": 1,
-            "dropItemName": "minecraft:flint",
-            "minItemDrop": 1,
-            "maxItemDrop": 4,                
-            "eachExtraItemDropChance": 75,
-            "lightLevel": 0
-        },
+    "blocks": [         
         {
             "textureName": "red_sand",
             "name": "Red Sand",
             "toolClass": "shovel",
             "stepSound": "sand",
             "material": "sand",
-            "resistance": 2.5,
-            "falls": true,
-            "hardness": 0.5
+            "resistance": 2.5,            
+            "hardness": 0.5,
+            "type": "falling"
         },
         {
             "textureName": "pink_sand",
@@ -39,9 +26,9 @@
             "toolClass": "shovel",
             "stepSound": "sand",
             "material": "sand",
-            "resistance": 2.5,
-            "falls": true,
-            "hardness": 0.5
+            "resistance": 2.5,            
+            "hardness": 0.5,
+            "type": "falling"
         },
         {
             "textureName": "green_sand",
@@ -49,9 +36,9 @@
             "toolClass": "shovel",
             "stepSound": "sand",
             "material": "sand",
-            "resistance": 2.5,
-            "falls": true,
-            "hardness": 0.5
+            "resistance": 2.5,            
+            "hardness": 0.5,
+            "type": "falling"
         },
         {
             "textureName": "blue_sand",
@@ -59,47 +46,103 @@
             "toolClass": "shovel",
             "stepSound": "sand",
             "material": "sand",
-            "resistance": 2.5,
-            "falls": true,
-            "hardness": 0.5
+            "resistance": 2.5,            
+            "hardness": 0.5,
+            "type": "falling"
         },
         {
+            "name": "Custom Glass",           
             "textureName": "customGlass",
+            
             "registerOrder": 1,
-            "name": "Custom Glass",
-            "renderAsNormalBlock": false,
             "stepSound": "glass",
             "material": "glass",
-            "resistance": 0,
-            "creativeTab": "novoTab",
-            "isOpaque": false,
-            "canSilkHarvest": true,
-            "lightLevel": 0,
+            "resistance": 0,            
+            "isOpaque": false,            
             "maxStackSize": 16,
             "breaks": true,
+            "canSilkHarvest": true,
             "hardness": 1
         },
-        {            
+        {
+            "name": "Custom Glass Pane",           
+            "textureName": "customGlass",
+            
             "registerOrder": 1,
-            "name": "Multi Tex Block",
-            "maxItemDrop": 10,
-            "toolClass": "pickaxe",
-            "material": "rock",
-            "resistance": 0,
-            "harvestLevel": 0,
-            "dropItemName": "customitems:saquaguara_chest",
-            "lightLevel": 0,
-            "eachExtraItemDropChance": 15,
-            "multipleTextures": {
-                "xpos": "side_6",
-                "xneg": "side_5",
-                "zpos": "side_4",
-                "zneg": "side_3",
-                "ypos": "side_2",
-                "yneg": "side_1"
-            },
+            "stepSound": "glass",
+            "material": "glass",
+            "resistance": 0,            
+            "isOpaque": false,            
+            "maxStackSize": 16,
+            "breaks": true,
+            "canSilkHarvest": true,
             "hardness": 1,
-            "minItemDrop": 1
+
+            "type": "pane"
+        },
+        {
+            "name": "Custom Glass Stairs",           
+            "textureName": "customGlass",
+            
+            "registerOrder": 1,
+            "stepSound": "glass",
+            "material": "glass",
+            "resistance": 0,            
+            "isOpaque": false,            
+            "maxStackSize": 16,
+            "breaks": true,
+            "canSilkHarvest": true,
+            "hardness": 1,
+
+            "type": "stairs"
+        },
+        {
+            "name": "Custom Glass Slabs",           
+            "textureName": "customGlass",
+            
+            "registerOrder": 1,
+            "stepSound": "glass",
+            "material": "glass",
+            "resistance": 0,            
+            "isOpaque": false,            
+            "maxStackSize": 16,
+            "breaks": true,
+            "canSilkHarvest": true,
+            "hardness": 1,
+
+            "type": "slab"
+        },
+        {
+            "name": "Custom Glass Fence",           
+            "textureName": "customGlass",
+            
+            "registerOrder": 1,
+            "stepSound": "glass",
+            "material": "glass",
+            "resistance": 0,            
+            "isOpaque": false,            
+            "maxStackSize": 16,
+            "breaks": true,
+            "canSilkHarvest": true,
+            "hardness": 1,
+
+            "type": "fence"
+        },
+        {
+            "name": "Custom Glass Wall",           
+            "textureName": "customGlass",
+            
+            "registerOrder": 1,
+            "stepSound": "glass",
+            "material": "glass",
+            "resistance": 0,            
+            "isOpaque": false,            
+            "maxStackSize": 16,
+            "breaks": true,
+            "canSilkHarvest": true,
+            "hardness": 1,
+
+            "type": "wall"
         }
     ]
 }

@@ -3,6 +3,7 @@
 		{
 			"blockToSpawn": "customitems:red_sand",
 			"blockToReplace": "minecraft:sand",
+			"biomeId": [2],
 			"dimensionId": 0,			
 			"minVeinSize": 10, 
 			"maxVeinSize": 15,
