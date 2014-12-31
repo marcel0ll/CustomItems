@@ -73,11 +73,11 @@ public class CustomItems
 			for (Enumeration<JarEntry> e = file.entries(); e.hasMoreElements();){
 				ZipEntry entry = (ZipEntry) e.nextElement();
 				
-                System.out.println("File name: " + entry.getName()
-                        + "; size: " + entry.getSize()
-                        + "; compressed size: "
-                        + entry.getCompressedSize());
-                System.out.println();
+//                System.out.println("File name: " + entry.getName()
+//                        + "; size: " + entry.getSize()
+//                        + "; compressed size: "
+//                        + entry.getCompressedSize());
+//                System.out.println();
                 if(entry.getName().contains("defaultConfigs/")){
                 	String[] parser = entry.getName().split("defaultConfigs/");
                 	if(parser.length > 1){
@@ -88,9 +88,8 @@ public class CustomItems
 		                		configFile.delete();
 			                InputStream is = file.getInputStream(entry);
 			                
-			                InputStreamReader isr = new InputStreamReader(is);
-			 
-			                System.out.println();
+			                InputStreamReader isr = new InputStreamReader(is);		 
+			                
 			                char[] buffer = new char[1];
 			                while (isr.read(buffer, 0, buffer.length) != -1) {
 			                    String s = new String(buffer);
