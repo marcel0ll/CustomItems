@@ -112,13 +112,7 @@ public class CustomPaneBlock extends BlockPane{
 	
 	@Override
 	public IIcon getIcon(int side, int meta) {
-		if(this.textureName != null)
-		{
-			return blockIcon;
-		}else
-		{
-			return icons[side];
-		}
+		return blockIcon;		
 	}
 	
 	@Override
@@ -169,17 +163,23 @@ public class CustomPaneBlock extends BlockPane{
 	        if(this.textureName == null)
 	    	{
 	        	blockIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
-	        	this.field_150102_N = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName+"_top");
+	        	this.field_150102_N = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
 	    	}else
 	    	{
 	    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
-	    		this.field_150102_N = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName+"_top");
+	    		this.field_150102_N = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
 	    	}
     	}else
-    	{
-    		for (int i = 0; i < icons.length; i++) {
-    	        icons[i] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + textureNames[i]);
-    	    }
+    	{    		
+    		icons[5] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + textureNames[5]);
+    		icons[0] = icons[5];
+    		icons[1] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + textureNames[1]);
+    		icons[2] = icons[5];
+    		icons[3] = icons[5];
+    		icons[4] = icons[5];
+    		
+    		this.blockIcon = icons[5];
+    		this.field_150102_N = icons[1];
     	}
     }
     

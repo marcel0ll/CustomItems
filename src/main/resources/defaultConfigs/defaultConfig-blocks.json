@@ -95,6 +95,51 @@
             "type": "falling"
         },
         {
+            "name": "Dark quartz pillar",
+            "multipleTextures": {
+                "xpos": "dark_quartz_block_lines",               
+                "ypos": "dark_quartz_block_lines_top"              
+            },            
+            "toolClass": "pickaxe",
+            "stepSound": "stone",
+            "material": "rock",
+            "resistance": 4,            
+            "hardness": 0.8,
+            "type": "pillars"
+        },
+        {
+            "name": "Dark quartz",
+            "multipleTextures": {
+                "xpos": "dark_quartz_block_side",
+                "xneg": "dark_quartz_block_side",
+                "zpos": "dark_quartz_block_side",
+                "zneg": "dark_quartz_block_side",
+                "ypos": "dark_quartz_block_top",
+                "yneg": "dark_quartz_block_bottom"
+            },          
+            "toolClass": "pickaxe",
+            "stepSound": "stone",
+            "material": "rock",
+            "resistance": 4,            
+            "hardness": 0.8
+        },
+        {
+            "name": "Chiseled Dark quartz",
+            "multipleTextures": {
+                "xpos": "dark_quartz_block_chiseled",
+                "xneg": "dark_quartz_block_chiseled",
+                "zpos": "dark_quartz_block_chiseled",
+                "zneg": "dark_quartz_block_chiseled",
+                "ypos": "dark_quartz_block_chiseled_top",
+                "yneg": "dark_quartz_block_chiseled_top"
+            },            
+            "toolClass": "pickaxe",
+            "stepSound": "stone",
+            "material": "rock",
+            "resistance": 4,            
+            "hardness": 0.8
+        },
+        {
             "name": "Custom Glass",           
             "textureName": "customGlass",
             
@@ -110,7 +155,10 @@
         },
         {
             "name": "Custom Glass Pane",           
-            "textureName": "customGlass",
+            "multipleTextures": {
+                "xpos": "customGlass",               
+                "ypos": "customGlass"              
+            },   
             
             "registerOrder": 1,
             "stepSound": "glass",

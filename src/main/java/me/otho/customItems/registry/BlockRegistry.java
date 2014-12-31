@@ -710,7 +710,7 @@ public class BlockRegistry {
 		
 		
 		bucket = new CustomBucket(fluidBlock);
-		bucket.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name+"Bucket");
+		bucket.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name+"_bucket");
 		bucket.setContainerItem(Items.bucket);
 		
 		Registry.itemsList.add(bucket);
