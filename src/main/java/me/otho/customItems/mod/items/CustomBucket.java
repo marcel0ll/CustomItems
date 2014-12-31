@@ -8,8 +8,11 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomBucket extends ItemBucket {
-    public CustomBucket(CustomFluidBlock fluid) {
-        super(fluid);        
+	public String textureName;
+	
+    public CustomBucket(CustomFluidBlock fluid, String textureName) {
+        super(fluid);     
+        this.textureName = textureName;
     }
     @Override
     @SideOnly(Side.CLIENT)
@@ -19,7 +22,7 @@ public class CustomBucket extends ItemBucket {
     		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
     	}else
     	{
-    		itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);
+    		itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_bucket");
     	}
     }
 }

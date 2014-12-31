@@ -706,10 +706,8 @@ public class BlockRegistry {
 	    fluid.setIcons(fluidBlock);
 		
 		
-		CustomBucket bucket = new CustomBucket(fluidBlock);
+		CustomBucket bucket = new CustomBucket(fluidBlock, data.textureName);
 		
-		
-		bucket = new CustomBucket(fluidBlock);
 		bucket.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name+"_bucket");
 		bucket.setContainerItem(Items.bucket);
 		
