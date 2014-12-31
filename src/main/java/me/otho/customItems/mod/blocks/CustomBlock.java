@@ -23,12 +23,6 @@ public class CustomBlock extends Block {
     public CustomBlock(Material material) {
         super(material); 
     }
-	
-    @Override
-	public int getRenderType()
-    {
-        return 0;
-    }
     
     private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;
@@ -59,9 +53,9 @@ public class CustomBlock extends Block {
     public int getRenderBlockPass()
     {
 		if(!this.opaque)
-			return 0;
-		else
 			return 1;
+		else
+			return 0;
     }		
 		
 	protected int getItemDropQuantity(World world, int fortune)

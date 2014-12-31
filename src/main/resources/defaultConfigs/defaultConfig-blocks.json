@@ -9,6 +9,50 @@
             "invWidth": 1
         }
     ],
+    "fluids":[
+        {
+            "name":"Greeni",
+            "textureName": "green_liquid",
+            "temperature": 200,
+
+            "density": 1,
+            "viscosity": 0,            
+            "lightLevel": 1.0,
+            "isGas": true,
+            "flowLength": 16
+        },        
+        {
+            "name":"tower",
+            "textureName": "tower",
+            "temperature": 200,
+            
+            "density": -1000,
+            "viscosity": 1000,            
+            "isGas": true,
+            "flowLength": 1
+        },
+        {
+            "name":"Nova_water",
+            "textureName": "nova_water",
+            "temperature": 200,
+            
+            "density": 10000,
+            "viscosity": 1000,            
+            "isGas": true,
+            "flowLength": 8
+        },             
+        {
+            "name":"Nova Lava",
+            "textureName": "nova_lava",
+            "temperature": 200,
+            
+            "density": 2000,
+            "viscosity": 6000,
+            "lightLevel": 1.0,
+            "isGas": false,
+            "flowLength": 4
+        }
+    ],
     "blocks": [         
         {
             "textureName": "red_sand",
@@ -97,7 +141,7 @@
             "type": "stairs"
         },
         {
-            "name": "Custom Glass Slabs",           
+            "name": "Custom Glass Slab",           
             "textureName": "customGlass",
             
             "registerOrder": 1,

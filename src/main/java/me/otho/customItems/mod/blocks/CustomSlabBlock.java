@@ -137,7 +137,10 @@ public class CustomSlabBlock extends CustomBlock {
      */
     public boolean isOpaqueCube()
     {
-        return this.doubleSlab;
+    	if(!this.doubleSlab)
+    		return false;
+    	else
+    		return this.opaque;
     }
 
     /**
