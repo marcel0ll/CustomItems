@@ -22,7 +22,7 @@ public class ForgeConfig
 	
 	private static void loadConfiguration()
 	{		
-		remake = config.getBoolean("remake", "OPTIONS", false, "Set true if you want to restore the default config on the next time the mod is loaded");		
+		remake = config.getBoolean("remake", "OPTIONS", true, "Set true if you want to restore the default config on the next time the mod is loaded");		
 		defaultTab = config.getBoolean("defaultTab", "OPTIONS", true, "Set to false, if you dont want the default creative tab");
 		
 		if(config.hasChanged()) {
