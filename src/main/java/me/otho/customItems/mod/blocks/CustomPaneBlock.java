@@ -25,8 +25,7 @@ public class CustomPaneBlock extends BlockPane{
 	}
 	
 	private IIcon[] icons = new IIcon[6];
-	private boolean canSilkHarvest;
-	private boolean renderNormaly;	
+	private boolean canSilkHarvest;	
 
 	private boolean dropsItem = false;
 	
@@ -106,10 +105,6 @@ public class CustomPaneBlock extends BlockPane{
 		this.canSilkHarvest = canSilkHarvest;
 	}
 	
-	public void setRenderNormaly(boolean renderNormaly) {
-		this.renderNormaly = renderNormaly;
-	}
-	
 	@Override
 	public IIcon getIcon(int side, int meta) {
 		return blockIcon;		
@@ -118,7 +113,7 @@ public class CustomPaneBlock extends BlockPane{
 	@Override
 	public boolean renderAsNormalBlock()
     {
-        return this.renderNormaly;
+        return false;
     }
 			
 	@Override

@@ -22,24 +22,8 @@ public class CustomRotatedPillar extends BlockRotatedPillar {
 		super(p_i45425_1_);
 	}
 
-	
-
-//    @Override
-//	public int getRenderType()
-//    {
-//        return 0;
-//    }
-    
-//	@Override
-//	public int onBlockPlaced (World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta){
-//		
-//		
-//		return side;		
-//	}
-	
     private IIcon[] icons = new IIcon[6];
-	private boolean canSilkHarvest;
-	private boolean renderNormaly;	
+	private boolean canSilkHarvest;	
 
 	private boolean dropsItem = false;
 	
@@ -110,11 +94,7 @@ public class CustomRotatedPillar extends BlockRotatedPillar {
     public void setCanSilkHarvest(boolean canSilkHarvest) {
 		this.canSilkHarvest = canSilkHarvest;
 	}
-	
-	public void setRenderNormaly(boolean renderNormaly) {
-		this.renderNormaly = renderNormaly;
-	}
-	
+
 	@Override
 	public IIcon getIcon(int side, int meta) {
 		if(this.textureName != null)
@@ -125,7 +105,6 @@ public class CustomRotatedPillar extends BlockRotatedPillar {
 	        int k = meta & 12;
 	        int l = meta & 3;
 	        return k == 0 && (side == 1 || side == 0) ? this.getTopIcon(l) : (k == 4 && (side == 5 || side == 4) ? this.getTopIcon(l) : (k == 8 && (side == 2 || side == 3) ? this.getTopIcon(l) : this.getSideIcon(l)));
-//			return icons[side];
 		}
 	}
 	
@@ -142,7 +121,7 @@ public class CustomRotatedPillar extends BlockRotatedPillar {
 	@Override
 	public boolean renderAsNormalBlock()
     {
-        return this.renderNormaly;
+        return true;
     }
 			
 	@Override

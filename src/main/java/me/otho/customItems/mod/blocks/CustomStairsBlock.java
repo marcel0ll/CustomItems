@@ -22,8 +22,7 @@ public class CustomStairsBlock extends BlockStairs{
 		
 	}    
     private IIcon[] icons = new IIcon[6];
-	private boolean canSilkHarvest;
-	private boolean renderNormaly;	
+	private boolean canSilkHarvest;	
 
 	private boolean dropsItem = false;
 	

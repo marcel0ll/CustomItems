@@ -25,8 +25,7 @@ public class CustomBlock extends Block {
     }
     
     private IIcon[] icons = new IIcon[6];
-	private boolean canSilkHarvest;
-	private boolean renderNormaly;	
+	private boolean canSilkHarvest;		
 
 	private boolean dropsItem = false;
 	
@@ -98,10 +97,6 @@ public class CustomBlock extends Block {
 		this.canSilkHarvest = canSilkHarvest;
 	}
 	
-	public void setRenderNormaly(boolean renderNormaly) {
-		this.renderNormaly = renderNormaly;
-	}
-	
 	@Override
 	public IIcon getIcon(int side, int meta) {
 		if(this.textureName != null)
@@ -116,7 +111,7 @@ public class CustomBlock extends Block {
 	@Override
 	public boolean renderAsNormalBlock()
     {
-        return this.renderNormaly;
+        return true;
     }
 			
 	@Override

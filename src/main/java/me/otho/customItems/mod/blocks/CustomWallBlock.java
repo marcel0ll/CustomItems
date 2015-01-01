@@ -20,16 +20,9 @@ public class CustomWallBlock extends BlockWall{
 		super(p_i45435_1_);
 		
 	}
-
-//	@Override
-//	public int getRenderType()
-//    {
-//        return 0;
-//    }		
 	
 	private IIcon[] icons = new IIcon[6];
-	private boolean canSilkHarvest;
-	private boolean renderNormaly;	
+	private boolean canSilkHarvest;	
 
 	private boolean dropsItem = false;
 	
@@ -42,14 +35,6 @@ public class CustomWallBlock extends BlockWall{
 	
 	private String[] textureNames;
 	protected boolean breaks;
-	
-//	@Override
-//    @SideOnly(Side.CLIENT)
-//    public boolean shouldSideBeRendered (IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-//    {
-//        Block i1 = par1IBlockAccess.getBlock(par2, par3, par4);
-//        return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
-//    }
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -99,10 +84,6 @@ public class CustomWallBlock extends BlockWall{
     
     public void setCanSilkHarvest(boolean canSilkHarvest) {
 		this.canSilkHarvest = canSilkHarvest;
-	}
-	
-	public void setRenderNormaly(boolean renderNormaly) {
-		this.renderNormaly = renderNormaly;
 	}
 	
 	@Override
