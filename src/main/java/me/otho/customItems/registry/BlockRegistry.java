@@ -557,8 +557,7 @@ public class BlockRegistry {
 			textureNames[5] = data.multipleTextures.xpos;
 			block.registerBlockTextures(textureNames);
 		}
-		
-		block.setRenderNormaly(false);
+				
 		block.slipperiness = data.slipperiness;
 		block.setOpaque(data.isOpaque);
 		block.setStepSound(Util.parseSoundType(data.stepSound));
