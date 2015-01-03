@@ -16,7 +16,6 @@ import me.otho.customItems.mod.blocks.CustomRotatedPillar;
 import me.otho.customItems.mod.blocks.CustomSlabBlock;
 import me.otho.customItems.mod.blocks.CustomStairsBlock;
 import me.otho.customItems.mod.blocks.CustomWallBlock;
-import me.otho.customItems.mod.fluids.CustomFluid;
 import me.otho.customItems.mod.handler.BucketHandler;
 import me.otho.customItems.mod.items.CustomBucket;
 import me.otho.customItems.mod.items.CustomSeed;
@@ -41,9 +40,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BlockRegistry {
-	
-	public static ArrayList<CustomFluid> fluids = new ArrayList<CustomFluid>();
-	public static ArrayList<CustomFluidBlock> fluidBlocks = new ArrayList<CustomFluidBlock>();
 	
     public static boolean registerBlock(Cfg_block data){
     	LogHelper.log(Level.INFO, "Register Block: "+ data.name, 1);    	
@@ -114,7 +110,6 @@ public class BlockRegistry {
 			block.registerBlockTextures(textureNames);
 		}
 		
-		//block.setRenderNormaly(data.renderAsNormalBlock);
 		block.slipperiness = data.slipperiness;
 		block.setOpaque(data.isOpaque);
 		block.setStepSound(Util.parseSoundType(data.stepSound));
@@ -170,7 +165,6 @@ public class BlockRegistry {
 			block.registerBlockTextures(textureNames);
 		}
 		
-		//block.setRenderNormaly(data.renderAsNormalBlock);
 		block.slipperiness = data.slipperiness;
 		block.setOpaque(data.isOpaque);
 		block.setStepSound(Util.parseSoundType(data.stepSound));
@@ -227,7 +221,6 @@ public class BlockRegistry {
 			slabBlock.registerBlockTextures(textureNames);
 		}
 		
-		//slabBlock.setRenderNormaly(data.renderAsNormalBlock);
 		slabBlock.slipperiness = data.slipperiness;
 		slabBlock.setOpaque(data.isOpaque);
 		slabBlock.setStepSound(Util.parseSoundType(data.stepSound));
@@ -283,11 +276,6 @@ public class BlockRegistry {
 			doubleBlock.setEachExtraItemDropChance(data.eachExtraItemDropChance);
 		}
 		
-		
-		
-		
-		//Register Blocks
-		
 		//Register Block
 		GameRegistry.registerBlock(slabBlock, CustomSlabItem.class, registerName, slabBlock, doubleBlock, false);
 		
@@ -341,7 +329,6 @@ public class BlockRegistry {
 			block.registerBlockTextures(textureNames);
 		}
 		
-		//block.setRenderNormaly(data.renderAsNormalBlock);
 		block.slipperiness = data.slipperiness;
 		block.setOpaque(data.isOpaque);
 		block.setStepSound(Util.parseSoundType(data.stepSound));
@@ -397,7 +384,6 @@ public class BlockRegistry {
 			block.registerBlockTextures(textureNames);
 		}
 		
-		//block.setRenderNormaly(data.renderAsNormalBlock);
 		block.slipperiness = data.slipperiness;
 		block.setOpaque(data.isOpaque);
 		block.setStepSound(Util.parseSoundType(data.stepSound));
@@ -454,7 +440,6 @@ public class BlockRegistry {
 			block.registerBlockTextures(textureNames);
 		}
 		
-		//block.setRenderNormaly(data.renderAsNormalBlock);
 		block.slipperiness = data.slipperiness;
 		block.setOpaque(data.isOpaque);
 		block.setStepSound(Util.parseSoundType(data.stepSound));
@@ -510,7 +495,6 @@ public class BlockRegistry {
 			block.registerBlockTextures(textureNames);
 		}
 		
-		//block.setRenderNormaly(data.renderAsNormalBlock);
 		block.slipperiness = data.slipperiness;
 		block.setOpaque(data.isOpaque);
 		block.setStepSound(Util.parseSoundType(data.stepSound));
@@ -681,7 +665,6 @@ public class BlockRegistry {
 		
 						
 		Fluid fluid = new Fluid(data.name);
-		//fluids.add(fluid);
 		//fluid.setLuminosity(data.luminosity);
 		
 		fluid.setDensity(data.density);
@@ -693,7 +676,6 @@ public class BlockRegistry {
 
 		
 		CustomFluidBlock fluidBlock = new CustomFluidBlock(fluid, Material.water);
-		//fluidBlocks.add(fluidBlock);
 		
 		fluidBlock.setQuantaPerBlock(data.flowLength);
 		fluidBlock.setLightLevel(data.lightLevel);
@@ -711,7 +693,6 @@ public class BlockRegistry {
 	    LanguageRegistry.instance().addStringLocalization(fluidBlock.getUnlocalizedName()+".name","en_US", data.name);
 	    LanguageRegistry.instance().addStringLocalization(fluid.getUnlocalizedName(),"en_US", data.name);
 	    fluid.setBlock(fluidBlock);
-	    //fluid.setIcons(fluidBlock);	
 		
 		CustomBucket bucket = new CustomBucket(fluidBlock, data.textureName);
 		
@@ -746,23 +727,5 @@ public class BlockRegistry {
 
         return true;
     }
-    
-    public static boolean registerFluidIcons(){
-    
-//    	int i;
-//    	
-//    	for(i=0;i<fluids.size();i++){
-//    		
-//    		
-//    		Block block = fluidBlocks.get(i);
-//    		
-//    		fluids.get(i).setBlock(fluidBlocks.get(i));
-//    	    fluids.get(i).setIcons(fluidBlocks.get(i));	
-//    		
-//    	}
-//    	
-    	return true;
-    }
-
     
 }

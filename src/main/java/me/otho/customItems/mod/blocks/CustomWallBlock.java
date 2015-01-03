@@ -1,6 +1,6 @@
 package me.otho.customItems.mod.blocks;
 
-import java.awt.List;
+import java.util.List;
 import java.util.ArrayList;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -22,6 +22,12 @@ public class CustomWallBlock extends BlockWall{
 		super(p_i45435_1_);
 		
 	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_){
+        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
+    }
 	
 	private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;	
@@ -179,10 +185,4 @@ public class CustomWallBlock extends BlockWall{
 	public void setBreaks(boolean breaks) {
 		this.breaks = breaks;
 	}
-			
-	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
-    {
-       
-    }
-
 }
