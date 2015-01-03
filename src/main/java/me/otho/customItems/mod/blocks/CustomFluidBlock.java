@@ -13,36 +13,34 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomFluidBlock extends BlockFluidClassic {
+	
+	private Fluid fluid;
+	
+	protected IIcon stillIcon;    
+    protected IIcon flowingIcon;
+	
     public CustomFluidBlock(Fluid fluid, Material material) {
         super(fluid, material);        
+        this.fluid = fluid;
     }
-    @SideOnly(Side.CLIENT)
-    protected IIcon stillIcon;
-    @SideOnly(Side.CLIENT)
-    protected IIcon flowingIcon;
 
     @Override
+    @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        return (side==0||side==1)?this.stillIcon:this.flowingIcon;
-    }
-
-    @SideOnly(Side.CLIENT)
+        if (side==0||side==1)        
+        	return this.stillIcon;
+        else
+        	return this.flowingIcon;
+    } 
+    
     @Override
+    @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-           
-        if(this.textureName == null)
-    	{
-        	stillIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1) + "_still");
-        	flowingIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1)+"_flow");
-        	
-    	}else
-    	{
-    		//blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
-    		
-    		stillIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_still");
-            flowingIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_flow");
-    	}
+    	stillIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_still");
+        flowingIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_flow");
         
+        fluid.setStillIcon(stillIcon);
+        fluid.setFlowingIcon(flowingIcon);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package me.otho.customItems.mod.blocks;
 
+import java.awt.List;
 import java.util.ArrayList;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -9,6 +10,7 @@ import me.otho.customItems.ModReference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockWall;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -177,4 +179,10 @@ public class CustomWallBlock extends BlockWall{
 	public void setBreaks(boolean breaks) {
 		this.breaks = breaks;
 	}
+			
+	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
+    {
+       
+    }
+
 }

@@ -1,5 +1,7 @@
 package me.otho.customItems.registry;
 
+import java.util.ArrayList;
+
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
@@ -22,11 +24,14 @@ import me.otho.customItems.mod.items.CustomSlabItem;
 import me.otho.customItems.mod.materials.CI_Material;
 import me.otho.customItems.util.LogHelper;
 import me.otho.customItems.util.Util;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 
@@ -36,6 +41,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BlockRegistry {
+	
+	public static ArrayList<CustomFluid> fluids = new ArrayList<CustomFluid>();
+	public static ArrayList<CustomFluidBlock> fluidBlocks = new ArrayList<CustomFluidBlock>();
 	
     public static boolean registerBlock(Cfg_block data){
     	LogHelper.log(Level.INFO, "Register Block: "+ data.name, 1);    	
@@ -672,19 +680,20 @@ public class BlockRegistry {
 		String registerName = Util.parseRegisterName(data.name);
 		
 						
-		CustomFluid fluid = new CustomFluid(data.name);
-		
+		Fluid fluid = new Fluid(data.name);
+		//fluids.add(fluid);
 		//fluid.setLuminosity(data.luminosity);
 		
 		fluid.setDensity(data.density);
 		fluid.setTemperature(data.temperature);
 		fluid.setViscosity(data.viscosity);
-		fluid.setGaseous(data.isGas);
+		fluid.setGaseous(data.isGas);		
 		
 		FluidRegistry.registerFluid(fluid);
 
 		
 		CustomFluidBlock fluidBlock = new CustomFluidBlock(fluid, Material.water);
+		//fluidBlocks.add(fluidBlock);
 		
 		fluidBlock.setQuantaPerBlock(data.flowLength);
 		fluidBlock.setLightLevel(data.lightLevel);
@@ -702,8 +711,7 @@ public class BlockRegistry {
 	    LanguageRegistry.instance().addStringLocalization(fluidBlock.getUnlocalizedName()+".name","en_US", data.name);
 	    LanguageRegistry.instance().addStringLocalization(fluid.getUnlocalizedName(),"en_US", data.name);
 	    fluid.setBlock(fluidBlock);
-	    fluid.setIcons(fluidBlock);
-		
+	    //fluid.setIcons(fluidBlock);	
 		
 		CustomBucket bucket = new CustomBucket(fluidBlock, data.textureName);
 		
@@ -738,7 +746,23 @@ public class BlockRegistry {
 
         return true;
     }
-
+    
+    public static boolean registerFluidIcons(){
+    
+//    	int i;
+//    	
+//    	for(i=0;i<fluids.size();i++){
+//    		
+//    		
+//    		Block block = fluidBlocks.get(i);
+//    		
+//    		fluids.get(i).setBlock(fluidBlocks.get(i));
+//    	    fluids.get(i).setIcons(fluidBlocks.get(i));	
+//    		
+//    	}
+//    	
+    	return true;
+    }
 
     
 }
