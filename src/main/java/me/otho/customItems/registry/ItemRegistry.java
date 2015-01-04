@@ -51,6 +51,7 @@ public class ItemRegistry {
         Registry.itemsList.add(axe);
         Registry.itemsList.add(data.creativeTab);
         
+        axe.setTextureName(data.textureName);
         GameRegistry.registerItem(axe, registerName);
         axe.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.textureName);
         LanguageRegistry.instance().addStringLocalization(axe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
@@ -90,6 +91,7 @@ public class ItemRegistry {
 		Registry.itemsList.add(armor);
 		Registry.itemsList.add(data.creativeTab);
 		
+		armor.setTextureName(data.textureName);
 		GameRegistry.registerItem(armor, registerName);
 	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name);
 	    LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
@@ -128,6 +130,7 @@ public class ItemRegistry {
 		Registry.itemsList.add(armor);
 		Registry.itemsList.add(data.creativeTab);
 		
+		armor.setTextureName(data.textureName);
 		GameRegistry.registerItem(armor, registerName);
 	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name);
 	    LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
@@ -212,6 +215,7 @@ public class ItemRegistry {
 		Registry.itemsList.add(armor);
 		Registry.itemsList.add(data.creativeTab);
 		
+		armor.setTextureName(data.textureName);
 		GameRegistry.registerItem(armor, registerName);
 	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name);
 	    LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
@@ -252,6 +256,7 @@ public class ItemRegistry {
 		Registry.itemsList.add(hoe);
 		Registry.itemsList.add(data.creativeTab);
 		
+		hoe.setTextureName(data.textureName);
 		GameRegistry.registerItem(hoe, registerName);
 		hoe.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.textureName);
 	    LanguageRegistry.instance().addStringLocalization(hoe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
@@ -323,6 +328,7 @@ public class ItemRegistry {
 		Registry.itemsList.add(armor);
 		Registry.itemsList.add(data.creativeTab);
 		
+		armor.setTextureName(data.textureName);
 		GameRegistry.registerItem(armor, registerName);
 	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name);
 	    LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
@@ -360,6 +366,7 @@ public class ItemRegistry {
 		
 		CustomPickaxe pickaxe = new CustomPickaxe(material);
 		
+		pickaxe.setTextureName(data.textureName);
 		Registry.itemsList.add(pickaxe);
 		Registry.itemsList.add(data.creativeTab);
 		
@@ -400,6 +407,7 @@ public class ItemRegistry {
 		
 		CustomShovel shovel = new CustomShovel(material);
 		
+		shovel.setTextureName(data.textureName);
 		Registry.itemsList.add(shovel);
 		Registry.itemsList.add(data.creativeTab);
 		
@@ -440,6 +448,7 @@ public class ItemRegistry {
 		
 		CustomSword sword = new CustomSword(material);
 		
+		sword.setTextureName(data.textureName);
 		Registry.itemsList.add(sword);
 		Registry.itemsList.add(data.creativeTab);
 		
