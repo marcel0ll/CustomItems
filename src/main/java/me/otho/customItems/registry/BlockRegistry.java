@@ -664,7 +664,7 @@ public class BlockRegistry {
 		String registerName = Util.parseRegisterName(data.name);
 		
 						
-		Fluid fluid = new Fluid(data.name);
+		Fluid fluid = new Fluid(registerName);
 		//fluid.setLuminosity(data.luminosity);
 		
 		fluid.setDensity(data.density);
