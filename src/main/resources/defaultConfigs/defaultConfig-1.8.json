@@ -232,11 +232,13 @@
 			
             "material": "rock",
             "resistance": 1.5,
-            "harvestLevel": 0,
+            //"harvestLevel": 0,
             "hardness": 0.3,
 
             "lightLevel": 1.0,
             "stepSound": "glass",
+            "breaks": true,
+            "canSilkHarvest": true,
 
             "creativeTab": "1.8 Stuff"
 		},

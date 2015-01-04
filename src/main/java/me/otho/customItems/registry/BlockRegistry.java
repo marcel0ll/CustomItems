@@ -662,11 +662,11 @@ public class BlockRegistry {
     	LogHelper.log(Level.INFO, data.name, 1);
 		
 		String registerName = Util.parseRegisterName(data.name);
-		
+		data.luminosity = Util.range(data.luminosity, 0, 15);
 						
 		Fluid fluid = new Fluid(registerName);
-		//fluid.setLuminosity(data.luminosity);
 		
+		fluid.setLuminosity(data.luminosity);		
 		fluid.setDensity(data.density);
 		fluid.setTemperature(data.temperature);
 		fluid.setViscosity(data.viscosity);
@@ -677,8 +677,7 @@ public class BlockRegistry {
 		
 		CustomFluidBlock fluidBlock = new CustomFluidBlock(fluid, Material.water);
 		
-		fluidBlock.setQuantaPerBlock(data.flowLength);
-		fluidBlock.setLightLevel(data.lightLevel);
+		fluidBlock.setQuantaPerBlock(data.flowLength);		
 		
 		fluidBlock.setBlockTextureName(data.textureName);
 
@@ -706,7 +705,7 @@ public class BlockRegistry {
 	    GameRegistry.registerItem(bucket,registerName+"Bucket");
 	    
 	    FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(fluid.getName(),FluidContainerRegistry.BUCKET_VOLUME),new ItemStack(bucket),new ItemStack(Items.bucket));
-	    LanguageRegistry.instance().addStringLocalization(bucket.getUnlocalizedName()+".name","en_US",data.name+"_bucket");
+	    LanguageRegistry.instance().addStringLocalization(bucket.getUnlocalizedName()+".name","en_US", data.name);
 	    BucketHandler.INSTANCE.buckets.put(fluidBlock, bucket);
 	    MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
     	

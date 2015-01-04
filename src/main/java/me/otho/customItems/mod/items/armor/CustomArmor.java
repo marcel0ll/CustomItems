@@ -47,12 +47,6 @@ public class CustomArmor extends ItemArmor {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iconRegister) {        
-        if(this.textureName == null)
-    	{
-        	itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
-    	}else
-    	{
-    		itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_" + this.typeName);
-    	}    	
+       itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_" + this.typeName);
     }
 }

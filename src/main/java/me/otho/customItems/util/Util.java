@@ -195,7 +195,6 @@ public class Util {
 		return name;
 	}
 
-
 	public enum BlockType {
 		NORMAL(0),
 		SLAB(0),
@@ -217,7 +216,7 @@ public class Util {
     	
     }
     
-    public static boolean validateType(String value){    	
+    public static boolean validateType(String value){
     	for(BlockType test: BlockType.values()){
     		if(test.name().toUpperCase().equals(value.toUpperCase()))
     			return true;

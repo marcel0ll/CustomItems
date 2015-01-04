@@ -208,15 +208,8 @@ public class CustomCrop extends BlockCrops {
     public void registerBlockIcons(IIconRegister iconRegister) {
         LogHelper.debug("registering icon for: " + this.getUnlocalizedName());
         this.icons = new IIcon[4];
-        for(int i=1;i<this.icons.length+1;i++) {
-        	if(this.textureName == null)
-        	{        		
-        		this.icons[i-1] = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf('.') + 1)+i);
-        	}else
-        	{
-        		this.icons[i-1] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName+i);
-        	}
-            
+        for(int i=1;i<this.icons.length+1;i++) {        	
+    		this.icons[i-1] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName+i);
         }
     }
 

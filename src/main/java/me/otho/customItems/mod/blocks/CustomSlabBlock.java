@@ -40,8 +40,7 @@ public class CustomSlabBlock extends CustomBlock {
             this.opaque = true;
         }
         else
-        {
-        	
+        {        	
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
         }  
         

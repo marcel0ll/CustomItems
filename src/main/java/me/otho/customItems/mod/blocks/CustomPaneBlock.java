@@ -154,16 +154,9 @@ public class CustomPaneBlock extends BlockPane{
     @SideOnly(Side.CLIENT)    
     public void registerBlockIcons(IIconRegister iconRegister) {
     	if(textureNames == null)
-    	{
-	        if(this.textureName == null)
-	    	{
-	        	blockIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
-	        	this.field_150102_N = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
-	    	}else
-	    	{
-	    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
-	    		this.field_150102_N = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
-	    	}
+    	{	       
+    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
+    		this.field_150102_N = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);	    	
     	}else
     	{    		
     		icons[5] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + textureNames[5]);

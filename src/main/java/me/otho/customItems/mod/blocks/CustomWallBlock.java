@@ -150,13 +150,7 @@ public class CustomWallBlock extends BlockWall{
     public void registerBlockIcons(IIconRegister iconRegister) {
     	if(textureNames == null)
     	{
-	        if(this.textureName == null)
-	    	{
-	        	blockIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
-	    	}else
-	    	{
-	    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
-	    	}
+	        blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
     	}else
     	{
     		for (int i = 0; i < icons.length; i++) {

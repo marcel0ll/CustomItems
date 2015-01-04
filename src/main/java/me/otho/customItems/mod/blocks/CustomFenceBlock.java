@@ -20,13 +20,7 @@ public class CustomFenceBlock extends BlockFence{
 
 	public CustomFenceBlock(String p_i45406_1_, Material p_i45406_2_) {
 		super(p_i45406_1_, p_i45406_2_);		
-	}
-	
-//	@Override
-//	public int getRenderType()
-//    {
-//        return 0;
-//    }		
+	}	
 	
 	private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;		
@@ -42,14 +36,6 @@ public class CustomFenceBlock extends BlockFence{
 	
 	private String[] textureNames;
 	protected boolean breaks;
-	
-//	@Override
-//    @SideOnly(Side.CLIENT)
-//    public boolean shouldSideBeRendered (IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5)
-//    {
-//        Block i1 = par1IBlockAccess.getBlock(par2, par3, par4);
-//        return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
-//    }
 	
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -156,14 +142,8 @@ public class CustomFenceBlock extends BlockFence{
     @SideOnly(Side.CLIENT)    
     public void registerBlockIcons(IIconRegister iconRegister) {
     	if(textureNames == null)
-    	{
-	        if(this.textureName == null)
-	    	{
-	        	blockIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
-	    	}else
-	    	{
-	    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);
-	    	}
+    	{	       
+	    	blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);	    	
     	}else
     	{
     		for (int i = 0; i < icons.length; i++) {

@@ -14,26 +14,6 @@ public class CustomSword extends ItemSword {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iconRegister) {
-    	if(this.iconString == null)
-    	{
-    		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
-    	}else
-    	{
-    		itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);
-    	}
+    	itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);
     }
-    
-//    @Override
-//    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
-//    {
-//    	if(stack.getItemDamage() == stack.getMaxDamage())
-//    	{
-//    		return true;
-//    	}else
-//    	{
-//    		return false;
-//    	}
-//        
-//    }
-    
 }
