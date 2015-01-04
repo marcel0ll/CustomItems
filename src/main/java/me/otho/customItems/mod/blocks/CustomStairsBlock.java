@@ -9,6 +9,7 @@ import me.otho.customItems.ModReference;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -20,7 +21,9 @@ public class CustomStairsBlock extends BlockStairs{
 	public CustomStairsBlock(Block p_i45428_1_, int p_i45428_2_) {
 		super(p_i45428_1_, p_i45428_2_);
 		
+		this.useNeighborBrightness = true;		
 	}    
+	
     private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;	
 
@@ -73,8 +76,16 @@ public class CustomStairsBlock extends BlockStairs{
 	public void setOpaque(boolean isOpaque)
 	{
 		this.opaque = isOpaque;
-		this.lightOpacity = isOpaque ? 255 : 0;
+		this.lightOpacity = (isOpaque)? 255 : 0;
 	}    
+	
+	@Override
+	public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z){
+		if(!this.opaque)
+			return false;
+		else
+			return super.canCreatureSpawn(type, world, x, y, z);
+	}
 	
 	@Override
     @SideOnly(Side.CLIENT)    

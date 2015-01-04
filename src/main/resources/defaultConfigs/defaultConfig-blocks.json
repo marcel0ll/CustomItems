@@ -18,7 +18,7 @@
             "density": 1,
             "viscosity": 0,            
             "lightLevel": 1.0,
-            "isGas": true,
+            "isGas": false,
             "flowLength": 16
         },        
         {
@@ -38,7 +38,7 @@
             
             "density": 10000,
             "viscosity": 1000,            
-            "isGas": true,
+            "isGas": false,
             "flowLength": 8
         },             
         {

@@ -41,12 +41,29 @@ public class CustomSlabBlock extends CustomBlock {
         }
         else
         {
+        	
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
-        }
-
-        this.setLightOpacity(255);
+        }  
+        
+        this.useNeighborBrightness = true;
+    	this.setLightOpacity(255);
     }
     
+	@Override
+	public void setOpaque(boolean isOpaque)
+	{
+		this.opaque = isOpaque;		
+	}
+	
+	@Override
+	public int getLightOpacity()
+    {
+		if(this.opaque){
+			return 255;
+		}else
+			return 0;
+    }
+	
 	
 	@Override
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune)
@@ -211,7 +228,7 @@ public class CustomSlabBlock extends CustomBlock {
     {
     	if(p_150003_0_ instanceof CustomSlabBlock ){
     		CustomSlabBlock block = (CustomSlabBlock) p_150003_0_; 
-    		return !block.doubleSlab;
+    		return block.doubleSlab;
     	}else
     	{
     		return false;
