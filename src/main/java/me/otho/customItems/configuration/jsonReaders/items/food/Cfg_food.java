@@ -9,6 +9,7 @@ public class Cfg_food extends Cfg_item
 	public float saturationModifier = 1;
 	public boolean alwaysEdible = false;
 	public boolean isWolfFood = false;
+	public String useAction = "eat";
 	
 	public Cfg_PotionEffect[] potionEffects;
 }

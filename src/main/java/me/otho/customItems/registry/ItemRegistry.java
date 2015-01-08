@@ -170,6 +170,8 @@ public class ItemRegistry {
 			}
 		}
 		
+		food.setUseAction(data.useAction);
+		
 		
 		Registry.itemsList.add(food);
 		Registry.itemsList.add(data.creativeTab);

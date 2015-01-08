@@ -218,11 +218,20 @@ public class Util {
     
     public static boolean validateType(String value){
     	for(BlockType test: BlockType.values()){
-    		if(test.name().toUpperCase().equals(value.toUpperCase()))
+    		if(test.name().equals(value.toUpperCase()))
     			return true;
     	}
     	
     	return false;
     }
+    
+    public static <E extends Enum<E>> boolean isInEnum(String value, Class<E> enumClass) {
+    	for (E e : enumClass.getEnumConstants()) {
+    		if(e.name().equals(value)) { 
+    			return true; 
+    		}
+    	}
+    	return false;
+	}
 
 }

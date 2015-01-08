@@ -5,6 +5,7 @@ import me.otho.customItems.configuration.jsonReaders.common.Cfg_PotionEffect;
 import me.otho.customItems.util.Util;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -14,6 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomFood extends ItemFood{
 	
+	private EnumAction useAction = EnumAction.eat;
 	private Cfg_PotionEffect[] effectsArray;
 	
 	public CustomFood (int healAmount, float saturationModifier, boolean isWolfsFavoriteMeat){
@@ -50,6 +52,21 @@ public class CustomFood extends ItemFood{
     
     public void setFoodEffectsArray(Cfg_PotionEffect[] effectsArray){
     	this.effectsArray = effectsArray;
+    }
+    
+    public void setUseAction(String useAction){
+    	if(Util.isInEnum(useAction.toLowerCase(), EnumAction.class)){
+    		this.useAction = EnumAction.valueOf(useAction.toLowerCase());
+    	}else
+    	{
+    		this.useAction = EnumAction.eat;
+    	}
+    }
+    
+    @Override
+    public EnumAction getItemUseAction(ItemStack p_77661_1_)
+    {
+        return useAction;
     }
 
 }
