@@ -25,8 +25,6 @@ public class CustomRotatedPillar extends BlockRotatedPillar {
     private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;	
 
-	private boolean dropsItem = false;
-	
 	private int maxItemDrop;
 	
 	private int minItemDrop;

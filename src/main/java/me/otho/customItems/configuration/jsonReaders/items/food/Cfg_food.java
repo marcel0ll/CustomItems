@@ -11,5 +11,7 @@ public class Cfg_food extends Cfg_item
 	public boolean isWolfFood = false;
 	public String useAction = "eat";
 	
+	public String dropItemName;	
+	
 	public Cfg_PotionEffect[] potionEffects;
 }

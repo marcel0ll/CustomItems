@@ -23,6 +23,7 @@ import me.otho.customItems.util.LogHelper;
 import me.otho.customItems.util.Util;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 
 import org.apache.logging.log4j.Level;
@@ -169,7 +170,17 @@ public class ItemRegistry {
 				food.setFoodEffectsArray(data.potionEffects);
 			}
 		}
-		
+
+		if(data.dropItemName != null){
+			String[] parser = data.dropItemName.split(":");
+			String modId = parser[0];
+			String name = parser[1];
+			int damage = 0;
+			if(parser.length >2)
+				damage = Integer.parseInt(parser[2]);
+			
+			food.setDropStack(new ItemStack(GameRegistry.findItem(modId, name), 1, damage));
+		}
 		food.setUseAction(data.useAction);
 		
 		

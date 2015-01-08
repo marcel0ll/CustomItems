@@ -26,9 +26,7 @@ public class CustomFallingBlock  extends BlockFalling
     }
 
     private IIcon[] icons = new IIcon[6];
-	private boolean canSilkHarvest;		
-
-	private boolean dropsItem = false;
+	private boolean canSilkHarvest;	
 	
 	private int maxItemDrop;
 	

@@ -26,8 +26,6 @@ public class CustomBlock extends Block {
     
     private IIcon[] icons = new IIcon[6];
 	private boolean canSilkHarvest;		
-
-	private boolean dropsItem = false;
 	
 	private int maxItemDrop;
 	
