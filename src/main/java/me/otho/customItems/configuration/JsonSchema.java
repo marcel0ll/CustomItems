@@ -4,6 +4,7 @@ import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_creativeTab;
+import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
 import me.otho.customItems.configuration.jsonReaders.items.Cfg_item;
 import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_boots;
 import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_chestplate;
@@ -45,6 +46,8 @@ public class JsonSchema
 	public Cfg_change_food[] changeFoods;
 	
 	public Cfg_oreGen[] oreGen;
+	
+	public Cfg_entityDrop[] entitiesDrop;
 	
 	JsonSchema(){};
 }

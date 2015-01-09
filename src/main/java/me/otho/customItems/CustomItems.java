@@ -9,15 +9,25 @@ import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLiving;
+import net.minecraftforge.common.MinecraftForge;
+
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.logging.Log;
 
 import me.otho.customItems.configuration.ForgeConfig;
 import me.otho.customItems.configuration.JsonConfigurationHandler;
 import me.otho.customItems.mod.creativeTab.customItemsTab;
+import me.otho.customItems.mod.handler.EntityDropHandler;
 import me.otho.customItems.mod.worldGen.CustomWorldGenerator;
 import me.otho.customItems.proxy.ServerProxy;
 import me.otho.customItems.util.LogHelper;
@@ -27,6 +37,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(dependencies=ModReference.DEPENDENCIES, modid  = ModReference.MOD_ID, version = ModReference.VERSION, name=ModReference.MOD_NAME)
@@ -35,7 +46,7 @@ public class CustomItems
 	@Instance(ModReference.MOD_ID)
 	public static CustomItems instance;
 	
-    @SidedProxy(clientSide = ModReference.CLIENT_PROXY_CLASS, serverSide = ModReference.SERVER_PROXY_CLASS)
+    @SidedProxy(clientSide = ModReference.CLIENT_PROXY_CLASS, serverSide = ModReference.SERVER_PROXY_CLASS)   
     public static ServerProxy proxy;
 	
 	@Mod.EventHandler
@@ -53,15 +64,32 @@ public class CustomItems
 				
 		JsonConfigurationHandler.init(configFolderPath);
 		
-		GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 1);
+		GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 1);		
 		
     	proxy.registerTileEntities();
+    	
+    	MinecraftForge.EVENT_BUS.register(new EntityDropHandler());
+    	
 	}	
     
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
     	JsonConfigurationHandler.post_init();
+    	
+    	Set entities = EntityList.classToStringMapping.keySet();
+    	Set entu = EntityList.classToStringMapping.entrySet();
+    	
+    	LogHelper.info(EntityList.classToStringMapping.containsValue("swampmobs.ettin"));
+    	
+    	Iterator it = EntityList.classToStringMapping.entrySet().iterator();
+    	
+//        while (it.hasNext()) {
+//            Map.Entry pairs = (Map.Entry)it.next();
+//            System.out.println(pairs.getValue());
+//            //it.remove(); // avoids a ConcurrentModificationException
+//        }
+        
     }
     
     private void remakeConfigFiles(File source, String configFolderPath) throws IOException{    	

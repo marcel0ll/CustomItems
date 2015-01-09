@@ -17,6 +17,7 @@ import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
 import me.otho.customItems.registry.Registry;
 import me.otho.customItems.util.LogHelper;
 
@@ -104,6 +105,8 @@ public class JsonConfigurationHandler
 		mergeTo.changeFoods = ArrayUtils.addAll(data.changeFoods, mergeTo.changeFoods);
 		
 		mergeTo.oreGen = ArrayUtils.addAll(data.oreGen, mergeTo.oreGen);
+		
+		mergeTo.entitiesDrop = ArrayUtils.addAll(data.entitiesDrop, mergeTo.entitiesDrop);		
 	}
 
 }

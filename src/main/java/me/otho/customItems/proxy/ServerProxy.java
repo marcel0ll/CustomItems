@@ -8,8 +8,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ServerProxy {
 
-		
-		
 		public void registerTileEntities()
 		{
 			GameRegistry.registerTileEntity(TileEntityCustomChest.class, TileEntityCustomChest.publicName);
