@@ -693,19 +693,32 @@ public class BlockRegistry {
 	    LanguageRegistry.instance().addStringLocalization(fluid.getUnlocalizedName(),"en_US", data.name);
 	    fluid.setBlock(fluidBlock);
 		
-		CustomBucket bucket = new CustomBucket(fluidBlock, data.textureName);
 		
-		bucket.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name+"_bucket");
+		
+		if(data.bucket.name == null)
+			data.bucket.name = data.name+" Bucket";
+		
+		String BucketRegisterName = Util.parseRegisterName(data.bucket.name);
+		
+		if(data.bucket.creativeTab == null)
+			data.bucket.creativeTab = data.creativeTab;
+		
+		if(data.bucket.textureName == null)
+			data.bucket.textureName = data.textureName+"_bucket";
+		
+		CustomBucket bucket = new CustomBucket(fluidBlock, data.bucket.textureName);
+		
+		bucket.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.bucket.name);
 		bucket.setContainerItem(Items.bucket);
 		
 		Registry.itemsList.add(bucket);
-		Registry.itemsList.add(data.creativeTab);
+		Registry.itemsList.add(data.bucket.creativeTab);
 
-		bucket.setTextureName(data.textureName+"Bucket");
-	    GameRegistry.registerItem(bucket,registerName+"Bucket");
+		bucket.setTextureName(data.bucket.textureName);
+	    GameRegistry.registerItem(bucket,BucketRegisterName);
 	    
 	    FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluidStack(fluid.getName(),FluidContainerRegistry.BUCKET_VOLUME),new ItemStack(bucket),new ItemStack(Items.bucket));
-	    LanguageRegistry.instance().addStringLocalization(bucket.getUnlocalizedName()+".name","en_US", data.name);
+	    LanguageRegistry.instance().addStringLocalization(bucket.getUnlocalizedName()+".name","en_US", data.bucket.name);
 	    BucketHandler.INSTANCE.buckets.put(fluidBlock, bucket);
 	    MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
     	
