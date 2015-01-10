@@ -13,10 +13,10 @@ public class CustomArmor extends ItemArmor {
     private String typeName;
     protected String textureName = "";
     
-    public CustomArmor(ArmorMaterial mat, int id,int type, String textureName, int durability) {
+    public CustomArmor(ArmorMaterial mat, int id, int type, String textureName, int durability) {
         super(mat,id,type);        
-        this.type=type;
-        this.textureName= textureName;  
+        this.type = type;
+        this.textureName = textureName;  
         this.setMaxDamage(durability);
         
         if(type == 0){
@@ -34,19 +34,14 @@ public class CustomArmor extends ItemArmor {
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-        if(stack.getItem() instanceof CustomArmor) {
-            String path = ModReference.MOD_ID.toLowerCase() + ":textures/models/armor/" + this.textureName + "_layer_";
-            String end = slot == 2 ? "2.png" : "1.png";
-            return path + end;
-        }
-        else {
-            return null;
-        }
+        String path = ModReference.MOD_ID + ":textures/models/armor/" + this.textureName + "_layer_";
+        String end = slot == 2 ? "2.png" : "1.png";
+        return path + end;	
     }
     
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iconRegister) {        
-       itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_" + this.typeName);
+       itemIcon = iconRegister.registerIcon(ModReference.MOD_ID + ":" + this.textureName + "_" + this.typeName);
     }
 }

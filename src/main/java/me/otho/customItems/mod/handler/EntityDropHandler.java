@@ -30,7 +30,7 @@ public class EntityDropHandler {
     	//TODO: looting effect
     	for(i= data.min;i < data.max ;i++)
     	{
-    		boolean willDrop = rand.nextInt(100) < data.chance;
+    		boolean willDrop = rand.nextFloat()*100 < data.chance;
     		if(willDrop)
     			ret++;
     	}

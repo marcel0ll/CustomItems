@@ -27,6 +27,7 @@ import org.apache.commons.logging.Log;
 import me.otho.customItems.configuration.ForgeConfig;
 import me.otho.customItems.configuration.JsonConfigurationHandler;
 import me.otho.customItems.mod.creativeTab.customItemsTab;
+import me.otho.customItems.mod.handler.BlockDropHandler;
 import me.otho.customItems.mod.handler.EntityDropHandler;
 import me.otho.customItems.mod.worldGen.CustomWorldGenerator;
 import me.otho.customItems.proxy.ServerProxy;
@@ -69,6 +70,7 @@ public class CustomItems
     	proxy.registerTileEntities();
     	
     	MinecraftForge.EVENT_BUS.register(new EntityDropHandler());
+    	MinecraftForge.EVENT_BUS.register(new BlockDropHandler());
     	
 	}	
     

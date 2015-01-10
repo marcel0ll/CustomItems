@@ -83,7 +83,7 @@ public class ItemRegistry {
 		
 		//Make Custom Armor
 		int reduction[] = {0,0,0,0};
-		reduction[3] = data.reductionNum;
+		reduction[3] = data.reduction;
 		
 		ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
 		CustomArmor armor = new CustomArmor(material, 0, 3, data.textureName, data.durability);				
@@ -122,7 +122,7 @@ public class ItemRegistry {
 		
 		//Make Custom Armor
 		int reduction[] = {0,0,0,0};
-		reduction[1] = data.reductionNum;
+		reduction[1] = data.reduction;
 		
 		ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
 		CustomArmor armor = new CustomArmor(material, 0, 1, data.textureName, data.durability);
@@ -219,7 +219,7 @@ public class ItemRegistry {
 		
 		//Make Custom Armor
 		int reduction[] = {0,0,0,0};
-		reduction[0] = data.reductionNum;
+		reduction[0] = data.reduction;
 		
 		ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
 		CustomArmor armor = new CustomArmor(material, 0, 0, data.textureName, data.durability);
@@ -299,6 +299,8 @@ public class ItemRegistry {
 		
 		CustomItem item = new CustomItem(data.maxStackSize);
 	   
+		item.setGlows(data.glows);
+		
 		Registry.itemsList.add(item);
 		Registry.itemsList.add(data.creativeTab);
 		
@@ -332,7 +334,7 @@ public class ItemRegistry {
 		
 		//Make Custom Armor
 		int reduction[] = {0,0,0,0};
-		reduction[2] = data.reductionNum;
+		reduction[2] = data.reduction;
 		
 		ItemArmor.ArmorMaterial material = EnumHelper.addArmorMaterial(data.textureName, data.durability, reduction, data.enchantability);
 		CustomArmor armor = new CustomArmor(material, 0, 2, data.textureName, data.durability);
