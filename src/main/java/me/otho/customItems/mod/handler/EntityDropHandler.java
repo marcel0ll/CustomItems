@@ -19,7 +19,6 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class EntityDropHandler {
-
 	
 	protected int getItemDropQuantity(Cfg_drop data)
     {

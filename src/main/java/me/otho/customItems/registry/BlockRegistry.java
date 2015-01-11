@@ -1,10 +1,15 @@
 package me.otho.customItems.registry;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import me.otho.customItems.compability.NEICustomItemsConfig;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
+import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_blockDrop;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
+import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
+import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
 import me.otho.customItems.mod.blocks.CustomBlock;
 import me.otho.customItems.mod.blocks.CustomCrop;
 import me.otho.customItems.mod.blocks.CustomFallingBlock;
@@ -34,12 +39,52 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BlockRegistry {
+	
+	public static HashMap<String, Cfg_drop[]> drops = new HashMap<String, Cfg_drop[]>();
+	public static HashMap<String, Boolean> overrides = new HashMap<String, Boolean>();
+	
+	public static boolean registerBlockDrop(Cfg_blockDrop data){
+		
+		String[] parser = data.id.split(":");
+		if(parser.length < 3)
+			data.id = data.id.concat(":0");
+		
+		if(drops.containsKey(data.id)){
+			
+			Cfg_drop[] arr = drops.get(data.id);
+			
+			arr = ArrayUtils.addAll(arr, data.drops);
+			
+			drops.replace(data.id, arr);			
+		}else{
+			drops.put(data.id, data.drops);
+			overrides.put(data.id, data.overrides);
+		}
+		
+		return true;
+	}
+
+	public static boolean registerBlockDrop(Cfg_blockDrop[] data){
+		int i;
+
+        for(i=0;i<data.length;i++){
+            boolean registered = registerBlockDrop(data[i]);
+
+            if(!registered){
+                LogHelper.error("Failed to register: Entity drop " + i);
+                return false;
+            }
+        }
+
+        return true;
+	}
 	
     public static boolean registerBlock(Cfg_block data){
     	LogHelper.log(Level.INFO, "Register Block: "+ data.name, 1);    	
@@ -297,7 +342,8 @@ public class BlockRegistry {
 		itemBlock = Item.getItemFromBlock(slabBlock);			
 		size = Util.range(data.maxStackSize, 1, 64);			
         itemBlock.setMaxStackSize(size);
-		
+        
+        NEICustomItemsConfig.addItemToHide(Registry.mod_id +":double_"+registerName);		
 	}
 
 	public static void registerPaneBlock(Cfg_block data) {
@@ -640,6 +686,7 @@ public class BlockRegistry {
 	        MinecraftForge.addGrassSeed(new ItemStack(seed), data.dropFromGrassChance);
 	    }
     	
+	    NEICustomItemsConfig.addItemToHide(Registry.mod_id +":"+registerName);
     	return true;
     }
 
@@ -673,7 +720,6 @@ public class BlockRegistry {
 		fluid.setGaseous(data.isGas);		
 		
 		FluidRegistry.registerFluid(fluid);
-
 		
 		CustomFluidBlock fluidBlock = new CustomFluidBlock(fluid, Material.water);
 		

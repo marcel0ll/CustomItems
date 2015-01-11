@@ -171,6 +171,7 @@ public class Registry {
             CommonRegistry.registerCreativeTabs(data.creativeTabs);
             
             EntityRegistry.registerEntityDrop(data.entitiesDrop);
+            BlockRegistry.registerBlockDrop(data.blocksDrop);
             
             setCreativeTabs();
         }

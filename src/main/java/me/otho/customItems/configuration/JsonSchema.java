@@ -1,6 +1,7 @@
 package me.otho.customItems.configuration;
 
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
+import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_blockDrop;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_creativeTab;
@@ -48,6 +49,7 @@ public class JsonSchema
 	public Cfg_oreGen[] oreGen;
 	
 	public Cfg_entityDrop[] entitiesDrop;
+	public Cfg_blockDrop[] blocksDrop;
 	
 	JsonSchema(){};
 }

@@ -60,6 +60,8 @@ public class CustomItems
 		
 		ForgeConfig.init(event.getSuggestedConfigurationFile());		
 		
+		Integration.init();
+		
 		customItemsTab.init();
 				
 		JsonConfigurationHandler.init(configFolderPath, event.getSourceFile());
@@ -67,6 +69,7 @@ public class CustomItems
 		GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 1);		
 		
     	proxy.registerTileEntities();
+    	proxy.Integration_NEI();
     	
     	MinecraftForge.EVENT_BUS.register(new EntityDropHandler());
     	MinecraftForge.EVENT_BUS.register(new BlockDropHandler());
@@ -77,7 +80,5 @@ public class CustomItems
     public void postInit(FMLPostInitializationEvent event)
     {
     	JsonConfigurationHandler.post_init();
-        
-    	Integration.init();
     }
 }

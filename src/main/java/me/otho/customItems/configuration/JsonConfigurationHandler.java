@@ -113,7 +113,8 @@ public class JsonConfigurationHandler
 		
 		mergeTo.oreGen = ArrayUtils.addAll(data.oreGen, mergeTo.oreGen);
 		
-		mergeTo.entitiesDrop = ArrayUtils.addAll(data.entitiesDrop, mergeTo.entitiesDrop);		
+		mergeTo.entitiesDrop = ArrayUtils.addAll(data.entitiesDrop, mergeTo.entitiesDrop);
+		mergeTo.blocksDrop = ArrayUtils.addAll(data.blocksDrop, mergeTo.blocksDrop);		
 	}
 
 	public static void remakeConfigFiles(File source, String configFolderPath) throws IOException{
