@@ -24,7 +24,7 @@ import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_shovel;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_sword;
 import me.otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
 import me.otho.customItems.mod.creativeTab.customItemsTab;
-import me.otho.customItems.util.LogHelper;
+import me.otho.customItems.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

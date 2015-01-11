@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import me.otho.customItems.ModReference;
 import me.otho.customItems.mod.items.CustomSeed;
-import me.otho.customItems.util.LogHelper;
+import me.otho.customItems.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;

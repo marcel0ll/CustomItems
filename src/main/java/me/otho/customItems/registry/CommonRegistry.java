@@ -2,7 +2,7 @@ package me.otho.customItems.registry;
 
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_creativeTab;
 import me.otho.customItems.mod.creativeTab.customItemsTab;
-import me.otho.customItems.util.LogHelper;
+import me.otho.customItems.utility.LogHelper;
 import net.minecraft.item.Item;
 import cpw.mods.fml.common.registry.GameRegistry;
 

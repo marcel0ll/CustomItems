@@ -7,7 +7,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import me.otho.customItems.configuration.JsonConfigurationHandler;
 import me.otho.customItems.configuration.jsonReaders.worldGen.Cfg_oreGen;
-import me.otho.customItems.util.LogHelper;
+import me.otho.customItems.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

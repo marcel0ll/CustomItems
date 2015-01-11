@@ -4,8 +4,8 @@ import me.otho.customItems.ModReference;
 import me.otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
 import me.otho.customItems.mod.blocks.CustomChest;
 import me.otho.customItems.mod.materials.CI_Material;
-import me.otho.customItems.util.LogHelper;
-import me.otho.customItems.util.Util;
+import me.otho.customItems.utility.LogHelper;
+import me.otho.customItems.utility.Util;
 
 import org.apache.logging.log4j.Level;
 

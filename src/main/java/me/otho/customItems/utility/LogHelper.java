@@ -1,4 +1,4 @@
-package me.otho.customItems.util;
+package me.otho.customItems.utility;
 
 import me.otho.customItems.ModReference;
 import me.otho.customItems.configuration.ForgeConfig;

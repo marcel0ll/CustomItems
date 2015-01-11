@@ -7,8 +7,8 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
 import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
-import me.otho.customItems.util.LogHelper;
-import me.otho.customItems.util.Util;
+import me.otho.customItems.utility.LogHelper;
+import me.otho.customItems.utility.Util;
 
 public class EntityRegistry {
 

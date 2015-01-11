@@ -2,7 +2,7 @@ package me.otho.customItems.mod.items.food;
 
 import me.otho.customItems.ModReference;
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_PotionEffect;
-import me.otho.customItems.util.Util;
+import me.otho.customItems.utility.Util;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;

@@ -1,4 +1,4 @@
-package me.otho.customItems.util;
+package me.otho.customItems.utility;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Block.SoundType;

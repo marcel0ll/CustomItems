@@ -1,5 +1,6 @@
 package me.otho.customItems.proxy;
 
-public class ClientProxy extends ServerProxy{
+public class ClientProxy extends CommonProxy{
 
+	
 }

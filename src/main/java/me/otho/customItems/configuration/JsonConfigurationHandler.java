@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
@@ -16,11 +17,13 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.zip.ZipEntry;
 
 import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
 import me.otho.customItems.registry.Registry;
-import me.otho.customItems.util.LogHelper;
+import me.otho.customItems.utility.LogHelper;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.google.gson.Gson;
@@ -32,8 +35,12 @@ public class JsonConfigurationHandler
 	public static JsonSchema data;
 	public static JsonSchema allData;
 	
-	public static void init (String folderPath)
+	public static void init (String folderPath, File source) throws IOException
 	{		
+		if(ForgeConfig.remake){
+			remakeConfigFiles(source, folderPath);
+		}
+		
 		File folder = new File(folderPath);
 		allData = new JsonSchema();
 		
@@ -109,4 +116,44 @@ public class JsonConfigurationHandler
 		mergeTo.entitiesDrop = ArrayUtils.addAll(data.entitiesDrop, mergeTo.entitiesDrop);		
 	}
 
+	public static void remakeConfigFiles(File source, String configFolderPath) throws IOException{
+		if(source.isFile()){
+			JarFile file = new JarFile(source);
+			
+			ZipEntry defaultConfigs = file.getEntry("defaultConfigs/");
+			
+			for (Enumeration<JarEntry> e = file.entries(); e.hasMoreElements();){
+				ZipEntry entry = (ZipEntry) e.nextElement();
+				
+//                System.out.println("File name: " + entry.getName()
+//                        + "; size: " + entry.getSize()
+//                        + "; compressed size: "
+//                        + entry.getCompressedSize());
+//                System.out.println();
+                if(entry.getName().contains("defaultConfigs/")){
+                	String[] parser = entry.getName().split("defaultConfigs/");
+                	if(parser.length > 1){
+                		String fileName = parser[1];
+                		if(fileName.endsWith(".json")){		                	
+		                	File configFile = new File(configFolderPath + parser[1]);
+		                	if(configFile.exists())
+		                		configFile.delete();
+			                InputStream is = file.getInputStream(entry);
+			                
+			                InputStreamReader isr = new InputStreamReader(is);		 
+			                
+			                char[] buffer = new char[1];
+			                while (isr.read(buffer, 0, buffer.length) != -1) {
+			                    String s = new String(buffer);
+			                    FileUtils.write(configFile, s, true);		                    
+			                }	 
+                		}
+                	}
+                }
+			}
+			
+			LogHelper.info("End of Default Config Files");
+			file.close();
+		}
+	}
 }

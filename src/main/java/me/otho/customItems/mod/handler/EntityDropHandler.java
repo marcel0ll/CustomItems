@@ -6,7 +6,7 @@ import java.util.Random;
 
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
 import me.otho.customItems.registry.EntityRegistry;
-import me.otho.customItems.util.LogHelper;
+import me.otho.customItems.utility.LogHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.item.EntityItem;
