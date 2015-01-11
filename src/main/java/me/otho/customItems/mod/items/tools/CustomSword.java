@@ -1,6 +1,6 @@
 package me.otho.customItems.mod.items.tools;
 
-import me.otho.customItems.ModReference;
+import me.otho.customItems.reference.Reference;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemSword;
 import cpw.mods.fml.relauncher.Side;
@@ -19,7 +19,7 @@ public class CustomSword extends ItemSword {
     		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
     	}else
     	{
-    		itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);
+    		itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.iconString);
     	}
     }
 }

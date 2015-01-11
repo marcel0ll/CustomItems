@@ -1,7 +1,7 @@
 package me.otho.customItems.mod.items.food;
 
-import me.otho.customItems.ModReference;
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_PotionEffect;
+import me.otho.customItems.reference.Reference;
 import me.otho.customItems.utility.Util;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
@@ -33,7 +33,7 @@ public class CustomFood extends ItemFood{
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-    	itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);
+    	itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.iconString);
     }
     
     @Override

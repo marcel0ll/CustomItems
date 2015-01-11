@@ -1,13 +1,13 @@
 package me.otho.customItems.compability;
 
-import me.otho.customItems.ModReference;
+import me.otho.customItems.reference.Reference;
 import me.otho.customItems.utility.LogHelper;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 
 public class NEICustomItemsConfig implements IConfigureNEI {
 
-	private static final String name = ModReference.MOD_ID + "_NEI";
+	private static final String name = Reference.MOD_ID + "_NEI";
 	private static final String version = "0.0.1";
 	
 	@Override

@@ -2,7 +2,7 @@ package me.otho.customItems.mod.blocks;
 
 import java.util.ArrayList;
 
-import me.otho.customItems.ModReference;
+import me.otho.customItems.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -156,11 +156,11 @@ public class CustomBlock extends Block {
     public void registerBlockIcons(IIconRegister iconRegister) {
     	if(textureNames == null)
     	{	        
-    		blockIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName);	    	
+    		blockIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.textureName);	    	
     	}else
     	{
     		for (int i = 0; i < icons.length; i++) {
-    	        icons[i] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + textureNames[i]);
+    	        icons[i] = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + textureNames[i]);
     	    }
     	}
     }

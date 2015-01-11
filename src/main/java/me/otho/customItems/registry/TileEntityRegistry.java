@@ -1,9 +1,9 @@
 package me.otho.customItems.registry;
 
-import me.otho.customItems.ModReference;
 import me.otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
 import me.otho.customItems.mod.blocks.CustomChest;
 import me.otho.customItems.mod.materials.CI_Material;
+import me.otho.customItems.reference.Reference;
 import me.otho.customItems.utility.LogHelper;
 import me.otho.customItems.utility.Util;
 
@@ -63,7 +63,7 @@ public class TileEntityRegistry {
 		
 		//Register Block
 		GameRegistry.registerBlock(block, registerName);	        	
-		block.setBlockName(ModReference.MOD_ID.toLowerCase() + ":" + registerName);	
+		block.setBlockName(Reference.MOD_ID.toLowerCase() + ":" + registerName);	
 		
 		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
 		

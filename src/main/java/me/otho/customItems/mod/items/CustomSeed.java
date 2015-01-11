@@ -1,6 +1,6 @@
 package me.otho.customItems.mod.items;
 
-import me.otho.customItems.ModReference;
+import me.otho.customItems.reference.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
@@ -22,6 +22,6 @@ public class CustomSeed extends ItemSeeds {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-    	itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);    	
+    	itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.iconString);    	
     }
 }

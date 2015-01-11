@@ -1,6 +1,6 @@
 package me.otho.customItems.mod.items.armor;
 
-import me.otho.customItems.ModReference;
+import me.otho.customItems.reference.Reference;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
@@ -34,7 +34,7 @@ public class CustomArmor extends ItemArmor {
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-        String path = ModReference.MOD_ID + ":textures/models/armor/" + this.textureName + "_layer_";
+        String path = Reference.MOD_ID + ":textures/models/armor/" + this.textureName + "_layer_";
         String end = slot == 2 ? "2.png" : "1.png";
         return path + end;	
     }
@@ -42,6 +42,6 @@ public class CustomArmor extends ItemArmor {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iconRegister) {        
-       itemIcon = iconRegister.registerIcon(ModReference.MOD_ID + ":" + this.textureName + "_" + this.typeName);
+       itemIcon = iconRegister.registerIcon(Reference.MOD_ID + ":" + this.textureName + "_" + this.typeName);
     }
 }

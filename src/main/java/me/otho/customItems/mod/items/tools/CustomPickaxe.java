@@ -1,6 +1,6 @@
 package me.otho.customItems.mod.items.tools;
 
-import me.otho.customItems.ModReference;
+import me.otho.customItems.reference.Reference;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemPickaxe;
 import cpw.mods.fml.relauncher.Side;
@@ -14,6 +14,6 @@ public class CustomPickaxe extends ItemPickaxe{
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iconRegister) {
-    	itemIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.iconString);
+    	itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.iconString);
     }
 }

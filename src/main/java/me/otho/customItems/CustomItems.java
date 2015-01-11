@@ -33,6 +33,7 @@ import me.otho.customItems.mod.handler.EntityDropHandler;
 import me.otho.customItems.mod.worldGen.CustomWorldGenerator;
 import me.otho.customItems.proxy.IProxy;
 import me.otho.customItems.proxy.ServerProxy;
+import me.otho.customItems.reference.Reference;
 import me.otho.customItems.utility.LogHelper;
 import cpw.mods.fml.client.FMLFileResourcePack;
 import cpw.mods.fml.common.Mod;
@@ -43,19 +44,19 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(dependencies=ModReference.DEPENDENCIES, modid  = ModReference.MOD_ID, version = ModReference.VERSION, name=ModReference.MOD_NAME)
+@Mod(dependencies=Reference.DEPENDENCIES, modid  = Reference.MOD_ID, version = Reference.VERSION, name=Reference.MOD_NAME)
 public class CustomItems
 {	
-	@Instance(ModReference.MOD_ID)
+	@Instance(Reference.MOD_ID)
 	public static CustomItems instance;
 	
-    @SidedProxy(clientSide = ModReference.CLIENT_PROXY_CLASS, serverSide = ModReference.SERVER_PROXY_CLASS)   
+    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)   
     public static IProxy proxy;
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) throws IOException
 	{			
-		String configFolderPath = event.getModConfigurationDirectory().toString()+File.separator+ModReference.MOD_ID+File.separator;
+		String configFolderPath = event.getModConfigurationDirectory().toString()+File.separator+Reference.MOD_ID+File.separator;
 		
 		ForgeConfig.init(event.getSuggestedConfigurationFile());		
 		

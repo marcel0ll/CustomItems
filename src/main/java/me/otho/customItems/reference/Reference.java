@@ -1,6 +1,6 @@
-package me.otho.customItems;
+package me.otho.customItems.reference;
 
-public class ModReference {
+public class Reference {
 	public static final String MOD_ID = "customitems";
 	public static final String MOD_NAME = "Custom Items";
 	public static final String DEPENDENCIES = ""; 

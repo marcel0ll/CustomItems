@@ -2,7 +2,7 @@ package me.otho.customItems.mod.items.disks;
 
 import java.util.List;
 
-import me.otho.customItems.ModReference;
+import me.otho.customItems.reference.Reference;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemRecord;
@@ -32,7 +32,7 @@ public class CustomDisk extends ItemRecord {
 
     @Override
     public ResourceLocation getRecordResource(String name) {
-        ResourceLocation loc = new ResourceLocation(ModReference.MOD_ID.toLowerCase()+":sounds/records/"+name.substring(name.indexOf('.')+1));
+        ResourceLocation loc = new ResourceLocation(Reference.MOD_ID.toLowerCase()+":sounds/records/"+name.substring(name.indexOf('.')+1));
        
         return loc;
     }

@@ -1,7 +1,7 @@
 package me.otho.customItems.utility;
 
-import me.otho.customItems.ModReference;
 import me.otho.customItems.configuration.ForgeConfig;
+import me.otho.customItems.reference.Reference;
 
 import org.apache.logging.log4j.Level;
 
@@ -11,7 +11,7 @@ public class LogHelper {
     public static void log(Level logLevel, Object object) {
     	if(ForgeConfig.debug)
 		{
-    		FMLLog.log(ModReference.MOD_NAME, logLevel, String.valueOf(object));
+    		FMLLog.log(Reference.MOD_NAME, logLevel, String.valueOf(object));
 		}
     }
     public static void log(Level logLevel, Object object, int tab)

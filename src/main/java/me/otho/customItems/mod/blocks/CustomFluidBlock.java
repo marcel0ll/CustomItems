@@ -1,6 +1,6 @@
 package me.otho.customItems.mod.blocks;
 
-import me.otho.customItems.ModReference;
+import me.otho.customItems.reference.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
@@ -36,8 +36,8 @@ public class CustomFluidBlock extends BlockFluidClassic {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-    	stillIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_still");
-        flowingIcon = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName + "_flow");
+    	stillIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.textureName + "_still");
+        flowingIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.textureName + "_flow");
         
         fluid.setStillIcon(stillIcon);
         fluid.setFlowingIcon(flowingIcon);

@@ -2,8 +2,8 @@ package me.otho.customItems.mod.blocks;
 
 import java.util.ArrayList;
 
-import me.otho.customItems.ModReference;
 import me.otho.customItems.mod.items.CustomSeed;
+import me.otho.customItems.reference.Reference;
 import me.otho.customItems.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -209,7 +209,7 @@ public class CustomCrop extends BlockCrops {
         LogHelper.debug("registering icon for: " + this.getUnlocalizedName());
         this.icons = new IIcon[4];
         for(int i=1;i<this.icons.length+1;i++) {        	
-    		this.icons[i-1] = iconRegister.registerIcon(ModReference.MOD_ID.toLowerCase() + ":" + this.textureName+i);
+    		this.icons[i-1] = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.textureName+i);
         }
     }
 
