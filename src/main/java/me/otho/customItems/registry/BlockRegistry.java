@@ -649,7 +649,7 @@ public class BlockRegistry {
 			cropRender = 6;
 		}else if(data.renderType.equals("flower"))
 		{
-			cropRender = 19;
+			cropRender = 1;
 		}else{
 			cropRender = 6;
 		}

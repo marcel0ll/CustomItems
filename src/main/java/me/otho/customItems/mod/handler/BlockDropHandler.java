@@ -44,7 +44,7 @@ public class BlockDropHandler {
         Block block = event.block;
         
     	String blockId = GameRegistry.findUniqueIdentifierFor(block).toString()+":"+event.blockMetadata;
-    	LogHelper.info("Latest block breaked id: " + blockId);    
+    	//LogHelper.info("Latest block breaked id: " + blockId);    
         if(BlockRegistry.drops.containsKey(blockId)){
         	if(BlockRegistry.overrides.get(blockId))
         		event.drops.clear();

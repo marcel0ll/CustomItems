@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 
+import me.otho.customItems.configuration.ForgeConfig;
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
 import me.otho.customItems.registry.EntityRegistry;
 import me.otho.customItems.utility.LogHelper;
@@ -44,7 +45,9 @@ public class EntityDropHandler {
 
         if(EntityList.classToStringMapping.containsKey(event.entityLiving.getClass())){
         	String entityId = ((String) EntityList.classToStringMapping.get(event.entityLiving.getClass()));
-        	LogHelper.info("Latest mob to die id: "+ entityId);    
+        	
+        	if(ForgeConfig.entityIdLog)
+        		LogHelper.info("Latest mob to die id: "+ entityId);    
             if(EntityRegistry.drops.containsKey(entityId)){
             	if(EntityRegistry.overrides.get(entityId))
             		event.drops.clear();
