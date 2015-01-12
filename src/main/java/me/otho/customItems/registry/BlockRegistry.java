@@ -649,7 +649,7 @@ public class BlockRegistry {
 			cropRender = 6;
 		}else if(data.renderType.equals("flower"))
 		{
-			cropRender = 1;
+			cropRender = 19;
 		}else{
 			cropRender = 6;
 		}
@@ -721,7 +721,14 @@ public class BlockRegistry {
 		
 		FluidRegistry.registerFluid(fluid);
 		
-		CustomFluidBlock fluidBlock = new CustomFluidBlock(fluid, Material.water);
+		Material material;
+		if(data.material.equals("lava")){
+			material = Material.lava;
+		}else{
+			material = Material.water;
+		}
+		
+		CustomFluidBlock fluidBlock = new CustomFluidBlock(fluid, material);
 		
 		fluidBlock.setQuantaPerBlock(data.flowLength);		
 		
