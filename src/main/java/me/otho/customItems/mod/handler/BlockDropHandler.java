@@ -37,9 +37,7 @@ public class BlockDropHandler {
 	
 
 	@SubscribeEvent
-	public void onBlockDrop(HarvestDropsEvent event){
-		System.out.println(GameRegistry.findUniqueIdentifierFor(event.block));
-		
+	public void onBlockDrop(HarvestDropsEvent event){	
         Random random = new Random();
         Block block = event.block;
         
