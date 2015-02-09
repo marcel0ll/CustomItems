@@ -1,0 +1,49 @@
+{	
+	"blocks":[
+	],	
+	"chests":[
+	],
+	"items":[
+	],
+	"foods":[
+	],
+	"pickaxes":[
+	],
+	"axes":[
+	],
+	"shovels":[
+	],
+	"hoes":[
+	],
+	"swords":[
+	],
+	"helmets":[
+	],
+	"chestplates":[
+	],
+	"leggings":[
+	],
+	"boots":[
+	],
+	"fluids":[
+	],
+	"creativeTabs":[
+	],
+	"crops":[
+	],
+
+	"changeBlocks":[
+	],
+	"changeItems":[
+	],
+	"changeFoods":[
+	],
+
+	"oreGen":[
+	],
+
+	"entitiesDrop":[
+	],
+	"blocksDrop":[
+	]
+}
