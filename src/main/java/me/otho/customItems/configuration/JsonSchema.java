@@ -25,34 +25,28 @@ import me.otho.customItems.configuration.jsonReaders.worldGen.Cfg_oreGen;
 
 public class JsonSchema 
 {	
+	public Cfg_axe[] axes;	
 	public Cfg_block[] blocks;	
-	public Cfg_chest[] chests;	
-	public Cfg_item[] items;		
-	public Cfg_food[] foods;
-	
-	public Cfg_pickaxe[] pickaxes;	
-	public Cfg_axe[] axes;
-	public Cfg_shovel[] shovels;
-	public Cfg_hoe[] hoes;
-	public Cfg_sword[] swords;
-	
-	public Cfg_helmet[] helmets;
-	public Cfg_chestplate[] chestplates;
-	public Cfg_leggings[] leggings;
-	public Cfg_boots[] boots;
-	
-	public Cfg_fluid[] fluids;	
-	public Cfg_creativeTab[] creativeTabs;	
-	public Cfg_crop[] crops;
-	
-	public Cfg_change_block[] changeBlocks;
-	public Cfg_change_item[] changeItems;
+	public Cfg_blockDrop[] blocksDrop;		
+	public Cfg_boots[] boots;	
+	public Cfg_change_block[] changeBlocks;	
 	public Cfg_change_food[] changeFoods;
-	
-	public Cfg_oreGen[] oreGen;
-	
+	public Cfg_change_item[] changeItems;
+	public Cfg_chestplate[] chestplates;
+	public Cfg_chest[] chests;	
+	public Cfg_creativeTab[] creativeTabs;
+	public Cfg_crop[] crops;
 	public Cfg_entityDrop[] entitiesDrop;
-	public Cfg_blockDrop[] blocksDrop;
+	public Cfg_fluid[] fluids;	
+	public Cfg_food[] foods;	
+	public Cfg_helmet[] helmets;	
+	public Cfg_hoe[] hoes;	
+	public Cfg_item[] items;
+	public Cfg_leggings[] leggings;
+	public Cfg_oreGen[] oreGen;	
+	public Cfg_pickaxe[] pickaxes;	
+	public Cfg_shovel[] shovels;
+	public Cfg_sword[] swords;
 	
 	JsonSchema(){};
 }

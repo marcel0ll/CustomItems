@@ -1,4 +1,10 @@
 {	
 	"boots":[
+		{
+			"name":				"Boots 0 - Default",
+			"textureName":		"boots",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+		}
 	]
 }

@@ -109,7 +109,7 @@ public class Registry {
                 @Override
                 public int compare(Cfg_basicData d1, Cfg_basicData d2)
                 {
-                    return d1.registerOrder - d2.registerOrder;
+                    return d1.registerOrder.compareTo(d2.registerOrder);
                 }
             });
             

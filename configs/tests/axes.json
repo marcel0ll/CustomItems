@@ -1,4 +1,342 @@
 {	
 	"axes":[
+		{
+			"name":				"Axe 0 - Default",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 1.0 - harvestLevel",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 1.1 - harvestLevel",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		1,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 1.2 - harvestLevel",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		2,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 1.3 - harvestLevel",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		3,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 2.0 - maxUses",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			0,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 2.1 - maxUses",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			1,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 2.5 - maxUses",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			5,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 2.1000 - maxUses",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			1000,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 3.0 - damageVsEntity",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 3.0.5 - damageVsEntity",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.5,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 3.1 - damageVsEntity",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	1.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 3.10 - damageVsEntity",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	10.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 4.0 - enchantability",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	0,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 4.5 - enchantability",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	5,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 4.500 - enchantability",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	500,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 5.0 - efficiencyOnProperMaterial",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 0.0
+		},
+		{
+			"name":				"Axe 5.0.5 - efficiencyOnProperMaterial",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 0.5
+		},
+		{
+			"name":				"Axe 5.1 - efficiencyOnProperMaterial",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 1.0
+		},
+		{
+			"name":				"Axe 5.20 - efficiencyOnProperMaterial",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 20.0
+		},
+		{
+			"name":				"Axe 5.1000 - efficiencyOnProperMaterial",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 1000.0
+		},
+		{
+			"name":				"Axe 6.0 - registerOrder",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	7000,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 6.1 - registerOrder",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	7001,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 6.2 - registerOrder",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	7002,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 6.3 - registerOrder",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	7003,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		},
+		{
+			"name":				"Axe 6.4 - registerOrder",
+			"textureName":		"axe",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	7004,
+
+			"harvestLevel":		0,
+			"maxUses":			59,
+			"damageVsEntity":	0.0,
+			"enchantability":	15,
+
+			"efficiencyOnProperMaterial": 2.0
+		}
 	]
 }

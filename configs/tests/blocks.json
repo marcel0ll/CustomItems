@@ -1,4 +1,32 @@
 {	
 	"blocks":[
+		{
+			"name":				"Block 0 - Default",
+			"textureName":		"block",
+			"creativeTab":		"Custom Items",
+			"registerOrder":	0,			
+			"maxStackSize":  	64,
+			"isOpaque": 		true,
+			"type":   			"NORMAL",
+			"stepSound":  		"stone",
+			"material":   		"rock",
+			"toolClass": 		null,
+			"resistance":  		10,
+			"hardness":   		2,
+			"lightLevel":   	0,
+			"harvestLevel":  	0,	
+			"slipperiness":   	0.6,
+		    "isCollidable":   	true,
+			"dropsItSelf":   	false,
+			"canSilkHarvest":   false,
+			"dropItemName": 	null,
+			"dropItemDamage":  	0,
+			"minItemDrop":   	1,
+		    "maxItemDrop":   	1,    
+		    "eachExtraItemDropChance":   50,
+		    "multipleTextures": {
+
+			}
+		}
 	]
 }

@@ -54,7 +54,7 @@ public class ItemRegistry {
         
         axe.setTextureName(data.textureName);
         GameRegistry.registerItem(axe, registerName);
-        axe.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.textureName);
+        axe.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+registerName);
         LanguageRegistry.instance().addStringLocalization(axe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
         
         return true;
@@ -94,7 +94,7 @@ public class ItemRegistry {
 		
 		armor.setTextureName(data.textureName);
 		GameRegistry.registerItem(armor, registerName);
-	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name);
+	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+registerName);
 	    LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
     	return false;
     }
@@ -133,7 +133,7 @@ public class ItemRegistry {
 		
 		armor.setTextureName(data.textureName);
 		GameRegistry.registerItem(armor, registerName);
-	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name);
+	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+registerName);
 	    LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
     	
     	return false;
@@ -230,7 +230,7 @@ public class ItemRegistry {
 		
 		armor.setTextureName(data.textureName);
 		GameRegistry.registerItem(armor, registerName);
-	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name);
+	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+registerName);
 	    LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
     	
     	return false;
@@ -271,7 +271,7 @@ public class ItemRegistry {
 		
 		hoe.setTextureName(data.textureName);
 		GameRegistry.registerItem(hoe, registerName);
-		hoe.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.textureName);
+		hoe.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+registerName);
 	    LanguageRegistry.instance().addStringLocalization(hoe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
         
 	    return true;
@@ -345,7 +345,7 @@ public class ItemRegistry {
 		
 		armor.setTextureName(data.textureName);
 		GameRegistry.registerItem(armor, registerName);
-	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.name);
+	    armor.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+registerName);
 	    LanguageRegistry.instance().addStringLocalization(armor.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
 	    
 	    return true;
@@ -386,7 +386,7 @@ public class ItemRegistry {
 		Registry.itemsList.add(data.creativeTab);
 		
 		GameRegistry.registerItem(pickaxe, registerName);
-		pickaxe.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.textureName);
+		pickaxe.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+registerName);
 	    LanguageRegistry.instance().addStringLocalization(pickaxe.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
 	    
 	    return true;
@@ -427,7 +427,7 @@ public class ItemRegistry {
 		Registry.itemsList.add(data.creativeTab);
 		
 		GameRegistry.registerItem(shovel, registerName);
-		shovel.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.textureName);
+		shovel.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+registerName);
 	    LanguageRegistry.instance().addStringLocalization(shovel.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
 	    
 	    return true;
@@ -468,7 +468,7 @@ public class ItemRegistry {
 		Registry.itemsList.add(data.creativeTab);
 		
 		GameRegistry.registerItem(sword, registerName);
-		sword.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+data.textureName);
+		sword.setUnlocalizedName(Registry.mod_id.toLowerCase()+":"+registerName);
 	    LanguageRegistry.instance().addStringLocalization(sword.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
     	
         return true;
