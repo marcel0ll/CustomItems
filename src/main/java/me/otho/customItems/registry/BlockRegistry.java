@@ -3,6 +3,7 @@ package me.otho.customItems.registry;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import me.otho.customItems.compability.Integration;
 import me.otho.customItems.compability.NEICustomItemsConfig;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_blockDrop;
@@ -341,7 +342,9 @@ public class BlockRegistry {
 		size = Util.range(data.maxStackSize, 1, 64);			
         itemBlock.setMaxStackSize(size);
         
-        NEICustomItemsConfig.addItemToHide(Registry.mod_id +":double_"+registerName);		
+        if(Integration.isNEI()){
+        	NEICustomItemsConfig.addItemToHide(Registry.mod_id +":double_"+registerName);
+        }
 	}
 
 	public static void registerPaneBlock(Cfg_block data) {
@@ -684,7 +687,9 @@ public class BlockRegistry {
 	        MinecraftForge.addGrassSeed(new ItemStack(seed), data.dropFromGrassChance);
 	    }
     	
-	    NEICustomItemsConfig.addItemToHide(Registry.mod_id +":"+registerName);
+	    if(Integration.isNEI()){        	
+	    	NEICustomItemsConfig.addItemToHide(Registry.mod_id +":"+registerName);
+	    }
     	return true;
     }
 
