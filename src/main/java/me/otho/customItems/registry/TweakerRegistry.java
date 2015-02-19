@@ -120,13 +120,17 @@ public class TweakerRegistry {
 		
 		ItemFood food = (ItemFood) GameRegistry.findItem(modId, name);
 		
-		//Integer healAmount = ObfuscationReflectionHelper.getPrivateValue(ItemFood.class, food, "field_77853_b");
-		//Float saturationModifier = ObfuscationReflectionHelper.getPrivateValue(ItemFood.class, food, "field_77854_c");
-		//Boolean isWolfsFavoriteMeat = ObfuscationReflectionHelper.getPrivateValue(ItemFood.class, food, "field_77856_bY");
+		/*
+		ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.healAmount, "healAmount");
+		ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.saturationModifier, "saturationModifier");
+		ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.isWolfFood, "isWolfsFavoriteMeat");
+		*/
+		
 		
 		ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.healAmount, "field_77853_b");
 		ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.saturationModifier, "field_77854_c");
 		ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.isWolfFood, "field_77856_bY");
+		
 		
 		if(data.alwaysEdible)
 			food.setAlwaysEdible();

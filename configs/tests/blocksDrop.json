@@ -1,16 +1,68 @@
 {	
 	"blocksDrop":[
+		//Block drop
 		{
-			"id":,
+			"id": "minecraft:planks:0",
 			"overrides": false,
 			"drops":[
 				{
-					"id": "",
+					"id": "minecraft:sapling:0",
 					"min" : 1,
 				    "max" : 1,    
-				    "chance" : 50.0
+				    "chance" : 100.0
 				}
 			]
-		}	
+		},
+		//Block drop with override
+		{
+			"id": "minecraft:planks:1",
+			"overrides": true,
+			"drops":[
+				{
+					"id": "minecraft:sapling:1",
+					"min" : 1,
+				    "max" : 1,    
+				    "chance" : 100.0
+				}
+			]
+		},
+		//Block drop with multiple drops
+		{
+			"id": "minecraft:planks:2",
+			"overrides": false,
+			"drops":[
+				{
+					"id": "minecraft:sapling:2",
+					"min" : 1,
+				    "max" : 1,    
+				    "chance" : 100.0
+				},
+				{
+					"id": "minecraft:sapling:3",
+					"min" : 1,
+				    "max" : 1,    
+				    "chance" : 100.0
+				}
+			]
+		},
+		//Block drop with override and multiple drops
+		{
+			"id": "minecraft:planks:3",
+			"overrides": true,
+			"drops":[
+				{
+					"id": "minecraft:sapling:4",
+					"min" : 2,
+				    "max" : 4,    
+				    "chance" : 100.0
+				},
+				{
+					"id": "minecraft:sapling:5",
+					"min" : 1,
+				    "max" : 3,    
+				    "chance" : 100.0
+				}
+			]
+		}
 	]
 }

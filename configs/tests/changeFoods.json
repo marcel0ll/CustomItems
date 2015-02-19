@@ -1,4 +1,13 @@
-{	
+{
 	"changeFoods":[
+		{
+			"name": "minecraft:apple",
+			
+			"healAmount": 1,
+			"saturationModifier": 0.05,
+			"alwaysEdible": true,
+			"maxStackSize": 16,
+			"isWolfFood": false 
+		}
 	]
 }

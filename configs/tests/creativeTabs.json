@@ -1,4 +1,14 @@
 {	
 	"creativeTabs":[
+		//Test for vanilla icon
+		{
+			"tabLabel": "Vanilla",
+			"iconItem": "minecraft:item_frame"
+		},
+		//Test for modded icon
+		{
+			"tabLabel": "Modded",
+			"iconItem": "customitems:godsword"
+		}
 	]
 }
