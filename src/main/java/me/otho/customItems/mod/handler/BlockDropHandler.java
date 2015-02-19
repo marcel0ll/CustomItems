@@ -2,6 +2,7 @@ package me.otho.customItems.mod.handler;
 
 import java.util.Random;
 
+import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_blockDrop;
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
 import me.otho.customItems.registry.BlockRegistry;
 import me.otho.customItems.utility.LogHelper;
@@ -13,6 +14,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
+import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -36,7 +38,7 @@ public class BlockDropHandler {
     }	
 	
 
-	@SubscribeEvent
+	@SubscribeEvent(priority=EventPriority.LOWEST)
 	public void onBlockDrop(HarvestDropsEvent event){	
         Random random = new Random();
         Block block = event.block;
@@ -44,12 +46,13 @@ public class BlockDropHandler {
     	String blockId = GameRegistry.findUniqueIdentifierFor(block).toString()+":"+event.blockMetadata;
     	//LogHelper.info("Latest block breaked id: " + blockId);    
         if(BlockRegistry.drops.containsKey(blockId)){
-        	if(BlockRegistry.overrides.get(blockId))
+        	Cfg_blockDrop blockDrop = BlockRegistry.drops.get(blockId);
+        	
+        	//
+        	if(blockDrop.overrides)
         		event.drops.clear();
         	
-        	Cfg_drop[] drops = BlockRegistry.drops.get(blockId);
-        	
-        	for(Cfg_drop drop : drops){
+        	for(Cfg_drop drop : blockDrop.drops){
         		
         		String[] parser = drop.id.split(":");
         		String modId = parser[0];

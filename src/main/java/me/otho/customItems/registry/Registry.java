@@ -182,14 +182,17 @@ public class Registry {
     public static void change(JsonSchema data){
 		int i;
 		LogHelper.info("Starting to change:");
+		LogHelper.info("Changing blocks:");
 		if(data.changeBlocks != null){
 			TweakerRegistry.changeBlock(data.changeBlocks);			
 		}
 		
+		LogHelper.info("Changing items:");
 		if(data.changeItems != null){			
 			TweakerRegistry.changeItem(data.changeItems);			
 		}
 		
+		LogHelper.info("Changing foods:");
 		if(data.changeFoods != null){
 			TweakerRegistry.changeFood(data.changeFoods);
 		}

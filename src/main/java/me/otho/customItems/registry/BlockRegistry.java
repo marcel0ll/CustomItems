@@ -47,8 +47,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BlockRegistry {
 	
-	public static HashMap<String, Cfg_drop[]> drops = new HashMap<String, Cfg_drop[]>();
-	public static HashMap<String, Boolean> overrides = new HashMap<String, Boolean>();
+	public static HashMap<String, Cfg_blockDrop> drops = new HashMap<String, Cfg_blockDrop>();	
 	
 	public static boolean registerBlockDrop(Cfg_blockDrop data){
 		
@@ -58,14 +57,13 @@ public class BlockRegistry {
 		
 		if(drops.containsKey(data.id)){
 			
-			Cfg_drop[] arr = drops.get(data.id);
+			Cfg_blockDrop drop = drops.get(data.id);
 			
-			arr = ArrayUtils.addAll(arr, data.drops);
+			drop.drops = ArrayUtils.addAll(drop.drops, data.drops);
 			
-			drops.replace(data.id, arr);			
+			drops.replace(data.id, drop);			
 		}else{
-			drops.put(data.id, data.drops);
-			overrides.put(data.id, data.overrides);
+			drops.put(data.id, data);			
 		}
 		
 		return true;

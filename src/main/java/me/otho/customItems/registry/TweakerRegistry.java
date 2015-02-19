@@ -11,10 +11,13 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class TweakerRegistry {
-
+	 
+	
 	public static boolean changeBlock(Cfg_change_block data)
 	{
 		String[] nameParsing = data.name.split(":");
@@ -110,44 +113,38 @@ public class TweakerRegistry {
 		return true;
 	}
 
-	public static boolean changeFood(Cfg_change_food data){		
+	private static boolean changeFood(Cfg_change_food data){		
 		String[] nameParsing = data.name.split(":");
 		String modId = nameParsing[0];
 		String name = nameParsing[1];
 		
 		ItemFood food = (ItemFood) GameRegistry.findItem(modId, name);
-		try {
-			Field healAmount = ItemFood.class.getDeclaredField("healAmount");
-			Field saturationModifier = ItemFood.class.getDeclaredField("saturationModifier");
-			Field isWolfsFavoriteMeat = ItemFood.class.getDeclaredField("isWolfsFavoriteMeat");
-			
-			healAmount.setAccessible(true);
-			saturationModifier.setAccessible(true);
-			isWolfsFavoriteMeat.setAccessible(true);
-			
-			try {
-				healAmount.setInt(food, data.healAmount);
-				saturationModifier.setFloat(food, data.saturationModifier);
-				isWolfsFavoriteMeat.set(food, data.isWolfFood);
-				
-				if(data.alwaysEdible)
-					food.setAlwaysEdible();
-				
-				if(data.potionEffect != null){
-					food.setPotionEffect(Util.potionEffectId(data.potionEffect.effect), data.potionEffect.potionDuration, data.potionEffect.potionAmplifier, data.potionEffect.potionEffectProbability);
-				}
-					
-				
-			} catch (IllegalArgumentException e) {				
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {				
-				e.printStackTrace();
-			}
-		} catch (NoSuchFieldException e) {			
-			e.printStackTrace();
-		} catch (SecurityException e) {			
-			e.printStackTrace();
+		
+		//Integer healAmount = ObfuscationReflectionHelper.getPrivateValue(ItemFood.class, food, "field_77853_b");
+		//Float saturationModifier = ObfuscationReflectionHelper.getPrivateValue(ItemFood.class, food, "field_77854_c");
+		//Boolean isWolfsFavoriteMeat = ObfuscationReflectionHelper.getPrivateValue(ItemFood.class, food, "field_77856_bY");
+		
+		ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.healAmount, "field_77853_b");
+		ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.saturationModifier, "field_77854_c");
+		ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.isWolfFood, "field_77856_bY");
+		
+		if(data.alwaysEdible)
+			food.setAlwaysEdible();
+		
+		if(data.potionEffect != null){
+			food.setPotionEffect(Util.potionEffectId(data.potionEffect.effect), data.potionEffect.potionDuration, data.potionEffect.potionAmplifier, data.potionEffect.potionEffectProbability);
 		}
+		
+		if(data.maxStackSize != null){				
+			int size = Util.range(data.maxStackSize, 1, 64);
+			
+			food.setMaxStackSize(size);
+		}
+			
+				
+			
+		
+		
 		
 		
 		return true;
