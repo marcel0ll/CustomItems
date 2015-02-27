@@ -196,24 +196,27 @@ public class Util {
 	}
 
 	public enum BlockType {
-		NORMAL(0),
-		SLAB(0),
-		LOG(31),
-		PILLARS(31),
-		STAIRS(10),		
-		PANE(18),
-		FENCE(11),
-		WALL(32),
-		FALLING(0);
-    	
-    	private int renderType;
-    	private boolean falls;
-    	private boolean slab;
-    	
-    	private BlockType(int renderType){
-    		this.renderType = renderType;
-    	}
-    	
+		NORMAL,
+		SLAB,
+		LOG,
+		PILLARS,
+		STAIRS,		
+		PANE,
+		FENCE,
+		WALL,
+		FALLING,
+		//1.0.10
+		FLOWER,
+		CARPET,		
+		TORCH,
+		GATE,
+		DOOR,
+		TRAPDOOR,
+		LADDER,
+		BUTTON,
+		LEVER,
+		BED,
+		PRESSUREPLATE;
     }
     
     public static boolean validateType(String value){

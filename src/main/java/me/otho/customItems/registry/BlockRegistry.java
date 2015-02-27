@@ -92,7 +92,42 @@ public class BlockRegistry {
 		
 		if(Util.validateType(data.type)){
 			Util.BlockType blockType = Util.BlockType.valueOf(data.type.toUpperCase());
-			switch(blockType){				
+			switch(blockType){	
+			//1.0.10
+				case FLOWER:
+					System.out.println("FLOWER block type is under dev, so it is not working yet");
+					break;
+				case CARPET:
+					System.out.println("CARPET block type is under dev, so it is not working yet");
+					break;
+				case TORCH:
+					System.out.println("TORCH block type is under dev, so it is not working yet");
+					break;
+				case GATE:
+					System.out.println("GATE block type is under dev, so it is not working yet");
+					break;
+				case DOOR:
+					System.out.println("DOOR block type is under dev, so it is not working yet");
+					break;
+				case TRAPDOOR:
+					System.out.println("TRAPDOOR block type is under dev, so it is not working yet");
+					break;
+				case LADDER:
+					System.out.println("LADDER block type is under dev, so it is not working yet");
+					break;
+				case BUTTON:
+					System.out.println("BUTTON block type is under dev, so it is not working yet");
+					break;
+				case LEVER:
+					System.out.println("LEVER block type is under dev, so it is not working yet");
+					break;
+				case BED:
+					System.out.println("BED block type is under dev, so it is not working yet");
+					break;
+				case PRESSUREPLATE:
+					System.out.println("PRESSUREPLATE block type is under dev, so it is not working yet");
+					break;
+			//pre 1.0.10
 				case FENCE:
 					registerFenceBlock(data);
 					break;
