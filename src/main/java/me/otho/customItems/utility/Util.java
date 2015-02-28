@@ -168,6 +168,10 @@ public class Util {
 		}
 	}
 		
+	public static SoundType parseSoundTypeByBlockType(String type){
+		return null;
+	}
+	
 	public static String validateToolClass(String toolClass){
 		if(toolClass == null)
 		{

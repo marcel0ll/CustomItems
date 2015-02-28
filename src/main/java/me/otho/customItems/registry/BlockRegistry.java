@@ -12,15 +12,22 @@ import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
 import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
 import me.otho.customItems.mod.blocks.CustomBlock;
+import me.otho.customItems.mod.blocks.CustomCarpetBlock;
 import me.otho.customItems.mod.blocks.CustomCrop;
+import me.otho.customItems.mod.blocks.CustomDoorBlock;
 import me.otho.customItems.mod.blocks.CustomFallingBlock;
 import me.otho.customItems.mod.blocks.CustomFenceBlock;
 import me.otho.customItems.mod.blocks.CustomFenceBlock;
+import me.otho.customItems.mod.blocks.CustomFlowerBlock;
 import me.otho.customItems.mod.blocks.CustomFluidBlock;
+import me.otho.customItems.mod.blocks.CustomGateBlock;
 import me.otho.customItems.mod.blocks.CustomPaneBlock;
+import me.otho.customItems.mod.blocks.CustomPressurePlateBlock;
 import me.otho.customItems.mod.blocks.CustomRotatedPillar;
 import me.otho.customItems.mod.blocks.CustomSlabBlock;
 import me.otho.customItems.mod.blocks.CustomStairsBlock;
+import me.otho.customItems.mod.blocks.CustomTorch;
+import me.otho.customItems.mod.blocks.CustomTrapDoorBlock;
 import me.otho.customItems.mod.blocks.CustomWallBlock;
 import me.otho.customItems.mod.handler.BucketHandler;
 import me.otho.customItems.mod.items.CustomBucket;
@@ -95,37 +102,37 @@ public class BlockRegistry {
 			switch(blockType){	
 			//1.0.10
 				case FLOWER:
-					System.out.println("FLOWER block type is under dev, so it is not working yet");
+					registerFlowerBlock(data);
 					break;
 				case CARPET:
-					System.out.println("CARPET block type is under dev, so it is not working yet");
+					registerCarpetBlock(data);
 					break;
-				case TORCH:
-					System.out.println("TORCH block type is under dev, so it is not working yet");
+				case TORCH:					
+					registerTorchBlock(data);
 					break;
 				case GATE:
-					System.out.println("GATE block type is under dev, so it is not working yet");
+					registerGateBlock(data);
 					break;
 				case DOOR:
-					System.out.println("DOOR block type is under dev, so it is not working yet");
+					registerDoorBlock(data);
 					break;
 				case TRAPDOOR:
-					System.out.println("TRAPDOOR block type is under dev, so it is not working yet");
+					registerTrapDoorBlock(data);
 					break;
 				case LADDER:
-					System.out.println("LADDER block type is under dev, so it is not working yet");
+					registerLadderBlock(data);
 					break;
 				case BUTTON:
-					System.out.println("BUTTON block type is under dev, so it is not working yet");
+					registerButtonBlock(data);
 					break;
 				case LEVER:
-					System.out.println("LEVER block type is under dev, so it is not working yet");
+					registerLeverBlock(data);
 					break;
 				case BED:
-					System.out.println("BED block type is under dev, so it is not working yet");
+					registerBedBlock(data);
 					break;
 				case PRESSUREPLATE:
-					System.out.println("PRESSUREPLATE block type is under dev, so it is not working yet");
+					registerPressurePlateBlock(data);
 					break;
 			//pre 1.0.10
 				case FENCE:
@@ -160,7 +167,217 @@ public class BlockRegistry {
         return true;
     }
 
-    public static void registerWallBlock(Cfg_block data) {
+    public static void registerPressurePlateBlock(Cfg_block data) {
+//    	String registerName = Util.parseRegisterName(data.name);
+//		
+//		CustomPressurePlateBlock block = new CustomPressurePlateBlock(CI_Material.getMaterial(data.material));
+//		
+//		block.setHardness(data.hardness);
+//		block.setResistance(data.resistance);
+//		block.setBreaks(data.dropsItSelf);
+//		block.setCanSilkHarvest(data.canSilkHarvest);
+//		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+//		
+//		block.setLightLevel(data.lightLevel);
+//		if(data.toolClass != null)
+//			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+//		if(data.multipleTextures == null)
+//		{
+//			block.setBlockTextureName(data.textureName);
+//		}else
+//		{
+//			String[] textureNames = new String[6];
+//			textureNames[0] = data.multipleTextures.yneg;
+//			textureNames[1] = data.multipleTextures.ypos;
+//			textureNames[2] = data.multipleTextures.zneg;
+//			textureNames[3] = data.multipleTextures.zpos;
+//			textureNames[4] = data.multipleTextures.xneg;
+//			textureNames[5] = data.multipleTextures.xpos;
+//			block.registerBlockTextures(textureNames);
+//		}
+//		
+//		block.slipperiness = data.slipperiness;
+//		block.setOpaque(data.isOpaque);
+//		block.setStepSound(Util.parseSoundType(data.stepSound));
+//		
+//		if(data.dropItemName != null)
+//		{			
+//			block.setDropItem(data.dropItemName);				
+//			block.setMaxItemDrop(data.maxItemDrop);
+//			block.setMinItemDrop(data.minItemDrop);
+//			block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+//		}
+//		
+//		Registry.blocksList.add(block);
+//		Registry.blocksList.add(data.creativeTab);	
+//		
+//		//Register Block
+//		GameRegistry.registerBlock(block, registerName);			
+//		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+//		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+//		
+//		Item itemBlock = Item.getItemFromBlock(block);			
+//		int size = Util.range(data.maxStackSize, 1, 64);			
+//        itemBlock.setMaxStackSize(size);		
+//		
+	}
+
+	public static void registerBedBlock(Cfg_block data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void registerLeverBlock(Cfg_block data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void registerButtonBlock(Cfg_block data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void registerLadderBlock(Cfg_block data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public static void registerTrapDoorBlock(Cfg_block data) {
+		String registerName = Util.parseRegisterName(data.name);
+		
+		CustomTrapDoorBlock block = new CustomTrapDoorBlock(CI_Material.getMaterial(data.material));
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		block.slipperiness = data.slipperiness;		
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+		
+	}
+
+	public static void registerDoorBlock(Cfg_block data) {
+		String registerName = Util.parseRegisterName(data.name);
+		
+		CustomDoorBlock block = new CustomDoorBlock(CI_Material.getMaterial(data.material));
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);	
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		block.slipperiness = data.slipperiness;		
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+		
+	}
+
+	public static void registerGateBlock(Cfg_block data) {
+		String registerName = Util.parseRegisterName(data.name);
+		
+		CustomGateBlock block = new CustomGateBlock();
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		block.slipperiness = data.slipperiness;		
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+	}
+
+	public static void registerWallBlock(Cfg_block data) {
     	String registerName = Util.parseRegisterName(data.name);
 		
 		CustomWallBlock block = new CustomWallBlock(new CustomBlock(CI_Material.getMaterial(data.material)));
@@ -544,8 +761,7 @@ public class BlockRegistry {
 		
 		Item itemBlock = Item.getItemFromBlock(block);			
 		int size = Util.range(data.maxStackSize, 1, 64);			
-        itemBlock.setMaxStackSize(size);
-		
+        itemBlock.setMaxStackSize(size);		
 	}
 
 	public static void registerLogBlock(Cfg_block data) {
@@ -831,4 +1047,147 @@ public class BlockRegistry {
         return true;
     }
     
+    public static void registerTorchBlock(Cfg_block data){
+		String registerName = Util.parseRegisterName(data.name);
+		
+		CustomTorch block = new CustomTorch();
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		block.slipperiness = data.slipperiness;		
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		if(data.dropItemName != null)
+		{			
+			block.setDropItem(data.dropItemName);				
+			block.setMaxItemDrop(data.maxItemDrop);
+			block.setMinItemDrop(data.minItemDrop);
+			block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+		}
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+    }
+
+    public static void registerFlowerBlock(Cfg_block data){
+    	String registerName = Util.parseRegisterName(data.name);
+		
+		CustomFlowerBlock block = new CustomFlowerBlock();
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		block.slipperiness = data.slipperiness;
+		block.setOpaque(data.isOpaque);
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+    }
+
+    public static void registerCarpetBlock(Cfg_block data){
+    	String registerName = Util.parseRegisterName(data.name);
+		
+		CustomCarpetBlock block = new CustomCarpetBlock();
+		
+		block.setHardness(data.hardness);
+		block.setResistance(data.resistance);
+		block.setBreaks(data.dropsItSelf);
+		block.setCanSilkHarvest(data.canSilkHarvest);
+		data.lightLevel = Util.range(data.lightLevel, 0, 1);
+		
+		block.setLightLevel(data.lightLevel);
+		if(data.toolClass != null)
+			block.setHarvestLevel(data.toolClass, data.harvestLevel);
+		if(data.multipleTextures == null)
+		{
+			block.setBlockTextureName(data.textureName);
+		}else
+		{
+			String[] textureNames = new String[6];
+			textureNames[0] = data.multipleTextures.yneg;
+			textureNames[1] = data.multipleTextures.ypos;
+			textureNames[2] = data.multipleTextures.zneg;
+			textureNames[3] = data.multipleTextures.zpos;
+			textureNames[4] = data.multipleTextures.xneg;
+			textureNames[5] = data.multipleTextures.xpos;
+			block.registerBlockTextures(textureNames);
+		}
+		
+		block.slipperiness = data.slipperiness;		
+		block.setStepSound(Util.parseSoundType(data.stepSound));
+		
+		Registry.blocksList.add(block);
+		Registry.blocksList.add(data.creativeTab);	
+		
+		//Register Block
+		GameRegistry.registerBlock(block, registerName);			
+		block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);			
+		LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+		
+		Item itemBlock = Item.getItemFromBlock(block);			
+		int size = Util.range(data.maxStackSize, 1, 64);			
+        itemBlock.setMaxStackSize(size);
+    }
 }
