@@ -29,7 +29,7 @@ group= "me.otho.customItems" // http://maven.apache.org/guides/mini/guide-naming
 archivesBaseName = "customitems"
 
 minecraft {
-    version = "1.7.10-10.13.2.1272"
+    version = "1.7.10-10.13.4.1492-1.7.10"
     assetDir = "eclipse/assets"
 }
 
@@ -50,11 +50,11 @@ processResources
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+
         // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
