@@ -1,0 +1,23 @@
+[
+    {
+        "class" : "CreativeTab",
+        "tabLabel" : "MM is awesome"
+    },
+    {
+        "class" : "Block",
+        "pid" : "blockxor3000",
+
+        "id" : "blockxor3000",
+        "textureName" : "blockxor",
+        "name" : "Nooooice",
+        "breaks" : true,
+        "silk" : true,
+        "creativeTab" : "MM is awesome"
+    },
+    {
+        "prototype" : "blockxor3000",
+
+        "id" : "blockxor3001",
+        "textureName" : "blockxor2"
+    }
+]
