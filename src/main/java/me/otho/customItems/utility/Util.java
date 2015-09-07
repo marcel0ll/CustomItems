@@ -204,7 +204,8 @@ public class Util {
 		PANE(18),
 		FENCE(11),
 		WALL(32),
-		FALLING(0);
+		FALLING(0),
+	    CROSSED(1);
     	
     	private int renderType;
     	private boolean falls;
