@@ -1,6 +1,6 @@
 package me.otho.customItems.registry;
 
-import me.otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
+import me.otho.customItems.configuration.Json.jsonReaders.tileEntity.Cfg_chest;
 import me.otho.customItems.mod.blocks.CustomChest;
 import me.otho.customItems.mod.materials.CI_Material;
 import me.otho.customItems.reference.Reference;

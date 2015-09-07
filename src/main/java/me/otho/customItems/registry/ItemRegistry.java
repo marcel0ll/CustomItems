@@ -1,16 +1,16 @@
 package me.otho.customItems.registry;
 
-import me.otho.customItems.configuration.jsonReaders.items.Cfg_item;
-import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_boots;
-import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_chestplate;
-import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_helmet;
-import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_leggings;
-import me.otho.customItems.configuration.jsonReaders.items.food.Cfg_food;
-import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_axe;
-import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_hoe;
-import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_pickaxe;
-import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_shovel;
-import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_sword;
+import me.otho.customItems.configuration.Json.jsonReaders.items.Cfg_item;
+import me.otho.customItems.configuration.Json.jsonReaders.items.armor.Cfg_boots;
+import me.otho.customItems.configuration.Json.jsonReaders.items.armor.Cfg_chestplate;
+import me.otho.customItems.configuration.Json.jsonReaders.items.armor.Cfg_helmet;
+import me.otho.customItems.configuration.Json.jsonReaders.items.armor.Cfg_leggings;
+import me.otho.customItems.configuration.Json.jsonReaders.items.food.Cfg_food;
+import me.otho.customItems.configuration.Json.jsonReaders.items.tools.Cfg_axe;
+import me.otho.customItems.configuration.Json.jsonReaders.items.tools.Cfg_hoe;
+import me.otho.customItems.configuration.Json.jsonReaders.items.tools.Cfg_pickaxe;
+import me.otho.customItems.configuration.Json.jsonReaders.items.tools.Cfg_shovel;
+import me.otho.customItems.configuration.Json.jsonReaders.items.tools.Cfg_sword;
 import me.otho.customItems.mod.items.CustomItem;
 import me.otho.customItems.mod.items.armor.CustomArmor;
 import me.otho.customItems.mod.items.food.CustomFood;

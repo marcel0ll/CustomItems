@@ -3,13 +3,9 @@ package me.otho.customItems.mod.worldGen;
 import java.util.Arrays;
 import java.util.Random;
 
-import org.apache.commons.lang3.ArrayUtils;
-
-import me.otho.customItems.configuration.JsonConfigurationHandler;
-import me.otho.customItems.configuration.jsonReaders.worldGen.Cfg_oreGen;
-import me.otho.customItems.utility.LogHelper;
+import me.otho.customItems.configuration.Json.JsonConfigurationHandler;
+import me.otho.customItems.configuration.Json.jsonReaders.worldGen.Cfg_oreGen;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -25,7 +21,7 @@ public class CustomWorldGenerator implements IWorldGenerator {
 		
 		int i;
 
-		Cfg_oreGen[] oresToSpawn = JsonConfigurationHandler.allData.oreGen;
+		Cfg_oreGen[] oresToSpawn = new Cfg_oreGen[1];
 		
 		if(oresToSpawn != null){
 			for(i=0;i < oresToSpawn.length; i++)

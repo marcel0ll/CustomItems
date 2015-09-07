@@ -2,17 +2,12 @@ package me.otho.customItems.mod.handler;
 
 import java.util.Random;
 
-import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_blockDrop;
-import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
+import me.otho.customItems.configuration.Json.jsonReaders.blocks.Cfg_blockDrop;
+import me.otho.customItems.configuration.Json.jsonReaders.common.Cfg_drop;
 import me.otho.customItems.registry.BlockRegistry;
-import me.otho.customItems.utility.LogHelper;
 import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;

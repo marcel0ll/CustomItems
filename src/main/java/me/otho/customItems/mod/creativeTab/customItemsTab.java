@@ -2,7 +2,7 @@ package me.otho.customItems.mod.creativeTab;
 
 import java.util.ArrayList;
 
-import me.otho.customItems.configuration.ForgeConfig;
+import me.otho.customItems.configuration.Forge.ForgeConfig;
 import me.otho.customItems.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;

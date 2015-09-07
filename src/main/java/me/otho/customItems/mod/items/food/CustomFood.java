@@ -1,12 +1,11 @@
 package me.otho.customItems.mod.items.food;
 
-import me.otho.customItems.configuration.jsonReaders.common.Cfg_PotionEffect;
+import me.otho.customItems.configuration.Json.jsonReaders.common.Cfg_PotionEffect;
 import me.otho.customItems.reference.Reference;
 import me.otho.customItems.utility.Util;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;

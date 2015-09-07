@@ -1,20 +1,16 @@
 package me.otho.customItems.registry;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import me.otho.customItems.compability.Integration;
 import me.otho.customItems.compability.NEICustomItemsConfig;
-import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
-import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_blockDrop;
-import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
-import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
-import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
-import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
+import me.otho.customItems.configuration.Json.jsonReaders.blocks.Cfg_block;
+import me.otho.customItems.configuration.Json.jsonReaders.blocks.Cfg_blockDrop;
+import me.otho.customItems.configuration.Json.jsonReaders.blocks.Cfg_crop;
+import me.otho.customItems.configuration.Json.jsonReaders.blocks.Cfg_fluid;
 import me.otho.customItems.mod.blocks.CustomBlock;
 import me.otho.customItems.mod.blocks.CustomCrop;
 import me.otho.customItems.mod.blocks.CustomFallingBlock;
-import me.otho.customItems.mod.blocks.CustomFenceBlock;
 import me.otho.customItems.mod.blocks.CustomFenceBlock;
 import me.otho.customItems.mod.blocks.CustomFluidBlock;
 import me.otho.customItems.mod.blocks.CustomPaneBlock;
@@ -29,12 +25,10 @@ import me.otho.customItems.mod.items.CustomSlabItem;
 import me.otho.customItems.mod.materials.CI_Material;
 import me.otho.customItems.utility.LogHelper;
 import me.otho.customItems.utility.Util;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;

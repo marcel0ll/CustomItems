@@ -1,6 +1,6 @@
 package me.otho.customItems.utility;
 
-import me.otho.customItems.configuration.ForgeConfig;
+import me.otho.customItems.configuration.Forge.ForgeConfig;
 import me.otho.customItems.reference.Reference;
 
 import org.apache.logging.log4j.Level;
