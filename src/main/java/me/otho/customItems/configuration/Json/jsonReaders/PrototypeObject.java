@@ -9,5 +9,8 @@ public class PrototypeObject {
     public String pid;
     public String prototype;
     public Boolean prototypeOnly = false;
+    
+    //@Foo
+    public Boolean hasProtypeResolved = false;
 
 }

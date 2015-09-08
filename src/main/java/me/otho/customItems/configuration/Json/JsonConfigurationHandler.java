@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.jar.JarEntry;
@@ -13,6 +14,8 @@ import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
 import me.otho.customItems.configuration.Forge.ForgeConfig;
 import me.otho.customItems.configuration.Json.jsonReaders.PrototypeObject;
 import me.otho.customItems.registry.Registry;
@@ -22,11 +25,14 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 
 public class JsonConfigurationHandler {
     public static PrototypeObject[] data;
+    public static JsonArray jsonData;
+    public static JsonArray approved;
     public static ArrayList<PrototypeObject> allData;
 
     public static void init(String folderPath, File source) throws IOException {
@@ -36,12 +42,17 @@ public class JsonConfigurationHandler {
 
         File folder = new File(folderPath);
         allData = new ArrayList<PrototypeObject>();
+        jsonData = new JsonArray();
+        approved = new JsonArray();
 
         if (folder.exists()) {
             File[] listOfFiles = folder.listFiles();
 
             if (listOfFiles.length > 0) {
-                Gson gson = new Gson();
+                Gson gson = new GsonBuilder()
+                        .excludeFieldsWithModifiers(Modifier.PRIVATE)
+                        .create();
+                
                 JsonReader reader;
                 JsonParser parser = new JsonParser();
                 ;
@@ -60,14 +71,36 @@ public class JsonConfigurationHandler {
 
                             // reader.setLenient(true);
 
-                            PrototypeObject[] data = gson.fromJson(reader, PrototypeObject[].class);
-                            mergeGson(data);
+                            jsonData.addAll(array);
+                            //PrototypeObject[] data = gson.fromJson(reader, PrototypeObject[].class);
+                            //mergeGson(data);
                         } catch (FileNotFoundException e) {
 
                         }
                     }
                 }
                 LogHelper.info("Finished to read all JSON files");
+                LogHelper.info("Resolving prototypes");
+                
+                for(i = 0; i < jsonData.size(); i++) {
+                    JsonObject obj = (JsonObject) jsonData.get(i);
+                    
+                    PrototypeObject data = gson.fromJson(obj, PrototypeObject.class);
+                    
+                    if(data.prototype != null) {
+                        //find prototype
+                        resolveProtypeChain(obj);
+                    }
+                    
+                    if(data.className == null) {
+                        LogHelper.error("Data has no class and cant be registered");
+                    } else {
+                        //This is fine
+                        
+                        
+                        approved.add(obj);
+                    }
+                }
                 // Registry.register(allData);
 
             }
@@ -125,5 +158,9 @@ public class JsonConfigurationHandler {
             LogHelper.info("End of Default Config Files");
             file.close();
         }
+    }
+
+    private static void resolveProtypeChain( JsonObject obj ){
+        
     }
 }
