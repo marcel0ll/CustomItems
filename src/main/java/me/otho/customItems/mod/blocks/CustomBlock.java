@@ -36,6 +36,7 @@ public class CustomBlock extends Block {
 	
 	private String[] textureNames;
 	protected boolean breaks;
+	private boolean collides = true;
 	
 	@Override
     @SideOnly(Side.CLIENT)
@@ -99,6 +100,16 @@ public class CustomBlock extends Block {
     public void setCanSilkHarvest(boolean canSilkHarvest) {
 		this.canSilkHarvest = canSilkHarvest;
 	}
+    
+    public void setCollides(boolean collides) {
+        this.collides = collides;
+    }
+    
+//    @Override
+//    public boolean isCollidable()
+//    {
+//        return collides;
+//    }
 	
 	@Override
 	public IIcon getIcon(int side, int meta) {

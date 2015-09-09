@@ -1,0 +1,17 @@
+/bin/
+/projeto/
+/.git/
+.classpath
+.project
+/.settings/
+/build/
+/CustomItems/
+/eclipse/
+/lib/
+/.gradle/
+
+.idea
+*.eml
+*.iml
+*.ipr
+*.iws

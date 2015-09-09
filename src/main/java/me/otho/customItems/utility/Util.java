@@ -209,6 +209,8 @@ public class Util {
 		FENCE,
 		WALL,
 		FALLING,
+		//1.0.9.2
+		CROSSED,
 		//1.0.10
 		FLOWER,
 		CARPET,		

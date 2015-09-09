@@ -15,6 +15,7 @@ import me.otho.customItems.mod.blocks.CustomBlock;
 import me.otho.customItems.mod.blocks.CustomCarpetBlock;
 import me.otho.customItems.mod.blocks.CustomCrop;
 import me.otho.customItems.mod.blocks.CustomDoorBlock;
+import me.otho.customItems.mod.blocks.CustomCrossedBlock;
 import me.otho.customItems.mod.blocks.CustomFallingBlock;
 import me.otho.customItems.mod.blocks.CustomFenceBlock;
 import me.otho.customItems.mod.blocks.CustomFenceBlock;
@@ -134,7 +135,6 @@ public class BlockRegistry {
 				case PRESSUREPLATE:
 					registerPressurePlateBlock(data);
 					break;
-			//pre 1.0.10
 				case FENCE:
 					registerFenceBlock(data);
 					break;
@@ -157,6 +157,9 @@ public class BlockRegistry {
 				case FALLING:
 					registerFallingBlock(data);
 					break;
+				case CROSSED:
+				    registerCrossedBlock(data);
+				    break;
 				case NORMAL:
 				default:
 					registerNormalBlock(data);					
@@ -662,7 +665,7 @@ public class BlockRegistry {
 		block.setHardness(data.hardness);
 		block.setResistance(data.resistance);
 		block.setBreaks(data.dropsItSelf);
-		block.setCanSilkHarvest(data.canSilkHarvest);
+		block.setCanSilkHarvest(data.canSilkHarvest);		
 		data.lightLevel = Util.range(data.lightLevel, 0, 1);
 		
 		block.setLightLevel(data.lightLevel);
@@ -719,6 +722,7 @@ public class BlockRegistry {
 		block.setResistance(data.resistance);
 		block.setBreaks(data.dropsItSelf);
 		block.setCanSilkHarvest(data.canSilkHarvest);
+		block.setCollides(data.isCollidable);
 		data.lightLevel = Util.range(data.lightLevel, 0, 1);
 		
 		block.setLightLevel(data.lightLevel);
@@ -764,6 +768,61 @@ public class BlockRegistry {
         itemBlock.setMaxStackSize(size);		
 	}
 
+	public static void registerCrossedBlock(Cfg_block data) {
+        String registerName = Util.parseRegisterName(data.name);
+        
+        CustomCrossedBlock block = new CustomCrossedBlock(CI_Material.getMaterial(data.material));
+        
+        block.setHardness(data.hardness);
+        block.setResistance(data.resistance);
+        block.setBreaks(data.dropsItSelf);
+        block.setCanSilkHarvest(data.canSilkHarvest);
+        block.setCollides(data.isCollidable);
+        data.lightLevel = Util.range(data.lightLevel, 0, 1);
+        
+        block.setLightLevel(data.lightLevel);
+        if(data.toolClass != null)
+            block.setHarvestLevel(data.toolClass, data.harvestLevel);
+        if(data.multipleTextures == null)
+        {
+            block.setBlockTextureName(data.textureName);
+        }else
+        {
+            String[] textureNames = new String[6];
+            textureNames[0] = data.multipleTextures.yneg;
+            textureNames[1] = data.multipleTextures.ypos;
+            textureNames[2] = data.multipleTextures.zneg;
+            textureNames[3] = data.multipleTextures.zpos;
+            textureNames[4] = data.multipleTextures.xneg;
+            textureNames[5] = data.multipleTextures.xpos;
+            block.registerBlockTextures(textureNames);
+        }
+        
+        block.slipperiness = data.slipperiness;
+        block.setOpaque(data.isOpaque);
+        block.setStepSound(Util.parseSoundType(data.stepSound));
+        
+        if(data.dropItemName != null)
+        {           
+            block.setDropItem(data.dropItemName);               
+            block.setMaxItemDrop(data.maxItemDrop);
+            block.setMinItemDrop(data.minItemDrop);
+            block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
+        }
+        
+        Registry.blocksList.add(block);
+        Registry.blocksList.add(data.creativeTab);  
+        
+        //Register Block
+        GameRegistry.registerBlock(block, registerName);            
+        block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);         
+        LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName()+".name","en_US", data.name);
+        
+        Item itemBlock = Item.getItemFromBlock(block);          
+        int size = Util.range(data.maxStackSize, 1, 64);            
+        itemBlock.setMaxStackSize(size);
+        
+    }
 	public static void registerLogBlock(Cfg_block data) {
 		String registerName = Util.parseRegisterName(data.name);
 		
