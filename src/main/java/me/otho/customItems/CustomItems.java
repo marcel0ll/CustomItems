@@ -44,41 +44,39 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(dependencies=Reference.DEPENDENCIES, modid  = Reference.MOD_ID, version = Reference.VERSION, name=Reference.MOD_NAME)
-public class CustomItems
-{	
-	@Instance(Reference.MOD_ID)
-	public static CustomItems instance;
-	
-    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)   
+@Mod(dependencies = Reference.DEPENDENCIES, modid = Reference.MOD_ID, version = Reference.VERSION, name = Reference.MOD_NAME)
+public class CustomItems {
+    @Instance(Reference.MOD_ID)
+    public static CustomItems instance;
+
+    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static IProxy proxy;
-	
-	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event) throws IOException
-	{			
-		String configFolderPath = event.getModConfigurationDirectory().toString()+File.separator+Reference.MOD_ID+File.separator;
-		
-		ForgeConfig.init(event.getSuggestedConfigurationFile());		
-		
-		Integration.init();
-		
-		customItemsTab.init();
-				
-		JsonConfigurationHandler.init(configFolderPath, event.getSourceFile());
-		
-		GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 1);		
-		
-    	proxy.registerTileEntities();
-    	proxy.Integration_NEI();
-    	
-    	MinecraftForge.EVENT_BUS.register(new EntityDropHandler());
-    	MinecraftForge.EVENT_BUS.register(new BlockDropHandler());
-    	
-	}	
-    
+
     @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event)
-    {
-    	JsonConfigurationHandler.post_init();
+    public void preInit(FMLPreInitializationEvent event) throws IOException {
+        String configFolderPath = event.getModConfigurationDirectory().toString() + File.separator + Reference.MOD_ID
+                + File.separator;
+
+        ForgeConfig.init(event.getSuggestedConfigurationFile());
+
+        Integration.init();
+
+        customItemsTab.init();
+
+        JsonConfigurationHandler.init(configFolderPath, event.getSourceFile());
+
+        GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 1);
+
+        proxy.registerTileEntities();
+        proxy.Integration_NEI();
+
+        MinecraftForge.EVENT_BUS.register(new EntityDropHandler());
+        MinecraftForge.EVENT_BUS.register(new BlockDropHandler());
+
+    }
+
+    @Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        JsonConfigurationHandler.post_init();
     }
 }

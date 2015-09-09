@@ -6,7 +6,7 @@ import net.minecraft.item.ItemPickaxe;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class CustomPickaxe extends ItemPickaxe{
+public class CustomPickaxe extends ItemPickaxe {
     public CustomPickaxe(ToolMaterial mat) {
         super(mat);
     }
@@ -14,6 +14,6 @@ public class CustomPickaxe extends ItemPickaxe{
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iconRegister) {
-    	itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.iconString);
+        itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.iconString);
     }
 }

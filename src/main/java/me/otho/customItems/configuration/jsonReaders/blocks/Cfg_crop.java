@@ -2,8 +2,7 @@ package me.otho.customItems.configuration.jsonReaders.blocks;
 
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_basicData;
 
-public class Cfg_crop extends Cfg_basicData
-{
+public class Cfg_crop extends Cfg_basicData {
     public String fruitName;
     public int dropFruitDamage = 0;
     public String renderType = "crops";

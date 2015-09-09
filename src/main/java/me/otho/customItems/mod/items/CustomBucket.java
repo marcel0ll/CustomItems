@@ -8,15 +8,16 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomBucket extends ItemBucket {
-	public String textureName;
-	
+    public String textureName;
+
     public CustomBucket(CustomFluidBlock fluid, String textureName) {
-        super(fluid);     
+        super(fluid);
         this.textureName = textureName;
     }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-    	itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.textureName);
+        itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.textureName);
     }
 }

@@ -14,12 +14,11 @@ public class CustomSword extends ItemSword {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iconRegister) {
-    	if(this.iconString == null)
-    	{
-    		itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
-    	}else
-    	{
-    		itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.iconString);
-    	}
+        if (this.iconString == null) {
+            itemIcon = iconRegister
+                    .registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+        } else {
+            itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.iconString);
+        }
     }
 }

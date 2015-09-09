@@ -13,15 +13,17 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomDisk extends ItemRecord {
     protected String song;
+
     public CustomDisk(String song) {
-        super(song);        
+        super(song);
         this.song = song;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-        itemIcon = iconRegister.registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".")+1));
+        itemIcon = iconRegister
+                .registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
     }
 
     @Override
@@ -32,8 +34,9 @@ public class CustomDisk extends ItemRecord {
 
     @Override
     public ResourceLocation getRecordResource(String name) {
-        ResourceLocation loc = new ResourceLocation(Reference.MOD_ID.toLowerCase()+":sounds/records/"+name.substring(name.indexOf('.')+1));
-       
+        ResourceLocation loc = new ResourceLocation(
+                Reference.MOD_ID.toLowerCase() + ":sounds/records/" + name.substring(name.indexOf('.') + 1));
+
         return loc;
     }
 

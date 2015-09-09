@@ -11,7 +11,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class CustomSeed extends ItemSeeds {
 
     public CustomSeed(Block plant) {
-        super(plant, Blocks.farmland);        
+        super(plant, Blocks.farmland);
     }
 
     @Override
@@ -22,6 +22,6 @@ public class CustomSeed extends ItemSeeds {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-    	itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.iconString);    	
+        itemIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.iconString);
     }
 }
