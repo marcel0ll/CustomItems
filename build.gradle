@@ -20,6 +20,10 @@ repositories {
         name = "chickenbones"
         url = "http://chickenbones.net/maven/"
     }
+    maven {
+        name = "tterrag"
+        url = "http://maven.tterrag.com/"
+    }
 }
 
 apply plugin: 'forge'
@@ -34,6 +38,7 @@ minecraft {
 }
 
 dependencies {
+    compile "exnihilo:Ex-Nihilo:1.38-46:deobf"
 // http://files.minecraftforge.net/CodeChickenLib/
     compile "codechicken:CodeChickenLib:1.7.10-1.1.1.104:dev"
 // http://chickenbones.net/maven
