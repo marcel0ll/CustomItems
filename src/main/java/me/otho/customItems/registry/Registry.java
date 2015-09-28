@@ -17,6 +17,7 @@ import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_helmet;
 import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_leggings;
 import me.otho.customItems.configuration.jsonReaders.items.food.Cfg_food;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_axe;
+import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_hammer;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_hoe;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_pickaxe;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_shovel;
@@ -86,6 +87,8 @@ public class Registry {
                 mergeArrays(allData, (Cfg_basicData[]) data.pickaxes);
             if(data.axes != null)
                 mergeArrays(allData, (Cfg_basicData[]) data.axes);
+            if(data.hammers != null)
+                mergeArrays(allData, (Cfg_basicData[]) data.hammers);
             if(data.shovels != null)
                 mergeArrays(allData, (Cfg_basicData[]) data.shovels);
             if(data.hoes != null)
@@ -141,6 +144,9 @@ public class Registry {
                 }else if(toRegister instanceof Cfg_axe)
                 {
                 	ItemRegistry.registerAxe((Cfg_axe) toRegister);    
+                }else if(toRegister instanceof Cfg_hammer)
+                {
+                    ItemRegistry.registerHammer((Cfg_hammer) toRegister);
                 }else if(toRegister instanceof Cfg_shovel)
                 {
                 	ItemRegistry.registerShovel((Cfg_shovel) toRegister);  
