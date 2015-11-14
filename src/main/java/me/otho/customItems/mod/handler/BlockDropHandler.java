@@ -47,7 +47,7 @@ public class BlockDropHandler {
         String uniqueIdentifier = GameData.getBlockRegistry().getNameForObject(block);
         if(uniqueIdentifier != null){
         	//LogHelper.info("block uid: "+ GameData.getBlockRegistry().getNameForObject(block));
-        	String blockId = GameRegistry.findUniqueIdentifierFor(block).toString()+":"+event.blockMetadata;
+        	String blockId = uniqueIdentifier+":"+event.blockMetadata;
         	//LogHelper.info("Latest block breaked id: " + blockId);    
             if(BlockRegistry.drops.containsKey(blockId)){
             	Cfg_blockDrop blockDrop = BlockRegistry.drops.get(blockId);
