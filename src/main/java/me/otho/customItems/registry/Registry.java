@@ -32,6 +32,8 @@ import net.minecraft.item.Item;
 
 import org.apache.logging.log4j.Level;
 
+import cpw.mods.fml.common.Loader;
+
 public class Registry {
     
 	public static ArrayList<Object> itemsList = new ArrayList();
@@ -88,7 +90,10 @@ public class Registry {
             if(data.axes != null)
                 mergeArrays(allData, (Cfg_basicData[]) data.axes);
             if(data.hammers != null)
-                mergeArrays(allData, (Cfg_basicData[]) data.hammers);
+            {
+            	mergeArrays(allData, (Cfg_basicData[]) data.hammers);
+            }
+                
             if(data.shovels != null)
                 mergeArrays(allData, (Cfg_basicData[]) data.shovels);
             if(data.hoes != null)
@@ -122,56 +127,63 @@ public class Registry {
                 
                 Cfg_basicData toRegister = allData.get(i);
                 
-                if(toRegister instanceof Cfg_chest)
-                {
-                    TileEntityRegistry.registerChest((Cfg_chest) toRegister);    
-                }else if(toRegister instanceof Cfg_block)
-                {
-                	//TODO add switch based on block type
-                    BlockRegistry.registerBlock((Cfg_block) toRegister);
-                }else if(toRegister instanceof Cfg_food)
-                {
-                    ItemRegistry.registerFood((Cfg_food) toRegister);  
-                }else if(toRegister instanceof Cfg_item)
-                {
-                	ItemRegistry.registerItem((Cfg_item) toRegister);  
-                }else if(toRegister instanceof Cfg_fluid)
-                {
-                	BlockRegistry.registerFluid((Cfg_fluid) toRegister);    
-                }else if(toRegister instanceof Cfg_pickaxe)
-                {
-                	ItemRegistry.registerPickaxe((Cfg_pickaxe) toRegister);    
-                }else if(toRegister instanceof Cfg_axe)
-                {
-                	ItemRegistry.registerAxe((Cfg_axe) toRegister);    
-                }else if(toRegister instanceof Cfg_hammer)
-                {
-                    ItemRegistry.registerHammer((Cfg_hammer) toRegister);
-                }else if(toRegister instanceof Cfg_shovel)
-                {
-                	ItemRegistry.registerShovel((Cfg_shovel) toRegister);  
-                }else if(toRegister instanceof Cfg_hoe)
-                {
-                	ItemRegistry.registerHoe((Cfg_hoe) toRegister);    
-                }else if(toRegister instanceof Cfg_sword)
-                {
-                	ItemRegistry.registerSword((Cfg_sword) toRegister);    
-                }else if(toRegister instanceof Cfg_helmet)
-                {
-                	ItemRegistry.registerHelmet((Cfg_helmet) toRegister);  
-                }else if(toRegister instanceof Cfg_chestplate)
-                {
-                    ItemRegistry.registerChestplate((Cfg_chestplate) toRegister);  
-                }else if(toRegister instanceof Cfg_leggings)
-                {
-                	ItemRegistry.registerLeggings((Cfg_leggings) toRegister);  
-                }else if(toRegister instanceof Cfg_boots)
-                {
-                	ItemRegistry.registerBoots((Cfg_boots) toRegister);    
-                }else if(toRegister instanceof Cfg_crop)
-                {
-                	BlockRegistry.registerCrop((Cfg_crop) toRegister);
-                }                
+                try{
+                	if(toRegister instanceof Cfg_chest)
+                    {
+                        TileEntityRegistry.registerChest((Cfg_chest) toRegister);    
+                    }else if(toRegister instanceof Cfg_block)
+                    {
+                    	//TODO add switch based on block type
+                        BlockRegistry.registerBlock((Cfg_block) toRegister);
+                    }else if(toRegister instanceof Cfg_food)
+                    {
+                        ItemRegistry.registerFood((Cfg_food) toRegister);  
+                    }else if(toRegister instanceof Cfg_item)
+                    {
+                    	
+                    	
+                    	ItemRegistry.registerItem((Cfg_item) toRegister);  
+                    }else if(toRegister instanceof Cfg_fluid)
+                    {
+                    	BlockRegistry.registerFluid((Cfg_fluid) toRegister);    
+                    }else if(toRegister instanceof Cfg_pickaxe)
+                    {
+                    	ItemRegistry.registerPickaxe((Cfg_pickaxe) toRegister);    
+                    }else if(toRegister instanceof Cfg_axe)
+                    {
+                    	ItemRegistry.registerAxe((Cfg_axe) toRegister);    
+                    }else if(toRegister instanceof Cfg_hammer)
+                    {
+                        ItemRegistry.registerHammer((Cfg_hammer) toRegister);
+                    }else if(toRegister instanceof Cfg_shovel)
+                    {
+                    	ItemRegistry.registerShovel((Cfg_shovel) toRegister);  
+                    }else if(toRegister instanceof Cfg_hoe)
+                    {
+                    	ItemRegistry.registerHoe((Cfg_hoe) toRegister);    
+                    }else if(toRegister instanceof Cfg_sword)
+                    {
+                    	ItemRegistry.registerSword((Cfg_sword) toRegister);    
+                    }else if(toRegister instanceof Cfg_helmet)
+                    {
+                    	ItemRegistry.registerHelmet((Cfg_helmet) toRegister);  
+                    }else if(toRegister instanceof Cfg_chestplate)
+                    {
+                        ItemRegistry.registerChestplate((Cfg_chestplate) toRegister);  
+                    }else if(toRegister instanceof Cfg_leggings)
+                    {
+                    	ItemRegistry.registerLeggings((Cfg_leggings) toRegister);  
+                    }else if(toRegister instanceof Cfg_boots)
+                    {
+                    	ItemRegistry.registerBoots((Cfg_boots) toRegister);    
+                    }else if(toRegister instanceof Cfg_crop)
+                    {
+                    	BlockRegistry.registerCrop((Cfg_crop) toRegister);
+                    }                
+               	
+                } catch (NoClassDefFoundError e){
+                	
+                }
             }            
             
             CommonRegistry.registerCreativeTabs(data.creativeTabs);
