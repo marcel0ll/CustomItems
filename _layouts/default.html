@@ -4,17 +4,20 @@
     {% include head.html %}
 
     <body>
+        
+        <div class="row">
 
-        {% include header.html %}
-
-        <main>
-            <div class="container">
-                {{ content | toc_generate }}
+            <div class="col s12 m4 l3">
+                {% include sideMenu.html %}
             </div>
-        </main>
+
+            <div class="col s12 m8 l9">
+                 {{ content }}
+            </div>
+
+        </div>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
     </body>
-
 </html>
