@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Documentation
-permalink: /documentation/
+permalink:/documentation/
 ---
 #Documentation
 {:.no_toc}
