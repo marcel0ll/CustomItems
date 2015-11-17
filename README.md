@@ -8,5 +8,5 @@ If you find something wrong on the wiki, create an issue or help the mod by fixi
 
 ## How the wiki works
 
-All the wiki is created using html and markdown alongside with (jekyll)[https://jekyllrb.com/].
-I also use (materialize)[http://materializecss.com/] for design.
+All the wiki is created using html and markdown alongside with [jekyll](https://jekyllrb.com/).
+I also use [materialize](http://materializecss.com/) for design.
