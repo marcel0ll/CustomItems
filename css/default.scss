@@ -1,12 +1,28 @@
 ---
 ---
 li.logo {
-    height: 180px;
+    // height: 180px;
     padding: 0px 30px !important;
     img {
-        margin-top: 15px;
+        margin: 15px 0px;
         // padding: 0px 30px;
     }
+}
+a.button-collapse.top-nav {
+  position: absolute;
+  text-align: center;
+  height: 48px;
+  width: 48px;
+  left: 7.5%;
+  top: 0;
+  float: none;
+  margin-left: 1.5rem;
+  color: #fff;
+  font-size: 32px;
+  z-index: 2;
+}
+a.button-collapse.top-nav.full {
+    line-height: 122px;
 }
 
 li.logo:hover, li.search {
@@ -19,9 +35,48 @@ header, main, footer {
 
 @media only screen and (max-width : 992px) {
   header, main, footer {
-    padding-left: 0; 
-  } 
+    padding-left: 0;
+  }
+  nav .nav-wrapper {
+    text-align: center;
 }
+}
+
+
+.top-nav{
+    $hei: 140px;
+    height: $hei;
+    line-height: $hei;
+    font-size: bold;
+    font-size: 40px;
+}
+
+
+.side-nav li.no-padding:hover, .side-nav li.no-padding.active {
+    background-color: transparent;
+}
+.side-nav li:not(:first-child){
+    height: 64px;
+    line-height: 64px;
+}
+
+.side-nav ul{
+    margin-bottom: 0px;
+}
+
+.container {
+    width: 85% !important;
+}
+
+.top-nav{
+    font-weight: bold;
+    color: black;
+
+    h1 {
+        margin: 0px !important;
+    }
+}
+
 
 
 

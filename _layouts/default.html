@@ -7,16 +7,20 @@
     {% include header.html %}
     <main>
         <div class="container">
-            <div class="row">            
-                <div class="col s12">
-                    {{ content }}
-                </div>
+            <div class="row">
+                {{ content }}
             </div>
         </div>
     </main>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="{{ "js/materialize.min.js" | prepend: site.url }}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.scrollspy').scrollSpy();
+            $('.button-collapse').sideNav();
+        });
+    </script>
 </body>
 
 </html>

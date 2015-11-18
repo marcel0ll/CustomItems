@@ -1,13 +1,19 @@
 <header>
-    <nav class="top-nav">
+    <nav class="top-nav green lighten-2">
         <div class="container">
-            <div class="nav-wrapper"><a class="page-title">CI - Wiki</a></div>
+            <div class="nav-wrapper">
+                <a class="page-title">{{page.title}}</a>
+            </div>
         </div>
     </nav>
-    <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="mdi-navigation-menu"></i></a></div>
+    <div class="container">
+      <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+        <i class="mdi-navigation-menu"></i>
+      </a>
+    </div>
     <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
         <li class="logo">
-            <a href="{{ site.url }}" class="brand-logo"><img src="{{ " /images/logo.png " | prepend: site.baseurl }}" alt="Custom Items Logo"></a>
+            <img class="brand-logo" src="{{ " /images/logo.png " | prepend: site.baseurl }}" alt="Custom Items Logo">
         </li>
         <!--  <li class="search">
           <div class="search-wrapper card">
@@ -16,10 +22,37 @@
           </div>
         </li> -->
         <li class="bold">
-            <a href="{{ "/documentation/" | prepend: site.url }}">Documentation</a>
+            <a href="{{ site.url }}">Home</a>
         </li>
         <li class="bold">
-            <a href="{{ "/about/" | prepend: site.url }}">About</a>
+            <a href="{{ "/documentation/" | prepend: site.baseurl }}">Documentation (old) </a>
+        </li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal"> About </a>
+              <div class="collapsible-body" style="">
+                <ul>
+                  <li><a href="{{ " /about/ci " | prepend: site.baseurl }}">CI</a></li>
+                  <li><a href="{{ " /about/donating " | prepend: site.baseurl }}">Donating</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal"> Documentation </a>
+              <div class="collapsible-body" style="">
+                <ul>
+                  <li><a href="{{ " /documentation/readme " | prepend: site.baseurl }}">READ ME!!!</a></li>
+                  <li><a href="{{ " /images/logo.png " | prepend: site.baseurl }}">Calculations</a></li>
+                  <li><a href="{{ " /images/logo.png " | prepend: site.baseurl }}">Config files</a></li>
+                  <li><a href="{{ " /images/logo.png " | prepend: site.baseurl }}">Items</a></li>
+                  <li><a href="{{ " /images/logo.png " | prepend: site.baseurl }}">Blocks</a></li>
+                  <li><a href="{{ " /images/logo.png " | prepend: site.baseurl }}">Ore gen</a></li>
+                  <li><a href="{{ " /images/logo.png " | prepend: site.baseurl }}">Misc</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
         </li>
     </ul>
 </header>

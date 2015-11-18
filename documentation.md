@@ -1,15 +1,12 @@
 ---
-layout: default
-title: Documentation
+layout: wiki_toc
+title: Documentation (old)
 permalink: /documentation/
 ---
-#Documentation
-{:.no_toc}
-* TOC
-{:toc}
+
 ___
 
-#<a name="readme" href="#readme">Read Me</a>
+#<a name="readme" href="#readme" class="scrollspy">Read Me</a>
 ___
 
 All Properties inside {} are **REQUIRED** configurations.
@@ -32,7 +29,7 @@ to be. The following are just a few that might help you.
 
 [Block Breaking Formula](Block_Breaking_Formula "wikilink")
 
-#<a name="custom_config" href="#custom_config"> Custom Configuration Files </a>
+#<a name="custom_config" href="#custom_config" class="section scrollspy"> Custom Configuration Files </a>
 ___
 
 Before you start off making your own config files, I recommend using the

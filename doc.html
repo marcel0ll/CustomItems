@@ -1,0 +1,879 @@
+---
+layout: wiki_toc
+title: Documentation
+permalink: /doc/
+---
+<h1 id="read-me"><a name="readme" href="#readme">Read Me</a></h1>
+<hr />
+<p>All Properties inside {} are <strong>REQUIRED</strong> configurations.</p>
+<p>All Properties inside [] are <strong>OPTIONAL</strong> configurations.</p>
+<p>Values after a '=' is a properties <strong>DEFAULT</strong> value.</p>
+<p>All custom blocks and items have a special OPTIONAL properties called <code>[registerOrder]</code> that can be used to sort blocks and items ids while registering. The greater the registerOrder the later the item will be registered.</p>
+<h1 id="calculations"><a name="calculations" href="#calculations"> Calculations </a></h1>
+<hr />
+<p>If you are looking for a formula to tell you how long it will take something like a block breaking. Look no further, this is where you need to be. The following are just a few that might help you.</p>
+<p><a href="Block_Breaking_Formula" title="wikilink">Block Breaking Formula</a></p>
+<h1 id="custom-configuration-files"><a name="custom_config" href="#custom_config" class="section scrollspy"> Custom Configuration Files </a></h1>
+<hr />
+<p>Before you start off making your own config files, I recommend using the following template to get you started and familiar with how the configurations work. <strong><em><a href="Base_Config_File" title="wikilink">The config template is on this page.</a></em></strong> You could also use the default config files when you set restore default config to true in CI's .cfg file. By default it is set to false. CI has a .cfg file for general configurations.</p>
+<p>All files for CI should be saved as <em><code>.json</code></em> file in <em><code>&quot;minecraftInstance/config/customItems&quot;</code></em> Any text editor can be used to make .json file, so long as you put it after the name of the file. The mod allows multiple configuration files so can group custom items instead of having a long list. The file name is not used in the name, merely for you to know what custom items are where.</p>
+<h1 id="armor-armour"><a name="armor" href="#armor"> Armor (Armour) </a></h1>
+<hr />
+<h3 id="boots"><a name="boots" href="#boots"> Boots </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the armor</p>
+<p><code>{textureName}</code> - The texture name of the armor.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the boots will show up in.</p>
+<p><code>[durability] = 5</code> - How much it can take before breaking</p>
+<p><code>[reduction] = 2</code> - How much damage it reduces when damaged</p>
+<p><code>[enchantability] = 15</code> - How easily this armor will be enchanted</p>
+<blockquote>
+    <p><strong>Observations:</strong></p>
+    <ul>
+        <li><p>The item texture will be textureName_boots</p></li>
+        <li><p>The armor texture must have two layers textureName_layer_1 and textureName_layer_2</p></li>
+    </ul>
+</blockquote>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;boots&quot;:
+        [
+            {
+                &quot;name&quot;:&quot;boots 1&quot;,
+                &quot;textureName&quot;:&quot;boots1&quot;,
+                &quot;durability&quot;:1,
+                &quot;reduction&quot;:1,
+                &quot;enchantability&quot;:30
+            },
+            ...
+            {
+                &quot;name&quot;:&quot;boots X&quot;,
+                &quot;textureName&quot;:&quot;bootsX&quot;,
+                &quot;durability&quot;:1,
+                &quot;reduction&quot;:1,
+                &quot;enchantability&quot;:30
+            }
+        ]
+}</code></pre>
+<h3 id="chestplates"><a name="chestplates" href="#chestplates"> Chestplates </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the armor</p>
+<p><code>{textureName}</code> - The texture name of the armor.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the chestplate will show up in.</p>
+<p><code>[durability] = 5</code> - How much it can take before breaking</p>
+<p><code>[reduction] = 2</code> - How much damage it reduces when damaged</p>
+<p><code>[enchantability] = 15</code> - How easily this armor will be enchanted</p>
+<blockquote>
+    <p><strong>Observations:</strong></p>
+    <ul>
+        <li><p>The item texture will be textureName_chestplate</p></li>
+        <li><p>The armor texture must have two layers textureName_layer_1 and textureName_layer_2</p></li>
+    </ul>
+</blockquote>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;chestplates&quot;:
+        [
+            {
+                &quot;name&quot;:&quot;chestplate 1&quot;,
+                &quot;textureName&quot;:&quot;chestplate1&quot;,
+                &quot;durability&quot;:1,
+                &quot;reduction&quot;:1,
+                &quot;enchantability&quot;:30
+            },
+            ...
+            {
+                &quot;name&quot;:&quot;chestplate X&quot;,
+                &quot;textureName&quot;:&quot;chestplateX&quot;,
+                &quot;durability&quot;:1,
+                &quot;reduction&quot;:1,
+                &quot;enchantability&quot;:30
+            }
+        ]
+}</code></pre>
+<h3 id="helmets"><a name="helmets" href="#helmets" > Helmets </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the armor</p>
+<p><code>{textureName}</code> - The texture name of the armor.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the helmet will show up in.</p>
+<p><code>[durability] = 5</code> - How much it can take before breaking</p>
+<p><code>[reduction] = 2</code> - How much damage it reduces when damaged</p>
+<p><code>[enchantability] = 15</code> - How easily this armor will be enchanted</p>
+<blockquote>
+    <p><strong>Observations:</strong></p>
+    <ul>
+        <li><p>The item texture will be textureName_helmet</p></li>
+        <li><p>The armor texture must have two layers textureName_layer_1 and textureName_layer_2</p></li>
+    </ul>
+</blockquote>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;helmets&quot;:
+        [
+            {
+                &quot;name&quot;:&quot;Helmet 1&quot;,
+                &quot;textureName&quot;:&quot;Helmet1&quot;,
+                &quot;durability&quot;:1,
+                &quot;reduction&quot;:1,
+                &quot;enchantability&quot;:30
+            },
+            ...
+            {
+                &quot;name&quot;:&quot;Helmet X&quot;,
+                &quot;textureName&quot;:&quot;HelmetX&quot;,
+                &quot;durability&quot;:1,
+                &quot;reduction&quot;:1,
+                &quot;enchantability&quot;:30
+            }
+        ]
+}</code></pre>
+<h3 id="leggings"><a name="leggings" href="#leggings" > Leggings </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the armor</p>
+<p><code>{textureName}</code> - The texture name of the armor.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the leggings will show up in.</p>
+<p><code>[durability] = 5</code> - How much it can take before breaking</p>
+<p><code>[reduction] = 2</code> - How much damage it reduces when damaged</p>
+<p><code>[enchantability] = 15</code> - How easily this armor will be enchanted</p>
+<blockquote>
+    <p><strong>Observations:</strong></p>
+    <ul>
+        <li><p>The item texture will be textureName_leggings</p></li>
+        <li><p>The armor texture must have two layers textureName_layer_1 and textureName_layer_2</p></li>
+    </ul>
+</blockquote>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;leggings&quot;:
+        [
+            {
+                &quot;name&quot;:&quot;leggings 1&quot;,
+                &quot;textureName&quot;:&quot;leggings1&quot;,
+                &quot;durability&quot;:1,
+                &quot;reduction&quot;:1,
+                &quot;enchantability&quot;:30
+            },
+            ...
+            {
+                &quot;name&quot;:&quot;leggings X&quot;,
+                &quot;textureName&quot;:&quot;leggingsX&quot;,
+                &quot;durability&quot;:1,
+                &quot;reduction&quot;:1,
+                &quot;enchantability&quot;:30
+            }
+        ]
+}</code></pre>
+<h1 id="blocks"><a name="blocks" href="#blocks" > Blocks </a></h1>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the block</p>
+<p><code>{textureName}</code> - The texture name of the block.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the block will show up in.</p>
+<p><code>[maxStackSize] = 64</code> - The max stack size for a block. Min:1, Max:64</p>
+<p><code>[multipleTextures]</code> - Inside this property, additional configurations are used to make multiple textured blocks like wood, crafting tables, etc. If this properties is set, this block textureName will be ignored and each of the textures from the multipleTexture properties will be used.</p>
+<p><strong><em>Multiple Textures properties:</em></strong></p>
+<p>      <code>{ypos}</code> - The top side texture of the block</p>
+<p>      <code>{yneg}</code> - The bottom side texture of the block</p>
+<p>      <code>{xpos}</code> - The east side texture of the block</p>
+<p>      <code>{xneg}</code> - The west side texture of the block</p>
+<p>      <code>{zpos}</code> - The south texture of the block</p>
+<p>      <code>{zneg}</code> - The north texture of the block</p>
+<p><code>[isOpaque] = true</code> - Can light pass through this block</p>
+<p><code>[type] = &quot;normal&quot;</code> - The type of the block. (<a href="type_list" title="wikilink">type list</a>)</p>
+<p><code>[stepSound] = &quot;stone&quot;</code> - The sound that makes when you walk on this block. (<a href="step_sound_list_1.0_beta_4" title="wikilink">step sound list</a>)</p>
+<p><code>[material] = &quot;rock&quot;</code> - The block material (<a href="material_list_1.0_beta_4" title="wikilink">material list</a>)</p>
+<p><code>[toolClass]</code> - The tool to mine this block. Can be left blank (<a href="toolClass_list_1.0_beta_4" title="wikilink">toolClass list</a>)</p>
+<p><code>[resistance] = 10</code> - How much the block is resistant to explosion</p>
+<p><code>[hardness] = 2</code> - How hard is to mine this block</p>
+<p><code>[lightLevel] = 0;</code> - (min: 0.0, max: 1.0) - The light level from a block. Glowstone = 1.0, Stone = 0.0</p>
+<p><code>[harvestLevel] = 0</code> - The level of the pickaxe needed to mine the block. This doesn't apply to shovel blocks or axe blocks. The following link shows the equivalent numerical value for vanilla tools. (<a href="harvestLevel_list" title="wikilink">harvestLevel list</a>)</p>
+<p><code>[slipperiness] = 0.6f</code> - CommonBlocks: 0.6, ice: 0.98</p>
+<p><code>[breaks] = false</code> - If the block breaks when harvested without silkTouch, like glass</p>
+<p><code>[canSilkHarvest] = false</code> - If harvested with a silktouch enchanted tool, will it drop the block or not? Set this to true in your glass like blocks</p>
+<p><code>[dropItemName]</code> - The name of the item that is dropped when harvesting this block. If there is a item set, the block won't drop an item block of this block.</p>
+<p><code>[minItemDrop] = 1</code> - The minimum ammount of items to drop from this block</p>
+<p><code>[maxItemDrop] = 1</code> - The maximum ammount of items to drop from this block</p>
+<p><code>[eachExtraItemDropChance] = 50</code> - What is the chance to drop each item after the minimum ammount</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;blocks&quot;:
+        [
+            {
+                &quot;name&quot;: &quot;Block 1&quot;,
+                &quot;textureName&quot;: &quot;Block1TextureName&quot;,
+            },
+            {
+                &quot;name&quot;: &quot;Block2&quot;,
+                &quot;material&quot;: &quot;rock&quot;,
+                &quot;hardness&quot;: 1,
+                &quot;resistance&quot;: 2,
+                &quot;lightLevel&quot;: 0.2,
+                &quot;harvestLevel&quot;: 0,
+                &quot;dropItemName&quot;: &quot;minecraft:apple&quot;,
+                &quot;minItemDrop&quot;: 5,
+                &quot;maxItemDrop&quot;: 10,
+                &quot;eachExtraItemDropChance&quot;: 75,
+                &quot;multipleTextures&quot;:{
+                    &quot;yneg&quot;:&quot;side_1&quot;,
+                    &quot;ypos&quot;:&quot;side_2&quot;,
+                    &quot;zneg&quot;:&quot;side_3&quot;,
+                    &quot;zpos&quot;:&quot;side_4&quot;,
+                    &quot;xneg&quot;:&quot;side_5&quot;,
+                    &quot;xpos&quot;:&quot;side_6&quot;
+                }
+            },
+            ...
+            {
+                &quot;name&quot;: &quot;Block X&quot;,
+                &quot;creativeTab&quot;: &quot;Random Tab&quot;,
+                &quot;textureName&quot;: &quot;BlockXTextureName&quot;,
+                &quot;material&quot;: &quot;Material&quot;,
+                &quot;toolClass&quot;:&quot;ToolClass&quot;,
+                &quot;hardness&quot;: 0,
+                &quot;resistance&quot;: 0,
+                &quot;lightLevel&quot;: 0,
+                &quot;harvestLevel&quot;: 0
+            }
+        ]
+}</code></pre>
+<h1 id="chest-blocks"><a name="chest_blocks" href="#chest_blocks" > Chest Blocks </a></h1>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the block</p>
+<p><code>{textureName}</code> - The texture name of the block.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the chest block will show up in.</p>
+<p><code>[invName] = &quot;Custom Chest&quot;</code> - The chest name that will appear inside the invetory UI</p>
+<p><code>[hasOwner] = false</code> - This is a test propertie, use at your own risk. When this is true, only the person that put the chest down will be able to open it, but it will still interact with hoppers and stuff.</p>
+<p><code>[invWidth] = 3</code> - The number of collumns that the inventory has. For now the limit is 9.</p>
+<p><code>[invHeight] = 3</code> - The number of rows that the inventory has. For now the limit is 6.</p>
+<p><code>[slotMaxStackSize] = 64</code> - The size of the stack that can be stored in the inventory slot. By the default it is 64 (a normal stack). But it can be set to store only 1 item per slot, or 124 or 75</p>
+<blockquote>
+    <p><strong><em>IMPORTANT:</em></strong> A chest block <strong>IS</strong> a block. So some properties from blocks are valid for a chest block. Like lightlevel. Allowed block properties: hardness, resistance, lightLevel, harvestLevel, slipperiness, isOpaque, stepsound, and multipletextures. Please check the block properties section for further info.</p>
+</blockquote>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;chests&quot;:[
+            {
+                &quot;name&quot;: &quot;Chest1&quot;,
+                &quot;textureName&quot;: &quot;chest1TextureName&quot;,
+            },
+            {
+                &quot;name&quot;: &quot;Chest2&quot;,
+                &quot;textureName&quot;: &quot;chest2TextureName&quot;,
+                &quot;slotMaxStackSize&quot;: 16
+            },
+            ...
+            {
+                &quot;name&quot;: &quot;ChestN&quot;,
+                &quot;textureName&quot;: &quot;chestNTextureName&quot;,
+                &quot;invWidth&quot;: 1,
+                &quot;invHeight&quot;: 6,
+                &quot;lightLevel&quot;: 1.0
+            }
+        ]
+}</code></pre>
+<h1 id="creative-tabs"><a name="creative_tabs" href="#creative_tabs" > Creative Tabs </a></h1>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{tabLabel}</code> - The label that will show when passing the mouse over the tab</p>
+<p><code>[iconItem] = &quot;minecraft:item_frame&quot;</code> - The item that will show on the creative tab</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;creativeTabs&quot;:[
+            {
+                &quot;tabLabel&quot;:&quot;newTab1&quot;,
+                &quot;iconItem&quot;:&quot;customItems:yourNewItem&quot;
+            },
+            {
+                &quot;tabLabel&quot;:&quot;newTab2&quot;,
+                &quot;iconItem&quot;:&quot;minecraft:torch&quot;
+            },
+            ...
+            {
+                &quot;tabLabel&quot;:&quot;newTabN&quot;,
+            }
+        ]
+}</code></pre>
+<h1 id="crops"><a name="crops" href="#crops"> Crops </a></h1>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the crop and the seed</p>
+<p><code>{textureName}</code> - The texture name of the crop block and the seed.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the crop and seeds will show up in.</p>
+<p><code>{fruitName}</code> - The item that will be dropped as a fruit. Ex.: &quot;minecraft:apple&quot;</p>
+<p><code>[renderType] = &quot;crops&quot;</code> - The block render type. How the block renders, like a torch or like a normal block. For crops there is two options &quot;crops&quot; or &quot;flower&quot;</p>
+<p><code>[dropFromGrassChance] = 10</code> - The chance to drop the seed from grass block. min:0 max:100</p>
+<p><code>[dropSeedWhenMature] = true</code> - If false the crop wont drop seed when harvested</p>
+<p><code>[acceptBoneMeal] = true</code> - If false it wont be possible to use bonemeal in this crop</p>
+<p><code>[minFruitDrop] = 1</code> - The minimum ammount of fruits to drop when harveting a mature crop. min = 0</p>
+<p><code>[maxFruitDrop] = 1</code> - The maximum ammount of fruits to drop when harveting a mature crop</p>
+<p><code>[minSeedDrop] = 1</code> - The minimum ammount of seeds to drop when harveting a mature crop. min = 0</p>
+<p><code>[maxSeedDrop] = 2</code> - The maximum ammount of seeds to drop when harveting a mature crop. min = 0</p>
+<p><code>[eachExtraSeedDropChance] = 50</code> - The chance to drop each extra seed that is more than the min</p>
+<p><code>[eachExtraFruitDropChance] = 15</code> - The chance to drop each extra fruit that is more than the min</p>
+<blockquote>
+    <p><strong>Observations:</strong></p>
+    <ul>
+        <li><p>blocks/textureName#.png will be the crops texture. The # is for the different levels for crop growth. 4 different levels are required.</p></li>
+        <li><p>items/textureName_seed.png will be the seeds texture.</p></li>
+    </ul>
+</blockquote>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;crops&quot;:
+        [
+            {
+                &quot;name&quot;: &quot;ironia&quot;,
+                &quot;textureName&quot;:&quot;iron_crop&quot;,
+                &quot;fruitName&quot;: &quot;minecraft:iron_ingot&quot;,
+                &quot;renderType&quot;: &quot;crop&quot;,
+                &quot;dropFromGrassChance&quot;: 10,
+                &quot;dropSeedWhenMature&quot;: true,
+                &quot;acceptBoneMeal&quot;: true,
+                &quot;minFruitDrop&quot;: 1,
+                &quot;maxFruitDrop&quot;: 1,
+                &quot;minSeedDrop&quot;: 1,
+                &quot;maxSeedDrop&quot;: 2,
+                &quot;eachExtraSeedDropChance&quot;: 50,
+                &quot;eachExtraFruitDropChance&quot;: 15
+            },
+            {
+                &quot;name&quot;:&quot;golduce&quot;,
+                &quot;textureName&quot;:&quot;gold&quot;,
+                &quot;fruitName&quot;: &quot;minecraft:gold_ingot&quot;,
+                &quot;renderType&quot;: &quot;flower&quot;,
+                &quot;dropFromGrassChance&quot;: 5
+            }
+        ]
+}</code></pre>
+<h1 id="fluids"><a name="fluids" href="#fluids"> Fluids </a></h1>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the fluid</p>
+<p><code>{textureName}</code> - The texture name of the fluid. |<strong><em>IMPORTANT:</em></strong> A total of five files are need to make the fluids texture work correctly. If you do not know how to make a fluid texture work correctly or what files are required go to this page. <a href="Fluid_Texture_Tutorial" title="wikilink">How to setup fluid textures.</a></p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the fluid will show up in.</p>
+<p><code>[luminosity] = 0</code> - The light level from the fluid block</p>
+<p><code>[density] = 1000</code> - Defines what liquids replace each other when they meet. (like water and oil)</p>
+<p><code>[temperature] = 300</code> - At moment this field makes nothing at all.</p>
+<p><code>[viscosity] = 1000</code> - How far/fast a liquid flows</p>
+<p><code>[material] = water</code> - Whether you want it to be <code>water</code> base or <code>lava</code> base. Lava being destructive and water being passive or non damaging.</p>
+<p><code>[isGas] = false</code> - Define if the fluid is gas or liquid</p>
+<p><code>[flowLength] = 8</code> - How far does the fluid flow. The maximum distance is set a 16.</p>
+<p><code>[bucket]</code> - Inside this configuration, additional configurations are used to modify buckets. By default, all fluids come with a predefined name of a bucket. The fluids name with bucket after that. Example: <code>Custom name Bucket</code> However, a buckets name can be edit with this configuration.</p>
+<p><strong><em>Bucket properties:</em></strong></p>
+<p>      <code>{name}</code> - Name of the bucket without Bucket after it.</p>
+<p>      <code>[textureName]</code> - Texture name for the bucket.</p>
+<!-- ***Note:*** The bucket can still get its texture from the default
+bucket texture. -->
+<p>      <code>[maxStackSize] = 1</code> - The maximum number on a stack (min: 1, max: 64).</p>
+<p>      <code>[creativeTab]</code> - What tab the bucket will show up in.</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+       &quot;fluids&quot;:[
+           {
+           &quot;name&quot;:&quot;Fluid 1&quot;,
+           &quot;textureName&quot;:&quot;fluid1&quot;,
+           &quot;luminosity&quot;: 0,
+           &quot;density&quot;: 1,
+           &quot;temperature&quot;: 1,
+           &quot;viscosity&quot;: 1,
+           &quot;isGas&quot;: false
+           },
+           {
+           &quot;name&quot;:&quot;Fluid 2&quot;,
+           &quot;textureName&quot;:&quot;fluid2&quot;,
+           &quot;luminosity&quot;: 0,
+           &quot;density&quot;: 1,
+           &quot;temperature&quot;: 1,
+           &quot;viscosity&quot;: 1,
+           &quot;isGas&quot;: false
+           },
+           ...
+           {
+           &quot;name&quot;:&quot;Fluid X&quot;,
+           &quot;textureName&quot;:&quot;fluidX&quot;,
+           &quot;creativeTab&quot;: &quot;Custom Items&quot;,
+           &quot;flowLength&quot;: 4,
+           &quot;luminosity&quot;: 5,
+           &quot;material&quot;: lava
+           &quot;bucket&quot;:
+               {
+                   &quot;name&quot;:&quot;bob&quot;,
+                   &quot;maxStackSize&quot;: 2
+               }
+           }
+        ]
+}</code></pre>
+<h1 id="foods"><a name="foods" href="#foods" > Foods </a></h1>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the food</p>
+<p><code>{textureName}</code> - The texture name of the food.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the food will show up in.</p>
+<p><code>[healAmount] = 1</code> - How much hunger points this food gives</p>
+<p><code>[saturationModifier] = 1.0</code> - It is a hidden value that increases when you eat just like hunger. Your hungerbar will only start to decrease after your saturation has reached 0. For further info, check <a href="http://minecraft.gamepedia.com/Hunger">minecraft wiki</a></p>
+<p><code>[alwaysEdible] = false</code> - Defines if you can or not eat this food with a full hunger bar</p>
+<p><code>[isWolfFood] = false</code> - Can a wolf/dog eat this food</p>
+<p><code>[useAction] = eat</code> - Plays a eatting or drinking sounds on consumption of food item. The two options are eat or drink. <code>eat</code> - For solid foods like bread , porkchops, etc... <code>drink</code> - For liquids like potions.</p>
+<p><code>[dropItemName] =</code> - What is the returned item or container after consuming food. Example: After having soup it return a bowel.</p>
+<p><code>[potionEffects]</code> - Foods can have potion effect, like raw chicken or zombie flesh. This is an OPTIONAL propertie, that has its own properties. Each food can have multiple potionEffects, each with its own properties.</p>
+<p><strong><em>Potion Effect Properties:</em></strong></p>
+<p>      <code>[effect] = &quot;moveSpeed&quot;</code> - There is a list of buffs/debuffs possible (<a href="effects_list_1.0_beta_4" title="wikilink">effects list</a>)</p>
+<p>      <code>[potionDuration] = 20</code> - How many SECONDS the effect will last</p>
+<p>      <code>[potionAmplifier] = 1</code> - Slow II ... II is the amplifier. It makes the effect stronger</p>
+<p>      <code>[potionEffectProbability] = 1,0</code> - (min: 0.0, max: 1.0) The chance of the potion effect happening when eating the food</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;foods&quot;:
+        [
+           {
+               &quot;name&quot;:&quot;food 1&quot;,
+               &quot;textureName&quot;:&quot;food1&quot;,
+                   &quot;healAmount&quot;: 1,
+               &quot;saturationModifier&quot;:1,
+               &quot;potionEffects&quot;:
+               [
+                        {
+                   &quot;effect&quot;: &quot;effect&quot;,
+                   &quot;potionDuration&quot;: 1,
+                   &quot;potionAmplifier&quot;: 1,
+                   &quot;potionEffectProbability&quot;: 1.0
+                        }
+               ]
+           },
+           {
+               &quot;name&quot;:&quot;food 2&quot;,
+               &quot;textureName&quot;:&quot;food2&quot;,
+                   &quot;healAmount&quot;: 1,
+                   &quot;creativeTab&quot;: &quot;Random Tab&quot;,
+               &quot;saturationModifier&quot;: 1
+              &quot;
+           },
+               ...
+           {
+               &quot;name&quot;:&quot;food X&quot;,
+               &quot;textureName&quot;:&quot;foodX&quot;,
+                   &quot;healAmount&quot;: 1,
+               &quot;saturationModifier&quot;:1,
+               &quot;potionEffects&quot;:
+               [
+                        {
+                   &quot;effect&quot;: &quot;effect&quot;,
+                   &quot;potionDuration&quot;: 1,
+                   &quot;potionAmplifier&quot;: 1,
+                   &quot;potionEffectProbability&quot;: 1.0
+                        },
+                        {
+                   &quot;effect&quot;: &quot;effect2&quot;,
+                   &quot;potionDuration&quot;: 1,
+                   &quot;potionAmplifier&quot;: 1,
+                   &quot;potionEffectProbability&quot;: 1.0
+                        }
+                   ]
+           }
+        ]
+}</code></pre>
+<h1 id="items"><a name="items" href="#items" > Items </a></h1>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the item</p>
+<p><code>{textureName}</code> - The texture name of the item.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the item will show up in.</p>
+<p><code>[maxstackSize] = 64</code> - The maximum number on a stack (min: 1, max: 64)</p>
+<p><code>[glows] = false</code> - Set to true gives the item an enchanted sparkle.</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;items&quot;:
+        [
+            {
+                &quot;name&quot;:&quot;Item 1&quot;,
+                &quot;textureName&quot;:&quot;item1&quot;,
+                &quot;creativeTab&quot;:&quot;Custom Items&quot;,
+                &quot;maxstackSize&quot;: 1-64
+            },
+            {
+                &quot;name&quot;:&quot;Item 2&quot;,
+                &quot;textureName&quot;:&quot;item2&quot;,
+                &quot;creativeTab&quot;:&quot;Custom Items&quot;,
+                &quot;maxstackSize&quot;: 1-64
+            },
+            ...
+            {
+                &quot;name&quot;:&quot;Item X&quot;,
+                &quot;textureName&quot;:&quot;itemX&quot;,
+                &quot;maxstackSize&quot;: 1-64
+            }
+        ]
+}</code></pre>
+<h1 id="tools"><a name="tools" href="#tools" > Tools </a></h1>
+<hr />
+<h3 id="axes"><a name="axes" href="#axes" > Axes </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the tool</p>
+<p><code>{textureName}</code> - The texture name of the tool.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the tool will show up in.</p>
+<p><code>[maxUses] = 59</code> - How many times this item can be used. Durability.</p>
+<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="Material_Multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
+<p><code>[damageVsEntity] = 0</code> - How much damage it does on entities (zombies, chickes, other players)</p>
+<p><code>[enchantability] = 15</code> - How easily this tool will be enchanted</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;axes&quot;:
+        [
+            {
+                &quot;name&quot;:&quot;axe 1&quot;,
+                &quot;textureName&quot;:&quot;axe1&quot;,
+                &quot;maxUses&quot;:1,
+                &quot;efficiencyOnProperMaterial&quot;:1,
+                &quot;damageVsEntity&quot;:0,
+                &quot;enchantability&quot;:1
+            },
+            ...
+            {
+                &quot;name&quot;:&quot;axe X&quot;,
+                &quot;textureName&quot;:&quot;axeX&quot;,
+                &quot;maxUses&quot;:1,
+                &quot;efficiencyOnProperMaterial&quot;:1,
+                &quot;damageVsEntity&quot;:0,
+                &quot;enchantability&quot;:1
+            }
+        ]
+}</code></pre>
+<h3 id="hoes"><a name="hoes" href="#hoes" > Hoes </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the tool</p>
+<p><code>{textureName}</code> - The texture name of the tool.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the tool will show up in.</p>
+<p><code>[maxUses] = 59</code> - How many times this item can be used. Durability.</p>
+<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="Material_Multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
+<p><code>[damageVsEntity] = 0</code> - How much damage it does on entities (zombies, chickes, other players)</p>
+<p><code>[enchantability] = 15</code> - How easily this tool will be enchanted</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;hoes&quot;:
+        [
+            {
+                &quot;name&quot;:&quot;hoe 1&quot;,
+                &quot;textureName&quot;:&quot;hoe1&quot;,
+                &quot;maxUses&quot;:1,
+                &quot;efficiencyOnProperMaterial&quot;:1,
+                &quot;damageVsEntity&quot;:0,
+                &quot;enchantability&quot;:1
+            },
+            ...
+            {
+                &quot;name&quot;:&quot;hoe X&quot;,
+                &quot;textureName&quot;:&quot;hoeX&quot;,
+                &quot;maxUses&quot;:1,
+                &quot;efficiencyOnProperMaterial&quot;:1,
+                &quot;damageVsEntity&quot;:0,
+                &quot;enchantability&quot;:1
+            }
+        ]
+}</code></pre>
+<h3 id="pickaxes"><a name="pickaxes" href="#pickaxes" > Pickaxes </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the tool</p>
+<p><code>{textureName}</code> - The texture name of the tool. path:resourcepack/customItems/textures/items/textureName.png</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the tool will show up in.</p>
+<p><code>[harvestLevel] = 0</code> - The level that a pickaxe can mine. The following link shows the equivalent numerical value for vanilla tools. (<a href="harvestLevel_list" title="wikilink">harvestLevel list</a>)</p>
+<p><code>[maxUses] = 59</code> - How many times this item can be used. Durability.</p>
+<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="Material_Multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
+<p><code>[damageVsEntity] = 0</code> - How much damage it does on entities (zombies, chickes, other players)</p>
+<p><code>[enchantability] = 15</code> - How easily this tool will be enchanted</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;pickaxes&quot;:
+        [
+            {
+                &quot;name&quot;:&quot;pickaxe 1&quot;,
+                &quot;textureName&quot;:&quot;pickaxe1&quot;,
+                &quot;harvestLevel&quot;:1,
+                &quot;maxUses&quot;:1,
+                &quot;efficiencyOnProperMaterial&quot;:1,
+                &quot;damageVsEntity&quot;:0,
+                &quot;enchantability&quot;:1
+            },
+            ...
+            {
+                &quot;name&quot;:&quot;pickaxe X&quot;,
+                &quot;textureName&quot;:&quot;pickaxeX&quot;,
+                &quot;harvestLevel&quot;:1,
+                &quot;maxUses&quot;:1,
+                &quot;efficiencyOnProperMaterial&quot;:1,
+                &quot;damageVsEntity&quot;:0,
+                &quot;enchantability&quot;:1
+            }
+        ]
+}</code></pre>
+<h3 id="shovels"><a name="shovels" href="#shovels" > Shovels </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the tool</p>
+<p><code>{textureName}</code> - The texture name of the tool.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the tool will show up in.</p>
+<p><code>[maxUses] = 59</code> - How many times this item can be used. Durability.</p>
+<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="Material_Multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
+<p><code>[damageVsEntity] = 0</code> - How much damage it does on entities (zombies, chickes, other players)</p>
+<p><code>[enchantability] = 15</code> - How easily this tool will be enchanted</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;shovels&quot;:
+        [
+            {
+                &quot;name&quot;:&quot;shovel 1&quot;,
+                &quot;textureName&quot;:&quot;shovel1&quot;,
+                &quot;maxUses&quot;:1,
+                &quot;efficiencyOnProperMaterial&quot;:1,
+                &quot;damageVsEntity&quot;:0,
+                &quot;enchantability&quot;:1
+            },
+            ...
+            {
+                &quot;name&quot;:&quot;shovel X&quot;,
+                &quot;textureName&quot;:&quot;shovelX&quot;,
+                &quot;maxUses&quot;:1,
+                &quot;efficiencyOnProperMaterial&quot;:1,
+                &quot;damageVsEntity&quot;:0,
+                &quot;enchantability&quot;:1
+            }
+        ]
+}</code></pre>
+<h3 id="swords"><a name="swords" href="#swords" > Swords </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the tool</p>
+<p><code>{textureName}</code> - The texture name of the tool.</p>
+<p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the tool will show up in.</p>
+<p><code>[maxUses] = 59</code> - How many times this item can be used. Durability.</p>
+<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="Material_Multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
+<p><code>[damageVsEntity] = 0</code> - How much damage it does on entities (zombies, chickes, other players)</p>
+<p><code>[enchantability] = 15</code> - How easily this tool will be enchanted</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;pickaxes&quot;:
+        [
+            {
+                &quot;name&quot;:&quot;sword 1&quot;,
+                &quot;textureName&quot;:&quot;sword1&quot;,
+                &quot;maxUses&quot;:1,
+                &quot;efficiencyOnProperMaterial&quot;:1,
+                &quot;damageVsEntity&quot;:0,
+                &quot;enchantability&quot;:1
+            },
+            ...
+            {
+                &quot;name&quot;:&quot;sword X&quot;,
+                &quot;textureName&quot;:&quot;swordX&quot;,
+                &quot;maxUses&quot;:1,
+                &quot;efficiencyOnProperMaterial&quot;:1,
+                &quot;damageVsEntity&quot;:0,
+                &quot;enchantability&quot;:1
+            }
+        ]
+}</code></pre>
+<h1 id="changing-existing-properties"><a name="change_existing_properties" href="#change_existing_properties" > Changing Existing Properties </a></h1>
+<hr />
+<p>Tired of how the default Minecraft has done with its blocks or items. You now can change the properties of default blocks and items.</p>
+<h3 id="change-existing-blocks"><a name="change_existing_blocks" href="#change_existing_blocks" > Change Existing Blocks </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name that the item is registered. Like: &quot;minecraft:apple&quot;</p>
+<p><code>{maxStackSize}</code> - The max stack size for an item. Min:1, Max:64</p>
+<p><code>[toolClass]</code> - The tool to mine this block (<a href="toolClass_list_1.0_beta_4" title="wikilink">toolClass list</a>)</p>
+<p><code>[resistance]</code> - How much the block is resistant to explosion</p>
+<p><code>[hardness]</code> - How hard is to mine this block</p>
+<p><code>[lightLevel]</code> - (min: 0.0, max: 1.0) - The light level from a block. Glowstone = 1.0, Stone = 0.0</p>
+<p><code>[harvestLevel]</code> - The level of the pickaxe needed to mine the block. This doesn't apply to shovel blocks or axe blocks. The following link shows the equivalent numerical value for vanilla tools. (<a href="harvestLevel_list" title="wikilink">harvestLevel list</a>)</p>
+<p><code>[slipperiness]</code> - CommonBlocks: 0.6, ice: 0.98</p>
+<p><code>[isOpaque]</code> - Can light pass through this block</p>
+<p><code>[stepSound]</code> - The sound that makes when you walk on this block. (<a href="step_sound_list_1.0_beta_4" title="wikilink">step sound list</a>)</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;changeBlocks&quot;:[
+            {
+                &quot;name&quot;:&quot;minecraft:cactus&quot;,
+                &quot;maxStackSize&quot;: 6,
+                &quot;stepSound&quot;: &quot;glass&quot;,
+                &quot;lightLevel&quot;: 0.5,
+                &quot;harvestLevel&quot;: 3,
+                &quot;toolClass&quot;: &quot;shovel&quot;
+            },
+            {
+                &quot;name&quot;:&quot;minecraft:gravel&quot;,
+                &quot;maxStackSize&quot;: 17,
+                &quot;slipperiness&quot;: 0.3
+            },
+            {
+                &quot;name&quot;:&quot;minecraft:stone&quot;,
+                &quot;maxStackSize&quot;: 4,
+                &quot;hardness&quot;: -1.0,
+                &quot;resistance&quot;: 6000000.0
+            }
+        ]
+}</code></pre>
+<h3 id="change-existing-items"><a name="change_existing_items" href="#change_existing_items" > Change Existing Items </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name that the item is registered. Like: &quot;minecraft:apple&quot;</p>
+<p><code>{maxStackSize}</code> - The max stack size for an item. Min:1, Max:64</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;changeItems&quot;:[
+            {
+                &quot;name&quot;:&quot;minecraft:apple&quot;,
+                &quot;maxStackSize&quot;: 3
+            },
+            {
+                &quot;name&quot;:&quot;minecraft:cookie&quot;,
+                &quot;maxStackSize&quot;: 17
+            },
+            {
+                &quot;name&quot;:&quot;customitems:coin&quot;,
+                &quot;maxStackSize&quot;: 4
+            }
+        ]
+}</code></pre>
+<h3 id="change-existing-foods"><a name="change_existing_foods" href="#change_existing_foods" > Change Existing Foods </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{name}</code> - The name of the food</p>
+<p><code>[maxStackSize]</code> - The max stack size for an item. Min:1, Max:64</p>
+<p><code>[healAmount] = 1</code> - How much hunger points this food gives.</p>
+<p><code>[saturationModifier] = 1</code> - It is a hidden value that increases when you eat just like hunger. Your hungerbar will only start to decrease after your saturation has reached 0. For further info, check <a href="http://minecraft.gamepedia.com/Hunger">minecraft wiki</a>.</p>
+<p><code>[alwaysEdible] = false</code> - Defines if you can or not eat this food with a full hunger bar.</p>
+<p><code>[isWolfFood] = false</code> - Can a wolf/dog eat this food.</p>
+<p><code>[potionEffects]</code> - Foods can have potion effect, like raw chicken or zombie flesh. This is an OPTIONAL propertie, that has its own properties. Each food can have multiple potionEffects, each with its own properties.</p>
+<p>|<strong>Potion Effect Properties:</strong></p>
+<p><code>[effect] = &quot;moveSpeed&quot;</code> - There is a list of buffs/debuffs possible (<a href="effects_list_1.0_beta_4" title="wikilink">effects list</a>)</p>
+<p><code>[potionDuration] = 20</code> - How many SECONDS the effect will last</p>
+<p><code>[potionAmplifier] = 1</code> - Slow II ... II is the amplifier. It makes the effect stronger</p>
+<p><code>[potionEffectProbability] = 1.0</code> - (min: 0.0, max: 1.0) The chance of the potion effect happening when eating the food</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+       &quot;changeFoods&quot;:[
+           {
+               &quot;name&quot;: &quot;minecraft:apple&quot;,
+               &quot;maxStackSize&quot;: 16,
+               &quot;healAmount&quot;:  1,
+               &quot;saturationModifier&quot;:  1,
+               &quot;alwaysEdible&quot;: true,
+               &quot;isWolfFood&quot;: false
+           }
+       ]
+}</code></pre>
+<h1 id="modify-drops"><a name="modify_drops" href="#modify_drops" > Modify Drops </a></h1>
+<hr />
+<p>Starting with CI 1.0.9b, you now can modify drops from pre-existing block and NPC (mobs). |<strong><em>&lt;u&gt; Important Notation&lt;/u&gt; :</em></strong> If you are not familiar with the Block IDs &amp; Item IDs names I suggest using Minetweaker's built in commands to identify the block or look at the <a href="http://minecraft.gamepedia.com/Data_values/Block_IDs">Mineacraft wiki Block IDs page</a> &amp; <a href="http://minecraft.gamepedia.com/Data_values/Item_IDs">Mineacraft wiki Item IDs page</a>. For NPC (mob) IDs, I suggest using <a href="http://minecraft.gamepedia.com/Data_values/Entity_IDs">Mineacraft wiki Entity IDs page</a>.</p>
+<h3 id="block-drops"><a name="block_drops" href="#block_drops" > Block Drops </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{id}</code> - Which block do you wish to apply a drop to. It is required to use the names of the Block IDs, not the numerical value.</p>
+<p><code>[overrides] = false</code> - Do you want the configuration for this drop to override the existing drops.</p>
+<p><code>{drops}</code> - Inside this property, additional configurations are used to modify the behavior of the drops. A block can have multiple drops.</p>
+<p>|<strong><em>Drop Properties</em></strong></p>
+<p><code>{id}</code> - What block or item is being dropped after the original block being broken. It is required to use the names of IDs not the numerical value.</p>
+<p><code>[min] = 1</code> - What is the minimum amount that is dropped. Default is &lt;code&gt;1&lt;/code&gt;.</p>
+<p><code>[max] = 1</code>- What is the maximum amount that is dropped.</p>
+<p><code>[chance] = 50</code> - What is the percentage chance of the item being dropped.</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;blocksDrop&quot;:[
+            {
+                &quot;id&quot;: &quot;minecraft:planks:3&quot;,
+                &quot;overrides&quot;: true,
+                &quot;drops&quot;:[
+                    {
+                        &quot;id&quot;: &quot;minecraft:sapling:4&quot;,
+                        &quot;min&quot; : 2,
+                        &quot;max&quot; : 4,
+                        &quot;chance&quot; : 100.0
+                    },
+                    {
+                       &quot;id&quot;: &quot;minecraft:sapling:5&quot;,
+                       &quot;min&quot; : 1,
+                       &quot;max&quot; : 3,
+                       &quot;chance&quot; : 100.0
+                    }
+                ]
+            }
+        ]
+}</code></pre>
+<h3 id="entity-drop"><a name="entity_drop" href="#entity_drop" > Entity Drop </a></h3>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{id}</code> - Which NPC (mob) do you wish to apply a drop to. It is required to use the names of the Entity IDs.</p>
+<p><code>[overrides] = false</code> - Do you want the configuration for this drop to override the existing drops.</p>
+<p><code>{drops}</code> - Inside this property, additional configurations are used to modify the behavior of the drops. A block can have multiple drops.</p>
+<p>|<strong><em>Drop Properties</em></strong></p>
+<p><code>{id}</code> - What block or item is being dropped after the original block being broken. It is required to use the names of IDs not the numerical value.</p>
+<p><code>[min] = 1</code> - What is the minimum amount that is dropped.</p>
+<p><code>[max] = 1</code> - What is the maximum amount that is dropped.</p>
+<p><code>[chance] = 50</code> - What is the percentage chance of the item being dropped.</p>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;entitiesDrop&quot;:[
+            {
+                &quot;id&quot;:&quot;Cow&quot;,
+                &quot;overrides&quot;: true,
+                &quot;drops&quot;:[
+                    {
+                        &quot;id&quot;: &quot;minecraft:sapling:1&quot;,
+                        &quot;min&quot; : 1,
+                        &quot;max&quot; : 3,
+                        &quot;chance&quot; : 100.0
+                    },
+                    {
+                        &quot;id&quot;: &quot;minecraft:sapling:2&quot;,
+                        &quot;min&quot; : 1,
+                        &quot;max&quot; : 5,
+                        &quot;chance&quot; : 10.0
+                    }
+                ]
+            }
+        ]
+}</code></pre>
+<h1 id="ore-generation"><a name="ore_generation" href="#ore_generation" > Ore Generation </a></h1>
+<hr />
+<p><strong>Properties:</strong></p>
+<p><code>{blockToSpawn}</code> - Here is where you place the name of the block you want to generate in the world. Example: customitems:red_sand</p>
+<p><code>{blockToReplace}</code> - This is the block it will look for to replace in the world. Example: minecraft:stone</p>
+<p><code>{dimensionId}</code> - What dimension will this block generate in. The following numbers are what indicates the dimension.</p>
+<blockquote>
+    <p>Overworld: 0, The Nether: -1, The End: 1</p>
+</blockquote>
+<p><code>[#]</code> - If you want to have the ore generate to a specific biome. (<a href="Biome_#_List" title="wikilink">Biome # List</a>) Use biome Id according to the dimension.</p>
+<p><code>{minVeinSize}</code> - This is the minimum amount of the block to be generated in a spot.</p>
+<p><code>{maxVeinSize}</code> - This is the maximum amount of the block to be generated in a spot.</p>
+<p><code>{chancesToSpawn}</code> - The percentage chance of the block to be generated.</p>
+<p><code>{minY}</code> - This is the lowest level that the block will generate.</p>
+<blockquote>
+    <p>'<strong>'Note:</strong> Overworld and The Nether level 0 is pure bedrock, while level 1 - 5 is a mixture of bedrock and other blocks. It may be best to have the blocks start generating no lower than 6 unless you want the blocks to generate between bedrock.</p>
+</blockquote>
+<p><code>{maxY}</code> - This is the highest level that the block will generate.</p>
+<blockquote>
+    <p><em><strong>Note:</strong> The default max height for the Overworld 256. The Nether level 128 is pure bedrock, while level 124 - 127 is a mixture of bedrock and Nether blocks. It may be best to have the blocks start generating no higher than 125 unless you want the blocks to generate between bedrock.</em></p>
+</blockquote>
+<p><strong>Format Example:</strong></p>
+<pre><code>{
+        &quot;oreGen&quot;:[
+            {
+                &quot;blockToSpawn&quot;: &quot;customitems:red_sand&quot;,
+                &quot;blockToReplace&quot;: &quot;minecraft:sand&quot;,
+                &quot;dimensionId&quot;: 0,
+                &quot;minVeinSize&quot;: 10,
+                &quot;maxVeinSize&quot;: 15,
+                &quot;chancesToSpawn&quot;: 10,
+                &quot;minY&quot;: 40,
+                &quot;maxY&quot;: 90
+            }
+        ]
+}</code></pre>
+<p> </p>
