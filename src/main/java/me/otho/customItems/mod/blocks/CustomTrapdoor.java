@@ -8,7 +8,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import me.otho.customItems.reference.Reference;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockWall;
+import net.minecraft.block.BlockTrapdoor;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -16,9 +16,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-public class CustomWallBlock extends BlockWall{
+public class CustomTrapdoorBlock extends BlockTrapdoor{
 
-	public CustomWallBlock(Block p_i45435_1_) {
+	public CustomTrapdoorBlock(Block p_i45435_1_) {
 		super(p_i45435_1_);
 		
 	}
