@@ -13,6 +13,7 @@ import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
 import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
 import me.otho.customItems.mod.blocks.CustomBlock;
 import me.otho.customItems.mod.blocks.CustomCrop;
+import me.otho.customItems.mod.blocks.CustomTrapdoor;
 import me.otho.customItems.mod.blocks.CustomCrossedBlock;
 import me.otho.customItems.mod.blocks.CustomFallingBlock;
 import me.otho.customItems.mod.blocks.CustomFenceBlock;
@@ -118,6 +119,9 @@ public class BlockRegistry {
 					break;
 				case CROSSED:
 				    registerCrossedBlock(data);
+				    break;
+				case TRAPDOOR:
+				    registerTrapdoorBlock(data);
 				    break;
 				case NORMAL:
 				default:
