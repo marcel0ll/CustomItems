@@ -205,7 +205,7 @@ public class Util {
 		FENCE(11),
 		WALL(32),
 		FALLING(0),
-		TRAPDOOR(20),
+		TRAPDOOR(75),
 	    CROSSED(1);
     	
     	private int renderType;
