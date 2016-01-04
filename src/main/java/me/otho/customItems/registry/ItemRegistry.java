@@ -7,6 +7,7 @@ import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_helmet;
 import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_leggings;
 import me.otho.customItems.configuration.jsonReaders.items.food.Cfg_food;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_axe;
+import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_hammer;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_hoe;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_pickaxe;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_shovel;
@@ -15,6 +16,7 @@ import me.otho.customItems.mod.items.CustomItem;
 import me.otho.customItems.mod.items.armor.CustomArmor;
 import me.otho.customItems.mod.items.food.CustomFood;
 import me.otho.customItems.mod.items.tools.CustomAxe;
+import me.otho.customItems.mod.items.tools.CustomHammer;
 import me.otho.customItems.mod.items.tools.CustomHoe;
 import me.otho.customItems.mod.items.tools.CustomPickaxe;
 import me.otho.customItems.mod.items.tools.CustomShovel;
@@ -56,7 +58,35 @@ public class ItemRegistry {
         return true;
     }
 
-    public static boolean registerAxe(Cfg_axe[] data) {
+    public static boolean registerHammer(Cfg_hammer data ){
+
+        LogHelper.info(data.name, 1);
+
+        String registerName = Util.parseRegisterName(data.name);
+
+        Item.ToolMaterial material = EnumHelper.addToolMaterial(
+                data.textureName,
+                data.harvestLevel,
+                data.maxUses,
+                data.efficiencyOnProperMaterial,
+                data.damageVsEntity,
+                data.enchantability
+        );
+
+        CustomHammer hammer = new CustomHammer(material);
+
+        Registry.itemsList.add(hammer);
+        Registry.itemsList.add(data.creativeTab);
+
+        hammer.setTextureName(data.textureName);
+        GameRegistry.registerItem(hammer, registerName);
+        hammer.setUnlocalizedName(Registry.mod_id.toLowerCase() + ":" + registerName);
+        LanguageRegistry.instance().addStringLocalization(hammer.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+
+        return true;
+    }
+
+    public static boolean registerAxe(Cfg_axe[] data){
         int i;
 
         for (i = 0; i < data.length; i++) {

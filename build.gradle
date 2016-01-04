@@ -20,11 +20,15 @@ repositories {
         name = "chickenbones"
         url = "http://chickenbones.net/maven/"
     }
+    maven {
+        name = "tterrag"
+        url = "http://maven.tterrag.com/"
+    }
 }
 
 apply plugin: 'forge'
 
-version = "1.0.9.1_beta_1.7.10"
+version = "1.0.9.3_beta_1.7.10"
 group= "me.otho.customItems" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "customitems"
 
@@ -34,6 +38,7 @@ minecraft {
 }
 
 dependencies {
+    compile "exnihilo:Ex-Nihilo:1.38-46:deobf"
 // http://files.minecraftforge.net/CodeChickenLib/
     compile "codechicken:CodeChickenLib:1.7.10-1.1.1.104:dev"
 // http://chickenbones.net/maven

@@ -73,8 +73,8 @@ public class BlockRegistry {
 
             drop.drops = ArrayUtils.addAll(drop.drops, data.drops);
 
-            drops.replace(data.id, drop);
-        } else {
+			drops.put(data.id, drop);			
+		}else{
             drops.put(data.id, data);
         }
 
@@ -540,8 +540,10 @@ public class BlockRegistry {
 
         mineBlock.slipperiness = data.slipperiness;
 
-        Item itemBlock = Item.getItemFromBlock(mineBlock);
-        int size = Util.range(data.maxStackSize, 1, 64);
-        itemBlock.setMaxStackSize(size);
+        Item itemBlock = Item.getItemFromBlock(mineBlock);        
+        if( itemBlock != null) {
+            int size = Util.range(data.maxStackSize, 1, 64);
+            itemBlock.setMaxStackSize(size);
+        }
     }
 }

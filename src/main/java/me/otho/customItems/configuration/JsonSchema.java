@@ -13,6 +13,7 @@ import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_helmet;
 import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_leggings;
 import me.otho.customItems.configuration.jsonReaders.items.food.Cfg_food;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_axe;
+import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_hammer;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_hoe;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_pickaxe;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_shovel;
@@ -25,6 +26,7 @@ import me.otho.customItems.configuration.jsonReaders.worldGen.Cfg_oreGen;
 
 public class JsonSchema {
     public Cfg_axe[] axes;
+	public Cfg_hammer[] hammers;
     public Cfg_block[] blocks;
     public Cfg_blockDrop[] blocksDrop;
     public Cfg_boots[] boots;

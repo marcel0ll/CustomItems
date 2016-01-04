@@ -6,4 +6,4 @@ All the info of this mod is on this pages [wiki](http://www.otho.me/mods/customi
 
 #Issue Tracking
 
-Please use [this](https://bitbucket.org/Otho/modsissuetracker/issues?status=new&status=open) issue tracker instead of github's tracker.
+Please use [this](https://bitbucket.org/Otho/metamod-customitems/issues?status=new&status=open) issue tracker instead of github's tracker.

@@ -86,6 +86,7 @@ public class JsonConfigurationHandler {
         mergeTo.foods = ArrayUtils.addAll(data.foods, mergeTo.foods);
         mergeTo.pickaxes = ArrayUtils.addAll(data.pickaxes, mergeTo.pickaxes);
         mergeTo.axes = ArrayUtils.addAll(data.axes, mergeTo.axes);
+		mergeTo.hammers = ArrayUtils.addAll(data.hammers, mergeTo.hammers);
         mergeTo.shovels = ArrayUtils.addAll(data.shovels, mergeTo.shovels);
         mergeTo.hoes = ArrayUtils.addAll(data.hoes, mergeTo.hoes);
         mergeTo.swords = ArrayUtils.addAll(data.swords, mergeTo.swords);
