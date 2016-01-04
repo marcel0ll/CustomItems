@@ -1,22 +1,24 @@
 package me.otho.customItems.registry;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.logging.log4j.Level;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_blockDrop;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
-import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
-import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
 import me.otho.customItems.integration.Integration;
 import me.otho.customItems.integration.NEICustomItemsConfig;
 import me.otho.customItems.mod.blocks.CustomBlock;
 import me.otho.customItems.mod.blocks.CustomButtonBlock;
 import me.otho.customItems.mod.blocks.CustomCarpetBlock;
 import me.otho.customItems.mod.blocks.CustomCrop;
-import me.otho.customItems.mod.blocks.CustomDoorBlock;
 import me.otho.customItems.mod.blocks.CustomCrossedBlock;
+import me.otho.customItems.mod.blocks.CustomDoorBlock;
 import me.otho.customItems.mod.blocks.CustomFallingBlock;
 import me.otho.customItems.mod.blocks.CustomFenceBlock;
 import me.otho.customItems.mod.blocks.CustomFenceBlock;
@@ -45,17 +47,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
-
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.logging.log4j.Level;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class BlockRegistry {
 

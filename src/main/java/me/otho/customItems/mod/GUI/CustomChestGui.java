@@ -1,14 +1,14 @@
 package me.otho.customItems.mod.GUI;
 
+import org.lwjgl.opengl.GL11;
+
+import me.otho.customItems.CustomItems;
 import me.otho.customItems.mod.containers.CustomChestContainer;
 import me.otho.customItems.mod.tileentitys.TileEntityCustomChest;
-import me.otho.customItems.reference.Reference;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-
-import org.lwjgl.opengl.GL11;
 
 public class CustomChestGui extends GuiContainer {
 
@@ -57,7 +57,7 @@ public class CustomChestGui extends GuiContainer {
         int i, j;
 
         // draw your Gui here, only thing you need to change is the path
-        ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/gui/container/InventorySheet.png");
+        ResourceLocation texture = new ResourceLocation(CustomItems.MOD_ID, "textures/gui/container/InventorySheet.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 
         this.mc.getTextureManager().bindTexture(texture);

@@ -1,7 +1,5 @@
 package me.otho.customItems.proxy;
 
-import net.minecraft.item.ItemStack;
-
 public interface IProxy {
 
     public void registerTileEntities();

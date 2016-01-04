@@ -2,8 +2,11 @@ package me.otho.customItems.mod.blocks;
 
 import java.util.ArrayList;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import me.otho.customItems.CustomItems;
 import me.otho.customItems.mod.items.CustomSeed;
-import me.otho.customItems.reference.Reference;
 import me.otho.customItems.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
@@ -12,9 +15,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomCrop extends BlockCrops {
     private String fruit;
@@ -196,7 +196,7 @@ public class CustomCrop extends BlockCrops {
         LogHelper.debug("registering icon for: " + this.getUnlocalizedName());
         this.icons = new IIcon[4];
         for (int i = 1; i < this.icons.length + 1; i++) {
-            this.icons[i - 1] = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.textureName + i);
+            this.icons[i - 1] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName + i);
         }
     }
 

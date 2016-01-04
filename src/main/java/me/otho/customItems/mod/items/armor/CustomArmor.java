@@ -1,12 +1,12 @@
 package me.otho.customItems.mod.items.armor;
 
-import me.otho.customItems.reference.Reference;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import me.otho.customItems.CustomItems;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomArmor extends ItemArmor {
     protected int type;
@@ -33,7 +33,7 @@ public class CustomArmor extends ItemArmor {
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-        String path = Reference.MOD_ID + ":textures/models/armor/" + this.textureName + "_layer_";
+        String path = CustomItems.MOD_ID + ":textures/models/armor/" + this.textureName + "_layer_";
         String end = slot == 2 ? "2.png" : "1.png";
         return path + end;
     }
@@ -41,6 +41,6 @@ public class CustomArmor extends ItemArmor {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerIcons(IIconRegister iconRegister) {
-        itemIcon = iconRegister.registerIcon(Reference.MOD_ID + ":" + this.textureName + "_" + this.typeName);
+        itemIcon = iconRegister.registerIcon(CustomItems.MOD_ID + ":" + this.textureName + "_" + this.typeName);
     }
 }

@@ -2,8 +2,8 @@ package me.otho.customItems.mod.creativeTab;
 
 import java.util.ArrayList;
 
+import me.otho.customItems.CustomItems;
 import me.otho.customItems.configuration.ForgeConfig;
-import me.otho.customItems.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -22,7 +22,7 @@ public class customItemsTab extends CreativeTabs {
     }
 
     public customItemsTab(Item iconItem, String labelName) {
-        super(Reference.MOD_ID.toLowerCase() + tabId);
+        super(CustomItems.MOD_ID.toLowerCase() + tabId);
         tabId++;
         if (iconItem != null) {
             this.iconItem = iconItem;

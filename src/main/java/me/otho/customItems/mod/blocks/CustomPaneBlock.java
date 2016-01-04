@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import me.otho.customItems.reference.Reference;
+import me.otho.customItems.CustomItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
@@ -144,12 +144,12 @@ public class CustomPaneBlock extends BlockPane implements IMMBlock {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         if (textureNames == null) {
-            blockIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.textureName);
-            this.field_150102_N = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.textureName);
+            blockIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName);
+            this.field_150102_N = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName);
         } else {
-            icons[5] = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + textureNames[5]);
+            icons[5] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + textureNames[5]);
             icons[0] = icons[5];
-            icons[1] = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + textureNames[1]);
+            icons[1] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + textureNames[1]);
             icons[2] = icons[5];
             icons[3] = icons[5];
             icons[4] = icons[5];

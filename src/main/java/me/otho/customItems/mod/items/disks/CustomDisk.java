@@ -2,14 +2,14 @@ package me.otho.customItems.mod.items.disks;
 
 import java.util.List;
 
-import me.otho.customItems.reference.Reference;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import me.otho.customItems.CustomItems;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class CustomDisk extends ItemRecord {
     protected String song;
@@ -35,7 +35,7 @@ public class CustomDisk extends ItemRecord {
     @Override
     public ResourceLocation getRecordResource(String name) {
         ResourceLocation loc = new ResourceLocation(
-                Reference.MOD_ID.toLowerCase() + ":sounds/records/" + name.substring(name.indexOf('.') + 1));
+                CustomItems.MOD_ID.toLowerCase() + ":sounds/records/" + name.substring(name.indexOf('.') + 1));
 
         return loc;
     }

@@ -1,6 +1,5 @@
 package me.otho.customItems.proxy;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
 import codechicken.nei.api.API;

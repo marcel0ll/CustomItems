@@ -1,5 +1,9 @@
 package me.otho.customItems.registry;
 
+import org.apache.logging.log4j.Level;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import me.otho.customItems.configuration.jsonReaders.items.Cfg_item;
 import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_boots;
 import me.otho.customItems.configuration.jsonReaders.items.armor.Cfg_chestplate;
@@ -27,11 +31,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
-
-import org.apache.logging.log4j.Level;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public class ItemRegistry {
 

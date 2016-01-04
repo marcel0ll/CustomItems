@@ -2,17 +2,16 @@ package me.otho.customItems.integration;
 
 import java.util.ArrayList;
 
-import net.minecraft.item.ItemStack;
-import me.otho.customItems.CustomItems;
-import me.otho.customItems.reference.Reference;
-import me.otho.customItems.utility.LogHelper;
-import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import cpw.mods.fml.common.registry.GameRegistry;
+import me.otho.customItems.CustomItems;
+import me.otho.customItems.CustomItems;
+import me.otho.customItems.utility.LogHelper;
+import net.minecraft.item.ItemStack;
 
 public class NEICustomItemsConfig implements IConfigureNEI {
 
-    private static final String name = Reference.MOD_ID + "_NEI";
+    private static final String name = CustomItems.MOD_ID + "_NEI";
     private static final String version = "0.0.1";
     private static ArrayList<ItemStack> stacks = new ArrayList<ItemStack>();
 

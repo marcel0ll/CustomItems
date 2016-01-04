@@ -1,16 +1,15 @@
 package me.otho.customItems.utility;
 
-import me.otho.customItems.configuration.ForgeConfig;
-import me.otho.customItems.reference.Reference;
-
 import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.FMLLog;
+import me.otho.customItems.CustomItems;
+import me.otho.customItems.configuration.ForgeConfig;
 
 public class LogHelper {
     public static void log(Level logLevel, Object object) {
         if (ForgeConfig.debug) {
-            FMLLog.log(Reference.MOD_NAME, logLevel, String.valueOf(object));
+            FMLLog.log(CustomItems.MOD_NAME, logLevel, String.valueOf(object));
         }
     }
 

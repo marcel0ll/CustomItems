@@ -3,19 +3,15 @@ package me.otho.customItems.mod.worldGen;
 import java.util.Arrays;
 import java.util.Random;
 
-import org.apache.commons.lang3.ArrayUtils;
-
+import cpw.mods.fml.common.IWorldGenerator;
+import cpw.mods.fml.common.registry.GameRegistry;
 import me.otho.customItems.configuration.JsonConfigurationHandler;
 import me.otho.customItems.configuration.jsonReaders.worldGen.Cfg_oreGen;
-import me.otho.customItems.utility.LogHelper;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CustomWorldGenerator implements IWorldGenerator {
 

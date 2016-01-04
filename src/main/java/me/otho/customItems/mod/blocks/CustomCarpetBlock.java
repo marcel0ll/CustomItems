@@ -1,21 +1,16 @@
 package me.otho.customItems.mod.blocks;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import me.otho.customItems.reference.Reference;
-import net.minecraft.block.Block;
+import me.otho.customItems.CustomItems;
 import net.minecraft.block.BlockCarpet;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 public class CustomCarpetBlock extends BlockCarpet implements IMMBlock {
 
@@ -70,10 +65,10 @@ public class CustomCarpetBlock extends BlockCarpet implements IMMBlock {
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
         if (textureNames == null) {
-            blockIcon = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + this.textureName);
+            blockIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName);
         } else {
             for (int i = 0; i < icons.length; i++) {
-                icons[i] = iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + textureNames[i]);
+                icons[i] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + textureNames[i]);
             }
         }
     }

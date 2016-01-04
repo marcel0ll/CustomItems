@@ -1,16 +1,15 @@
 package me.otho.customItems.registry;
 
-import me.otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
-import me.otho.customItems.mod.blocks.CustomChest;
-import me.otho.customItems.mod.materials.CI_Material;
-import me.otho.customItems.reference.Reference;
-import me.otho.customItems.utility.LogHelper;
-import me.otho.customItems.utility.Util;
-
 import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import me.otho.customItems.CustomItems;
+import me.otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
+import me.otho.customItems.mod.blocks.CustomChest;
+import me.otho.customItems.mod.materials.CI_Material;
+import me.otho.customItems.utility.LogHelper;
+import me.otho.customItems.utility.Util;
 
 public class TileEntityRegistry {
     public static boolean registerChest(Cfg_chest data) {
@@ -62,7 +61,7 @@ public class TileEntityRegistry {
 
         // Register Block
         GameRegistry.registerBlock(block, registerName);
-        block.setBlockName(Reference.MOD_ID.toLowerCase() + ":" + registerName);
+        block.setBlockName(CustomItems.MOD_ID.toLowerCase() + ":" + registerName);
 
         LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName() + ".name", "en_US", data.name);
 

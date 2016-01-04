@@ -1,33 +1,24 @@
 package me.otho.customItems.configuration;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.util.Arrays;
 import java.util.Enumeration;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.zip.ZipEntry;
-
-import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
-import me.otho.customItems.registry.Registry;
-import me.otho.customItems.utility.LogHelper;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+
+import me.otho.customItems.registry.Registry;
+import me.otho.customItems.utility.LogHelper;
 
 public class JsonConfigurationHandler {
     public static JsonSchema data;

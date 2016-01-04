@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import org.apache.logging.log4j.Level;
+
+import me.otho.customItems.CustomItems;
 import me.otho.customItems.configuration.JsonSchema;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
@@ -23,23 +26,18 @@ import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_shovel;
 import me.otho.customItems.configuration.jsonReaders.items.tools.Cfg_sword;
 import me.otho.customItems.configuration.jsonReaders.tileEntity.Cfg_chest;
 import me.otho.customItems.mod.creativeTab.customItemsTab;
-import me.otho.customItems.reference.Reference;
 import me.otho.customItems.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-
-import org.apache.logging.log4j.Level;
-
-import cpw.mods.fml.common.Loader;
 
 public class Registry {
 
     public static ArrayList<Object> itemsList = new ArrayList();
     public static ArrayList<Object> blocksList = new ArrayList();
 
-    public static String mod_id = Reference.MOD_ID;
-    public static String mod_name = Reference.MOD_NAME;
+    public static String mod_id = CustomItems.MOD_ID;
+    public static String mod_name = CustomItems.MOD_NAME;
 
     public static int registerId = -1;
 

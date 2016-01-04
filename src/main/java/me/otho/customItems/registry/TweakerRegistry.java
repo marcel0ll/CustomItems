@@ -1,7 +1,7 @@
 package me.otho.customItems.registry;
 
-import java.lang.reflect.Field;
-
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
+import cpw.mods.fml.common.registry.GameRegistry;
 import me.otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_block;
 import me.otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_food;
 import me.otho.customItems.configuration.jsonReaders.tweakers.Cfg_change_item;
@@ -10,10 +10,6 @@ import me.otho.customItems.utility.Util;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemStack;
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.ReflectionHelper;
 
 public class TweakerRegistry {
 
