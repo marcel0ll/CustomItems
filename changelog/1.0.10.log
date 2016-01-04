@@ -19,6 +19,8 @@ Needs final touchs
 ( ) Added config option: "idFile" - If given permission, the mod will generate a file with all block ids, entities ids and items ides.
 ( ) Added config option: "logFile" - If given permission, the mod will generate a file with all the logs generated from the mod. This is intended for easier debugging.
 
+( ) Added Travis Ci continous integration
+
 ----------------------------------------------------------------------------------------------
 
 Thanks to collaborators:
