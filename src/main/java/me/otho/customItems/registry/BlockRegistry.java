@@ -63,7 +63,7 @@ public class BlockRegistry {
 			
 			drop.drops = ArrayUtils.addAll(drop.drops, data.drops);
 			
-			drops.replace(data.id, drop);			
+			drops.put(data.id, drop);			
 		}else{
 			drops.put(data.id, data);			
 		}
