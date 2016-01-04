@@ -58,20 +58,14 @@ public class ItemRegistry {
         return true;
     }
 
-    public static boolean registerHammer(Cfg_hammer data ){
+    public static boolean registerHammer(Cfg_hammer data) {
 
         LogHelper.info(data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
-        Item.ToolMaterial material = EnumHelper.addToolMaterial(
-                data.textureName,
-                data.harvestLevel,
-                data.maxUses,
-                data.efficiencyOnProperMaterial,
-                data.damageVsEntity,
-                data.enchantability
-        );
+        Item.ToolMaterial material = EnumHelper.addToolMaterial(data.textureName, data.harvestLevel, data.maxUses,
+                data.efficiencyOnProperMaterial, data.damageVsEntity, data.enchantability);
 
         CustomHammer hammer = new CustomHammer(material);
 
@@ -81,12 +75,13 @@ public class ItemRegistry {
         hammer.setTextureName(data.textureName);
         GameRegistry.registerItem(hammer, registerName);
         hammer.setUnlocalizedName(Registry.mod_id.toLowerCase() + ":" + registerName);
-        LanguageRegistry.instance().addStringLocalization(hammer.getUnlocalizedName()+".name","en_US",data.name.substring(0, 1).toUpperCase()+data.name.substring(1));
+        LanguageRegistry.instance().addStringLocalization(hammer.getUnlocalizedName() + ".name", "en_US",
+                data.name.substring(0, 1).toUpperCase() + data.name.substring(1));
 
         return true;
     }
 
-    public static boolean registerAxe(Cfg_axe[] data){
+    public static boolean registerAxe(Cfg_axe[] data) {
         int i;
 
         for (i = 0; i < data.length; i++) {

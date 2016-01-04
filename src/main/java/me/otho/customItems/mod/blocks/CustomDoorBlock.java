@@ -71,40 +71,39 @@ public class CustomDoorBlock extends BlockDoor implements IMMBlock {
         this.breaks = breaks;
     }
 
-    
     @Override
     public void setCollides(boolean collides) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setOpaque(boolean isOpaque) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setDropItem(String dropId) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setMaxItemDrop(int maxDrop) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setMinItemDrop(int minDrop) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setEachExtraItemDropChance(int dropChance) {
         // TODO Auto-generated method stub
-        
+
     }
 }

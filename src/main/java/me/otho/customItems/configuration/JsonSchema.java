@@ -26,7 +26,7 @@ import me.otho.customItems.configuration.jsonReaders.worldGen.Cfg_oreGen;
 
 public class JsonSchema {
     public Cfg_axe[] axes;
-	public Cfg_hammer[] hammers;
+    public Cfg_hammer[] hammers;
     public Cfg_block[] blocks;
     public Cfg_blockDrop[] blocksDrop;
     public Cfg_boots[] boots;

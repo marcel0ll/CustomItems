@@ -85,9 +85,9 @@ public class Registry {
                 mergeArrays(allData, (Cfg_basicData[]) data.pickaxes);
             if (data.axes != null)
                 mergeArrays(allData, (Cfg_basicData[]) data.axes);
-            if(data.hammers != null)            
-            	mergeArrays(allData, (Cfg_basicData[]) data.hammers);            
-            if(data.shovels != null)
+            if (data.hammers != null)
+                mergeArrays(allData, (Cfg_basicData[]) data.hammers);
+            if (data.shovels != null)
                 mergeArrays(allData, (Cfg_basicData[]) data.shovels);
             if (data.hoes != null)
                 mergeArrays(allData, (Cfg_basicData[]) data.hoes);
@@ -116,18 +116,15 @@ public class Registry {
 
                 Cfg_basicData toRegister = allData.get(i);
 
-
-                try{
-                	if(toRegister instanceof Cfg_chest)
-                    {
-                	    TileEntityRegistry.registerChest((Cfg_chest) toRegister);
+                try {
+                    if (toRegister instanceof Cfg_chest) {
+                        TileEntityRegistry.registerChest((Cfg_chest) toRegister);
                     } else if (toRegister instanceof Cfg_block) {
                         // TODO add switch based on block type
                         BlockRegistry.registerBlock((Cfg_block) toRegister);
                     } else if (toRegister instanceof Cfg_food) {
                         ItemRegistry.registerFood((Cfg_food) toRegister);
-                    }else if(toRegister instanceof Cfg_item)
-                    {
+                    } else if (toRegister instanceof Cfg_item) {
                         ItemRegistry.registerItem((Cfg_item) toRegister);
                     } else if (toRegister instanceof Cfg_fluid) {
                         BlockRegistry.registerFluid((Cfg_fluid) toRegister);
@@ -135,11 +132,9 @@ public class Registry {
                         ItemRegistry.registerPickaxe((Cfg_pickaxe) toRegister);
                     } else if (toRegister instanceof Cfg_axe) {
                         ItemRegistry.registerAxe((Cfg_axe) toRegister);
-                    }else if(toRegister instanceof Cfg_hammer)
-                    {
+                    } else if (toRegister instanceof Cfg_hammer) {
                         ItemRegistry.registerHammer((Cfg_hammer) toRegister);
-                    }else if(toRegister instanceof Cfg_shovel)
-                    {
+                    } else if (toRegister instanceof Cfg_shovel) {
                         ItemRegistry.registerShovel((Cfg_shovel) toRegister);
                     } else if (toRegister instanceof Cfg_hoe) {
                         ItemRegistry.registerHoe((Cfg_hoe) toRegister);
@@ -156,8 +151,8 @@ public class Registry {
                     } else if (toRegister instanceof Cfg_crop) {
                         BlockRegistry.registerCrop((Cfg_crop) toRegister);
                     }
-                } catch (NoClassDefFoundError e){
-                	
+                } catch (NoClassDefFoundError e) {
+
                 }
             }
 

@@ -7,11 +7,11 @@ import net.minecraft.block.BlockLadder;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
-public class CustomLadderBlock extends BlockLadder implements IMMBlock{
-    
+public class CustomLadderBlock extends BlockLadder implements IMMBlock {
+
     private IIcon[] icons = new IIcon[6];
     private String[] textureNames;
-    
+
     public CustomLadderBlock() {
         super();
     }
@@ -19,19 +19,19 @@ public class CustomLadderBlock extends BlockLadder implements IMMBlock{
     @Override
     public void setBreaks(boolean dropsItSelf) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setCanSilkHarvest(boolean canSilkHarvest) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setCollides(boolean collides) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -53,31 +53,31 @@ public class CustomLadderBlock extends BlockLadder implements IMMBlock{
     @Override
     public void setOpaque(boolean isOpaque) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setDropItem(String dropId) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setMaxItemDrop(int maxDrop) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setMinItemDrop(int minDrop) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setEachExtraItemDropChance(int dropChance) {
         // TODO Auto-generated method stub
-        
+
     }
 
 }

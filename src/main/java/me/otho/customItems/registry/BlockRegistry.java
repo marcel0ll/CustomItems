@@ -73,8 +73,8 @@ public class BlockRegistry {
 
             drop.drops = ArrayUtils.addAll(drop.drops, data.drops);
 
-			drops.put(data.id, drop);			
-		}else{
+            drops.put(data.id, drop);
+        } else {
             drops.put(data.id, data);
         }
 
@@ -138,7 +138,7 @@ public class BlockRegistry {
             case PRESSUREPLATE:
                 registerPressurePlateBlock(data);
                 break;
-            //pre 1.0.10
+            // pre 1.0.10
             case FENCE:
                 registerFenceBlock(data);
                 break;
@@ -349,8 +349,8 @@ public class BlockRegistry {
 
     public static void registerPressurePlateBlock(Cfg_block data) {
         CustomPressurePlateBlock block = new CustomPressurePlateBlock(CI_Material.getMaterial(data.material));
-        
-        block.tickRate  = data.tickRate;
+
+        block.tickRate = data.tickRate;
 
         genericBlockSetup(data, block, true);
     }
@@ -363,20 +363,20 @@ public class BlockRegistry {
 
         genericBlockSetup(data, slabBlock, false);
         genericBlockSetup(data, doubleBlock, false);
-        
-        //Register slab block
+
+        // Register slab block
         GameRegistry.registerBlock(slabBlock, CustomSlabItem.class, registerName, slabBlock, doubleBlock, false);
         slabBlock.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);
         LanguageRegistry.instance().addStringLocalization(slabBlock.getUnlocalizedName() + ".name", "en_US", data.name);
 
-        //Register double slab block
+        // Register double slab block
         GameRegistry.registerBlock(doubleBlock, CustomSlabItem.class, "double_" + registerName, slabBlock, doubleBlock,
                 true);
         doubleBlock.setBlockName(Registry.mod_id.toLowerCase() + ":" + "double_" + registerName);
         LanguageRegistry.instance().addStringLocalization(doubleBlock.getUnlocalizedName() + ".name", "en_US",
-                data.name);        
-        
-        //Nei Integration: Hide double slab block
+                data.name);
+
+        // Nei Integration: Hide double slab block
         if (Integration.isNEI()) {
             NEICustomItemsConfig.addItemToHide(Registry.mod_id + ":double_" + registerName);
         }
@@ -394,8 +394,8 @@ public class BlockRegistry {
 
     public static void registerButtonBlock(Cfg_block data) {
         CustomButtonBlock block = new CustomButtonBlock();
-        
-        block.tickRate  = data.tickRate;
+
+        block.tickRate = data.tickRate;
 
         genericBlockSetup(data, block, true);
     }
@@ -532,7 +532,7 @@ public class BlockRegistry {
         Registry.blocksList.add(data.creativeTab);
 
         // Register Block
-        if( register ) {
+        if (register) {
             GameRegistry.registerBlock(mineBlock, registerName);
             block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);
             LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName() + ".name", "en_US", data.name);
@@ -540,8 +540,8 @@ public class BlockRegistry {
 
         mineBlock.slipperiness = data.slipperiness;
 
-        Item itemBlock = Item.getItemFromBlock(mineBlock);        
-        if( itemBlock != null) {
+        Item itemBlock = Item.getItemFromBlock(mineBlock);
+        if (itemBlock != null) {
             int size = Util.range(data.maxStackSize, 1, 64);
             itemBlock.setMaxStackSize(size);
         }

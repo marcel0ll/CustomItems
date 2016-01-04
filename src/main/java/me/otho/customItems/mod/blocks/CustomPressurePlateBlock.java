@@ -14,12 +14,12 @@ public class CustomPressurePlateBlock extends BlockPressurePlateWeighted impleme
     private IIcon[] icons = new IIcon[6];
     private String[] textureNames;
     public int tickRate;
-    
+
     public CustomPressurePlateBlock(Material material) {
         super("iron_block", material, 15);
         // TODO Auto-generated constructor stub
     }
-    
+
     @Override
     public int tickRate(World p_149738_1_) {
         return tickRate;
@@ -28,19 +28,19 @@ public class CustomPressurePlateBlock extends BlockPressurePlateWeighted impleme
     @Override
     public void setBreaks(boolean dropsItSelf) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setCanSilkHarvest(boolean canSilkHarvest) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setCollides(boolean collides) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
@@ -62,25 +62,25 @@ public class CustomPressurePlateBlock extends BlockPressurePlateWeighted impleme
     @Override
     public void setOpaque(boolean isOpaque) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setDropItem(String dropId) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setMaxItemDrop(int maxDrop) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setMinItemDrop(int minDrop) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override

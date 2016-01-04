@@ -22,8 +22,8 @@ public class EntityRegistry {
 
             drop.drops = ArrayUtils.addAll(drop.drops, data.drops);
 
-			drops.put(data.id, drop);			
-		}else{
+            drops.put(data.id, drop);
+        } else {
             drops.put(data.id, data);
         }
 
