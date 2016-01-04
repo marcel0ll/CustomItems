@@ -3,14 +3,14 @@ package me.otho.customItems.registry;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import me.otho.customItems.compability.Integration;
-import me.otho.customItems.compability.NEICustomItemsConfig;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_blockDrop;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_fluid;
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
 import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
+import me.otho.customItems.integration.Integration;
+import me.otho.customItems.integration.NEICustomItemsConfig;
 import me.otho.customItems.mod.blocks.CustomBlock;
 import me.otho.customItems.mod.blocks.CustomButtonBlock;
 import me.otho.customItems.mod.blocks.CustomCarpetBlock;

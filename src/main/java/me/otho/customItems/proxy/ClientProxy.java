@@ -6,9 +6,9 @@ import java.util.Iterator;
 import codechicken.nei.api.API;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
+import me.otho.customItems.integration.Integration;
+import me.otho.customItems.integration.NEICustomItemsConfig;
 import net.minecraft.item.ItemStack;
-import me.otho.customItems.compability.Integration;
-import me.otho.customItems.compability.NEICustomItemsConfig;
 
 public class ClientProxy extends CommonProxy {
 

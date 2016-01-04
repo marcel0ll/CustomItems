@@ -24,9 +24,9 @@ import net.minecraftforge.common.MinecraftForge;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.logging.Log;
 
-import me.otho.customItems.compability.Integration;
 import me.otho.customItems.configuration.ForgeConfig;
 import me.otho.customItems.configuration.JsonConfigurationHandler;
+import me.otho.customItems.integration.Integration;
 import me.otho.customItems.mod.creativeTab.customItemsTab;
 import me.otho.customItems.mod.handler.BlockDropHandler;
 import me.otho.customItems.mod.handler.EntityDropHandler;

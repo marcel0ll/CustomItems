@@ -1,4 +1,4 @@
-package me.otho.customItems.compability;
+package me.otho.customItems.integration;
 
 import java.util.ArrayList;
 
