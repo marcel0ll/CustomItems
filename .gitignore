@@ -10,6 +10,7 @@
 /lib/
 /.gradle/
 
+!/changelog/*.log
 .idea
 *.eml
 *.iml
