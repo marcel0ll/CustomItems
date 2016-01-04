@@ -31,4 +31,7 @@ public class Cfg_block extends Cfg_basicData {
     public int minItemDrop = 1;
     public int maxItemDrop = 1;
     public int eachExtraItemDropChance = 50;
+    
+    // button/pressure plate
+    public int tickRate = 30;
 }

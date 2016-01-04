@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 
-public class CustomDoorBlock extends BlockDoor {
+public class CustomDoorBlock extends BlockDoor implements IMMBlock {
 
     public CustomDoorBlock(Material material) {
         super(material);
@@ -69,5 +69,42 @@ public class CustomDoorBlock extends BlockDoor {
 
     public void setBreaks(boolean breaks) {
         this.breaks = breaks;
+    }
+
+    
+    @Override
+    public void setCollides(boolean collides) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void setOpaque(boolean isOpaque) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void setDropItem(String dropId) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void setMaxItemDrop(int maxDrop) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void setMinItemDrop(int minDrop) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void setEachExtraItemDropChance(int dropChance) {
+        // TODO Auto-generated method stub
+        
     }
 }
