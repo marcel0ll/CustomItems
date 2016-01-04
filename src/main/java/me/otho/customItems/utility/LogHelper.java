@@ -1,9 +1,9 @@
 package me.otho.customItems.utility;
 
-import java.util.ArrayList;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.Level;
 
@@ -12,9 +12,9 @@ import me.otho.customItems.CustomItems;
 import me.otho.customItems.configuration.ForgeConfig;
 
 public class LogHelper {
-    
+
     private static ArrayList<String> buffer = new ArrayList<String>();
-    
+
     public static void log(Level logLevel, Object object) {
         if (ForgeConfig.debug) {
             FMLLog.log(CustomItems.MOD_NAME, logLevel, String.valueOf(object));
@@ -98,16 +98,22 @@ public class LogHelper {
     }
 
     public static void printLog(File minecraftFolder) throws IOException {
-        if(ForgeConfig.logFile) {
-            File logFile = new File(minecraftFolder.toString() + File.separator + "MM-CI.log");
-            if(logFile.exists())
+        if (ForgeConfig.logFile) {
+            File logFile = new File(minecraftFolder.toString() + File.separator + CustomItems.LOG_FILE_NAME);
+            if (logFile.exists())
                 logFile.delete();
-            
-            FileWriter writer = new FileWriter(logFile); 
-            for(String str: buffer) {
-              writer.write(str + "\n");
+
+            FileWriter writer = new FileWriter(logFile);
+            for (String str : buffer) {
+                writer.write(str + "\n");
             }
             writer.close();
+        }
+    }
+
+    public static void finishSection() {
+        if (ForgeConfig.logFile) {
+            buffer.add("\n");
         }
     }
 }

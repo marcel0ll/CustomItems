@@ -32,7 +32,7 @@ public class ForgeConfig {
                 "Enable this if you want the mod to make a log files with all entities ids, blocks ids and items ids.");
         logFile = config.getBoolean("logFile", "OPTIONS", false,
                 "Enable this if you want the mod to make a separate log file for easier debugging");
-        
+
         if (config.hasChanged()) {
             config.save();
         }

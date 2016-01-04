@@ -7,7 +7,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import me.otho.customItems.CustomItems;
 import me.otho.customItems.mod.items.CustomSeed;
-import me.otho.customItems.utility.LogHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -193,10 +192,10 @@ public class CustomCrop extends BlockCrops {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        LogHelper.debug("registering icon for: " + this.getUnlocalizedName());
         this.icons = new IIcon[4];
         for (int i = 1; i < this.icons.length + 1; i++) {
-            this.icons[i - 1] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName + i);
+            this.icons[i - 1] = iconRegister
+                    .registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName + i);
         }
     }
 

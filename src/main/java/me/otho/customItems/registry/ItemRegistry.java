@@ -1,7 +1,5 @@
 package me.otho.customItems.registry;
 
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import me.otho.customItems.configuration.jsonReaders.items.Cfg_item;
@@ -35,8 +33,7 @@ import net.minecraftforge.common.util.EnumHelper;
 public class ItemRegistry {
 
     public static boolean registerAxe(Cfg_axe data) {
-
-        LogHelper.info(data.name, 1);
+        LogHelper.info("Registering Axe: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -58,8 +55,7 @@ public class ItemRegistry {
     }
 
     public static boolean registerHammer(Cfg_hammer data) {
-
-        LogHelper.info(data.name, 1);
+        LogHelper.info("Registering Hammer: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -80,23 +76,8 @@ public class ItemRegistry {
         return true;
     }
 
-    public static boolean registerAxe(Cfg_axe[] data) {
-        int i;
-
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerAxe(data[i]);
-
-            if (!registered) {
-                LogHelper.error("Failed to register: Axe " + i);
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static boolean registerBoots(Cfg_boots data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Boots: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -120,23 +101,8 @@ public class ItemRegistry {
         return false;
     }
 
-    public static boolean registerBoots(Cfg_boots[] data) {
-        int i;
-
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerBoots(data[i]);
-
-            if (!registered) {
-                LogHelper.error("Failed to register: Boots " + i);
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static boolean registerChestplate(Cfg_chestplate data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Chestplate: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -161,23 +127,8 @@ public class ItemRegistry {
         return false;
     }
 
-    public static boolean registerChestplate(Cfg_chestplate[] data) {
-        int i;
-
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerChestplate(data[i]);
-
-            if (!registered) {
-                LogHelper.error("Failed to register: Chestplate " + i);
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static boolean registerFood(Cfg_food data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Food: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -215,23 +166,8 @@ public class ItemRegistry {
         return false;
     }
 
-    public static boolean registerFood(Cfg_food[] data) {
-        int i;
-
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerFood(data[i]);
-
-            if (!registered) {
-                LogHelper.error("Failed to register: Food " + i);
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static boolean registerHelmet(Cfg_helmet data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Helmet: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -256,23 +192,8 @@ public class ItemRegistry {
         return false;
     }
 
-    public static boolean registerHelmet(Cfg_helmet[] data) {
-        int i;
-
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerHelmet(data[i]);
-
-            if (!registered) {
-                LogHelper.error("Failed to register: Helmet " + i);
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static boolean registerHoe(Cfg_hoe data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Hoe: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -293,23 +214,8 @@ public class ItemRegistry {
         return true;
     }
 
-    public static boolean registerHoe(Cfg_hoe[] data) {
-        int i;
-
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerHoe(data[i]);
-
-            if (!registered) {
-                LogHelper.error("Failed to register: Hoe " + i);
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static boolean registerItem(Cfg_item data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Item: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -328,23 +234,8 @@ public class ItemRegistry {
         return false;
     }
 
-    public static boolean registerItem(Cfg_item[] data) {
-        int i;
-
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerItem(data[i]);
-
-            if (!registered) {
-                LogHelper.error("Failed to register: Item " + i);
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static boolean registerLeggings(Cfg_leggings data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Leggings: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -369,23 +260,8 @@ public class ItemRegistry {
         return true;
     }
 
-    public static boolean registerLeggings(Cfg_leggings[] data) {
-        int i;
-
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerLeggings(data[i]);
-
-            if (!registered) {
-                LogHelper.error("Failed to register: Leggings " + i);
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static boolean registerPickaxe(Cfg_pickaxe data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Pickaxe: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -406,23 +282,8 @@ public class ItemRegistry {
         return true;
     }
 
-    public static boolean registerPickaxe(Cfg_pickaxe[] data) {
-        int i;
-
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerPickaxe(data[i]);
-
-            if (!registered) {
-                LogHelper.error("Failed to register: Pickaxe " + i);
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static boolean registerShovel(Cfg_shovel data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Shovel: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -443,23 +304,8 @@ public class ItemRegistry {
         return true;
     }
 
-    public static boolean registerShovel(Cfg_shovel[] data) {
-        int i;
-
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerShovel(data[i]);
-
-            if (!registered) {
-                LogHelper.error("Failed to register: Shovel " + i);
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public static boolean registerSword(Cfg_sword data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Sword: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -479,20 +325,4 @@ public class ItemRegistry {
 
         return true;
     }
-
-    public static boolean registerSword(Cfg_sword[] data) {
-        int i;
-
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerSword(data[i]);
-
-            if (!registered) {
-                LogHelper.error("Failed to register: Sword " + i);
-                return false;
-            }
-        }
-
-        return true;
-    }
-
 }

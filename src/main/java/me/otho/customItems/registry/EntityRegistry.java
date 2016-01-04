@@ -12,6 +12,7 @@ public class EntityRegistry {
     public static HashMap<String, Cfg_entityDrop> drops = new HashMap<String, Cfg_entityDrop>();
 
     public static boolean registerEntityDrop(Cfg_entityDrop data) {
+        LogHelper.info("Registering Entity drop: " + data.id, 1);
 
         if (drops.containsKey(data.id)) {
 
@@ -34,7 +35,7 @@ public class EntityRegistry {
             boolean registered = registerEntityDrop(data[i]);
 
             if (!registered) {
-                LogHelper.error("Failed to register: Entity drop " + i);
+                LogHelper.error("Failed to register: Entity drop " + data[i].id);
                 return false;
             }
         }

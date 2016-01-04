@@ -10,8 +10,7 @@ public class CommonRegistry {
 
     // Common
     public static boolean registerCreativeTabs(Cfg_creativeTab data) {
-
-        LogHelper.info("Registering Creative Tab: " + data.tabLabel);
+        LogHelper.info("Registering Creative Tab: " + data.tabLabel, 1);
         String[] itemName = data.iconItem.split(":");
         Item iconItem = GameRegistry.findItem(itemName[0], itemName[1]);
 
@@ -29,7 +28,7 @@ public class CommonRegistry {
                 boolean registered = registerCreativeTabs(data[i]);
 
                 if (!registered) {
-                    LogHelper.error("Failed to register: CreativeTabs " + i);
+                    LogHelper.error("Failed to register: CreativeTabs " + data[i].tabLabel);
                     return false;
                 }
             }

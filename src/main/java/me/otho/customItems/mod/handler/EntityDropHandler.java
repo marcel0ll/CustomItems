@@ -5,11 +5,9 @@ import java.util.Random;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import me.otho.customItems.configuration.ForgeConfig;
 import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
 import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
 import me.otho.customItems.registry.EntityRegistry;
-import me.otho.customItems.utility.LogHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.item.EntityItem;
@@ -42,8 +40,6 @@ public class EntityDropHandler {
         if (EntityList.classToStringMapping.containsKey(event.entityLiving.getClass())) {
             String entityId = ((String) EntityList.classToStringMapping.get(event.entityLiving.getClass()));
 
-            if (ForgeConfig.entityIdLog)
-                LogHelper.info("Latest mob to die id: " + entityId);
             if (EntityRegistry.drops.containsKey(entityId)) {
                 Cfg_entityDrop entityDrop = EntityRegistry.drops.get(entityId);
 

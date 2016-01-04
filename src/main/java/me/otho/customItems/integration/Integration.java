@@ -15,7 +15,7 @@ public class Integration {
     public static boolean isNEI() {
         return NEI;
     }
-    
+
     public static boolean isExNihilo() {
         return ExNihilo;
     }

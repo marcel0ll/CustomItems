@@ -41,7 +41,7 @@ public class NEICustomItemsConfig implements IConfigureNEI {
         if (parser.length > 2)
             damage = Integer.parseInt(parser[2]);
 
-        LogHelper.info("Hide item in nei: " + fullId);
+        LogHelper.info("Hide item in nei: " + fullId, 2);
         stacks.add(new ItemStack(GameRegistry.findItem(modId, id), 1, damage));
     }
 }

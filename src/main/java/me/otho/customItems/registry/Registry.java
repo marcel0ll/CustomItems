@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import org.apache.logging.log4j.Level;
-
 import me.otho.customItems.CustomItems;
 import me.otho.customItems.configuration.JsonSchema;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
@@ -109,57 +107,73 @@ public class Registry {
                 }
             });
 
-            for (int i = 0; i < allData.size(); i++) {
-                LogHelper.log(Level.INFO, allData.get(i).getClass(), 1);
-
-                Cfg_basicData toRegister = allData.get(i);
-
-                try {
-                    if (toRegister instanceof Cfg_chest) {
-                        TileEntityRegistry.registerChest((Cfg_chest) toRegister);
-                    } else if (toRegister instanceof Cfg_block) {
-                        // TODO add switch based on block type
-                        BlockRegistry.registerBlock((Cfg_block) toRegister);
-                    } else if (toRegister instanceof Cfg_food) {
-                        ItemRegistry.registerFood((Cfg_food) toRegister);
-                    } else if (toRegister instanceof Cfg_item) {
-                        ItemRegistry.registerItem((Cfg_item) toRegister);
-                    } else if (toRegister instanceof Cfg_fluid) {
-                        BlockRegistry.registerFluid((Cfg_fluid) toRegister);
-                    } else if (toRegister instanceof Cfg_pickaxe) {
-                        ItemRegistry.registerPickaxe((Cfg_pickaxe) toRegister);
-                    } else if (toRegister instanceof Cfg_axe) {
-                        ItemRegistry.registerAxe((Cfg_axe) toRegister);
-                    } else if (toRegister instanceof Cfg_hammer) {
-                        ItemRegistry.registerHammer((Cfg_hammer) toRegister);
-                    } else if (toRegister instanceof Cfg_shovel) {
-                        ItemRegistry.registerShovel((Cfg_shovel) toRegister);
-                    } else if (toRegister instanceof Cfg_hoe) {
-                        ItemRegistry.registerHoe((Cfg_hoe) toRegister);
-                    } else if (toRegister instanceof Cfg_sword) {
-                        ItemRegistry.registerSword((Cfg_sword) toRegister);
-                    } else if (toRegister instanceof Cfg_helmet) {
-                        ItemRegistry.registerHelmet((Cfg_helmet) toRegister);
-                    } else if (toRegister instanceof Cfg_chestplate) {
-                        ItemRegistry.registerChestplate((Cfg_chestplate) toRegister);
-                    } else if (toRegister instanceof Cfg_leggings) {
-                        ItemRegistry.registerLeggings((Cfg_leggings) toRegister);
-                    } else if (toRegister instanceof Cfg_boots) {
-                        ItemRegistry.registerBoots((Cfg_boots) toRegister);
-                    } else if (toRegister instanceof Cfg_crop) {
-                        BlockRegistry.registerCrop((Cfg_crop) toRegister);
+            int items = allData.size();
+            if(items > 0) {
+                LogHelper.info("Registering block and items: ", 0);
+                for (int i = 0; i < items; i++) {
+                    // LogHelper.log(Level.INFO, allData.get(i).getClass(), 1);
+    
+                    Cfg_basicData toRegister = allData.get(i);
+    
+                    try {
+                        if (toRegister instanceof Cfg_chest) {
+                            TileEntityRegistry.registerChest((Cfg_chest) toRegister);
+                        } else if (toRegister instanceof Cfg_block) {
+                            // TODO add switch based on block type
+                            BlockRegistry.registerBlock((Cfg_block) toRegister);
+                        } else if (toRegister instanceof Cfg_food) {
+                            ItemRegistry.registerFood((Cfg_food) toRegister);
+                        } else if (toRegister instanceof Cfg_item) {
+                            ItemRegistry.registerItem((Cfg_item) toRegister);
+                        } else if (toRegister instanceof Cfg_fluid) {
+                            BlockRegistry.registerFluid((Cfg_fluid) toRegister);
+                        } else if (toRegister instanceof Cfg_pickaxe) {
+                            ItemRegistry.registerPickaxe((Cfg_pickaxe) toRegister);
+                        } else if (toRegister instanceof Cfg_axe) {
+                            ItemRegistry.registerAxe((Cfg_axe) toRegister);
+                        } else if (toRegister instanceof Cfg_hammer) {
+                            ItemRegistry.registerHammer((Cfg_hammer) toRegister);
+                        } else if (toRegister instanceof Cfg_shovel) {
+                            ItemRegistry.registerShovel((Cfg_shovel) toRegister);
+                        } else if (toRegister instanceof Cfg_hoe) {
+                            ItemRegistry.registerHoe((Cfg_hoe) toRegister);
+                        } else if (toRegister instanceof Cfg_sword) {
+                            ItemRegistry.registerSword((Cfg_sword) toRegister);
+                        } else if (toRegister instanceof Cfg_helmet) {
+                            ItemRegistry.registerHelmet((Cfg_helmet) toRegister);
+                        } else if (toRegister instanceof Cfg_chestplate) {
+                            ItemRegistry.registerChestplate((Cfg_chestplate) toRegister);
+                        } else if (toRegister instanceof Cfg_leggings) {
+                            ItemRegistry.registerLeggings((Cfg_leggings) toRegister);
+                        } else if (toRegister instanceof Cfg_boots) {
+                            ItemRegistry.registerBoots((Cfg_boots) toRegister);
+                        } else if (toRegister instanceof Cfg_crop) {
+                            BlockRegistry.registerCrop((Cfg_crop) toRegister);
+                        }
+                    } catch (NoClassDefFoundError e) {
+    
                     }
-                } catch (NoClassDefFoundError e) {
-
                 }
+                LogHelper.finishSection();
             }
 
-            CommonRegistry.registerCreativeTabs(data.creativeTabs);
+            if (data.creativeTabs != null) {                
+                LogHelper.info("Registering Creative tabs: ", 0);
+                CommonRegistry.registerCreativeTabs(data.creativeTabs);
+                LogHelper.finishSection();
+            }            
 
-            if (data.entitiesDrop != null)
-                EntityRegistry.registerEntityDrop(data.entitiesDrop);
-            if (data.blocksDrop != null)
+            if (data.blocksDrop != null) {
+                LogHelper.info("Block drops: ", 0);
                 BlockRegistry.registerBlockDrop(data.blocksDrop);
+                LogHelper.finishSection();
+            }
+
+            if (data.entitiesDrop != null) {
+                LogHelper.info("Entity drops: ", 0);
+                EntityRegistry.registerEntityDrop(data.entitiesDrop);
+                LogHelper.finishSection();
+            }
 
             setCreativeTabs();
         }
@@ -167,20 +181,23 @@ public class Registry {
 
     public static void change(JsonSchema data) {
         int i;
-        LogHelper.info("Starting to change:");
-        LogHelper.info("Changing blocks:");
+
         if (data.changeBlocks != null) {
+            LogHelper.info("Changing blocks:");
             TweakerRegistry.changeBlock(data.changeBlocks);
+            LogHelper.finishSection();
         }
 
-        LogHelper.info("Changing items:");
         if (data.changeItems != null) {
+            LogHelper.info("Changing items:");
             TweakerRegistry.changeItem(data.changeItems);
+            LogHelper.finishSection();
         }
 
-        LogHelper.info("Changing foods:");
         if (data.changeFoods != null) {
+            LogHelper.info("Changing foods:");
             TweakerRegistry.changeFood(data.changeFoods);
+            LogHelper.finishSection();
         }
     }
 }

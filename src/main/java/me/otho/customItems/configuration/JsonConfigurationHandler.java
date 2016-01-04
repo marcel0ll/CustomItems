@@ -1,5 +1,6 @@
 package me.otho.customItems.configuration;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -36,6 +37,7 @@ public class JsonConfigurationHandler {
             File[] listOfFiles = folder.listFiles();
 
             if (listOfFiles.length > 0) {
+                LogHelper.info("Reading config files: ", 0);
                 Gson gson = new Gson();
                 JsonReader reader;
 
@@ -49,7 +51,7 @@ public class JsonConfigurationHandler {
                             reader = new JsonReader(new FileReader(file));
                             // reader.setLenient(true);
 
-                            LogHelper.info("Reading json file:" + file.getName());
+                            LogHelper.info("Reading json file:" + file.getName(), 1);
 
                             JsonSchema data = gson.fromJson(reader, JsonSchema.class);
                             mergeGson(data, allData);
@@ -58,8 +60,8 @@ public class JsonConfigurationHandler {
                         }
                     }
                 }
-                if (listOfFiles.length > 0)
-                    Registry.register(allData);
+                LogHelper.finishSection();
+                Registry.register(allData);
             }
         } else {
             folder.mkdir();
@@ -105,6 +107,8 @@ public class JsonConfigurationHandler {
 
             ZipEntry defaultConfigs = file.getEntry("defaultConfigs/");
 
+            LogHelper.info("Creating default config files", 0);
+
             for (Enumeration<JarEntry> e = file.entries(); e.hasMoreElements();) {
                 ZipEntry entry = (ZipEntry) e.nextElement();
 
@@ -118,24 +122,29 @@ public class JsonConfigurationHandler {
                     if (parser.length > 1) {
                         String fileName = parser[1];
                         if (fileName.endsWith(".json")) {
+                            LogHelper.info("File: " + parser[1], 1);
                             File configFile = new File(configFolderPath + parser[1]);
                             if (configFile.exists())
                                 configFile.delete();
+
+                            String line;
                             InputStream is = file.getInputStream(entry);
 
                             InputStreamReader isr = new InputStreamReader(is);
+                            BufferedReader buf = new BufferedReader(isr);
 
-                            char[] buffer = new char[1];
-                            while (isr.read(buffer, 0, buffer.length) != -1) {
-                                String s = new String(buffer);
-                                FileUtils.write(configFile, s, true);
+                            while ((line = buf.readLine()) != null) {
+                                FileUtils.write(configFile, line);
                             }
+
+                            // close the BufferedReader when we're done
+                            buf.close();
                         }
                     }
                 }
             }
 
-            LogHelper.info("End of Default Config Files");
+            LogHelper.finishSection();
             file.close();
         }
     }

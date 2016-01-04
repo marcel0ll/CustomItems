@@ -57,6 +57,7 @@ public class BlockRegistry {
     public static HashMap<String, Cfg_blockDrop> drops = new HashMap<String, Cfg_blockDrop>();
 
     public static boolean registerBlockDrop(Cfg_blockDrop data) {
+        LogHelper.info("Registering Block Drop: " + data.id, 1);
 
         String[] parser = data.id.split(":");
         if (parser.length < 3)
@@ -83,7 +84,7 @@ public class BlockRegistry {
             boolean registered = registerBlockDrop(data[i]);
 
             if (!registered) {
-                LogHelper.error("Failed to register: Entity drop " + i);
+                LogHelper.error("Failed to register: Block drop for" + data[i].id);
                 return false;
             }
         }
@@ -92,11 +93,10 @@ public class BlockRegistry {
     }
 
     public static boolean registerBlock(Cfg_block data) {
-        LogHelper.log(Level.INFO, "Register Block: " + data.name, 1);
-
         data.toolClass = Util.validateToolClass(data.toolClass);
 
         if (Util.validateType(data.type)) {
+            LogHelper.info("Register Block: " + data.name, 1);
             Util.BlockType blockType = Util.BlockType.valueOf(data.type.toUpperCase());
             switch (blockType) {
             // 1.0.10
@@ -160,8 +160,10 @@ public class BlockRegistry {
                 registerCrossedBlock(data);
                 break;
             case NORMAL:
-            default:
                 registerNormalBlock(data);
+                break;
+            default:
+                LogHelper.error("Failed to register block: " + data.name + ", type was not recognized");
                 break;
             }
         }
@@ -176,7 +178,7 @@ public class BlockRegistry {
             boolean registered = registerBlock(data[i]);
 
             if (!registered) {
-                LogHelper.error("Failed to register: Block " + i);
+                LogHelper.error("Failed to register: Block " + data[i].name);
                 return false;
             }
         }
@@ -185,7 +187,7 @@ public class BlockRegistry {
     }
 
     public static boolean registerCrop(Cfg_crop data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering crop: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 
@@ -244,7 +246,7 @@ public class BlockRegistry {
             boolean registered = registerCrop(data[i]);
 
             if (!registered) {
-                LogHelper.error("Failed to register: Crop " + i);
+                LogHelper.error("Failed to register: Crop " + data[i].name);
                 return false;
             }
         }
@@ -253,7 +255,7 @@ public class BlockRegistry {
     }
 
     public static boolean registerFluid(Cfg_fluid data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Fluid: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
         data.luminosity = Util.range(data.luminosity, 0, 15);
@@ -334,7 +336,7 @@ public class BlockRegistry {
             boolean registered = registerFluid(data[i]);
 
             if (!registered) {
-                LogHelper.error("Failed to register: Fluid " + i);
+                LogHelper.error("Failed to register: Fluid " + data[i].name);
                 return false;
             }
         }

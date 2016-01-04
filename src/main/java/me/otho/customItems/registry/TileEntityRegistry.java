@@ -13,7 +13,7 @@ import me.otho.customItems.utility.Util;
 
 public class TileEntityRegistry {
     public static boolean registerChest(Cfg_chest data) {
-        LogHelper.log(Level.INFO, data.name, 1);
+        LogHelper.info("Registering Chest: " + data.name, 1);
 
         String registerName = Util.parseRegisterName(data.name);
 

@@ -14,6 +14,8 @@ import net.minecraft.item.ItemFood;
 public class TweakerRegistry {
 
     public static boolean changeBlock(Cfg_change_block data) {
+        LogHelper.info("Registering Block Change: " + data.name, 1);
+        
         String[] nameParsing = data.name.split(":");
         String modId = nameParsing[0];
         String name = nameParsing[1];
@@ -70,6 +72,8 @@ public class TweakerRegistry {
     }
 
     public static boolean changeItem(Cfg_change_item data) {
+        LogHelper.info("Registering Item Change: " + data.name, 1);
+        
         String[] nameParsing = data.name.split(":");
         String modId = nameParsing[0];
         String name = nameParsing[1];
@@ -103,6 +107,8 @@ public class TweakerRegistry {
     }
 
     private static boolean changeFood(Cfg_change_food data) {
+        LogHelper.info("Registering Food Change: " + data.name, 1);
+        
         String[] nameParsing = data.name.split(":");
         String modId = nameParsing[0];
         String name = nameParsing[1];

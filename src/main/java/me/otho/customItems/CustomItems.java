@@ -22,7 +22,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 @Mod(dependencies = CustomItems.DEPENDENCIES, modid = CustomItems.MOD_ID, version = CustomItems.VERSION, name = CustomItems.MOD_NAME)
 public class CustomItems {
-    //Mod info
+    // Mod info
     public static final String MOD_ID = "customitems";
     public static final String MOD_NAME = "Meta Mod: Custom Items";
     public static final String DEPENDENCIES = "";
@@ -30,10 +30,12 @@ public class CustomItems {
 
     public static final String CLIENT_PROXY_CLASS = "me.otho.customItems.proxy.ClientProxy";
     public static final String SERVER_PROXY_CLASS = "me.otho.customItems.proxy.ServerProxy";
-    
+    public static final String LOG_FILE_NAME = "MM-CI_log.log";
+    public static final String ID_FILE_NAME = "MM-CI_id.log";
+
     private static File modConfigDirectory;
     private static File minecraftFolder;
-    
+
     @Instance(CustomItems.MOD_ID)
     public static CustomItems instance;
 
@@ -42,12 +44,11 @@ public class CustomItems {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) throws IOException {
-        
+
         modConfigDirectory = event.getModConfigurationDirectory();
         minecraftFolder = modConfigDirectory.getParentFile();
-        
-        String configFolderPath = modConfigDirectory.toString() + File.separator + CustomItems.MOD_ID
-                + File.separator;
+
+        String configFolderPath = modConfigDirectory.toString() + File.separator + CustomItems.MOD_ID + File.separator;
 
         ForgeConfig.init(event.getSuggestedConfigurationFile());
 
@@ -63,13 +64,13 @@ public class CustomItems {
         proxy.Integration_NEI();
 
         MinecraftForge.EVENT_BUS.register(new EntityDropHandler());
-        MinecraftForge.EVENT_BUS.register(new BlockDropHandler());        
+        MinecraftForge.EVENT_BUS.register(new BlockDropHandler());
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) throws IOException {
         JsonConfigurationHandler.post_init();
-        
+
         LogHelper.info("End of customization");
         LogHelper.printLog(minecraftFolder);
     }
