@@ -26,10 +26,6 @@ public class JsonConfigurationHandler {
     public static JsonSchema allData;
 
     public static void init(String folderPath, File source) throws IOException {
-        if (ForgeConfig.remake) {
-            remakeConfigFiles(source, folderPath);
-        }
-
         File folder = new File(folderPath);
         allData = new JsonSchema();
 
@@ -99,53 +95,5 @@ public class JsonConfigurationHandler {
 
         mergeTo.entitiesDrop = ArrayUtils.addAll(data.entitiesDrop, mergeTo.entitiesDrop);
         mergeTo.blocksDrop = ArrayUtils.addAll(data.blocksDrop, mergeTo.blocksDrop);
-    }
-
-    public static void remakeConfigFiles(File source, String configFolderPath) throws IOException {
-        if (source.isFile()) {
-            JarFile file = new JarFile(source);
-
-            ZipEntry defaultConfigs = file.getEntry("defaultConfigs/");
-
-            LogHelper.info("Creating default config files", 0);
-
-            for (Enumeration<JarEntry> e = file.entries(); e.hasMoreElements();) {
-                ZipEntry entry = (ZipEntry) e.nextElement();
-
-                // System.out.println("File name: " + entry.getName()
-                // + "; size: " + entry.getSize()
-                // + "; compressed size: "
-                // + entry.getCompressedSize());
-                // System.out.println();
-                if (entry.getName().contains("defaultConfigs/")) {
-                    String[] parser = entry.getName().split("defaultConfigs/");
-                    if (parser.length > 1) {
-                        String fileName = parser[1];
-                        if (fileName.endsWith(".json")) {
-                            LogHelper.info("File: " + parser[1], 1);
-                            File configFile = new File(configFolderPath + parser[1]);
-                            if (configFile.exists())
-                                configFile.delete();
-
-                            String line;
-                            InputStream is = file.getInputStream(entry);
-
-                            InputStreamReader isr = new InputStreamReader(is);
-                            BufferedReader buf = new BufferedReader(isr);
-
-                            while ((line = buf.readLine()) != null) {
-                                FileUtils.write(configFile, line);
-                            }
-
-                            // close the BufferedReader when we're done
-                            buf.close();
-                        }
-                    }
-                }
-            }
-
-            LogHelper.finishSection();
-            file.close();
-        }
     }
 }

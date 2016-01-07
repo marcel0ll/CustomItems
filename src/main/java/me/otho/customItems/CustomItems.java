@@ -51,6 +51,10 @@ public class CustomItems {
         String configFolderPath = modConfigDirectory.toString() + File.separator + CustomItems.MOD_ID + File.separator;
 
         ForgeConfig.init(event.getSuggestedConfigurationFile());
+        
+        if (ForgeConfig.logFile) {
+            LogHelper.openLog(minecraftFolder);
+        }
 
         Integration.init();
 
@@ -71,7 +75,6 @@ public class CustomItems {
     public void postInit(FMLPostInitializationEvent event) throws IOException {
         JsonConfigurationHandler.post_init();
 
-        LogHelper.info("End of customization");
-        LogHelper.printLog(minecraftFolder);
+        LogHelper.info("End of customization");        
     }
 }

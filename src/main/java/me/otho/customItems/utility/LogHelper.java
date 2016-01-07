@@ -14,13 +14,21 @@ import me.otho.customItems.configuration.ForgeConfig;
 public class LogHelper {
 
     private static ArrayList<String> buffer = new ArrayList<String>();
+    private static File logFile;
+    private static FileWriter writer;
 
     public static void log(Level logLevel, Object object) {
         if (ForgeConfig.debug) {
             FMLLog.log(CustomItems.MOD_NAME, logLevel, String.valueOf(object));
         }
         if (ForgeConfig.logFile) {
-            buffer.add(String.valueOf(object));
+            try {
+                writer.write(String.valueOf(object) + "\n");
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
         }
     }
 
@@ -97,23 +105,18 @@ public class LogHelper {
         log(Level.WARN, object, tab);
     }
 
-    public static void printLog(File minecraftFolder) throws IOException {
-        if (ForgeConfig.logFile) {
-            File logFile = new File(minecraftFolder.toString() + File.separator + CustomItems.LOG_FILE_NAME);
-            if (logFile.exists())
-                logFile.delete();
-
-            FileWriter writer = new FileWriter(logFile);
-            for (String str : buffer) {
-                writer.write(str + "\n");
-            }
-            writer.close();
-        }
-    }
-
     public static void finishSection() {
         if (ForgeConfig.logFile) {
             buffer.add("\n");
         }
+    }
+
+   
+    public static void openLog(File minecraftFolder) throws IOException {        
+        logFile = new File(minecraftFolder.toString() + File.separator + CustomItems.LOG_FILE_NAME);
+        writer = new FileWriter(logFile);
+    }
+    public static void closeLog() throws IOException{
+        writer.close();        
     }
 }
