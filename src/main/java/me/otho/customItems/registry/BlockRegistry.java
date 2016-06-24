@@ -410,9 +410,9 @@ public class BlockRegistry {
     }
 
     public static void registerDoorBlock(Cfg_block data) {
-        CustomDoorBlock block = new CustomDoorBlock(CI_Material.getMaterial(data.material));
-
-        genericBlockSetup(data, block, true);
+//        CustomDoorBlock block = new CustomDoorBlock(CI_Material.getMaterial(data.material));
+//
+//        genericBlockSetup(data, block, true);
     }
 
     public static void registerGateBlock(Cfg_block data) {
