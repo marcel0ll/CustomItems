@@ -9,6 +9,7 @@
 /eclipse/
 /lib/
 /.gradle/
+/source/
 
 !/changelog/*.log
 .idea
