@@ -195,4 +195,10 @@ public class CustomBlock extends Block implements IMMBlock {
   public void setBreaks(boolean breaks) {
     this.breaks = breaks;
   }
+
+  @Override
+  public Block setHardness(float hardness) {
+    return super.setHardness(hardness);
+  }
+
 }
