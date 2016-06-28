@@ -1,48 +1,45 @@
 package me.otho.customItems.registry;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import me.otho.customItems.configuration.jsonReaders.common.Cfg_drop;
 import me.otho.customItems.configuration.jsonReaders.entities.Cfg_entityDrop;
 import me.otho.customItems.utility.LogHelper;
-import me.otho.customItems.utility.Util;
 
 public class EntityRegistry {
 
-	public static HashMap<String, Cfg_entityDrop> drops = new HashMap<String, Cfg_entityDrop>();	
-	
-	
-	public static boolean registerEntityDrop(Cfg_entityDrop data){
-		
-		if(drops.containsKey(data.id)){
-			
-			Cfg_entityDrop drop = drops.get(data.id);
-			
-			drop.drops = ArrayUtils.addAll(drop.drops, data.drops);
-			
-			drops.replace(data.id, drop);			
-		}else{
-			drops.put(data.id, data);			
-		}
-		
-		return true;
-	}
+  public static HashMap<String, Cfg_entityDrop> drops = new HashMap<String, Cfg_entityDrop>();
 
-	public static boolean registerEntityDrop(Cfg_entityDrop[] data){
-		int i;
+  public static boolean registerEntityDrop(Cfg_entityDrop data) {
+    LogHelper.info("Registering Entity drop: " + data.id, 1);
 
-        for(i=0;i<data.length;i++){
-            boolean registered = registerEntityDrop(data[i]);
+    if (drops.containsKey(data.id)) {
 
-            if(!registered){
-                LogHelper.error("Failed to register: Entity drop " + i);
-                return false;
-            }
-        }
+      Cfg_entityDrop drop = drops.get(data.id);
 
-        return true;
-	}
+      drop.drops = ArrayUtils.addAll(drop.drops, data.drops);
+
+      drops.put(data.id, drop);
+    } else {
+      drops.put(data.id, data);
+    }
+
+    return true;
+  }
+
+  public static boolean registerEntityDrop(Cfg_entityDrop[] data) {
+    int i;
+
+    for (i = 0; i < data.length; i++) {
+      boolean registered = registerEntityDrop(data[i]);
+
+      if (!registered) {
+        LogHelper.error("Failed to register: Entity drop " + data[i].id);
+        return false;
+      }
+    }
+
+    return true;
+  }
 }
