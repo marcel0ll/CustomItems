@@ -8,9 +8,9 @@ import me.otho.customItems.mod.tileentitys.TileEntityCustomChest;
 
 public abstract class CommonProxy implements IProxy {
 
-    @Override
-    public void registerTileEntities() {
-        GameRegistry.registerTileEntity(TileEntityCustomChest.class, TileEntityCustomChest.publicName);
-        NetworkRegistry.INSTANCE.registerGuiHandler(CustomItems.instance, new GuiHandler());
-    }
+  @Override
+  public void registerTileEntities() {
+    GameRegistry.registerTileEntity(TileEntityCustomChest.class, TileEntityCustomChest.publicName);
+    NetworkRegistry.INSTANCE.registerGuiHandler(CustomItems.instance, new GuiHandler());
+  }
 }

@@ -18,170 +18,170 @@ import net.minecraft.world.World;
 
 public class CustomRotatedPillar extends BlockRotatedPillar implements IMMBlock {
 
-    public CustomRotatedPillar(Material p_i45425_1_) {
-        super(p_i45425_1_);
+  public CustomRotatedPillar(Material p_i45425_1_) {
+    super(p_i45425_1_);
+  }
+
+  private IIcon[] icons = new IIcon[6];
+  private boolean canSilkHarvest;
+
+  private int maxItemDrop;
+
+  private int minItemDrop;
+  private int eachExtraItemDropChance;
+
+  protected String dropItem;
+
+  private String[] textureNames;
+  protected boolean breaks;
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
+    Block i1 = par1IBlockAccess.getBlock(par2, par3, par4);
+    return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+  }
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public int getRenderBlockPass() {
+    if (!this.opaque)
+      return 1;
+    else
+      return 0;
+  }
+
+  protected int getItemDropQuantity(World world, int fortune) {
+    int ret = 0;
+    int i;
+    ret = this.minItemDrop;
+    for (i = this.minItemDrop; i < this.maxItemDrop + fortune; i++) {
+      boolean willDrop = world.rand.nextInt(100) < this.eachExtraItemDropChance;
+      if (willDrop)
+        ret++;
     }
 
-    private IIcon[] icons = new IIcon[6];
-    private boolean canSilkHarvest;
+    return ret;
+  }
 
-    private int maxItemDrop;
+  public void setMaxItemDrop(int maxItemDrop) {
+    this.maxItemDrop = maxItemDrop;
+  }
 
-    private int minItemDrop;
-    private int eachExtraItemDropChance;
+  public void setMinItemDrop(int minItemDrop) {
+    this.minItemDrop = minItemDrop;
+  }
 
-    protected String dropItem;
+  public void setEachExtraItemDropChance(int eachExtraItemDropChance) {
+    this.eachExtraItemDropChance = eachExtraItemDropChance;
+  }
 
-    private String[] textureNames;
-    protected boolean breaks;
+  public void setDropItem(String dropItem) {
+    this.dropItem = dropItem;
+  }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
-        Block i1 = par1IBlockAccess.getBlock(par2, par3, par4);
-        return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+  public void setOpaque(boolean isOpaque) {
+    this.opaque = isOpaque;
+    this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
+  }
+
+  public void setCanSilkHarvest(boolean canSilkHarvest) {
+    this.canSilkHarvest = canSilkHarvest;
+  }
+
+  @Override
+  public IIcon getIcon(int side, int meta) {
+    if (this.textureName != null) {
+      return blockIcon;
+    } else {
+      int k = meta & 12;
+      int l = meta & 3;
+      return k == 0 && (side == 1 || side == 0) ? this.getTopIcon(l)
+          : (k == 4 && (side == 5 || side == 4) ? this.getTopIcon(l)
+              : (k == 8 && (side == 2 || side == 3) ? this.getTopIcon(l) : this.getSideIcon(l)));
     }
+  }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderBlockPass() {
-        if (!this.opaque)
-            return 1;
-        else
-            return 0;
-    }
+  @SideOnly(Side.CLIENT)
+  protected IIcon getSideIcon(int p_150163_1_) {
+    return icons[5];
+  }
 
-    protected int getItemDropQuantity(World world, int fortune) {
-        int ret = 0;
-        int i;
-        ret = this.minItemDrop;
-        for (i = this.minItemDrop; i < this.maxItemDrop + fortune; i++) {
-            boolean willDrop = world.rand.nextInt(100) < this.eachExtraItemDropChance;
-            if (willDrop)
-                ret++;
-        }
+  @SideOnly(Side.CLIENT)
+  protected IIcon getTopIcon(int p_150161_1_) {
+    return icons[1];
+  }
 
-        return ret;
-    }
+  @Override
+  public boolean renderAsNormalBlock() {
+    return true;
+  }
 
-    public void setMaxItemDrop(int maxItemDrop) {
-        this.maxItemDrop = maxItemDrop;
-    }
+  @Override
+  public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+    ArrayList<ItemStack> drops = new ArrayList();
 
-    public void setMinItemDrop(int minItemDrop) {
-        this.minItemDrop = minItemDrop;
-    }
+    if (dropItem != null) {
+      String[] parser = dropItem.split(":");
+      Item item = GameRegistry.findItem(parser[0], parser[1]);
 
-    public void setEachExtraItemDropChance(int eachExtraItemDropChance) {
-        this.eachExtraItemDropChance = eachExtraItemDropChance;
-    }
+      if (item != null) {
+        int itemQuantity = getItemDropQuantity(world, fortune);
+        int damage;
 
-    public void setDropItem(String dropItem) {
-        this.dropItem = dropItem;
-    }
-
-    public void setOpaque(boolean isOpaque) {
-        this.opaque = isOpaque;
-        this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
-    }
-
-    public void setCanSilkHarvest(boolean canSilkHarvest) {
-        this.canSilkHarvest = canSilkHarvest;
-    }
-
-    @Override
-    public IIcon getIcon(int side, int meta) {
-        if (this.textureName != null) {
-            return blockIcon;
+        if (parser.length > 2) {
+          damage = Integer.parseInt(parser[2]);
         } else {
-            int k = meta & 12;
-            int l = meta & 3;
-            return k == 0 && (side == 1 || side == 0) ? this.getTopIcon(l)
-                    : (k == 4 && (side == 5 || side == 4) ? this.getTopIcon(l)
-                            : (k == 8 && (side == 2 || side == 3) ? this.getTopIcon(l) : this.getSideIcon(l)));
+          damage = 0;
         }
+        drops.add(new ItemStack(item, itemQuantity, damage));
+      }
+    } else {
+      if (!breaks)
+        drops.add(new ItemStack(Item.getItemFromBlock(this)));
     }
 
-    @SideOnly(Side.CLIENT)
-    protected IIcon getSideIcon(int p_150163_1_) {
-        return icons[5];
+    return drops;
+  }
+
+  @Override
+  public String getUnlocalizedName() {
+    return super.getUnlocalizedName();
+  }
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public void registerBlockIcons(IIconRegister iconRegister) {
+    if (textureNames == null) {
+      blockIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName);
+    } else {
+      for (int i = 0; i < icons.length; i++) {
+        icons[i] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + textureNames[i]);
+      }
     }
+  }
 
-    @SideOnly(Side.CLIENT)
-    protected IIcon getTopIcon(int p_150161_1_) {
-        return icons[1];
-    }
+  public void registerBlockTextures(String[] textureNames) {
+    this.textureNames = textureNames;
+  }
 
-    @Override
-    public boolean renderAsNormalBlock() {
-        return true;
-    }
+  @Override
+  public boolean isOpaqueCube() {
+    return this.opaque;
+  }
 
-    @Override
-    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-        ArrayList<ItemStack> drops = new ArrayList();
+  @Override
+  public boolean canSilkHarvest() {
+    return this.canSilkHarvest;
+  }
 
-        if (dropItem != null) {
-            String[] parser = dropItem.split(":");
-            Item item = GameRegistry.findItem(parser[0], parser[1]);
+  public void setBreaks(boolean breaks) {
+    this.breaks = breaks;
+  }
 
-            if (item != null) {
-                int itemQuantity = getItemDropQuantity(world, fortune);
-                int damage;
+  @Override
+  public void setCollides(boolean collides) {
+    // TODO Auto-generated method stub
 
-                if (parser.length > 2) {
-                    damage = Integer.parseInt(parser[2]);
-                } else {
-                    damage = 0;
-                }
-                drops.add(new ItemStack(item, itemQuantity, damage));
-            }
-        } else {
-            if (!breaks)
-                drops.add(new ItemStack(Item.getItemFromBlock(this)));
-        }
-
-        return drops;
-    }
-
-    @Override
-    public String getUnlocalizedName() {
-        return super.getUnlocalizedName();
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        if (textureNames == null) {
-            blockIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName);
-        } else {
-            for (int i = 0; i < icons.length; i++) {
-                icons[i] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + textureNames[i]);
-            }
-        }
-    }
-
-    public void registerBlockTextures(String[] textureNames) {
-        this.textureNames = textureNames;
-    }
-
-    @Override
-    public boolean isOpaqueCube() {
-        return this.opaque;
-    }
-
-    @Override
-    public boolean canSilkHarvest() {
-        return this.canSilkHarvest;
-    }
-
-    public void setBreaks(boolean breaks) {
-        this.breaks = breaks;
-    }
-
-    @Override
-    public void setCollides(boolean collides) {
-        // TODO Auto-generated method stub
-
-    }
+  }
 }

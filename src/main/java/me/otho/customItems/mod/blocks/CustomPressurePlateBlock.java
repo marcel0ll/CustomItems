@@ -11,79 +11,79 @@ import net.minecraft.world.World;
 
 public class CustomPressurePlateBlock extends BlockPressurePlateWeighted implements IMMBlock {
 
-    private IIcon[] icons = new IIcon[6];
-    private String[] textureNames;
-    public int tickRate;
+  private IIcon[] icons = new IIcon[6];
+  private String[] textureNames;
+  public int tickRate;
 
-    public CustomPressurePlateBlock(Material material) {
-        super("iron_block", material, 15);
-        // TODO Auto-generated constructor stub
+  public CustomPressurePlateBlock(Material material) {
+    super("iron_block", material, 15);
+    // TODO Auto-generated constructor stub
+  }
+
+  @Override
+  public int tickRate(World p_149738_1_) {
+    return tickRate;
+  }
+
+  @Override
+  public void setBreaks(boolean dropsItSelf) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public void setCanSilkHarvest(boolean canSilkHarvest) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public void setCollides(boolean collides) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public void registerBlockIcons(IIconRegister iconRegister) {
+    if (textureNames == null) {
+      blockIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName);
+    } else {
+      for (int i = 0; i < icons.length; i++) {
+        icons[i] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + textureNames[i]);
+      }
     }
+  }
 
-    @Override
-    public int tickRate(World p_149738_1_) {
-        return tickRate;
-    }
+  public void registerBlockTextures(String[] textureNames) {
+    this.textureNames = textureNames;
+  }
 
-    @Override
-    public void setBreaks(boolean dropsItSelf) {
-        // TODO Auto-generated method stub
+  @Override
+  public void setOpaque(boolean isOpaque) {
+    // TODO Auto-generated method stub
 
-    }
+  }
 
-    @Override
-    public void setCanSilkHarvest(boolean canSilkHarvest) {
-        // TODO Auto-generated method stub
+  @Override
+  public void setDropItem(String dropId) {
+    // TODO Auto-generated method stub
 
-    }
+  }
 
-    @Override
-    public void setCollides(boolean collides) {
-        // TODO Auto-generated method stub
+  @Override
+  public void setMaxItemDrop(int maxDrop) {
+    // TODO Auto-generated method stub
 
-    }
+  }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        if (textureNames == null) {
-            blockIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName);
-        } else {
-            for (int i = 0; i < icons.length; i++) {
-                icons[i] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + textureNames[i]);
-            }
-        }
-    }
+  @Override
+  public void setMinItemDrop(int minDrop) {
+    // TODO Auto-generated method stub
 
-    public void registerBlockTextures(String[] textureNames) {
-        this.textureNames = textureNames;
-    }
+  }
 
-    @Override
-    public void setOpaque(boolean isOpaque) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setDropItem(String dropId) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setMaxItemDrop(int maxDrop) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setMinItemDrop(int minDrop) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setEachExtraItemDropChance(int dropChance) {
-    }
+  @Override
+  public void setEachExtraItemDropChance(int dropChance) {
+  }
 }

@@ -17,51 +17,51 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
 public class EntityDropHandler {
 
-    protected int getItemDropQuantity(Cfg_drop data) {
-        Random rand = new Random();
-        int ret = data.min;
-        int i;
+  protected int getItemDropQuantity(Cfg_drop data) {
+    Random rand = new Random();
+    int ret = data.min;
+    int i;
 
-        // TODO: looting effect
-        for (i = data.min; i < data.max; i++) {
-            boolean willDrop = rand.nextFloat() * 100 < data.chance;
-            if (willDrop)
-                ret++;
-        }
-
-        return ret;
+    // TODO: looting effect
+    for (i = data.min; i < data.max; i++) {
+      boolean willDrop = rand.nextFloat() * 100 < data.chance;
+      if (willDrop)
+        ret++;
     }
 
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public void onEntityDrop(LivingDropsEvent event) {
-        Random random = new Random();
-        Entity ent = event.entityLiving;
+    return ret;
+  }
 
-        if (EntityList.classToStringMapping.containsKey(event.entityLiving.getClass())) {
-            String entityId = ((String) EntityList.classToStringMapping.get(event.entityLiving.getClass()));
+  @SubscribeEvent(priority = EventPriority.LOWEST)
+  public void onEntityDrop(LivingDropsEvent event) {
+    Random random = new Random();
+    Entity ent = event.entityLiving;
 
-            if (EntityRegistry.drops.containsKey(entityId)) {
-                Cfg_entityDrop entityDrop = EntityRegistry.drops.get(entityId);
+    if (EntityList.classToStringMapping.containsKey(event.entityLiving.getClass())) {
+      String entityId = ((String) EntityList.classToStringMapping.get(event.entityLiving.getClass()));
 
-                if (entityDrop.overrides)
-                    event.drops.clear();
+      if (EntityRegistry.drops.containsKey(entityId)) {
+        Cfg_entityDrop entityDrop = EntityRegistry.drops.get(entityId);
 
-                for (Cfg_drop drop : entityDrop.drops) {
+        if (entityDrop.overrides)
+          event.drops.clear();
 
-                    String[] parser = drop.id.split(":");
-                    String modId = parser[0];
-                    String name = parser[1];
-                    int damage = 0;
-                    if (parser.length > 2)
-                        damage = Integer.parseInt(parser[2]);
+        for (Cfg_drop drop : entityDrop.drops) {
 
-                    Item item = GameRegistry.findItem(modId, name);
-                    int quantity = getItemDropQuantity(drop);
+          String[] parser = drop.id.split(":");
+          String modId = parser[0];
+          String name = parser[1];
+          int damage = 0;
+          if (parser.length > 2)
+            damage = Integer.parseInt(parser[2]);
 
-                    event.drops.add(new EntityItem(event.entity.worldObj, ent.posX, ent.posY, ent.posZ,
-                            new ItemStack(item, quantity, damage)));
-                }
-            }
+          Item item = GameRegistry.findItem(modId, name);
+          int quantity = getItemDropQuantity(drop);
+
+          event.drops.add(new EntityItem(event.entity.worldObj, ent.posX, ent.posY, ent.posZ,
+              new ItemStack(item, quantity, damage)));
         }
+      }
     }
+  }
 }

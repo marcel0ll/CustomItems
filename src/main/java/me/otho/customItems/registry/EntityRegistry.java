@@ -9,37 +9,37 @@ import me.otho.customItems.utility.LogHelper;
 
 public class EntityRegistry {
 
-    public static HashMap<String, Cfg_entityDrop> drops = new HashMap<String, Cfg_entityDrop>();
+  public static HashMap<String, Cfg_entityDrop> drops = new HashMap<String, Cfg_entityDrop>();
 
-    public static boolean registerEntityDrop(Cfg_entityDrop data) {
-        LogHelper.info("Registering Entity drop: " + data.id, 1);
+  public static boolean registerEntityDrop(Cfg_entityDrop data) {
+    LogHelper.info("Registering Entity drop: " + data.id, 1);
 
-        if (drops.containsKey(data.id)) {
+    if (drops.containsKey(data.id)) {
 
-            Cfg_entityDrop drop = drops.get(data.id);
+      Cfg_entityDrop drop = drops.get(data.id);
 
-            drop.drops = ArrayUtils.addAll(drop.drops, data.drops);
+      drop.drops = ArrayUtils.addAll(drop.drops, data.drops);
 
-            drops.put(data.id, drop);
-        } else {
-            drops.put(data.id, data);
-        }
-
-        return true;
+      drops.put(data.id, drop);
+    } else {
+      drops.put(data.id, data);
     }
 
-    public static boolean registerEntityDrop(Cfg_entityDrop[] data) {
-        int i;
+    return true;
+  }
 
-        for (i = 0; i < data.length; i++) {
-            boolean registered = registerEntityDrop(data[i]);
+  public static boolean registerEntityDrop(Cfg_entityDrop[] data) {
+    int i;
 
-            if (!registered) {
-                LogHelper.error("Failed to register: Entity drop " + data[i].id);
-                return false;
-            }
-        }
+    for (i = 0; i < data.length; i++) {
+      boolean registered = registerEntityDrop(data[i]);
 
-        return true;
+      if (!registered) {
+        LogHelper.error("Failed to register: Entity drop " + data[i].id);
+        return false;
+      }
     }
+
+    return true;
+  }
 }

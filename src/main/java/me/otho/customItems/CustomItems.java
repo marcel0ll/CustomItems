@@ -22,59 +22,59 @@ import net.minecraftforge.common.MinecraftForge;
 
 @Mod(dependencies = CustomItems.DEPENDENCIES, modid = CustomItems.MOD_ID, version = CustomItems.VERSION, name = CustomItems.MOD_NAME)
 public class CustomItems {
-    // Mod info
-    public static final String MOD_ID = "customitems";
-    public static final String MOD_NAME = "Meta Mod: Custom Items";
-    public static final String DEPENDENCIES = "";
-    public static final String VERSION = "1.0.10b";
+  // Mod info
+  public static final String MOD_ID = "customitems";
+  public static final String MOD_NAME = "Meta Mod: Custom Items";
+  public static final String DEPENDENCIES = "";
+  public static final String VERSION = "1.0.10b";
 
-    public static final String CLIENT_PROXY_CLASS = "me.otho.customItems.proxy.ClientProxy";
-    public static final String SERVER_PROXY_CLASS = "me.otho.customItems.proxy.ServerProxy";
-    public static final String LOG_FILE_NAME = "MM-CI_log.log";
-    public static final String ID_FILE_NAME = "MM-CI_id.log";
+  public static final String CLIENT_PROXY_CLASS = "me.otho.customItems.proxy.ClientProxy";
+  public static final String SERVER_PROXY_CLASS = "me.otho.customItems.proxy.ServerProxy";
+  public static final String LOG_FILE_NAME = "MM-CI_log.log";
+  public static final String ID_FILE_NAME = "MM-CI_id.log";
 
-    private static File modConfigDirectory;
-    private static File minecraftFolder;
+  private static File modConfigDirectory;
+  private static File minecraftFolder;
 
-    @Instance(CustomItems.MOD_ID)
-    public static CustomItems instance;
+  @Instance(CustomItems.MOD_ID)
+  public static CustomItems instance;
 
-    @SidedProxy(clientSide = CustomItems.CLIENT_PROXY_CLASS, serverSide = CustomItems.SERVER_PROXY_CLASS)
-    public static IProxy proxy;
+  @SidedProxy(clientSide = CustomItems.CLIENT_PROXY_CLASS, serverSide = CustomItems.SERVER_PROXY_CLASS)
+  public static IProxy proxy;
 
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event) throws IOException {
+  @Mod.EventHandler
+  public void preInit(FMLPreInitializationEvent event) throws IOException {
 
-        modConfigDirectory = event.getModConfigurationDirectory();
-        minecraftFolder = modConfigDirectory.getParentFile();
+    modConfigDirectory = event.getModConfigurationDirectory();
+    minecraftFolder = modConfigDirectory.getParentFile();
 
-        String configFolderPath = modConfigDirectory.toString() + File.separator + CustomItems.MOD_ID + File.separator;
+    String configFolderPath = modConfigDirectory.toString() + File.separator + CustomItems.MOD_ID + File.separator;
 
-        ForgeConfig.init(event.getSuggestedConfigurationFile());
-        
-        if (ForgeConfig.logFile) {
-            LogHelper.openLog(minecraftFolder);
-        }
+    ForgeConfig.init(event.getSuggestedConfigurationFile());
 
-        Integration.init();
-
-        customItemsTab.init();
-
-        JsonConfigurationHandler.init(configFolderPath, event.getSourceFile());
-
-        GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 1);
-
-        proxy.registerTileEntities();
-        proxy.Integration_NEI();
-
-        MinecraftForge.EVENT_BUS.register(new EntityDropHandler());
-        MinecraftForge.EVENT_BUS.register(new BlockDropHandler());
+    if (ForgeConfig.logFile) {
+      LogHelper.openLog(minecraftFolder);
     }
 
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) throws IOException {
-        JsonConfigurationHandler.post_init();
+    Integration.init();
 
-        LogHelper.info("End of customization");        
-    }
+    customItemsTab.init();
+
+    JsonConfigurationHandler.init(configFolderPath, event.getSourceFile());
+
+    GameRegistry.registerWorldGenerator(new CustomWorldGenerator(), 1);
+
+    proxy.registerTileEntities();
+    proxy.Integration_NEI();
+
+    MinecraftForge.EVENT_BUS.register(new EntityDropHandler());
+    MinecraftForge.EVENT_BUS.register(new BlockDropHandler());
+  }
+
+  @Mod.EventHandler
+  public void postInit(FMLPostInitializationEvent event) throws IOException {
+    JsonConfigurationHandler.post_init();
+
+    LogHelper.info("End of customization");
+  }
 }

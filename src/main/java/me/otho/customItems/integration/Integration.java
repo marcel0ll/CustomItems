@@ -4,19 +4,19 @@ import cpw.mods.fml.common.Loader;
 
 public class Integration {
 
-    private static boolean NEI;
-    private static boolean ExNihilo;
+  private static boolean NEI;
+  private static boolean ExNihilo;
 
-    public static void init() {
-        NEI = Loader.isModLoaded("NotEnoughItems");
-        ExNihilo = Loader.isModLoaded("exnihilo");
-    }
+  public static void init() {
+    NEI = Loader.isModLoaded("NotEnoughItems");
+    ExNihilo = Loader.isModLoaded("exnihilo");
+  }
 
-    public static boolean isNEI() {
-        return NEI;
-    }
+  public static boolean isNEI() {
+    return NEI;
+  }
 
-    public static boolean isExNihilo() {
-        return ExNihilo;
-    }
+  public static boolean isExNihilo() {
+    return ExNihilo;
+  }
 }

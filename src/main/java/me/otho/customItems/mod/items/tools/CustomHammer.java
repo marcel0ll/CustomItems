@@ -7,13 +7,13 @@ import me.otho.customItems.CustomItems;
 import net.minecraft.client.renderer.texture.IIconRegister;
 
 public class CustomHammer extends ItemHammerBase {
-    public CustomHammer(ToolMaterial material) {
-        super(material);
-    }
+  public CustomHammer(ToolMaterial material) {
+    super(material);
+  }
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerIcons(IIconRegister iconRegister) {
-        itemIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.iconString);
-    }
+  @SideOnly(Side.CLIENT)
+  @Override
+  public void registerIcons(IIconRegister iconRegister) {
+    itemIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.iconString);
+  }
 }

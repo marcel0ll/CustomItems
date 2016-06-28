@@ -7,18 +7,18 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemSword;
 
 public class CustomSword extends ItemSword {
-    public CustomSword(ToolMaterial mat) {
-        super(mat);
-    }
+  public CustomSword(ToolMaterial mat) {
+    super(mat);
+  }
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerIcons(IIconRegister iconRegister) {
-        if (this.iconString == null) {
-            itemIcon = iconRegister
-                    .registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
-        } else {
-            itemIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.iconString);
-        }
+  @SideOnly(Side.CLIENT)
+  @Override
+  public void registerIcons(IIconRegister iconRegister) {
+    if (this.iconString == null) {
+      itemIcon = iconRegister
+          .registerIcon(this.getUnlocalizedName().substring(this.getUnlocalizedName().indexOf(".") + 1));
+    } else {
+      itemIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.iconString);
     }
+  }
 }

@@ -16,149 +16,149 @@ import net.minecraft.world.World;
 
 public class CustomFenceBlock extends BlockFence implements IMMBlock {
 
-    public CustomFenceBlock(String p_i45406_1_, Material p_i45406_2_) {
-        super(p_i45406_1_, p_i45406_2_);
+  public CustomFenceBlock(String p_i45406_1_, Material p_i45406_2_) {
+    super(p_i45406_1_, p_i45406_2_);
+  }
+
+  private IIcon[] icons = new IIcon[6];
+  private boolean canSilkHarvest;
+
+  private int maxItemDrop;
+
+  private int minItemDrop;
+  private int eachExtraItemDropChance;
+
+  protected String dropItem;
+
+  private String[] textureNames;
+  protected boolean breaks;
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public int getRenderBlockPass() {
+    if (!this.opaque)
+      return 1;
+    else
+      return 0;
+  }
+
+  protected int getItemDropQuantity(World world, int fortune) {
+    int ret = 0;
+    int i;
+    ret = this.minItemDrop;
+    for (i = this.minItemDrop; i < this.maxItemDrop + fortune; i++) {
+      boolean willDrop = world.rand.nextInt(100) < this.eachExtraItemDropChance;
+      if (willDrop)
+        ret++;
     }
 
-    private IIcon[] icons = new IIcon[6];
-    private boolean canSilkHarvest;
+    return ret;
+  }
 
-    private int maxItemDrop;
+  public void setMaxItemDrop(int maxItemDrop) {
+    this.maxItemDrop = maxItemDrop;
+  }
 
-    private int minItemDrop;
-    private int eachExtraItemDropChance;
+  public void setMinItemDrop(int minItemDrop) {
+    this.minItemDrop = minItemDrop;
+  }
 
-    protected String dropItem;
+  public void setEachExtraItemDropChance(int eachExtraItemDropChance) {
+    this.eachExtraItemDropChance = eachExtraItemDropChance;
+  }
 
-    private String[] textureNames;
-    protected boolean breaks;
+  public void setDropItem(String dropItem) {
+    this.dropItem = dropItem;
+  }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderBlockPass() {
-        if (!this.opaque)
-            return 1;
-        else
-            return 0;
+  public void setOpaque(boolean isOpaque) {
+    this.opaque = isOpaque;
+    this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
+  }
+
+  public void setCanSilkHarvest(boolean canSilkHarvest) {
+    this.canSilkHarvest = canSilkHarvest;
+  }
+
+  @Override
+  public IIcon getIcon(int side, int meta) {
+    if (this.textureName != null) {
+      return blockIcon;
+    } else {
+      return icons[side];
     }
+  }
 
-    protected int getItemDropQuantity(World world, int fortune) {
-        int ret = 0;
-        int i;
-        ret = this.minItemDrop;
-        for (i = this.minItemDrop; i < this.maxItemDrop + fortune; i++) {
-            boolean willDrop = world.rand.nextInt(100) < this.eachExtraItemDropChance;
-            if (willDrop)
-                ret++;
-        }
+  @Override
+  public boolean renderAsNormalBlock() {
+    return false;
+  }
 
-        return ret;
-    }
+  @Override
+  public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+    ArrayList<ItemStack> drops = new ArrayList();
 
-    public void setMaxItemDrop(int maxItemDrop) {
-        this.maxItemDrop = maxItemDrop;
-    }
+    if (dropItem != null) {
+      String[] parser = dropItem.split(":");
+      Item item = GameRegistry.findItem(parser[0], parser[1]);
 
-    public void setMinItemDrop(int minItemDrop) {
-        this.minItemDrop = minItemDrop;
-    }
+      if (item != null) {
+        int itemQuantity = getItemDropQuantity(world, fortune);
+        int damage;
 
-    public void setEachExtraItemDropChance(int eachExtraItemDropChance) {
-        this.eachExtraItemDropChance = eachExtraItemDropChance;
-    }
-
-    public void setDropItem(String dropItem) {
-        this.dropItem = dropItem;
-    }
-
-    public void setOpaque(boolean isOpaque) {
-        this.opaque = isOpaque;
-        this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
-    }
-
-    public void setCanSilkHarvest(boolean canSilkHarvest) {
-        this.canSilkHarvest = canSilkHarvest;
-    }
-
-    @Override
-    public IIcon getIcon(int side, int meta) {
-        if (this.textureName != null) {
-            return blockIcon;
+        if (parser.length > 2) {
+          damage = Integer.parseInt(parser[2]);
         } else {
-            return icons[side];
+          damage = 0;
         }
+        drops.add(new ItemStack(item, itemQuantity, damage));
+      }
+    } else {
+      if (!breaks)
+        drops.add(new ItemStack(Item.getItemFromBlock(this)));
     }
 
-    @Override
-    public boolean renderAsNormalBlock() {
-        return false;
+    return drops;
+  }
+
+  @Override
+  public String getUnlocalizedName() {
+    return super.getUnlocalizedName();
+  }
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public void registerBlockIcons(IIconRegister iconRegister) {
+    if (textureNames == null) {
+      blockIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName);
+    } else {
+      for (int i = 0; i < icons.length; i++) {
+        icons[i] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + textureNames[i]);
+      }
     }
+  }
 
-    @Override
-    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-        ArrayList<ItemStack> drops = new ArrayList();
+  public void registerBlockTextures(String[] textureNames) {
+    this.textureNames = textureNames;
+  }
 
-        if (dropItem != null) {
-            String[] parser = dropItem.split(":");
-            Item item = GameRegistry.findItem(parser[0], parser[1]);
+  @Override
+  public boolean isOpaqueCube() {
+    return false;
+  }
 
-            if (item != null) {
-                int itemQuantity = getItemDropQuantity(world, fortune);
-                int damage;
+  @Override
+  public boolean canSilkHarvest() {
+    return this.canSilkHarvest;
+  }
 
-                if (parser.length > 2) {
-                    damage = Integer.parseInt(parser[2]);
-                } else {
-                    damage = 0;
-                }
-                drops.add(new ItemStack(item, itemQuantity, damage));
-            }
-        } else {
-            if (!breaks)
-                drops.add(new ItemStack(Item.getItemFromBlock(this)));
-        }
+  public void setBreaks(boolean breaks) {
+    this.breaks = breaks;
+  }
 
-        return drops;
-    }
+  @Override
+  public void setCollides(boolean collides) {
+    // TODO Auto-generated method stub
 
-    @Override
-    public String getUnlocalizedName() {
-        return super.getUnlocalizedName();
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        if (textureNames == null) {
-            blockIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName);
-        } else {
-            for (int i = 0; i < icons.length; i++) {
-                icons[i] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + textureNames[i]);
-            }
-        }
-    }
-
-    public void registerBlockTextures(String[] textureNames) {
-        this.textureNames = textureNames;
-    }
-
-    @Override
-    public boolean isOpaqueCube() {
-        return false;
-    }
-
-    @Override
-    public boolean canSilkHarvest() {
-        return this.canSilkHarvest;
-    }
-
-    public void setBreaks(boolean breaks) {
-        this.breaks = breaks;
-    }
-
-    @Override
-    public void setCollides(boolean collides) {
-        // TODO Auto-generated method stub
-
-    }
+  }
 }

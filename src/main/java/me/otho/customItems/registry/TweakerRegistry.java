@@ -13,153 +13,152 @@ import net.minecraft.item.ItemFood;
 
 public class TweakerRegistry {
 
-    public static boolean changeBlock(Cfg_change_block data) {
-        LogHelper.info("Registering Block Change: " + data.name, 1);
-        
-        String[] nameParsing = data.name.split(":");
-        String modId = nameParsing[0];
-        String name = nameParsing[1];
+  public static boolean changeBlock(Cfg_change_block data) {
+    LogHelper.info("Registering Block Change: " + data.name, 1);
 
-        data.toolClass = Util.validateToolClass(data.toolClass);
+    String[] nameParsing = data.name.split(":");
+    String modId = nameParsing[0];
+    String name = nameParsing[1];
 
-        if (modId != null && name != null) {
-            Block block = GameRegistry.findBlock(modId, name);
+    data.toolClass = Util.validateToolClass(data.toolClass);
 
-            if (data.isOpaque != null)
-                if (data.isOpaque)
-                    block.setLightOpacity(255);
-                else
-                    block.setLightOpacity(0);
+    if (modId != null && name != null) {
+      Block block = GameRegistry.findBlock(modId, name);
 
-            if (data.hardness != null)
-                block.setHardness(data.hardness);
-            if (data.resistance != null)
-                block.setResistance(data.resistance);
-            if (data.lightLevel != null)
-                block.setLightLevel(data.lightLevel);
-            if (data.harvestLevel != null)
-                block.setHarvestLevel(data.toolClass, data.harvestLevel);
-            if (data.slipperiness != null)
-                block.slipperiness = data.slipperiness;
-            if (data.stepSound != null)
-                block.setStepSound(Util.parseSoundType(data.stepSound));
+      if (data.isOpaque != null)
+        if (data.isOpaque)
+          block.setLightOpacity(255);
+        else
+          block.setLightOpacity(0);
 
-            if (data.maxStackSize != null) {
-                Item itemBlock = Item.getItemFromBlock(block);
+      if (data.hardness != null)
+        block.setHardness(data.hardness);
+      if (data.resistance != null)
+        block.setResistance(data.resistance);
+      if (data.lightLevel != null)
+        block.setLightLevel(data.lightLevel);
+      if (data.harvestLevel != null)
+        block.setHarvestLevel(data.toolClass, data.harvestLevel);
+      if (data.slipperiness != null)
+        block.slipperiness = data.slipperiness;
+      if (data.stepSound != null)
+        block.setStepSound(Util.parseSoundType(data.stepSound));
 
-                int size = Util.range(data.maxStackSize, 1, 64);
+      if (data.maxStackSize != null) {
+        Item itemBlock = Item.getItemFromBlock(block);
 
-                itemBlock.setMaxStackSize(size);
-            }
-        }
+        int size = Util.range(data.maxStackSize, 1, 64);
 
-        return true;
+        itemBlock.setMaxStackSize(size);
+      }
     }
 
-    public static boolean changeBlock(Cfg_change_block[] data) {
-        int i;
+    return true;
+  }
 
-        for (i = 0; i < data.length; i++) {
-            boolean tweaked = changeBlock(data[i]);
+  public static boolean changeBlock(Cfg_change_block[] data) {
+    int i;
 
-            if (!tweaked) {
-                LogHelper.error("Failed to tweak: Block " + i);
-                return false;
-            }
-        }
+    for (i = 0; i < data.length; i++) {
+      boolean tweaked = changeBlock(data[i]);
 
-        return true;
+      if (!tweaked) {
+        LogHelper.error("Failed to tweak: Block " + i);
+        return false;
+      }
     }
 
-    public static boolean changeItem(Cfg_change_item data) {
-        LogHelper.info("Registering Item Change: " + data.name, 1);
-        
-        String[] nameParsing = data.name.split(":");
-        String modId = nameParsing[0];
-        String name = nameParsing[1];
+    return true;
+  }
 
-        if (modId != null && name != null) {
-            Item item = GameRegistry.findItem(modId, name);
+  public static boolean changeItem(Cfg_change_item data) {
+    LogHelper.info("Registering Item Change: " + data.name, 1);
 
-            if (data.maxStackSize != null) {
-                int size = Util.range(data.maxStackSize, 1, 64);
+    String[] nameParsing = data.name.split(":");
+    String modId = nameParsing[0];
+    String name = nameParsing[1];
 
-                item.setMaxStackSize(size);
-            }
-        }
+    if (modId != null && name != null) {
+      Item item = GameRegistry.findItem(modId, name);
 
-        return true;
+      if (data.maxStackSize != null) {
+        int size = Util.range(data.maxStackSize, 1, 64);
+
+        item.setMaxStackSize(size);
+      }
     }
 
-    public static boolean changeItem(Cfg_change_item[] data) {
-        int i;
+    return true;
+  }
 
-        for (i = 0; i < data.length; i++) {
-            boolean tweaked = changeItem(data[i]);
+  public static boolean changeItem(Cfg_change_item[] data) {
+    int i;
 
-            if (!tweaked) {
-                LogHelper.error("Failed to tweak: Item " + i);
-                return false;
-            }
-        }
+    for (i = 0; i < data.length; i++) {
+      boolean tweaked = changeItem(data[i]);
 
-        return true;
+      if (!tweaked) {
+        LogHelper.error("Failed to tweak: Item " + i);
+        return false;
+      }
     }
 
-    private static boolean changeFood(Cfg_change_food data) {
-        LogHelper.info("Registering Food Change: " + data.name, 1);
-        
-        String[] nameParsing = data.name.split(":");
-        String modId = nameParsing[0];
-        String name = nameParsing[1];
+    return true;
+  }
 
-        ItemFood food = (ItemFood) GameRegistry.findItem(modId, name);
+  private static boolean changeFood(Cfg_change_food data) {
+    LogHelper.info("Registering Food Change: " + data.name, 1);
 
-        // Dev
-        ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.healAmount, "healAmount");
-        ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.saturationModifier,
-                "saturationModifier");
-        ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.isWolfFood, "isWolfsFavoriteMeat");
+    String[] nameParsing = data.name.split(":");
+    String modId = nameParsing[0];
+    String name = nameParsing[1];
 
-        // Release
-        /*
-         * ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food,
-         * data.healAmount, "field_77853_b");
-         * ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food,
-         * data.saturationModifier, "field_77854_c");
-         * ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food,
-         * data.isWolfFood, "field_77856_bY");
-         */
+    ItemFood food = (ItemFood) GameRegistry.findItem(modId, name);
 
-        if (data.alwaysEdible)
-            food.setAlwaysEdible();
+    // Dev
+    ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.healAmount, "healAmount");
+    ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.saturationModifier, "saturationModifier");
+    ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food, data.isWolfFood, "isWolfsFavoriteMeat");
 
-        if (data.potionEffect != null) {
-            food.setPotionEffect(Util.potionEffectId(data.potionEffect.effect), data.potionEffect.potionDuration,
-                    data.potionEffect.potionAmplifier, data.potionEffect.potionEffectProbability);
-        }
+    // Release
+    /*
+     * ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food,
+     * data.healAmount, "field_77853_b");
+     * ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food,
+     * data.saturationModifier, "field_77854_c");
+     * ObfuscationReflectionHelper.setPrivateValue(ItemFood.class, food,
+     * data.isWolfFood, "field_77856_bY");
+     */
 
-        if (data.maxStackSize != null) {
-            int size = Util.range(data.maxStackSize, 1, 64);
+    if (data.alwaysEdible)
+      food.setAlwaysEdible();
 
-            food.setMaxStackSize(size);
-        }
-
-        return true;
+    if (data.potionEffect != null) {
+      food.setPotionEffect(Util.potionEffectId(data.potionEffect.effect), data.potionEffect.potionDuration,
+          data.potionEffect.potionAmplifier, data.potionEffect.potionEffectProbability);
     }
 
-    public static boolean changeFood(Cfg_change_food[] data) {
-        int i;
+    if (data.maxStackSize != null) {
+      int size = Util.range(data.maxStackSize, 1, 64);
 
-        for (i = 0; i < data.length; i++) {
-            boolean tweaked = changeFood(data[i]);
-
-            if (!tweaked) {
-                LogHelper.error("Failed to tweak: food " + i);
-                return false;
-            }
-        }
-
-        return true;
+      food.setMaxStackSize(size);
     }
+
+    return true;
+  }
+
+  public static boolean changeFood(Cfg_change_food[] data) {
+    int i;
+
+    for (i = 0; i < data.length; i++) {
+      boolean tweaked = changeFood(data[i]);
+
+      if (!tweaked) {
+        LogHelper.error("Failed to tweak: food " + i);
+        return false;
+      }
+    }
+
+    return true;
+  }
 }

@@ -10,18 +10,18 @@ import net.minecraft.item.ItemSeeds;
 
 public class CustomSeed extends ItemSeeds {
 
-    public CustomSeed(Block plant) {
-        super(plant, Blocks.farmland);
-    }
+  public CustomSeed(Block plant) {
+    super(plant, Blocks.farmland);
+  }
 
-    @Override
-    public String getUnlocalizedName() {
-        return super.getUnlocalizedName();
-    }
+  @Override
+  public String getUnlocalizedName() {
+    return super.getUnlocalizedName();
+  }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister) {
-        itemIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.iconString);
-    }
+  @Override
+  @SideOnly(Side.CLIENT)
+  public void registerIcons(IIconRegister iconRegister) {
+    itemIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.iconString);
+  }
 }

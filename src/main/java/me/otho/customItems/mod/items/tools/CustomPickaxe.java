@@ -7,13 +7,13 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemPickaxe;
 
 public class CustomPickaxe extends ItemPickaxe {
-    public CustomPickaxe(ToolMaterial mat) {
-        super(mat);
-    }
+  public CustomPickaxe(ToolMaterial mat) {
+    super(mat);
+  }
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerIcons(IIconRegister iconRegister) {
-        itemIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.iconString);
-    }
+  @SideOnly(Side.CLIENT)
+  @Override
+  public void registerIcons(IIconRegister iconRegister) {
+    itemIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.iconString);
+  }
 }

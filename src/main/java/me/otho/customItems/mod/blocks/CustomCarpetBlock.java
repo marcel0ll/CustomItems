@@ -14,111 +14,111 @@ import net.minecraft.util.IIcon;
 
 public class CustomCarpetBlock extends BlockCarpet implements IMMBlock {
 
-    public CustomCarpetBlock() {
-        this.setCreativeTab(null);
+  public CustomCarpetBlock() {
+    this.setCreativeTab(null);
+  }
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {
+    p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
+  }
+
+  private IIcon[] icons = new IIcon[6];
+  private boolean canSilkHarvest;
+
+  private int maxItemDrop;
+
+  private int minItemDrop;
+  private int eachExtraItemDropChance;
+
+  protected String dropItem;
+
+  private String[] textureNames;
+  protected boolean breaks;
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public int getRenderBlockPass() {
+    return 0;
+  }
+
+  public void setCanSilkHarvest(boolean canSilkHarvest) {
+    this.canSilkHarvest = canSilkHarvest;
+  }
+
+  @Override
+  public IIcon getIcon(int side, int meta) {
+    if (this.textureName != null) {
+      return blockIcon;
+    } else {
+      return icons[side];
     }
+  }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {
-        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
+  @Override
+  public String getUnlocalizedName() {
+    return super.getUnlocalizedName();
+  }
+
+  @Override
+  @SideOnly(Side.CLIENT)
+  public void registerBlockIcons(IIconRegister iconRegister) {
+    if (textureNames == null) {
+      blockIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName);
+    } else {
+      for (int i = 0; i < icons.length; i++) {
+        icons[i] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + textureNames[i]);
+      }
     }
+  }
 
-    private IIcon[] icons = new IIcon[6];
-    private boolean canSilkHarvest;
+  public void registerBlockTextures(String[] textureNames) {
+    this.textureNames = textureNames;
+  }
 
-    private int maxItemDrop;
+  @Override
+  public boolean canSilkHarvest() {
+    return this.canSilkHarvest;
+  }
 
-    private int minItemDrop;
-    private int eachExtraItemDropChance;
+  public void setBreaks(boolean breaks) {
+    this.breaks = breaks;
+  }
 
-    protected String dropItem;
+  @Override
+  public void setCollides(boolean collides) {
+    // TODO Auto-generated method stub
 
-    private String[] textureNames;
-    protected boolean breaks;
+  }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int getRenderBlockPass() {
-        return 0;
-    }
+  @Override
+  public void setOpaque(boolean isOpaque) {
+    // TODO Auto-generated method stub
 
-    public void setCanSilkHarvest(boolean canSilkHarvest) {
-        this.canSilkHarvest = canSilkHarvest;
-    }
+  }
 
-    @Override
-    public IIcon getIcon(int side, int meta) {
-        if (this.textureName != null) {
-            return blockIcon;
-        } else {
-            return icons[side];
-        }
-    }
+  @Override
+  public void setDropItem(String dropId) {
+    // TODO Auto-generated method stub
 
-    @Override
-    public String getUnlocalizedName() {
-        return super.getUnlocalizedName();
-    }
+  }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        if (textureNames == null) {
-            blockIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.textureName);
-        } else {
-            for (int i = 0; i < icons.length; i++) {
-                icons[i] = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + textureNames[i]);
-            }
-        }
-    }
+  @Override
+  public void setMaxItemDrop(int maxDrop) {
+    // TODO Auto-generated method stub
 
-    public void registerBlockTextures(String[] textureNames) {
-        this.textureNames = textureNames;
-    }
+  }
 
-    @Override
-    public boolean canSilkHarvest() {
-        return this.canSilkHarvest;
-    }
+  @Override
+  public void setMinItemDrop(int minDrop) {
+    // TODO Auto-generated method stub
 
-    public void setBreaks(boolean breaks) {
-        this.breaks = breaks;
-    }
+  }
 
-    @Override
-    public void setCollides(boolean collides) {
-        // TODO Auto-generated method stub
+  @Override
+  public void setEachExtraItemDropChance(int dropChance) {
+    // TODO Auto-generated method stub
 
-    }
-
-    @Override
-    public void setOpaque(boolean isOpaque) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setDropItem(String dropId) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setMaxItemDrop(int maxDrop) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setMinItemDrop(int minDrop) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public void setEachExtraItemDropChance(int dropChance) {
-        // TODO Auto-generated method stub
-
-    }
+  }
 }

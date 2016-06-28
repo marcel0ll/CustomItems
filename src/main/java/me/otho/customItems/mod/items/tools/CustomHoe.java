@@ -7,13 +7,13 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemHoe;
 
 public class CustomHoe extends ItemHoe {
-    public CustomHoe(ToolMaterial mat) {
-        super(mat);
-    }
+  public CustomHoe(ToolMaterial mat) {
+    super(mat);
+  }
 
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerIcons(IIconRegister iconRegister) {
-        itemIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.iconString);
-    }
+  @SideOnly(Side.CLIENT)
+  @Override
+  public void registerIcons(IIconRegister iconRegister) {
+    itemIcon = iconRegister.registerIcon(CustomItems.MOD_ID.toLowerCase() + ":" + this.iconString);
+  }
 }

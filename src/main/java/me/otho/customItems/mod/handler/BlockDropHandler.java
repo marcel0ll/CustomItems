@@ -17,59 +17,59 @@ import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
 public class BlockDropHandler {
 
-    protected int getItemDropQuantity(Cfg_drop data) {
-        Random rand = new Random();
-        int ret = data.min;
-        int i;
+  protected int getItemDropQuantity(Cfg_drop data) {
+    Random rand = new Random();
+    int ret = data.min;
+    int i;
 
-        // TODO: fortune effect
-        for (i = data.min; i < data.max; i++) {
-            boolean willDrop = rand.nextFloat() * 100 < data.chance;
-            if (willDrop)
-                ret++;
-        }
-
-        return ret;
+    // TODO: fortune effect
+    for (i = data.min; i < data.max; i++) {
+      boolean willDrop = rand.nextFloat() * 100 < data.chance;
+      if (willDrop)
+        ret++;
     }
 
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public void onBlockDrop(HarvestDropsEvent event) {
-        Random random = new Random();
-        Block block = event.block;
+    return ret;
+  }
 
-        // LogHelper.info("block before break: " + Block.getIdFromBlock(block));
-        String uniqueIdentifier = GameData.getBlockRegistry().getNameForObject(block);
-        if (uniqueIdentifier != null) {
-            // LogHelper.info("block uid: "+
-            // GameData.getBlockRegistry().getNameForObject(block));
-            String blockId = uniqueIdentifier + ":" + event.blockMetadata;
-            // LogHelper.info("Latest block breaked id: " + blockId);
-            if (BlockRegistry.drops.containsKey(blockId)) {
-                Cfg_blockDrop blockDrop = BlockRegistry.drops.get(blockId);
+  @SubscribeEvent(priority = EventPriority.LOWEST)
+  public void onBlockDrop(HarvestDropsEvent event) {
+    Random random = new Random();
+    Block block = event.block;
 
-                //
-                if (blockDrop.overrides)
-                    event.drops.clear();
+    // LogHelper.info("block before break: " + Block.getIdFromBlock(block));
+    String uniqueIdentifier = GameData.getBlockRegistry().getNameForObject(block);
+    if (uniqueIdentifier != null) {
+      // LogHelper.info("block uid: "+
+      // GameData.getBlockRegistry().getNameForObject(block));
+      String blockId = uniqueIdentifier + ":" + event.blockMetadata;
+      // LogHelper.info("Latest block breaked id: " + blockId);
+      if (BlockRegistry.drops.containsKey(blockId)) {
+        Cfg_blockDrop blockDrop = BlockRegistry.drops.get(blockId);
 
-                for (Cfg_drop drop : blockDrop.drops) {
+        //
+        if (blockDrop.overrides)
+          event.drops.clear();
 
-                    String[] parser = drop.id.split(":");
-                    String modId = parser[0];
-                    String name = parser[1];
-                    int damage = 0;
-                    if (parser.length > 2)
-                        damage = Integer.parseInt(parser[2]);
+        for (Cfg_drop drop : blockDrop.drops) {
 
-                    Item item = GameRegistry.findItem(modId, name);
-                    int quantity = getItemDropQuantity(drop);
+          String[] parser = drop.id.split(":");
+          String modId = parser[0];
+          String name = parser[1];
+          int damage = 0;
+          if (parser.length > 2)
+            damage = Integer.parseInt(parser[2]);
 
-                    event.drops.add(new ItemStack(item, quantity, damage));
-                }
-            }
-        } else {
-            LogHelper.warn("Block " + Block.getIdFromBlock(block) + " is missing in registry!");
+          Item item = GameRegistry.findItem(modId, name);
+          int quantity = getItemDropQuantity(drop);
+
+          event.drops.add(new ItemStack(item, quantity, damage));
         }
-
+      }
+    } else {
+      LogHelper.warn("Block " + Block.getIdFromBlock(block) + " is missing in registry!");
     }
+
+  }
 
 }
