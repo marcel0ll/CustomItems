@@ -61,9 +61,9 @@ public class CustomFood extends ItemFood {
           double z = p_77654_3_.posZ;
 
           float f = 0.7F;
-          double d0 = (double) (p_77654_2_.rand.nextFloat() * f) + (double) (1.0F - f) * 0.5D;
-          double d1 = (double) (p_77654_2_.rand.nextFloat() * f) + (double) (1.0F - f) * 0.5D;
-          double d2 = (double) (p_77654_2_.rand.nextFloat() * f) + (double) (1.0F - f) * 0.5D;
+          double d0 = p_77654_2_.rand.nextFloat() * f + (1.0F - f) * 0.5D;
+          double d1 = p_77654_2_.rand.nextFloat() * f + (1.0F - f) * 0.5D;
+          double d2 = p_77654_2_.rand.nextFloat() * f + (1.0F - f) * 0.5D;
           EntityItem entityitem = new EntityItem(p_77654_2_, x, y, z, dropStack.copy());
           entityitem.delayBeforeCanPickup = 10;
           p_77654_2_.spawnEntityInWorld(entityitem);

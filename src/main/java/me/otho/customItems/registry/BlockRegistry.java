@@ -3,7 +3,6 @@ package me.otho.customItems.registry;
 import java.util.HashMap;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.logging.log4j.Level;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -18,9 +17,7 @@ import me.otho.customItems.mod.blocks.CustomButtonBlock;
 import me.otho.customItems.mod.blocks.CustomCarpetBlock;
 import me.otho.customItems.mod.blocks.CustomCrop;
 import me.otho.customItems.mod.blocks.CustomCrossedBlock;
-import me.otho.customItems.mod.blocks.CustomDoorBlock;
 import me.otho.customItems.mod.blocks.CustomFallingBlock;
-import me.otho.customItems.mod.blocks.CustomFenceBlock;
 import me.otho.customItems.mod.blocks.CustomFenceBlock;
 import me.otho.customItems.mod.blocks.CustomFlowerBlock;
 import me.otho.customItems.mod.blocks.CustomFluidBlock;
@@ -502,8 +499,9 @@ public class BlockRegistry {
     data.lightLevel = Util.range(data.lightLevel, 0, 1);
 
     block.setLightLevel(data.lightLevel);
-    if (data.toolClass != null)
+    if (data.toolClass != null) {
       block.setHarvestLevel(data.toolClass, data.harvestLevel);
+    }
     if (data.multipleTextures == null) {
       block.setBlockTextureName(data.textureName);
     } else {

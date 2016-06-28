@@ -46,7 +46,7 @@ public class CustomBlock extends Block implements IMMBlock {
     if (i1 instanceof CustomSlabBlock) {
       return super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
     } else {
-      return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+      return i1 == this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
     }
 
   }
@@ -54,10 +54,11 @@ public class CustomBlock extends Block implements IMMBlock {
   @Override
   @SideOnly(Side.CLIENT)
   public int getRenderBlockPass() {
-    if (!this.opaque)
+    if (!this.opaque) {
       return 1;
-    else
+    } else {
       return 0;
+    }
   }
 
   protected int getItemDropQuantity(World world, int fortune) {
@@ -66,38 +67,46 @@ public class CustomBlock extends Block implements IMMBlock {
     ret = this.minItemDrop;
     for (i = this.minItemDrop; i < this.maxItemDrop + fortune; i++) {
       boolean willDrop = world.rand.nextInt(100) < this.eachExtraItemDropChance;
-      if (willDrop)
+      if (willDrop) {
         ret++;
+      }
     }
 
     return ret;
   }
 
+  @Override
   public void setMaxItemDrop(int maxItemDrop) {
     this.maxItemDrop = maxItemDrop;
   }
 
+  @Override
   public void setMinItemDrop(int minItemDrop) {
     this.minItemDrop = minItemDrop;
   }
 
+  @Override
   public void setEachExtraItemDropChance(int eachExtraItemDropChance) {
     this.eachExtraItemDropChance = eachExtraItemDropChance;
   }
 
+  @Override
   public void setDropItem(String dropItem) {
     this.dropItem = dropItem;
   }
 
+  @Override
   public void setOpaque(boolean isOpaque) {
     this.opaque = isOpaque;
     this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
   }
 
+  @Override
   public void setCanSilkHarvest(boolean canSilkHarvest) {
     this.canSilkHarvest = canSilkHarvest;
   }
 
+  @Override
   public void setCollides(boolean collides) {
     this.collides = collides;
   }
@@ -142,8 +151,9 @@ public class CustomBlock extends Block implements IMMBlock {
         drops.add(new ItemStack(item, itemQuantity, damage));
       }
     } else {
-      if (!breaks)
+      if (!breaks) {
         drops.add(new ItemStack(Item.getItemFromBlock(this)));
+      }
     }
 
     return drops;
@@ -166,6 +176,7 @@ public class CustomBlock extends Block implements IMMBlock {
     }
   }
 
+  @Override
   public void registerBlockTextures(String[] textureNames) {
     this.textureNames = textureNames;
   }
@@ -180,6 +191,7 @@ public class CustomBlock extends Block implements IMMBlock {
     return this.canSilkHarvest;
   }
 
+  @Override
   public void setBreaks(boolean breaks) {
     this.breaks = breaks;
   }

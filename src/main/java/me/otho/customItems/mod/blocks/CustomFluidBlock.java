@@ -25,10 +25,11 @@ public class CustomFluidBlock extends BlockFluidClassic {
   @Override
   @SideOnly(Side.CLIENT)
   public IIcon getIcon(int side, int meta) {
-    if (side == 0 || side == 1)
+    if (side == 0 || side == 1) {
       return this.stillIcon;
-    else
+    } else {
       return this.flowingIcon;
+    }
   }
 
   @Override
@@ -55,10 +56,12 @@ public class CustomFluidBlock extends BlockFluidClassic {
 
   @Override
   public BlockFluidBase setQuantaPerBlock(int quantaPerBlock) {
-    if (quantaPerBlock > 16)
+    if (quantaPerBlock > 16) {
       quantaPerBlock = 16;
-    if (quantaPerBlock < 1)
+    }
+    if (quantaPerBlock < 1) {
       quantaPerBlock = 1;
+    }
 
     this.quantaPerBlock = quantaPerBlock;
     this.quantaPerBlockFloat = quantaPerBlock;

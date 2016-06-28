@@ -28,6 +28,7 @@ public class CustomSlabItem extends ItemBlock {
   /**
    * Gets an icon index based on an item's damage value
    */
+  @Override
   @SideOnly(Side.CLIENT)
   public IIcon getIconFromDamage(int p_77617_1_) {
     return Block.getBlockFromItem(this).getIcon(2, p_77617_1_);
@@ -36,6 +37,7 @@ public class CustomSlabItem extends ItemBlock {
   /**
    * Returns the metadata of the block which this Item (ItemBlock) can place
    */
+  @Override
   public int getMetadata(int p_77647_1_) {
     return p_77647_1_;
   }
@@ -45,6 +47,7 @@ public class CustomSlabItem extends ItemBlock {
    * clicking, he will have one of those. Return True if something happen and
    * false if it don't. This is for ITEMS, not BLOCKS
    */
+  @Override
   public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_,
       int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
     if (this.field_150948_b) {
@@ -65,9 +68,8 @@ public class CustomSlabItem extends ItemBlock {
         if (p_77648_3_.checkNoEntityCollision(
             this.field_150947_d.getCollisionBoundingBoxFromPool(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_))
             && p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, this.field_150947_d, j1, 3)) {
-          p_77648_3_.playSoundEffect((double) ((float) p_77648_4_ + 0.5F), (double) ((float) p_77648_5_ + 0.5F),
-              (double) ((float) p_77648_6_ + 0.5F), this.field_150947_d.stepSound.func_150496_b(),
-              (this.field_150947_d.stepSound.getVolume() + 1.0F) / 2.0F,
+          p_77648_3_.playSoundEffect(p_77648_4_ + 0.5F, p_77648_5_ + 0.5F, p_77648_6_ + 0.5F,
+              this.field_150947_d.stepSound.func_150496_b(), (this.field_150947_d.stepSound.getVolume() + 1.0F) / 2.0F,
               this.field_150947_d.stepSound.getPitch() * 0.8F);
           --p_77648_1_.stackSize;
         }
@@ -82,6 +84,7 @@ public class CustomSlabItem extends ItemBlock {
     }
   }
 
+  @Override
   @SideOnly(Side.CLIENT)
   public boolean func_150936_a(World p_150936_1_, int p_150936_2_, int p_150936_3_, int p_150936_4_, int p_150936_5_,
       EntityPlayer p_150936_6_, ItemStack p_150936_7_) {
@@ -163,9 +166,9 @@ public class CustomSlabItem extends ItemBlock {
       if (p_150946_3_.checkNoEntityCollision(
           this.field_150947_d.getCollisionBoundingBoxFromPool(p_150946_3_, p_150946_4_, p_150946_5_, p_150946_6_))
           && p_150946_3_.setBlock(p_150946_4_, p_150946_5_, p_150946_6_, this.field_150947_d, j1, 3)) {
-        p_150946_3_.playSoundEffect((double) ((float) p_150946_4_ + 0.5F), (double) ((float) p_150946_5_ + 0.5F),
-            (double) ((float) p_150946_6_ + 0.5F), this.field_150947_d.stepSound.func_150496_b(),
-            (this.field_150947_d.stepSound.getVolume() + 1.0F) / 2.0F, this.field_150947_d.stepSound.getPitch() * 0.8F);
+        p_150946_3_.playSoundEffect(p_150946_4_ + 0.5F, p_150946_5_ + 0.5F, p_150946_6_ + 0.5F,
+            this.field_150947_d.stepSound.func_150496_b(), (this.field_150947_d.stepSound.getVolume() + 1.0F) / 2.0F,
+            this.field_150947_d.stepSound.getPitch() * 0.8F);
         --p_150946_1_.stackSize;
       }
 

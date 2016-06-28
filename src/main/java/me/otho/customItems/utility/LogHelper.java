@@ -35,8 +35,9 @@ public class LogHelper {
   public static void log(Level logLevel, Object object, int tab) {
     String spaces = "";
     int i;
-    for (i = 0; i < tab; i++)
+    for (i = 0; i < tab; i++) {
       spaces = spaces.concat("  ");
+    }
 
     log(logLevel, spaces.concat(object.toString()));
   }

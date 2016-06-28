@@ -43,6 +43,7 @@ public class CustomCarpetBlock extends BlockCarpet implements IMMBlock {
     return 0;
   }
 
+  @Override
   public void setCanSilkHarvest(boolean canSilkHarvest) {
     this.canSilkHarvest = canSilkHarvest;
   }
@@ -73,6 +74,7 @@ public class CustomCarpetBlock extends BlockCarpet implements IMMBlock {
     }
   }
 
+  @Override
   public void registerBlockTextures(String[] textureNames) {
     this.textureNames = textureNames;
   }
@@ -82,6 +84,7 @@ public class CustomCarpetBlock extends BlockCarpet implements IMMBlock {
     return this.canSilkHarvest;
   }
 
+  @Override
   public void setBreaks(boolean breaks) {
     this.breaks = breaks;
   }

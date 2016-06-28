@@ -35,23 +35,26 @@ public class CustomWorldGenerator implements IWorldGenerator {
           String[] parser = oreInfo.blockToSpawn.split(":");
           String modid = parser[0];
           String block = parser[1];
-          if (parser.length > 2)
+          if (parser.length > 2) {
             toSpawnMetadata = Integer.parseInt(parser[2]);
+          }
 
-          Block oreBlock = (Block) GameRegistry.findBlock(modid, block);
+          Block oreBlock = GameRegistry.findBlock(modid, block);
 
           parser = oreInfo.blockToReplace.split(":");
           modid = parser[0];
           block = parser[1];
-          if (parser.length > 2)
+          if (parser.length > 2) {
             toRelaceMetadata = Integer.parseInt(parser[2]);
+          }
 
-          Block toReplace = (Block) GameRegistry.findBlock(modid, block);
+          Block toReplace = GameRegistry.findBlock(modid, block);
 
           BiomeGenBase biome = world.provider.getBiomeGenForCoords(chunkX * 16, chunkZ * 16);
-          if (oreInfo.biomeId == null || Arrays.asList(oreInfo.biomeId).contains(biome.biomeID))
+          if (oreInfo.biomeId == null || Arrays.asList(oreInfo.biomeId).contains(biome.biomeID)) {
             this.addOreSpawn(oreBlock, toSpawnMetadata, toReplace, world, random, chunkX * 16, chunkZ * 16,
                 oreInfo.minVeinSize, oreInfo.maxVeinSize, oreInfo.chancesToSpawn, oreInfo.minY, oreInfo.maxY);
+          }
         }
       }
     }

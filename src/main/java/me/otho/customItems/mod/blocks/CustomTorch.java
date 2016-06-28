@@ -19,6 +19,7 @@ public class CustomTorch extends BlockTorch implements IMMBlock {
     this.setCreativeTab(null);
   }
 
+  @Override
   public int getRenderBlockPass() {
     return 1;
   }
@@ -42,29 +43,35 @@ public class CustomTorch extends BlockTorch implements IMMBlock {
     ret = this.minItemDrop;
     for (i = this.minItemDrop; i < this.maxItemDrop + fortune; i++) {
       boolean willDrop = world.rand.nextInt(100) < this.eachExtraItemDropChance;
-      if (willDrop)
+      if (willDrop) {
         ret++;
+      }
     }
 
     return ret;
   }
 
+  @Override
   public void setMaxItemDrop(int maxItemDrop) {
     this.maxItemDrop = maxItemDrop;
   }
 
+  @Override
   public void setMinItemDrop(int minItemDrop) {
     this.minItemDrop = minItemDrop;
   }
 
+  @Override
   public void setEachExtraItemDropChance(int eachExtraItemDropChance) {
     this.eachExtraItemDropChance = eachExtraItemDropChance;
   }
 
+  @Override
   public void setDropItem(String dropItem) {
     this.dropItem = dropItem;
   }
 
+  @Override
   public void setCanSilkHarvest(boolean canSilkHarvest) {
     this.canSilkHarvest = canSilkHarvest;
   }
@@ -98,8 +105,9 @@ public class CustomTorch extends BlockTorch implements IMMBlock {
         drops.add(new ItemStack(item, itemQuantity, damage));
       }
     } else {
-      if (!breaks)
+      if (!breaks) {
         drops.add(new ItemStack(Item.getItemFromBlock(this)));
+      }
     }
 
     return drops;
@@ -122,6 +130,7 @@ public class CustomTorch extends BlockTorch implements IMMBlock {
     }
   }
 
+  @Override
   public void registerBlockTextures(String[] textureNames) {
     this.textureNames = textureNames;
   }
@@ -136,6 +145,7 @@ public class CustomTorch extends BlockTorch implements IMMBlock {
     return this.canSilkHarvest;
   }
 
+  @Override
   public void setBreaks(boolean breaks) {
     this.breaks = breaks;
   }

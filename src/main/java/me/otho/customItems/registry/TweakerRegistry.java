@@ -25,24 +25,32 @@ public class TweakerRegistry {
     if (modId != null && name != null) {
       Block block = GameRegistry.findBlock(modId, name);
 
-      if (data.isOpaque != null)
-        if (data.isOpaque)
+      if (data.isOpaque != null) {
+        if (data.isOpaque) {
           block.setLightOpacity(255);
-        else
+        } else {
           block.setLightOpacity(0);
+        }
+      }
 
-      if (data.hardness != null)
+      if (data.hardness != null) {
         block.setHardness(data.hardness);
-      if (data.resistance != null)
+      }
+      if (data.resistance != null) {
         block.setResistance(data.resistance);
-      if (data.lightLevel != null)
+      }
+      if (data.lightLevel != null) {
         block.setLightLevel(data.lightLevel);
-      if (data.harvestLevel != null)
+      }
+      if (data.harvestLevel != null) {
         block.setHarvestLevel(data.toolClass, data.harvestLevel);
-      if (data.slipperiness != null)
+      }
+      if (data.slipperiness != null) {
         block.slipperiness = data.slipperiness;
-      if (data.stepSound != null)
+      }
+      if (data.stepSound != null) {
         block.setStepSound(Util.parseSoundType(data.stepSound));
+      }
 
       if (data.maxStackSize != null) {
         Item itemBlock = Item.getItemFromBlock(block);
@@ -130,8 +138,9 @@ public class TweakerRegistry {
      * data.isWolfFood, "field_77856_bY");
      */
 
-    if (data.alwaysEdible)
+    if (data.alwaysEdible) {
       food.setAlwaysEdible();
+    }
 
     if (data.potionEffect != null) {
       food.setPotionEffect(Util.potionEffectId(data.potionEffect.effect), data.potionEffect.potionDuration,

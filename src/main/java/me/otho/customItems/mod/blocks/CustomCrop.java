@@ -56,11 +56,13 @@ public class CustomCrop extends BlockCrops {
     int i;
     for (i = 0; i < this.maxFruitDrop + fortune; i++) {
       boolean willDrop = world.rand.nextInt(100) < this.eachExtraFruitDropChance;
-      if (willDrop)
+      if (willDrop) {
         ret++;
+      }
     }
-    if (ret < this.minFruitDrop)
+    if (ret < this.minFruitDrop) {
       ret = this.minFruitDrop;
+    }
 
     return ret;
   }
@@ -72,8 +74,9 @@ public class CustomCrop extends BlockCrops {
 
     for (i = this.minSeedDrop; i < this.maxSeedDrop + fortune; i++) {
       boolean willDrop = world.rand.nextInt(100) < this.eachExtraSeedDropChance;
-      if (willDrop)
+      if (willDrop) {
         ret++;
+      }
     }
 
     return ret;
@@ -103,11 +106,14 @@ public class CustomCrop extends BlockCrops {
         damage = 0;
       }
 
-      if (fruitQuantity > 0)
+      if (fruitQuantity > 0) {
         drops.add(new ItemStack(item, fruitQuantity, damage));
-      if (this.dropSeedWhenMature)
-        if (seedQuantity > 0)
+      }
+      if (this.dropSeedWhenMature) {
+        if (seedQuantity > 0) {
           drops.add(new ItemStack(this.seed, seedQuantity, dropFruitDamage));
+        }
+      }
     }
 
     return drops;
@@ -130,20 +136,24 @@ public class CustomCrop extends BlockCrops {
   }
 
   public void setFruitQuantityDropRange(int min, int max) {
-    if (min <= 0)
+    if (min <= 0) {
       min = 0;
-    if (max < min)
+    }
+    if (max < min) {
       max = min;
+    }
 
     this.maxFruitDrop = max;
     this.minFruitDrop = min;
   }
 
   public void setSeedQuantityDropRange(int min, int max) {
-    if (min <= 0)
+    if (min <= 0) {
       min = 0;
-    if (max < min)
+    }
+    if (max < min) {
       max = min;
+    }
 
     this.maxSeedDrop = max;
     this.minSeedDrop = min;

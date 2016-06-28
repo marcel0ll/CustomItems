@@ -46,6 +46,7 @@ public class CustomLadderBlock extends BlockLadder implements IMMBlock {
     }
   }
 
+  @Override
   public void registerBlockTextures(String[] textureNames) {
     this.textureNames = textureNames;
   }

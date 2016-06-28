@@ -43,18 +43,20 @@ public class CustomPaneBlock extends BlockPane implements IMMBlock {
   @SideOnly(Side.CLIENT)
   public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
     Block i1 = par1IBlockAccess.getBlock(par2, par3, par4);
-    return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+    return i1 == this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
   }
 
   @Override
   @SideOnly(Side.CLIENT)
   public int getRenderBlockPass() {
-    if (!this.opaque)
+    if (!this.opaque) {
       return 1;
-    else
+    } else {
       return 0;
+    }
   }
 
+  @Override
   @SideOnly(Side.CLIENT)
   public IIcon func_150097_e() {
     return this.field_150102_N;
@@ -66,34 +68,41 @@ public class CustomPaneBlock extends BlockPane implements IMMBlock {
     ret = this.minItemDrop;
     for (i = this.minItemDrop; i < this.maxItemDrop + fortune; i++) {
       boolean willDrop = world.rand.nextInt(100) < this.eachExtraItemDropChance;
-      if (willDrop)
+      if (willDrop) {
         ret++;
+      }
     }
 
     return ret;
   }
 
+  @Override
   public void setMaxItemDrop(int maxItemDrop) {
     this.maxItemDrop = maxItemDrop;
   }
 
+  @Override
   public void setMinItemDrop(int minItemDrop) {
     this.minItemDrop = minItemDrop;
   }
 
+  @Override
   public void setEachExtraItemDropChance(int eachExtraItemDropChance) {
     this.eachExtraItemDropChance = eachExtraItemDropChance;
   }
 
+  @Override
   public void setDropItem(String dropItem) {
     this.dropItem = dropItem;
   }
 
+  @Override
   public void setOpaque(boolean isOpaque) {
     this.opaque = isOpaque;
     this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
   }
 
+  @Override
   public void setCanSilkHarvest(boolean canSilkHarvest) {
     this.canSilkHarvest = canSilkHarvest;
   }
@@ -128,8 +137,9 @@ public class CustomPaneBlock extends BlockPane implements IMMBlock {
         drops.add(new ItemStack(item, itemQuantity, damage));
       }
     } else {
-      if (!breaks)
+      if (!breaks) {
         drops.add(new ItemStack(Item.getItemFromBlock(this)));
+      }
     }
 
     return drops;
@@ -159,6 +169,7 @@ public class CustomPaneBlock extends BlockPane implements IMMBlock {
     }
   }
 
+  @Override
   public void registerBlockTextures(String[] textureNames) {
     this.textureNames = textureNames;
   }
@@ -173,6 +184,7 @@ public class CustomPaneBlock extends BlockPane implements IMMBlock {
     return this.canSilkHarvest;
   }
 
+  @Override
   public void setBreaks(boolean breaks) {
     this.breaks = breaks;
   }

@@ -134,8 +134,9 @@ public class ItemRegistry {
 
     CustomFood food = new CustomFood(data.healAmount, data.saturationModifier, data.isWolfFood);
 
-    if (data.alwaysEdible)
+    if (data.alwaysEdible) {
       food.setAlwaysEdible();
+    }
 
     if (data.potionEffects != null) {
       if (data.potionEffects.length > 0) {
@@ -148,8 +149,9 @@ public class ItemRegistry {
       String modId = parser[0];
       String name = parser[1];
       int damage = 0;
-      if (parser.length > 2)
+      if (parser.length > 2) {
         damage = Integer.parseInt(parser[2]);
+      }
 
       food.setDropStack(new ItemStack(GameRegistry.findItem(modId, name), 1, damage));
     }

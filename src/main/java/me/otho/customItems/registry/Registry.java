@@ -45,21 +45,24 @@ public class Registry {
     for (i = 0; i < itemsList.size(); i += 2) {
       Item item = (Item) itemsList.get(i);
       CreativeTabs tab = customItemsTab.getTabByName((String) itemsList.get(i + 1));
-      if (tab != null)
+      if (tab != null) {
         item.setCreativeTab(tab);
+      }
     }
 
     for (i = 0; i < blocksList.size(); i += 2) {
       Block block = (Block) blocksList.get(i);
       CreativeTabs tab = customItemsTab.getTabByName((String) blocksList.get(i + 1));
-      if (tab != null)
+      if (tab != null) {
         block.setCreativeTab(tab);
+      }
     }
   }
 
   private static void mergeArrays(ArrayList<Cfg_basicData> arrL, Cfg_basicData[] arr) {
-    for (int i = 0; i < arr.length; i++)
+    for (int i = 0; i < arr.length; i++) {
       arrL.add(arr[i]);
+    }
   }
 
   public static void register(JsonSchema data) {
@@ -67,38 +70,54 @@ public class Registry {
     ArrayList<Cfg_basicData> allData = new ArrayList<Cfg_basicData>();
 
     if (data != null) {
-      if (data.blocks != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.blocks);
-      if (data.chests != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.chests);
-      if (data.foods != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.foods);
-      if (data.items != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.items);
-      if (data.fluids != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.fluids);
-      if (data.pickaxes != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.pickaxes);
-      if (data.axes != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.axes);
-      if (data.hammers != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.hammers);
-      if (data.shovels != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.shovels);
-      if (data.hoes != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.hoes);
-      if (data.swords != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.swords);
-      if (data.helmets != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.helmets);
-      if (data.chestplates != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.chestplates);
-      if (data.leggings != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.leggings);
-      if (data.boots != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.boots);
-      if (data.crops != null)
-        mergeArrays(allData, (Cfg_basicData[]) data.crops);
+      if (data.blocks != null) {
+        mergeArrays(allData, data.blocks);
+      }
+      if (data.chests != null) {
+        mergeArrays(allData, data.chests);
+      }
+      if (data.foods != null) {
+        mergeArrays(allData, data.foods);
+      }
+      if (data.items != null) {
+        mergeArrays(allData, data.items);
+      }
+      if (data.fluids != null) {
+        mergeArrays(allData, data.fluids);
+      }
+      if (data.pickaxes != null) {
+        mergeArrays(allData, data.pickaxes);
+      }
+      if (data.axes != null) {
+        mergeArrays(allData, data.axes);
+      }
+      if (data.hammers != null) {
+        mergeArrays(allData, data.hammers);
+      }
+      if (data.shovels != null) {
+        mergeArrays(allData, data.shovels);
+      }
+      if (data.hoes != null) {
+        mergeArrays(allData, data.hoes);
+      }
+      if (data.swords != null) {
+        mergeArrays(allData, data.swords);
+      }
+      if (data.helmets != null) {
+        mergeArrays(allData, data.helmets);
+      }
+      if (data.chestplates != null) {
+        mergeArrays(allData, data.chestplates);
+      }
+      if (data.leggings != null) {
+        mergeArrays(allData, data.leggings);
+      }
+      if (data.boots != null) {
+        mergeArrays(allData, data.boots);
+      }
+      if (data.crops != null) {
+        mergeArrays(allData, data.crops);
+      }
 
       Collections.sort(allData, new Comparator<Cfg_basicData>() {
         @Override

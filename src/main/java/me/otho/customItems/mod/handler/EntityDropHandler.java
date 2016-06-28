@@ -25,8 +25,9 @@ public class EntityDropHandler {
     // TODO: looting effect
     for (i = data.min; i < data.max; i++) {
       boolean willDrop = rand.nextFloat() * 100 < data.chance;
-      if (willDrop)
+      if (willDrop) {
         ret++;
+      }
     }
 
     return ret;
@@ -43,8 +44,9 @@ public class EntityDropHandler {
       if (EntityRegistry.drops.containsKey(entityId)) {
         Cfg_entityDrop entityDrop = EntityRegistry.drops.get(entityId);
 
-        if (entityDrop.overrides)
+        if (entityDrop.overrides) {
           event.drops.clear();
+        }
 
         for (Cfg_drop drop : entityDrop.drops) {
 
@@ -52,8 +54,9 @@ public class EntityDropHandler {
           String modId = parser[0];
           String name = parser[1];
           int damage = 0;
-          if (parser.length > 2)
+          if (parser.length > 2) {
             damage = Integer.parseInt(parser[2]);
+          }
 
           Item item = GameRegistry.findItem(modId, name);
           int quantity = getItemDropQuantity(drop);

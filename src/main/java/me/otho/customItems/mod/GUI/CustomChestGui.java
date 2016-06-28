@@ -78,10 +78,12 @@ public class CustomChestGui extends GuiContainer {
 
     this.drawTexturedModalRect(x, y, 0, 18, 4, 4);
     this.drawTexturedModalRect(x + nxSize - 4 + leftGap + rightGap, y, 4, 18, 4, 4);
-    if (tile.getHeight() < 6)
+    if (tile.getHeight() < 6) {
       this.drawTexturedModalRect(x, y + nySize - 4 + topGap + botGap, 0, 22, 4, 4);
-    if (tile.getHeight() < 6)
+    }
+    if (tile.getHeight() < 6) {
       this.drawTexturedModalRect(x + nxSize - 4 + leftGap + rightGap, y + nySize - 4 + topGap + botGap, 4, 22, 4, 4);
+    }
 
     for (i = 4; i < nySize - 4 + topGap + botGap; i++) {
       this.drawTexturedModalRect(x, y + i, 0, 30, 4, 1);
@@ -89,8 +91,9 @@ public class CustomChestGui extends GuiContainer {
     }
     for (i = 4; i < nxSize - 4 + leftGap + rightGap; i++) {
       this.drawTexturedModalRect(x + i, y, 0, 26, 1, 4);
-      if (tile.getHeight() < 6)
+      if (tile.getHeight() < 6) {
         this.drawTexturedModalRect(x + i, y + nySize - 4 + topGap + botGap, 1, 26, 1, 4);
+      }
     }
 
     GL11.glEnable(GL11.GL_BLEND);
@@ -116,8 +119,9 @@ public class CustomChestGui extends GuiContainer {
       }
     }
 
-    if (tile.getHeight() == 6 && tile.getWidth() == 9)
+    if (tile.getHeight() == 6 && tile.getWidth() == 9) {
       this.drawTexturedModalRect(playerInventoryX + 3, playerInventoryY + 3, 29, 3, 1, 1);
+    }
 
   }
 

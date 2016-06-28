@@ -54,6 +54,7 @@ public class CustomButtonBlock extends BlockButton implements IMMBlock {
     }
   }
 
+  @Override
   public void registerBlockTextures(String[] textureNames) {
     this.textureNames = textureNames;
   }

@@ -55,6 +55,7 @@ public class CustomPressurePlateBlock extends BlockPressurePlateWeighted impleme
     }
   }
 
+  @Override
   public void registerBlockTextures(String[] textureNames) {
     this.textureNames = textureNames;
   }

@@ -25,8 +25,9 @@ public class BlockDropHandler {
     // TODO: fortune effect
     for (i = data.min; i < data.max; i++) {
       boolean willDrop = rand.nextFloat() * 100 < data.chance;
-      if (willDrop)
+      if (willDrop) {
         ret++;
+      }
     }
 
     return ret;
@@ -48,8 +49,9 @@ public class BlockDropHandler {
         Cfg_blockDrop blockDrop = BlockRegistry.drops.get(blockId);
 
         //
-        if (blockDrop.overrides)
+        if (blockDrop.overrides) {
           event.drops.clear();
+        }
 
         for (Cfg_drop drop : blockDrop.drops) {
 
@@ -57,8 +59,9 @@ public class BlockDropHandler {
           String modId = parser[0];
           String name = parser[1];
           int damage = 0;
-          if (parser.length > 2)
+          if (parser.length > 2) {
             damage = Integer.parseInt(parser[2]);
+          }
 
           Item item = GameRegistry.findItem(modId, name);
           int quantity = getItemDropQuantity(drop);

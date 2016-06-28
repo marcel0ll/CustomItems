@@ -1,7 +1,5 @@
 package me.otho.customItems.registry;
 
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import me.otho.customItems.CustomItems;
@@ -50,10 +48,12 @@ public class TileEntityRegistry {
 
     // Chest Stuff
     block.setHasOwner(data.hasOwner);
-    if (data.slotMaxStackSize < 0)
+    if (data.slotMaxStackSize < 0) {
       data.slotMaxStackSize = 0;
-    if (data.slotMaxStackSize > 64)
+    }
+    if (data.slotMaxStackSize > 64) {
       data.slotMaxStackSize = 64;
+    }
     block.setSlotMaxStackSize(data.slotMaxStackSize);
 
     Registry.blocksList.add(block);

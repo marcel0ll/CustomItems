@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import codechicken.nei.api.IConfigureNEI;
 import cpw.mods.fml.common.registry.GameRegistry;
 import me.otho.customItems.CustomItems;
-import me.otho.customItems.CustomItems;
 import me.otho.customItems.utility.LogHelper;
 import net.minecraft.item.ItemStack;
 
@@ -38,8 +37,9 @@ public class NEICustomItemsConfig implements IConfigureNEI {
     String modId = parser[0];
     String id = parser[1];
     int damage = 0;
-    if (parser.length > 2)
+    if (parser.length > 2) {
       damage = Integer.parseInt(parser[2]);
+    }
 
     LogHelper.info("Hide item in nei: " + fullId, 2);
     stacks.add(new ItemStack(GameRegistry.findItem(modId, id), 1, damage));

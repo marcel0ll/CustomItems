@@ -28,7 +28,7 @@ public class CustomFlowerBlock extends BlockBush implements IMMBlock {
     if (i1 instanceof CustomSlabBlock) {
       return super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
     } else {
-      return i1 == (Block) this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
+      return i1 == this ? false : super.shouldSideBeRendered(par1IBlockAccess, par2, par3, par4, par5);
     }
 
   }
@@ -39,11 +39,13 @@ public class CustomFlowerBlock extends BlockBush implements IMMBlock {
     return 1;
   }
 
+  @Override
   public void setOpaque(boolean isOpaque) {
     this.opaque = isOpaque;
     this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
   }
 
+  @Override
   public void setCanSilkHarvest(boolean canSilkHarvest) {
     this.canSilkHarvest = canSilkHarvest;
   }
@@ -79,6 +81,7 @@ public class CustomFlowerBlock extends BlockBush implements IMMBlock {
     }
   }
 
+  @Override
   public void registerBlockTextures(String[] textureNames) {
     this.textureNames = textureNames;
   }
@@ -93,6 +96,7 @@ public class CustomFlowerBlock extends BlockBush implements IMMBlock {
     return this.canSilkHarvest;
   }
 
+  @Override
   public void setBreaks(boolean breaks) {
     this.breaks = breaks;
   }

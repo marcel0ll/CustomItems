@@ -47,8 +47,9 @@ public class CustomSlabBlock extends CustomBlock {
   public int getLightOpacity() {
     if (this.opaque) {
       return 255;
-    } else
+    } else {
       return 0;
+    }
   }
 
   @Override
@@ -73,10 +74,11 @@ public class CustomSlabBlock extends CustomBlock {
     } else {
       if (!breaks) {
         Item drop = Item.getItemFromBlock(GameRegistry.findBlock(CustomItems.MOD_ID, this.name));
-        if (doubleSlab)
+        if (doubleSlab) {
           drops.add(new ItemStack(drop, 2));
-        else
+        } else {
           drops.add(new ItemStack(drop));
+        }
       }
     }
 
@@ -86,6 +88,7 @@ public class CustomSlabBlock extends CustomBlock {
   /**
    * Updates the blocks bounds based on its current state. Args: world, x, y, z
    */
+  @Override
   public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
     if (this.doubleSlab) {
       this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -103,6 +106,7 @@ public class CustomSlabBlock extends CustomBlock {
   /**
    * Sets the block's bounds for rendering it as an item
    */
+  @Override
   public void setBlockBoundsForItemRender() {
     if (this.doubleSlab) {
       this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
@@ -116,6 +120,7 @@ public class CustomSlabBlock extends CustomBlock {
    * to the list if they intersect the mask.) Parameters: World, X, Y, Z, mask,
    * list, colliding entity
    */
+  @Override
   public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
       AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {
     this.setBlockBoundsBasedOnState(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_);
@@ -128,11 +133,13 @@ public class CustomSlabBlock extends CustomBlock {
    * not to render the shared face of two adjacent blocks and also whether the
    * player can attach torches, redstone wire, etc to this block.
    */
+  @Override
   public boolean isOpaqueCube() {
-    if (!this.doubleSlab)
+    if (!this.doubleSlab) {
       return false;
-    else
+    } else {
       return this.opaque;
+    }
   }
 
   /**
@@ -142,10 +149,12 @@ public class CustomSlabBlock extends CustomBlock {
   @Override
   public int onBlockPlaced(World par1World, int blockX, int blockY, int blockZ, int side, float clickX, float clickY,
       float clickZ, int metadata) {
-    if (side == 1)
+    if (side == 1) {
       return metadata;
-    if (side == 0 || clickY >= 0.5F)
+    }
+    if (side == 0 || clickY >= 0.5F) {
       return metadata | 8;
+    }
 
     return metadata;
   }
@@ -153,6 +162,7 @@ public class CustomSlabBlock extends CustomBlock {
   /**
    * Returns the quantity of items to drop on block destruction.
    */
+  @Override
   public int quantityDropped(Random p_149745_1_) {
     return this.doubleSlab ? 2 : 1;
   }
@@ -169,6 +179,7 @@ public class CustomSlabBlock extends CustomBlock {
    * If this block doesn't render as an ordinary block it will return False
    * (examples: signs, buttons, stairs, etc)
    */
+  @Override
   public boolean renderAsNormalBlock() {
     return this.doubleSlab;
   }
@@ -178,6 +189,7 @@ public class CustomSlabBlock extends CustomBlock {
    * the adjacent block is at the given coordinates. Args: blockAccess, x, y, z,
    * side
    */
+  @Override
   @SideOnly(Side.CLIENT)
   public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_,
       int p_149646_5_) {
@@ -220,6 +232,7 @@ public class CustomSlabBlock extends CustomBlock {
   /**
    * Gets an item for the block being called on. Args: world, x, y, z
    */
+  @Override
   @SideOnly(Side.CLIENT)
   public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
     return Item.getItemFromBlock(GameRegistry.findBlock(CustomItems.MOD_ID, this.name));

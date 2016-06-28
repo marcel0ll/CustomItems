@@ -27,6 +27,7 @@ public class CustomTrapDoorBlock extends BlockTrapDoor implements IMMBlock {
     return 1;
   }
 
+  @Override
   public void setCanSilkHarvest(boolean canSilkHarvest) {
     this.canSilkHarvest = canSilkHarvest;
   }
@@ -57,6 +58,7 @@ public class CustomTrapDoorBlock extends BlockTrapDoor implements IMMBlock {
     }
   }
 
+  @Override
   public void registerBlockTextures(String[] textureNames) {
     this.textureNames = textureNames;
   }
@@ -66,6 +68,7 @@ public class CustomTrapDoorBlock extends BlockTrapDoor implements IMMBlock {
     return this.canSilkHarvest;
   }
 
+  @Override
   public void setBreaks(boolean breaks) {
     this.breaks = breaks;
   }

@@ -21,6 +21,7 @@ public class CustomItem extends Item {
     return super.getUnlocalizedName();
   }
 
+  @Override
   @SideOnly(Side.CLIENT)
   @Deprecated
   public boolean hasEffect(ItemStack p_77636_1_) {

@@ -26,8 +26,9 @@ public class ClientProxy extends CommonProxy {
     while (mods.hasNext()) {
       modContainer = (ModContainer) mods.next();
       if (modContainer.getModId().equalsIgnoreCase("NotEnoughItems")) {
-        for (Object stack : stacks)
+        for (Object stack : stacks) {
           API.hideItem((ItemStack) stack);
+        }
       }
     }
   }

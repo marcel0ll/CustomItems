@@ -176,12 +176,12 @@ public class CustomChest extends Block implements ITileEntityProvider {
             }
 
             itemstack.stackSize -= j1;
-            entityitem = new EntityItem(world, (double) ((float) p_149749_2_ + f), (double) ((float) p_149749_3_ + f1),
-                (double) ((float) p_149749_4_ + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+            entityitem = new EntityItem(world, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2,
+                new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
             float f3 = 0.05F;
-            entityitem.motionX = (double) ((float) world.rand.nextGaussian() * f3);
-            entityitem.motionY = (double) ((float) world.rand.nextGaussian() * f3 + 0.2F);
-            entityitem.motionZ = (double) ((float) world.rand.nextGaussian() * f3);
+            entityitem.motionX = (float) world.rand.nextGaussian() * f3;
+            entityitem.motionY = (float) world.rand.nextGaussian() * f3 + 0.2F;
+            entityitem.motionZ = (float) world.rand.nextGaussian() * f3;
 
             if (itemstack.hasTagCompound()) {
               entityitem.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
