@@ -1,8 +1,16 @@
 1.0.10 - Change log
+--------------------------------------------------------------
 
-(x) Added block type: "CROSSED" - Allows blocks to be rendered as cobwebs, without adding any new behaviour to the block
+DONE:
 
-Needs final touchs
+(x) Added block type: "CROSSED" - Allows blocks to be rendered as cobwebs(crossed textures), without cobweb behaviour of slowing falls
+(x) Added config option: "logFile" - If given permission, the mod will generate a file with all the logs generated from the mod. This is intended for easier debugging.
+(x) Removed config option: "remake" - Removed option that would generate default config files.
+(x) Removed config option: "entityIdLog" - Removed option that would log the id from the last killed entity
+
+--------------------------------------------------------------
+
+TO TEST:
 
 ( ) Added block type: "TORCH" - Allows blocks to be rendered and behave as torchs
 ( ) Added block type: "TRAPDOOR" - Allows blocks to be rendered and behave as Trapdoors
@@ -12,15 +20,15 @@ Needs final touchs
 ( ) Added block type: "LADDER" - Allows blocks to be rendered and behave as Ladders
 ( ) Added block type: "GATE" - Allows blocks to be rendered and behave as Gates
 ( ) Added block type: "BUTTON" - Allows blocks to be rendered and behave as Buttons
+
+--------------------------------------------------------------
+
+TO DO:
+
 ( ) Added block type: "LEVER" - Allows blocks to be rendered and behave as Levers
 ( ) Added block type: "BED" - Allows blocks to be rendered and behave as Beds
 ( ) Added block type: "DOOR" - Allows blocks to be rendered and behave as Doors
-
-( ) Added config option: "idFile" - If given permission, the mod will generate a file with all block ids, entities ids and items ides.
-(x) Added config option: "logFile" - If given permission, the mod will generate a file with all the logs generated from the mod. This is intended for easier debugging.
-(x) Removed config option: "remake" - Removed option that would generate default config files.
-(x) Removed config option: "entityIdLog" - Removed option that would log the id from the last killed entity
-
+( ) Added config option: "idFile" - If given permission, the mod will generate a file with all block ids, entities ids and items ids.
 ( ) Added Travis Ci continous integration
 
 ----------------------------------------------------------------------------------------------
@@ -32,5 +40,3 @@ Thanks to collaborators:
 MaPeReRer - Added integration with ExNihilo hammers, so now it is possible to register new hammers with custom options
 
 jeffpengMC - Fixed netherOres bug (and possibly many other bugs related to custom block drop code) and fixed ExNihilo bug when exnihilo was not present
-
-Thanks to everyone for waiting this new version

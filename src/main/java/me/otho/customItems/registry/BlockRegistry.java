@@ -491,19 +491,19 @@ public class BlockRegistry {
 
     String registerName = Util.parseRegisterName(data.name);
 
-    block.setHardness(data.hardness);
-    block.setResistance(data.resistance);
+    mineBlock.setHardness(data.hardness);
+    mineBlock.setResistance(data.resistance);
     block.setBreaks(data.dropsItSelf);
     block.setCanSilkHarvest(data.canSilkHarvest);
     block.setCollides(data.isCollidable);
     data.lightLevel = Util.range(data.lightLevel, 0, 1);
 
-    block.setLightLevel(data.lightLevel);
+    mineBlock.setLightLevel(data.lightLevel);
     if (data.toolClass != null) {
-      block.setHarvestLevel(data.toolClass, data.harvestLevel);
+      mineBlock.setHarvestLevel(data.toolClass, data.harvestLevel);
     }
     if (data.multipleTextures == null) {
-      block.setBlockTextureName(data.textureName);
+      mineBlock.setBlockTextureName(data.textureName);
     } else {
       String[] textureNames = new String[6];
       textureNames[0] = data.multipleTextures.yneg;
@@ -516,7 +516,7 @@ public class BlockRegistry {
     }
 
     block.setOpaque(data.isOpaque);
-    block.setStepSound(Util.parseSoundType(data.stepSound));
+    mineBlock.setStepSound(Util.parseSoundType(data.stepSound));
 
     if (data.dropItemName != null) {
       block.setDropItem(data.dropItemName);
@@ -531,8 +531,8 @@ public class BlockRegistry {
     // Register Block
     if (register) {
       GameRegistry.registerBlock(mineBlock, registerName);
-      block.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);
-      LanguageRegistry.instance().addStringLocalization(block.getUnlocalizedName() + ".name", "en_US", data.name);
+      mineBlock.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);
+      LanguageRegistry.instance().addStringLocalization(mineBlock.getUnlocalizedName() + ".name", "en_US", data.name);
     }
 
     mineBlock.slipperiness = data.slipperiness;
