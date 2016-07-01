@@ -3,7 +3,7 @@ layout: wiki
 title: Blocks
 ---
 
-#<a name="blocks" href="#blocks" > Blocks </a>
+# Blocks
 ___
 
 **Properties:**
@@ -42,18 +42,18 @@ multipleTexture properties will be used.
 this block
 
 `[type] = "normal" ` - The type of the block.
-([ type list](type_list "wikilink"))
+([ type list](block_type_list "wikilink"))
 
 `[stepSound] = "stone"` - The sound that makes
 when you walk on this block. ([ step sound
-list](step_sound_list_1.0_beta_4 "wikilink"))
+list](step_sound_list "wikilink"))
 
 `[material] = "rock"` - The block material ([
-material list](material_list_1.0_beta_4 "wikilink"))
+material list](block_material_list "wikilink"))
 
 `[toolClass]` - The tool to mine this block.
 Can be left blank ([ toolClass
-list](toolClass_list_1.0_beta_4 "wikilink"))
+list](tool_class_list "wikilink"))
 
 `[resistance] = 10` - How much the block is
 resistant to explosion
@@ -67,7 +67,7 @@ The light level from a block. Glowstone = 1.0, Stone = 0.0
 `[harvestLevel] = 0` - The level of the pickaxe
 needed to mine the block. This doesn't apply to shovel blocks or axe
 blocks. The following link shows the equivalent numerical value for
-vanilla tools. ([harvestLevel list](harvestLevel_list "wikilink"))
+vanilla tools. ([harvestLevel list](harvest_level_list "wikilink"))
 
 `[slipperiness] = 0.6f` - CommonBlocks: 0.6,
 ice: 0.98
@@ -94,49 +94,50 @@ chance to drop each item after the minimum ammount
 
 **Format Example:**
 
-	{
-	    "blocks":
-	    [
-	        {
-	            "name": "Block 1",
-	            "textureName": "Block1TextureName",
-	        },
-	        {
-	            "name": "Block2",
-	            "material": "rock",
-	            "hardness": 1,
-	            "resistance": 2,
-	            "lightLevel": 0.2,
-	            "harvestLevel": 0,
-	            "dropItemName": "minecraft:apple",
-	            "minItemDrop": 5,
-	            "maxItemDrop": 10,
-	            "eachExtraItemDropChance": 75,
-	            "multipleTextures":{
-	                "yneg":"side_1",
-	                "ypos":"side_2",
-	                "zneg":"side_3",
-	                "zpos":"side_4",
-	                "xneg":"side_5",
-	                "xpos":"side_6"
-	            }
-	        },
-	        ...
-	        {
-	            "name": "Block X",
-	            "creativeTab": "Random Tab",
-	            "textureName": "BlockXTextureName",
-	            "material": "Material",
-	            "toolClass":"ToolClass",
-	            "hardness": 0,
-	            "resistance": 0,
-	            "lightLevel": 0,
-	            "harvestLevel": 0
-	        }
-	    ]
-	}
-
-#<a name="chest_blocks" href="#chest_blocks" > Chest Blocks </a>
+``` json
+{
+    "blocks":
+    [
+        {
+            "name": "Block 1",
+            "textureName": "Block1TextureName"
+        },
+        {
+            "name": "Block2",
+            "material": "rock",
+            "hardness": 1,
+            "resistance": 2,
+            "lightLevel": 0.2,
+            "harvestLevel": 0,
+            "dropItemName": "minecraft:apple",
+            "minItemDrop": 5,
+            "maxItemDrop": 10,
+            "eachExtraItemDropChance": 75,
+            "multipleTextures":{
+                "yneg":"side_1",
+                "ypos":"side_2",
+                "zneg":"side_3",
+                "zpos":"side_4",
+                "xneg":"side_5",
+                "xpos":"side_6"
+            }
+        },
+        ...
+        {
+            "name": "Block X",
+            "creativeTab": "Random Tab",
+            "textureName": "BlockXTextureName",
+            "material": "Material",
+            "toolClass":"ToolClass",
+            "hardness": 0,
+            "resistance": 0,
+            "lightLevel": 0,
+            "harvestLevel": 0
+        }
+    ]
+}
+```
+# Chest Blocks
 ___
 
 **Properties:**
@@ -175,29 +176,31 @@ stack that can be stored in the inventory slot. By the default it is 64
 
 **Format Example:**
 
-	{
-	    "chests":[
-	        {
-	            "name": "Chest1",
-	            "textureName": "chest1TextureName",
-	        },
-	        {
-	            "name": "Chest2",
-	            "textureName": "chest2TextureName",
-	            "slotMaxStackSize": 16
-	        },
-	        ...
-	        {
-	            "name": "ChestN",
-	            "textureName": "chestNTextureName",
-	            "invWidth": 1,
-	            "invHeight": 6,
-	            "lightLevel": 1.0
-	        }
-	    ]
-	}
+``` json
+{
+    "chests":[
+        {
+            "name": "Chest1",
+            "textureName": "chest1TextureName",
+        },
+        {
+            "name": "Chest2",
+            "textureName": "chest2TextureName",
+            "slotMaxStackSize": 16
+        },
+        ...
+        {
+            "name": "ChestN",
+            "textureName": "chestNTextureName",
+            "invWidth": 1,
+            "invHeight": 6,
+            "lightLevel": 1.0
+        }
+    ]
+}
+```
 
-#<a name="crops" href="#crops"> Crops </a>
+# Crops
 ___
 
 **Properties:**
@@ -254,35 +257,37 @@ to drop each extra fruit that is more than the min
 
 **Format Example:**
 
-	{
-	    "crops":
-	    [
-	        {
-	            "name": "ironia",
-	            "textureName":"iron_crop",
-	            "fruitName": "minecraft:iron_ingot",
-	            "renderType": "crop",
-	            "dropFromGrassChance": 10,
-	            "dropSeedWhenMature": true,
-	            "acceptBoneMeal": true,
-	            "minFruitDrop": 1,
-	            "maxFruitDrop": 1,
-	            "minSeedDrop": 1,
-	            "maxSeedDrop": 2,
-	            "eachExtraSeedDropChance": 50,
-	            "eachExtraFruitDropChance": 15
-	        },
-	        {
-	            "name":"golduce",
-	            "textureName":"gold",
-	            "fruitName": "minecraft:gold_ingot",
-	            "renderType": "flower",
-	            "dropFromGrassChance": 5
-	        }
-	    ]
-	}
+``` json
+{
+    "crops":
+    [
+        {
+            "name": "ironia",
+            "textureName":"iron_crop",
+            "fruitName": "minecraft:iron_ingot",
+            "renderType": "crop",
+            "dropFromGrassChance": 10,
+            "dropSeedWhenMature": true,
+            "acceptBoneMeal": true,
+            "minFruitDrop": 1,
+            "maxFruitDrop": 1,
+            "minSeedDrop": 1,
+            "maxSeedDrop": 2,
+            "eachExtraSeedDropChance": 50,
+            "eachExtraFruitDropChance": 15
+        },
+        {
+            "name":"golduce",
+            "textureName":"gold",
+            "fruitName": "minecraft:gold_ingot",
+            "renderType": "flower",
+            "dropFromGrassChance": 5
+        }
+    ]
+}
+```
 
-#<a name="fluids" href="#fluids"> Fluids </a>
+# Fluids
 ___
 
 **Properties:**
@@ -293,7 +298,7 @@ ___
 |***IMPORTANT:*** A total of five files are need to make the fluids
 texture work correctly. If you do not know how to make a fluid texture
 work correctly or what files are required go to this page. [How to setup
-fluid textures.](Fluid_Texture_Tutorial "wikilink")
+fluid textures.](fluid_texture_tutorial "wikilink")
 
 `[creativeTab] = "Custom Items"` - What
 creative tab the fluid will show up in.
@@ -344,39 +349,41 @@ up in.
 
 **Format Example:**
 
-    {
-	   "fluids":[
-	       {
-	       "name":"Fluid 1",
-	       "textureName":"fluid1",
-	       "luminosity": 0,
-	       "density": 1,
-	       "temperature": 1,
-	       "viscosity": 1,
-	       "isGas": false
-	       },
-	       {
-	       "name":"Fluid 2",
-	       "textureName":"fluid2",
-	       "luminosity": 0,
-	       "density": 1,
-	       "temperature": 1,
-	       "viscosity": 1,
-	       "isGas": false
-	       },
-	       ...
-	       {
-	       "name":"Fluid X",
-	       "textureName":"fluidX",
-	       "creativeTab": "Custom Items",
-	       "flowLength": 4,
-	       "luminosity": 5,
-	       "material": lava
-	       "bucket":
-	           {
-	               "name":"bob",
-	               "maxStackSize": 2
-	           }
-	       }
-        ]
-    }
+``` json
+{
+   "fluids":[
+       {
+       "name":"Fluid 1",
+       "textureName":"fluid1",
+       "luminosity": 0,
+       "density": 1,
+       "temperature": 1,
+       "viscosity": 1,
+       "isGas": false
+       },
+       {
+       "name":"Fluid 2",
+       "textureName":"fluid2",
+       "luminosity": 0,
+       "density": 1,
+       "temperature": 1,
+       "viscosity": 1,
+       "isGas": false
+       },
+       ...
+       {
+       "name":"Fluid X",
+       "textureName":"fluidX",
+       "creativeTab": "Custom Items",
+       "flowLength": 4,
+       "luminosity": 5,
+       "material": "lava",
+       "bucket":
+           {
+               "name":"bob",
+               "maxStackSize": 2
+           }
+       }
+    ]
+}
+```

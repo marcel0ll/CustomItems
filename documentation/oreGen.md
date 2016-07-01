@@ -21,8 +21,8 @@ generate in. The following numbers are what indicates the dimension.
 > Overworld: 0, The Nether: -1, The End: 1
 
 `[#]` - If you want to have the
-ore generate to a specific biome. ([Biome \#
-List](Biome_#_List "wikilink")) Use biome Id according to the dimension.
+ore generate to a specific biome. ([Biome id
+List](biome_id_list "wikilink")) Use biome Id according to the dimension.
 
 `{minVeinSize}` - This is the minimum amount of
 the block to be generated in a spot.

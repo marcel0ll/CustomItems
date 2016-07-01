@@ -6,7 +6,7 @@ title: Custom Configuration Files
 Before you start off making your own config files, I recommend using the
 following template to get you started and familiar with how the
 configurations work. ***[ The config template is on this
-page.](Base_Config_File "wikilink")*** You could also use the default
+page.](https://github.com/0tho/CustomItems/blob/master/configs/tests/all_blank.json)*** You could also use the default
 config files when you set restore default config to true in CI's .cfg
 file. By default it is set to false. CI has a .cfg file for general
 configurations.

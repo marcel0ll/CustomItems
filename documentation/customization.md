@@ -34,7 +34,7 @@ light level from a block. Glowstone = 1.0, Stone = 0.0
 `[harvestLevel]` - The level of the pickaxe
 needed to mine the block. This doesn't apply to shovel blocks or axe
 blocks. The following link shows the equivalent numerical value for
-vanilla tools. ([harvestLevel list](harvestLevel_list "wikilink"))
+vanilla tools. ([harvestLevel list](harvest_level_list "wikilink"))
 
 `[slipperiness]` - CommonBlocks: 0.6, ice: 0.98
 

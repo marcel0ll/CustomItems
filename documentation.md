@@ -300,7 +300,7 @@ multipleTexture properties will be used.
 this block
 
 `[type] = "normal" ` - The type of the block.
-([ type list](type_list "wikilink"))
+([ type list](block_type_list "wikilink"))
 
 `[stepSound] = "stone"` - The sound that makes
 when you walk on this block. ([ step sound
@@ -325,7 +325,7 @@ The light level from a block. Glowstone = 1.0, Stone = 0.0
 `[harvestLevel] = 0` - The level of the pickaxe
 needed to mine the block. This doesn't apply to shovel blocks or axe
 blocks. The following link shows the equivalent numerical value for
-vanilla tools. ([harvestLevel list](harvestLevel_list "wikilink"))
+vanilla tools. ([harvestLevel list](harvest_level_list "wikilink"))
 
 `[slipperiness] = 0.6f` - CommonBlocks: 0.6,
 ice: 0.98
@@ -845,7 +845,7 @@ be used. Durability.
 efficient a tool is on the proper material. It is also know as the
 Breaking Multiplier on Minecraft wiki
 [here](http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed).
-The [Material Multiplier](Material_Multiplier "wikilink") page will show
+The [Material Multiplier](material_multiplier "wikilink") page will show
 you a relative number to Minecraft tools.
 
 `[damageVsEntity] = 0` - How much damage it
@@ -898,7 +898,7 @@ be used. Durability.
 efficient a tool is on the proper material. It is also know as the
 Breaking Multiplier on Minecraft wiki
 [here](http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed).
-The [Material Multiplier](Material_Multiplier "wikilink") page will show
+The [Material Multiplier](material_multiplier "wikilink") page will show
 you a relative number to Minecraft tools.
 
 `[damageVsEntity] = 0` - How much damage it
@@ -947,7 +947,7 @@ creative tab the tool will show up in.
 
 `[harvestLevel] = 0` - The level that a pickaxe
 can mine. The following link shows the equivalent numerical value for
-vanilla tools. ([harvestLevel list](harvestLevel_list "wikilink"))
+vanilla tools. ([harvestLevel list](harvest_level_list "wikilink"))
 
 `[maxUses] = 59` - How many times this item can
 be used. Durability.
@@ -956,7 +956,7 @@ be used. Durability.
 efficient a tool is on the proper material. It is also know as the
 Breaking Multiplier on Minecraft wiki
 [here](http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed).
-The [Material Multiplier](Material_Multiplier "wikilink") page will show
+The [Material Multiplier](material_multiplier "wikilink") page will show
 you a relative number to Minecraft tools.
 
 `[damageVsEntity] = 0` - How much damage it
@@ -1011,7 +1011,7 @@ be used. Durability.
 efficient a tool is on the proper material. It is also know as the
 Breaking Multiplier on Minecraft wiki
 [here](http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed).
-The [Material Multiplier](Material_Multiplier "wikilink") page will show
+The [Material Multiplier](material_multiplier "wikilink") page will show
 you a relative number to Minecraft tools.
 
 `[damageVsEntity] = 0` - How much damage it
@@ -1064,7 +1064,7 @@ be used. Durability.
 efficient a tool is on the proper material. It is also know as the
 Breaking Multiplier on Minecraft wiki
 [here](http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed).
-The [Material Multiplier](Material_Multiplier "wikilink") page will show
+The [Material Multiplier](material_multiplier "wikilink") page will show
 you a relative number to Minecraft tools.
 
 `[damageVsEntity] = 0` - How much damage it
@@ -1129,7 +1129,7 @@ light level from a block. Glowstone = 1.0, Stone = 0.0
 `[harvestLevel]` - The level of the pickaxe
 needed to mine the block. This doesn't apply to shovel blocks or axe
 blocks. The following link shows the equivalent numerical value for
-vanilla tools. ([harvestLevel list](harvestLevel_list "wikilink"))
+vanilla tools. ([harvestLevel list](harvest_level_list "wikilink"))
 
 `[slipperiness]` - CommonBlocks: 0.6, ice: 0.98
 

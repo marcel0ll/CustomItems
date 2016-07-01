@@ -3,7 +3,7 @@ layout: wiki
 title: Items
 ---
 
-#<a name="foods" href="#foods" > Foods </a>
+# Foods
 ___
 
 **Properties:**
@@ -48,7 +48,7 @@ each with its own properties.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`[effect] = "moveSpeed"` - There is a list of
 buffs/debuffs possible ([effects
-list](effects_list_1.0_beta_4 "wikilink"))
+list](effects_list "wikilink"))
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`[potionDuration] = 20` - How many SECONDS the
 effect will last
@@ -61,58 +61,59 @@ max: 1.0) The chance of the potion effect happening when eating the food
 
 **Format Example:**
 
-	{
-	    "foods":
-	    [
-	       {
-	           "name":"food 1",
-	           "textureName":"food1",
-	               "healAmount": 1,
-	           "saturationModifier":1,
-	           "potionEffects":
-	           [
-	                    {
+``` json
+{
+    "foods":
+    [
+       {
+           "name":"food 1",
+           "textureName":"food1",
+           "healAmount": 1,
+           "saturationModifier":1,
+           "potionEffects":
+           [
+              {
 	               "effect": "effect",
 	               "potionDuration": 1,
 	               "potionAmplifier": 1,
 	               "potionEffectProbability": 1.0
-	                    }
-	           ]
-	       },
-	       {
-	           "name":"food 2",
-	           "textureName":"food2",
-	               "healAmount": 1,
-	               "creativeTab": "Random Tab",
-	           "saturationModifier": 1
-	          "
-	       },
-	           ...
-	       {
-	           "name":"food X",
-	           "textureName":"foodX",
-	               "healAmount": 1,
-	           "saturationModifier":1,
-	           "potionEffects":
-	           [
-	                    {
-	               "effect": "effect",
-	               "potionDuration": 1,
-	               "potionAmplifier": 1,
-	               "potionEffectProbability": 1.0
-	                    },
-	                    {
-	               "effect": "effect2",
-	               "potionDuration": 1,
-	               "potionAmplifier": 1,
-	               "potionEffectProbability": 1.0
-	                    }
-	               ]
-	       }
-        ]
-	}
+              }
+           ]
+       },
+       {
+           "name":"food 2",
+           "textureName":"food2",
+           "healAmount": 1,
+           "creativeTab": "Random Tab",
+           "saturationModifier": 1          
+       },
+       ...
+       {
+           "name":"food X",
+           "textureName":"foodX",
+           "healAmount": 1,
+           "saturationModifier":1,
+           "potionEffects":
+           [
+               {
+		               "effect": "effect",
+		               "potionDuration": 1,
+		               "potionAmplifier": 1,
+		               "potionEffectProbability": 1.0
+               },
+               {
+		               "effect": "effect2",
+		               "potionDuration": 1,
+		               "potionAmplifier": 1,
+		               "potionEffectProbability": 1.0
+               }
+          ]
+       }
+  	]
+}
+```
 
-#<a name="items" href="#items" > Items </a>
+# Items
 ___
 
 **Properties:**
@@ -132,88 +133,37 @@ an enchanted sparkle.
 
 **Format Example:**
 
-	{
-	    "items":
-	    [
-	        {
-	            "name":"Item 1",
-	            "textureName":"item1",
-	            "creativeTab":"Custom Items",
-	            "maxstackSize": 1-64
-	        },
-	        {
-	            "name":"Item 2",
-	            "textureName":"item2",
-	            "creativeTab":"Custom Items",
-	            "maxstackSize": 1-64
-	        },
-	        ...
-	        {
-	            "name":"Item X",
-	            "textureName":"itemX",
-	            "maxstackSize": 1-64
-	        }
-	    ]
-	}
+``` json
+{
+    "items":
+    [
+        {
+            "name":"Item 1",
+            "textureName":"item1",
+            "creativeTab":"Custom Items",
+            "maxstackSize": 1-64
+        },
+        {
+            "name":"Item 2",
+            "textureName":"item2",
+            "creativeTab":"Custom Items",
+            "maxstackSize": 1-64
+        },
+        ...
+        {
+            "name":"Item X",
+            "textureName":"itemX",
+            "maxstackSize": 1-64
+        }
+    ]
+}
+```
 
-#<a name="tools" href="#tools" > Tools </a>
+# Tools
 ___
 
-### <a name="axes" href="#axes" > Axes </a>
+### Axes
 
-___
-
-**Properties:**
-
-`{name}` - The name of the tool
-
-`{textureName}` - The texture name of the tool.
-
-`[creativeTab] = "Custom Items"` - What
-creative tab the tool will show up in.
-
-`[maxUses] = 59` - How many times this item can
-be used. Durability.
-
-`[efficiencyOnProperMaterial] = 2` - How
-efficient a tool is on the proper material. It is also know as the
-Breaking Multiplier on Minecraft wiki
-[here](http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed).
-The [Material Multiplier](Material_Multiplier "wikilink") page will show
-you a relative number to Minecraft tools.
-
-`[damageVsEntity] = 0` - How much damage it
-does on entities (zombies, chickes, other players)
-
-`[enchantability] = 15` - How easily this tool
-will be enchanted
-
-**Format Example:**
-
-	{
-	    "axes":
-	    [
-	        {
-	            "name":"axe 1",
-	            "textureName":"axe1",
-	            "maxUses":1,
-	            "efficiencyOnProperMaterial":1,
-	            "damageVsEntity":0,
-	            "enchantability":1
-	        },
-	        ...
-	        {
-	            "name":"axe X",
-	            "textureName":"axeX",
-	            "maxUses":1,
-	            "efficiencyOnProperMaterial":1,
-	            "damageVsEntity":0,
-	            "enchantability":1
-	        }
-	    ]
-	}
-
-### <a name="hoes" href="#hoes" > Hoes </a>
 ___
 
 **Properties:**
@@ -232,7 +182,7 @@ be used. Durability.
 efficient a tool is on the proper material. It is also know as the
 Breaking Multiplier on Minecraft wiki
 [here](http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed).
-The [Material Multiplier](Material_Multiplier "wikilink") page will show
+The [Material Multiplier](material_multiplier "wikilink") page will show
 you a relative number to Minecraft tools.
 
 `[damageVsEntity] = 0` - How much damage it
@@ -243,30 +193,87 @@ will be enchanted
 
 **Format Example:**
 
-	{
-	    "hoes":
-	    [
-	        {
-	            "name":"hoe 1",
-	            "textureName":"hoe1",
-	            "maxUses":1,
-	            "efficiencyOnProperMaterial":1,
-	            "damageVsEntity":0,
-	            "enchantability":1
-	        },
-	        ...
-	        {
-	            "name":"hoe X",
-	            "textureName":"hoeX",
-	            "maxUses":1,
-	            "efficiencyOnProperMaterial":1,
-	            "damageVsEntity":0,
-	            "enchantability":1
-	        }
-	    ]
-	}
+``` json
+{
+    "axes":
+    [
+        {
+            "name":"axe 1",
+            "textureName":"axe1",
+            "maxUses":1,
+            "efficiencyOnProperMaterial":1,
+            "damageVsEntity":0,
+            "enchantability":1
+        },
+        ...
+        {
+            "name":"axe X",
+            "textureName":"axeX",
+            "maxUses":1,
+            "efficiencyOnProperMaterial":1,
+            "damageVsEntity":0,
+            "enchantability":1
+        }
+    ]
+}
+```
 
-### <a name="pickaxes" href="#pickaxes" > Pickaxes </a>
+### Hoes
+___
+
+**Properties:**
+
+`{name}` - The name of the tool
+
+`{textureName}` - The texture name of the tool.
+
+`[creativeTab] = "Custom Items"` - What
+creative tab the tool will show up in.
+
+`[maxUses] = 59` - How many times this item can
+be used. Durability.
+
+`[efficiencyOnProperMaterial] = 2` - How
+efficient a tool is on the proper material. It is also know as the
+Breaking Multiplier on Minecraft wiki
+[here](http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed).
+The [Material Multiplier](material_multiplier "wikilink") page will show
+you a relative number to Minecraft tools.
+
+`[damageVsEntity] = 0` - How much damage it
+does on entities (zombies, chickes, other players)
+
+`[enchantability] = 15` - How easily this tool
+will be enchanted
+
+**Format Example:**
+
+``` json
+{
+    "hoes":
+    [
+        {
+            "name":"hoe 1",
+            "textureName":"hoe1",
+            "maxUses":1,
+            "efficiencyOnProperMaterial":1,
+            "damageVsEntity":0,
+            "enchantability":1
+        },
+        ...
+        {
+            "name":"hoe X",
+            "textureName":"hoeX",
+            "maxUses":1,
+            "efficiencyOnProperMaterial":1,
+            "damageVsEntity":0,
+            "enchantability":1
+        }
+    ]
+}
+```
+
+### Pickaxes
 ___
 
 **Properties:**
@@ -281,7 +288,7 @@ creative tab the tool will show up in.
 
 `[harvestLevel] = 0` - The level that a pickaxe
 can mine. The following link shows the equivalent numerical value for
-vanilla tools. ([harvestLevel list](harvestLevel_list "wikilink"))
+vanilla tools. ([harvestLevel list](harvest_level_list "wikilink"))
 
 `[maxUses] = 59` - How many times this item can
 be used. Durability.
@@ -290,7 +297,7 @@ be used. Durability.
 efficient a tool is on the proper material. It is also know as the
 Breaking Multiplier on Minecraft wiki
 [here](http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed).
-The [Material Multiplier](Material_Multiplier "wikilink") page will show
+The [Material Multiplier](material_multiplier "wikilink") page will show
 you a relative number to Minecraft tools.
 
 `[damageVsEntity] = 0` - How much damage it
@@ -301,6 +308,7 @@ will be enchanted
 
 **Format Example:**
 
+``` json
 	{
 	    "pickaxes":
 	    [
@@ -325,8 +333,9 @@ will be enchanted
 	        }
 	    ]
 	}
+```
 
-### <a name="shovels" href="#shovels" > Shovels </a>
+### Shovels
 ___
 
 **Properties:**
@@ -345,7 +354,7 @@ be used. Durability.
 efficient a tool is on the proper material. It is also know as the
 Breaking Multiplier on Minecraft wiki
 [here](http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed).
-The [Material Multiplier](Material_Multiplier "wikilink") page will show
+The [Material Multiplier](material_multiplier "wikilink") page will show
 you a relative number to Minecraft tools.
 
 `[damageVsEntity] = 0` - How much damage it
@@ -356,6 +365,7 @@ will be enchanted
 
 **Format Example:**
 
+``` json
 	{
 	    "shovels":
 	    [
@@ -378,8 +388,9 @@ will be enchanted
 	        }
 	    ]
 	}
+```
 
-### <a name="swords" href="#swords" > Swords </a>
+### Swords
 ___
 
 **Properties:**
@@ -398,7 +409,7 @@ be used. Durability.
 efficient a tool is on the proper material. It is also know as the
 Breaking Multiplier on Minecraft wiki
 [here](http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed).
-The [Material Multiplier](Material_Multiplier "wikilink") page will show
+The [Material Multiplier](material_multiplier "wikilink") page will show
 you a relative number to Minecraft tools.
 
 `[damageVsEntity] = 0` - How much damage it
@@ -433,10 +444,10 @@ will be enchanted
 	}
 
 
-#<a name="armor" href="#armor"> Armor (Armour) </a>
+# Armor (Armour)
 ___
 
-### <a name="boots" href="#boots"> Boots </a>
+### Boots
 
 ___
 
@@ -467,7 +478,7 @@ will be enchanted
 
 **Format Example:**
 
-
+``` json
     {
         "boots":
         [
@@ -488,9 +499,9 @@ will be enchanted
             }
         ]
     }
+```
 
-
-### <a name="chestplates" href="#chestplates"> Chestplates </a>
+### Chestplates
 
 ___
 
@@ -521,6 +532,7 @@ will be enchanted
 
 **Format Example:**
 
+``` json
 	{
 	    "chestplates":
 	    [
@@ -541,8 +553,9 @@ will be enchanted
 	        }
 	    ]
 	}
+```
 
-### <a name="helmets" href="#helmets" > Helmets </a>
+### Helmets
 
 ___
 
@@ -573,6 +586,7 @@ will be enchanted
 
 **Format Example:**
 
+``` json
 	{
 	    "helmets":
 	    [
@@ -593,8 +607,9 @@ will be enchanted
 	        }
 	    ]
 	}
+```
 
-### <a name="leggings" href="#leggings" > Leggings </a>
+### Leggings
 
 ___
 
@@ -625,6 +640,7 @@ will be enchanted
 
 **Format Example:**
 
+```json
 	{
 	    "leggings":
 	    [
@@ -645,3 +661,4 @@ will be enchanted
 	        }
 	    ]
 	}
+```

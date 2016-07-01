@@ -183,14 +183,14 @@ permalink: /doc/
 <p>      <code>{zpos}</code> - The south texture of the block</p>
 <p>      <code>{zneg}</code> - The north texture of the block</p>
 <p><code>[isOpaque] = true</code> - Can light pass through this block</p>
-<p><code>[type] = &quot;normal&quot;</code> - The type of the block. (<a href="type_list" title="wikilink">type list</a>)</p>
+<p><code>[type] = &quot;normal&quot;</code> - The type of the block. (<a href="block_type_list" title="wikilink">type list</a>)</p>
 <p><code>[stepSound] = &quot;stone&quot;</code> - The sound that makes when you walk on this block. (<a href="step_sound_list_1.0_beta_4" title="wikilink">step sound list</a>)</p>
 <p><code>[material] = &quot;rock&quot;</code> - The block material (<a href="material_list_1.0_beta_4" title="wikilink">material list</a>)</p>
 <p><code>[toolClass]</code> - The tool to mine this block. Can be left blank (<a href="toolClass_list_1.0_beta_4" title="wikilink">toolClass list</a>)</p>
 <p><code>[resistance] = 10</code> - How much the block is resistant to explosion</p>
 <p><code>[hardness] = 2</code> - How hard is to mine this block</p>
 <p><code>[lightLevel] = 0;</code> - (min: 0.0, max: 1.0) - The light level from a block. Glowstone = 1.0, Stone = 0.0</p>
-<p><code>[harvestLevel] = 0</code> - The level of the pickaxe needed to mine the block. This doesn't apply to shovel blocks or axe blocks. The following link shows the equivalent numerical value for vanilla tools. (<a href="harvestLevel_list" title="wikilink">harvestLevel list</a>)</p>
+<p><code>[harvestLevel] = 0</code> - The level of the pickaxe needed to mine the block. This doesn't apply to shovel blocks or axe blocks. The following link shows the equivalent numerical value for vanilla tools. (<a href="harvest_level_list" title="wikilink">harvestLevel list</a>)</p>
 <p><code>[slipperiness] = 0.6f</code> - CommonBlocks: 0.6, ice: 0.98</p>
 <p><code>[breaks] = false</code> - If the block breaks when harvested without silkTouch, like glass</p>
 <p><code>[canSilkHarvest] = false</code> - If harvested with a silktouch enchanted tool, will it drop the block or not? Set this to true in your glass like blocks</p>
@@ -518,7 +518,7 @@ bucket texture. -->
 <p><code>{textureName}</code> - The texture name of the tool.</p>
 <p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the tool will show up in.</p>
 <p><code>[maxUses] = 59</code> - How many times this item can be used. Durability.</p>
-<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="Material_Multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
+<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="material_multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
 <p><code>[damageVsEntity] = 0</code> - How much damage it does on entities (zombies, chickes, other players)</p>
 <p><code>[enchantability] = 15</code> - How easily this tool will be enchanted</p>
 <p><strong>Format Example:</strong></p>
@@ -551,7 +551,7 @@ bucket texture. -->
 <p><code>{textureName}</code> - The texture name of the tool.</p>
 <p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the tool will show up in.</p>
 <p><code>[maxUses] = 59</code> - How many times this item can be used. Durability.</p>
-<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="Material_Multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
+<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="material_multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
 <p><code>[damageVsEntity] = 0</code> - How much damage it does on entities (zombies, chickes, other players)</p>
 <p><code>[enchantability] = 15</code> - How easily this tool will be enchanted</p>
 <p><strong>Format Example:</strong></p>
@@ -583,9 +583,9 @@ bucket texture. -->
 <p><code>{name}</code> - The name of the tool</p>
 <p><code>{textureName}</code> - The texture name of the tool. path:resourcepack/customItems/textures/items/textureName.png</p>
 <p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the tool will show up in.</p>
-<p><code>[harvestLevel] = 0</code> - The level that a pickaxe can mine. The following link shows the equivalent numerical value for vanilla tools. (<a href="harvestLevel_list" title="wikilink">harvestLevel list</a>)</p>
+<p><code>[harvestLevel] = 0</code> - The level that a pickaxe can mine. The following link shows the equivalent numerical value for vanilla tools. (<a href="harvest_level_list" title="wikilink">harvestLevel list</a>)</p>
 <p><code>[maxUses] = 59</code> - How many times this item can be used. Durability.</p>
-<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="Material_Multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
+<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="material_multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
 <p><code>[damageVsEntity] = 0</code> - How much damage it does on entities (zombies, chickes, other players)</p>
 <p><code>[enchantability] = 15</code> - How easily this tool will be enchanted</p>
 <p><strong>Format Example:</strong></p>
@@ -620,7 +620,7 @@ bucket texture. -->
 <p><code>{textureName}</code> - The texture name of the tool.</p>
 <p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the tool will show up in.</p>
 <p><code>[maxUses] = 59</code> - How many times this item can be used. Durability.</p>
-<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="Material_Multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
+<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="material_multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
 <p><code>[damageVsEntity] = 0</code> - How much damage it does on entities (zombies, chickes, other players)</p>
 <p><code>[enchantability] = 15</code> - How easily this tool will be enchanted</p>
 <p><strong>Format Example:</strong></p>
@@ -653,7 +653,7 @@ bucket texture. -->
 <p><code>{textureName}</code> - The texture name of the tool.</p>
 <p><code>[creativeTab] = &quot;Custom Items&quot;</code> - What creative tab the tool will show up in.</p>
 <p><code>[maxUses] = 59</code> - How many times this item can be used. Durability.</p>
-<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="Material_Multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
+<p><code>[efficiencyOnProperMaterial] = 2</code> - How efficient a tool is on the proper material. It is also know as the Breaking Multiplier on Minecraft wiki <a href="http://minecraft.gamepedia.com/Breaking?cookieSetup=true#Speed">here</a>. The <a href="material_multiplier" title="wikilink">Material Multiplier</a> page will show you a relative number to Minecraft tools.</p>
 <p><code>[damageVsEntity] = 0</code> - How much damage it does on entities (zombies, chickes, other players)</p>
 <p><code>[enchantability] = 15</code> - How easily this tool will be enchanted</p>
 <p><strong>Format Example:</strong></p>
@@ -691,7 +691,7 @@ bucket texture. -->
 <p><code>[resistance]</code> - How much the block is resistant to explosion</p>
 <p><code>[hardness]</code> - How hard is to mine this block</p>
 <p><code>[lightLevel]</code> - (min: 0.0, max: 1.0) - The light level from a block. Glowstone = 1.0, Stone = 0.0</p>
-<p><code>[harvestLevel]</code> - The level of the pickaxe needed to mine the block. This doesn't apply to shovel blocks or axe blocks. The following link shows the equivalent numerical value for vanilla tools. (<a href="harvestLevel_list" title="wikilink">harvestLevel list</a>)</p>
+<p><code>[harvestLevel]</code> - The level of the pickaxe needed to mine the block. This doesn't apply to shovel blocks or axe blocks. The following link shows the equivalent numerical value for vanilla tools. (<a href="harvest_level_list" title="wikilink">harvestLevel list</a>)</p>
 <p><code>[slipperiness]</code> - CommonBlocks: 0.6, ice: 0.98</p>
 <p><code>[isOpaque]</code> - Can light pass through this block</p>
 <p><code>[stepSound]</code> - The sound that makes when you walk on this block. (<a href="step_sound_list_1.0_beta_4" title="wikilink">step sound list</a>)</p>
