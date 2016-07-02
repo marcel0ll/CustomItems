@@ -56,8 +56,8 @@ header, main, footer {
     background-color: transparent;
 }
 .side-nav li:not(:first-child){
-    height: 64px;
-    line-height: 64px;
+    // height: 64px;
+    // line-height: 64px;
 }
 
 .side-nav ul{
@@ -97,4 +97,8 @@ header, main, footer {
     height: 45px;
     padding: 0 45px 0 15px;
     border: 0;
+}
+
+.side-nav .collapsible-header {
+  line-height: 64px !important;
 }
