@@ -3,7 +3,7 @@ layout: wiki
 title: Ore Gen
 ---
 
-#<a name="ore_generation" href="#ore_generation" > Ore Generation </a>
+# Ore Generation
 ___
 
 **Properties:**
@@ -51,19 +51,19 @@ higher than 125 unless you want the blocks to generate between bedrock.*
 
 **Format Example:**
 
-    {
-        "oreGen":[
-            {
-                "blockToSpawn": "customitems:red_sand",
-                "blockToReplace": "minecraft:sand",
-                "dimensionId": 0,
-                "minVeinSize": 10,
-                "maxVeinSize": 15,
-                "chancesToSpawn": 10,
-                "minY": 40,
-                "maxY": 90
-            }
-        ]
-    }
-
-&nbsp;
+``` json
+{
+    "oreGen": [
+        {
+            "blockToSpawn": "customitems:red_sand",
+            "blockToReplace": "minecraft:sand",
+            "dimensionId": 0,
+            "minVeinSize": 10,
+            "maxVeinSize": 15,
+            "chancesToSpawn": 10,
+            "minY": 40,
+            "maxY": 90
+        }
+    ]
+}
+```

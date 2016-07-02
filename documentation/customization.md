@@ -3,13 +3,13 @@ layout: wiki
 title: Customization
 ---
 
-#<a name="change_existing_properties" href="#change_existing_properties" > Changing Existing Properties </a>
+# Changing Existing Properties
 ___
 
 Tired of how the default Minecraft has done with its blocks or items.
 You now can change the properties of default blocks and items.
 
-###<a name="change_existing_blocks" href="#change_existing_blocks" > Change Existing Blocks </a>
+### Change Existing Blocks
 ___
 
 **Properties:**
@@ -47,31 +47,33 @@ list](step_sound_list_1.0_beta_4 "wikilink"))
 
 **Format Example:**
 
-	{
-	    "changeBlocks":[
-	        {
-	            "name":"minecraft:cactus",
-	            "maxStackSize": 6,
-	            "stepSound": "glass",
-	            "lightLevel": 0.5,
-	            "harvestLevel": 3,
-	            "toolClass": "shovel"
-	        },
-	        {
-	            "name":"minecraft:gravel",
-	            "maxStackSize": 17,
-	            "slipperiness": 0.3
-	        },
-	        {
-	            "name":"minecraft:stone",
-	            "maxStackSize": 4,
-	            "hardness": -1.0,
-	            "resistance": 6000000.0
-	        }
-	    ]
-	}
+``` json
+{
+    "changeBlocks": [
+        {
+            "name": "minecraft:cactus",
+            "maxStackSize": 6,
+            "stepSound": "glass",
+            "lightLevel": 0.5,
+            "harvestLevel": 3,
+            "toolClass": "shovel"
+        },
+        {
+            "name": "minecraft:gravel",
+            "maxStackSize": 17,
+            "slipperiness": 0.3
+        },
+        {
+            "name": "minecraft:stone",
+            "maxStackSize": 4,
+            "hardness": -1,
+            "resistance": 6000000
+        }
+    ]
+}
+```
 
-###<a name="change_existing_items" href="#change_existing_items" > Change Existing Items </a>
+### Change Existing Items
 ___
 
 **Properties:**
@@ -84,25 +86,26 @@ item. Min:1, Max:64
 
 **Format Example:**
 
-	{
-	    "changeItems":[
-	        {
-	            "name":"minecraft:apple",
-	            "maxStackSize": 3
-	        },
-	        {
-	            "name":"minecraft:cookie",
-	            "maxStackSize": 17
-	        },
-	        {
-	            "name":"customitems:coin",
-	            "maxStackSize": 4
-	        }
-	    ]
-	}
+``` json
+{
+    "changeItems": [
+        {
+            "name": "minecraft:apple",
+            "maxStackSize": 3
+        },
+        {
+            "name": "minecraft:cookie",
+            "maxStackSize": 17
+        },
+        {
+            "name": "customitems:coin",
+            "maxStackSize": 4
+        }
+    ]
+}
+```
 
-###<a name="change_existing_foods" href="#change_existing_foods" > Change Existing Foods </a>
-___
+### Change Existing Foods
 
 **Properties:**
 
@@ -147,20 +150,22 @@ max: 1.0) The chance of the potion effect happening when eating the food
 
 **Format Example:**
 
-	{
-	   "changeFoods":[
-	       {
-	           "name": "minecraft:apple",
-	           "maxStackSize": 16,
-	           "healAmount":  1,
-	           "saturationModifier":  1,
-	           "alwaysEdible": true,
-	           "isWolfFood": false
-	       }
-	   ]
-	}
+``` json
+{
+    "changeFoods": [
+        {
+            "name": "minecraft:apple",
+            "maxStackSize": 16,
+            "healAmount": 1,
+            "saturationModifier": 1,
+            "alwaysEdible": true,
+            "isWolfFood": false
+        }
+    ]
+}
+```
 
-#<a name="modify_drops" href="#modify_drops" > Modify Drops </a>
+# Modify Drops
 ___
 
 Starting with CI 1.0.9b, you now can modify drops from pre-existing
@@ -174,7 +179,7 @@ page](http://minecraft.gamepedia.com/Data_values/Item_IDs). For NPC
 (mob) IDs, I suggest using [Mineacraft wiki Entity IDs
 page](http://minecraft.gamepedia.com/Data_values/Entity_IDs).
 
-###<a name="block_drops" href="#block_drops" > Block Drops </a>
+### Block Drops
 ___
 
 **Properties:**
@@ -207,30 +212,32 @@ of the item being dropped.
 
 **Format Example:**
 
-    {
-        "blocksDrop":[
-            {
-                "id": "minecraft:planks:3",
-                "overrides": true,
-                "drops":[
-                    {
-                        "id": "minecraft:sapling:4",
-                        "min" : 2,
-                        "max" : 4,
-                        "chance" : 100.0
-                    },
-                    {
-                       "id": "minecraft:sapling:5",
-                       "min" : 1,
-                       "max" : 3,
-                       "chance" : 100.0
-                    }
-                ]
-            }
-        ]
-    }
+``` json
+{
+    "blocksDrop": [
+        {
+            "id": "minecraft:planks:3",
+            "overrides": true,
+            "drops": [
+                {
+                    "id": "minecraft:sapling:4",
+                    "min": 2,
+                    "max": 4,
+                    "chance": 100
+                },
+                {
+                    "id": "minecraft:sapling:5",
+                    "min": 1,
+                    "max": 3,
+                    "chance": 100
+                }
+            ]
+        }
+    ]
+}
+```   
 
-###<a name="entity_drop" href="#entity_drop" > Entity Drop </a>
+### Entity Drop
 ___
 
 **Properties:**
@@ -262,25 +269,27 @@ of the item being dropped.
 
 **Format Example:**
 
-    {
-        "entitiesDrop":[
-            {
-                "id":"Cow",
-                "overrides": true,
-                "drops":[
-                    {
-                        "id": "minecraft:sapling:1",
-                        "min" : 1,
-                        "max" : 3,
-                        "chance" : 100.0
-                    },
-                    {
-                        "id": "minecraft:sapling:2",
-                        "min" : 1,
-                        "max" : 5,
-                        "chance" : 10.0
-                    }
-                ]
-            }
-        ]
-    }
+``` json
+{
+    "entitiesDrop": [
+        {
+            "id": "Cow",
+            "overrides": true,
+            "drops": [
+                {
+                    "id": "minecraft:sapling:1",
+                    "min": 1,
+                    "max": 3,
+                    "chance": 100
+                },
+                {
+                    "id": "minecraft:sapling:2",
+                    "min": 1,
+                    "max": 5,
+                    "chance": 10
+                }
+            ]
+        }
+    ]
+}
+```    

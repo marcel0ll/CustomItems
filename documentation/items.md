@@ -63,53 +63,49 @@ max: 1.0) The chance of the potion effect happening when eating the food
 
 ``` json
 {
-    "foods":
-    [
-       {
-           "name":"food 1",
-           "textureName":"food1",
-           "healAmount": 1,
-           "saturationModifier":1,
-           "potionEffects":
-           [
-              {
-	               "effect": "effect",
-	               "potionDuration": 1,
-	               "potionAmplifier": 1,
-	               "potionEffectProbability": 1.0
-              }
-           ]
-       },
-       {
-           "name":"food 2",
-           "textureName":"food2",
-           "healAmount": 1,
-           "creativeTab": "Random Tab",
-           "saturationModifier": 1          
-       },
-       ...
-       {
-           "name":"food X",
-           "textureName":"foodX",
-           "healAmount": 1,
-           "saturationModifier":1,
-           "potionEffects":
-           [
-               {
-		               "effect": "effect",
-		               "potionDuration": 1,
-		               "potionAmplifier": 1,
-		               "potionEffectProbability": 1.0
-               },
-               {
-		               "effect": "effect2",
-		               "potionDuration": 1,
-		               "potionAmplifier": 1,
-		               "potionEffectProbability": 1.0
-               }
-          ]
-       }
-  	]
+    "foods": [
+        {
+            "name": "food 1",
+            "textureName": "food1",
+            "healAmount": 1,
+            "saturationModifier": 1,
+            "potionEffects": [
+                {
+                    "effect": "effect",
+                    "potionDuration": 1,
+                    "potionAmplifier": 1,
+                    "potionEffectProbability": 1
+                }
+            ]
+        },
+        {
+            "name": "food 2",
+            "textureName": "food2",
+            "healAmount": 1,
+            "creativeTab": "Random Tab",
+            "saturationModifier": 1
+        },
+        {
+            "name": "food X",
+            "textureName": "foodX",
+            "healAmount": 1,
+            "saturationModifier": 1,
+            "potionEffects": [
+                {
+                    "effect": "effect",
+                    "potionDuration": 1,
+                    "potionAmplifier": 1,
+                    "potionEffectProbability": 1
+                },
+                {
+                    "effect": "effect2",
+                    "potionDuration": 1,
+                    "potionAmplifier": 1,
+                    "potionEffectProbability": 1
+                }
+            ]
+        }
+    ]
 }
 ```
 
@@ -135,27 +131,25 @@ an enchanted sparkle.
 
 ``` json
 {
-    "items":
-    [
-        {
-            "name":"Item 1",
-            "textureName":"item1",
-            "creativeTab":"Custom Items",
-            "maxstackSize": 1-64
-        },
-        {
-            "name":"Item 2",
-            "textureName":"item2",
-            "creativeTab":"Custom Items",
-            "maxstackSize": 1-64
-        },
-        ...
-        {
-            "name":"Item X",
-            "textureName":"itemX",
-            "maxstackSize": 1-64
-        }
-    ]
+  "items": [
+    {
+      "name": "Item 1",
+      "textureName": "item1",
+      "creativeTab": "Custom Items",
+      "maxstackSize": 35
+    },
+    {
+      "name": "Item 2",
+      "textureName": "item2",
+      "creativeTab": "Custom Items",
+      "maxstackSize": 23
+    },
+    {
+      "name": "Item X",
+      "textureName": "itemX",
+      "maxstackSize": 42
+    }
+  ]
 }
 ```
 
@@ -195,26 +189,24 @@ will be enchanted
 
 ``` json
 {
-    "axes":
-    [
-        {
-            "name":"axe 1",
-            "textureName":"axe1",
-            "maxUses":1,
-            "efficiencyOnProperMaterial":1,
-            "damageVsEntity":0,
-            "enchantability":1
-        },
-        ...
-        {
-            "name":"axe X",
-            "textureName":"axeX",
-            "maxUses":1,
-            "efficiencyOnProperMaterial":1,
-            "damageVsEntity":0,
-            "enchantability":1
-        }
-    ]
+    "axes": [
+        {
+            "name": "axe 1",
+            "textureName": "axe1",
+            "maxUses": 1,
+            "efficiencyOnProperMaterial": 1,
+            "damageVsEntity": 0,
+            "enchantability": 1
+        },
+        {
+            "name": "axe X",
+            "textureName": "axeX",
+            "maxUses": 1,
+            "efficiencyOnProperMaterial": 1,
+            "damageVsEntity": 0,
+            "enchantability": 1
+        }
+    ]
 }
 ```
 
@@ -250,26 +242,24 @@ will be enchanted
 
 ``` json
 {
-    "hoes":
-    [
-        {
-            "name":"hoe 1",
-            "textureName":"hoe1",
-            "maxUses":1,
-            "efficiencyOnProperMaterial":1,
-            "damageVsEntity":0,
-            "enchantability":1
-        },
-        ...
-        {
-            "name":"hoe X",
-            "textureName":"hoeX",
-            "maxUses":1,
-            "efficiencyOnProperMaterial":1,
-            "damageVsEntity":0,
-            "enchantability":1
-        }
-    ]
+    "hoes": [
+        {
+            "name": "hoe 1",
+            "textureName": "hoe1",
+            "maxUses": 1,
+            "efficiencyOnProperMaterial": 1,
+            "damageVsEntity": 0,
+            "enchantability": 1
+        },
+        {
+            "name": "hoe X",
+            "textureName": "hoeX",
+            "maxUses": 1,
+            "efficiencyOnProperMaterial": 1,
+            "damageVsEntity": 0,
+            "enchantability": 1
+        }
+    ]
 }
 ```
 
@@ -309,30 +299,28 @@ will be enchanted
 **Format Example:**
 
 ``` json
-	{
-	    "pickaxes":
-	    [
-	        {
-	            "name":"pickaxe 1",
-	            "textureName":"pickaxe1",
-	            "harvestLevel":1,
-	            "maxUses":1,
-	            "efficiencyOnProperMaterial":1,
-	            "damageVsEntity":0,
-	            "enchantability":1
-	        },
-	        ...
-	        {
-	            "name":"pickaxe X",
-	            "textureName":"pickaxeX",
-	            "harvestLevel":1,
-	            "maxUses":1,
-	            "efficiencyOnProperMaterial":1,
-	            "damageVsEntity":0,
-	            "enchantability":1
-	        }
-	    ]
-	}
+{
+    "pickaxes": [
+        {
+            "name": "pickaxe 1",
+            "textureName": "pickaxe1",
+            "harvestLevel": 1,
+            "maxUses": 1,
+            "efficiencyOnProperMaterial": 1,
+            "damageVsEntity": 0,
+            "enchantability": 1
+        },
+        {
+            "name": "pickaxe X",
+            "textureName": "pickaxeX",
+            "harvestLevel": 1,
+            "maxUses": 1,
+            "efficiencyOnProperMaterial": 1,
+            "damageVsEntity": 0,
+            "enchantability": 1
+        }
+    ]
+}
 ```
 
 ### Shovels
@@ -366,28 +354,26 @@ will be enchanted
 **Format Example:**
 
 ``` json
-	{
-	    "shovels":
-	    [
-	        {
-	            "name":"shovel 1",
-	            "textureName":"shovel1",
-	            "maxUses":1,
-	            "efficiencyOnProperMaterial":1,
-	            "damageVsEntity":0,
-	            "enchantability":1
-	        },
-	        ...
-	        {
-	            "name":"shovel X",
-	            "textureName":"shovelX",
-	            "maxUses":1,
-	            "efficiencyOnProperMaterial":1,
-	            "damageVsEntity":0,
-	            "enchantability":1
-	        }
-	    ]
-	}
+{
+    "shovels": [
+        {
+            "name": "shovel 1",
+            "textureName": "shovel1",
+            "maxUses": 1,
+            "efficiencyOnProperMaterial": 1,
+            "damageVsEntity": 0,
+            "enchantability": 1
+        },
+        {
+            "name": "shovel X",
+            "textureName": "shovelX",
+            "maxUses": 1,
+            "efficiencyOnProperMaterial": 1,
+            "damageVsEntity": 0,
+            "enchantability": 1
+        }
+    ]
+}
 ```
 
 ### Swords
@@ -420,29 +406,28 @@ will be enchanted
 
 **Format Example:**
 
-	{
-	    "pickaxes":
-	    [
-	        {
-	            "name":"sword 1",
-	            "textureName":"sword1",
-	            "maxUses":1,
-	            "efficiencyOnProperMaterial":1,
-	            "damageVsEntity":0,
-	            "enchantability":1
-	        },
-	        ...
-	        {
-	            "name":"sword X",
-	            "textureName":"swordX",
-	            "maxUses":1,
-	            "efficiencyOnProperMaterial":1,
-	            "damageVsEntity":0,
-	            "enchantability":1
-	        }
-	    ]
-	}
-
+``` json
+{
+    "pickaxes": [
+        {
+            "name": "sword 1",
+            "textureName": "sword1",
+            "maxUses": 1,
+            "efficiencyOnProperMaterial": 1,
+            "damageVsEntity": 0,
+            "enchantability": 1
+        },
+        {
+            "name": "sword X",
+            "textureName": "swordX",
+            "maxUses": 1,
+            "efficiencyOnProperMaterial": 1,
+            "damageVsEntity": 0,
+            "enchantability": 1
+        }
+    ]
+}
+```
 
 # Armor (Armour)
 ___
@@ -479,26 +464,24 @@ will be enchanted
 **Format Example:**
 
 ``` json
-    {
-        "boots":
-        [
-            {
-                "name":"boots 1",
-                "textureName":"boots1",
-                "durability":1,
-                "reduction":1,
-                "enchantability":30
-            },
-            ...
-            {
-                "name":"boots X",
-                "textureName":"bootsX",
-                "durability":1,
-                "reduction":1,
-                "enchantability":30
-            }
-        ]
-    }
+{
+    "boots": [
+        {
+            "name": "boots 1",
+            "textureName": "boots1",
+            "durability": 1,
+            "reduction": 1,
+            "enchantability": 30
+        },
+        {
+            "name": "boots X",
+            "textureName": "bootsX",
+            "durability": 1,
+            "reduction": 1,
+            "enchantability": 30
+        }
+    ]
+}
 ```
 
 ### Chestplates
@@ -533,26 +516,24 @@ will be enchanted
 **Format Example:**
 
 ``` json
-	{
-	    "chestplates":
-	    [
-	        {
-	            "name":"chestplate 1",
-	            "textureName":"chestplate1",
-	            "durability":1,
-	            "reduction":1,
-	            "enchantability":30
-	        },
-	        ...
-	        {
-	            "name":"chestplate X",
-	            "textureName":"chestplateX",
-	            "durability":1,
-	            "reduction":1,
-	            "enchantability":30
-	        }
-	    ]
-	}
+{
+    "boots": [
+        {
+            "name": "boots 1",
+            "textureName": "boots1",
+            "durability": 1,
+            "reduction": 1,
+            "enchantability": 30
+        },
+        {
+            "name": "boots X",
+            "textureName": "bootsX",
+            "durability": 1,
+            "reduction": 1,
+            "enchantability": 30
+        }
+    ]
+}
 ```
 
 ### Helmets
@@ -587,26 +568,24 @@ will be enchanted
 **Format Example:**
 
 ``` json
-	{
-	    "helmets":
-	    [
-	        {
-	            "name":"Helmet 1",
-	            "textureName":"Helmet1",
-	            "durability":1,
-	            "reduction":1,
-	            "enchantability":30
-	        },
-	        ...
-	        {
-	            "name":"Helmet X",
-	            "textureName":"HelmetX",
-	            "durability":1,
-	            "reduction":1,
-	            "enchantability":30
-	        }
-	    ]
-	}
+{
+    "helmets": [
+        {
+            "name": "Helmet 1",
+            "textureName": "Helmet1",
+            "durability": 1,
+            "reduction": 1,
+            "enchantability": 30
+        },
+        {
+            "name": "Helmet X",
+            "textureName": "HelmetX",
+            "durability": 1,
+            "reduction": 1,
+            "enchantability": 30
+        }
+    ]
+}
 ```
 
 ### Leggings
@@ -641,24 +620,22 @@ will be enchanted
 **Format Example:**
 
 ```json
-	{
-	    "leggings":
-	    [
-	        {
-	            "name":"leggings 1",
-	            "textureName":"leggings1",
-	            "durability":1,
-	            "reduction":1,
-	            "enchantability":30
-	        },
-	        ...
-	        {
-	            "name":"leggings X",
-	            "textureName":"leggingsX",
-	            "durability":1,
-	            "reduction":1,
-	            "enchantability":30
-	        }
-	    ]
-	}
+{
+    "leggings": [
+        {
+            "name": "leggings 1",
+            "textureName": "leggings1",
+            "durability": 1,
+            "reduction": 1,
+            "enchantability": 30
+        },
+        {
+            "name": "leggings X",
+            "textureName": "leggingsX",
+            "durability": 1,
+            "reduction": 1,
+            "enchantability": 30
+        }
+    ]
+}
 ```
