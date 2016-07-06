@@ -3,33 +3,38 @@
 
 DONE:
 
-(x) Added block type: "CROSSED" - Allows blocks to be rendered as cobwebs(crossed textures), without cobweb behaviour of slowing falls
-(x) Added config option: "logFile" - If given permission, the mod will generate a file with all the logs generated from the mod. This is intended for easier debugging.
-(x) Removed config option: "remake" - Removed option that would generate default config files.
-(x) Removed config option: "entityIdLog" - Removed option that would log the id from the last killed entity
+(x) Add block type: "CROSSED" - Allows blocks to be rendered as cobwebs(crossed textures), without cobweb behaviour of slowing falls
+(x) Add config option: "logFile" - If given permission, the mod will generate a file with all the logs generated from the mod. This is intended for easier debugging.
+(x) Remove config option: "remake" - Removed option that would generate default config files.
+(x) Remove config option: "entityIdLog" - Removed option that would log the id from the last killed entity
+(x) Add block propertie called "flammability" 
+(x) Add block propertie called "fireEncouragement" 
+(x) Force same style on code 
+(x) Document 1.0.10
 
 --------------------------------------------------------------
 
 TO TEST:
 
-( ) Added block type: "TORCH" - Allows blocks to be rendered and behave as torchs
-( ) Added block type: "TRAPDOOR" - Allows blocks to be rendered and behave as Trapdoors
-( ) Added block type: "PRESSUREPLATE" - Allows blocks to be rendered and behave as Pressureplates
-( ) Added block type: "CARPET" - Allows blocks to be rendered and behave as Carpets
-( ) Added block type: "FLOWER" - Allows blocks to be rendered and behave as Flowers
-( ) Added block type: "LADDER" - Allows blocks to be rendered and behave as Ladders
-( ) Added block type: "GATE" - Allows blocks to be rendered and behave as Gates
-( ) Added block type: "BUTTON" - Allows blocks to be rendered and behave as Buttons
+( ) Add block type: "TORCH" - Allows blocks to be rendered and behave as torchs
+( ) Add block type: "TRAPDOOR" - Allows blocks to be rendered and behave as Trapdoors
+( ) Add block type: "PRESSUREPLATE" - Allows blocks to be rendered and behave as Pressureplates
+( ) Add block type: "CARPET" - Allows blocks to be rendered and behave as Carpets
+( ) Add block type: "FLOWER" - Allows blocks to be rendered and behave as Flowers
+( ) Add block type: "LADDER" - Allows blocks to be rendered and behave as Ladders
+( ) Add block type: "GATE" - Allows blocks to be rendered and behave as Gates
+( ) Add block type: "BUTTON" - Allows blocks to be rendered and behave as Buttons
 
 --------------------------------------------------------------
 
 TO DO:
 
-( ) Added block type: "LEVER" - Allows blocks to be rendered and behave as Levers
-( ) Added block type: "BED" - Allows blocks to be rendered and behave as Beds
-( ) Added block type: "DOOR" - Allows blocks to be rendered and behave as Doors
-( ) Added config option: "idFile" - If given permission, the mod will generate a file with all block ids, entities ids and items ids.
-( ) Added Travis Ci continous integration
+( ) Add block type: "LEVER" - Allows blocks to be rendered and behave as Levers
+( ) Add block type: "BED" - Allows blocks to be rendered and behave as Beds
+( ) Add block type: "DOOR" - Allows blocks to be rendered and behave as Doors
+( ) Add config option: "idFile" - If given permission, the mod will generate a file with all block ids, entities ids and items ids.
+( ) Add "movable" option for blocks
+( ) Add Travis Ci continous integration
 
 ----------------------------------------------------------------------------------------------
 

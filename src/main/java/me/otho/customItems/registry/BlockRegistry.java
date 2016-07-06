@@ -41,6 +41,7 @@ import me.otho.customItems.utility.LogHelper;
 import me.otho.customItems.utility.Util;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -531,6 +532,7 @@ public class BlockRegistry {
     // Register Block
     if (register) {
       GameRegistry.registerBlock(mineBlock, registerName);
+      Blocks.fire.setFireInfo(mineBlock, data.fireEncouragement , data.flammability);
       mineBlock.setBlockName(Registry.mod_id.toLowerCase() + ":" + registerName);
       LanguageRegistry.instance().addStringLocalization(mineBlock.getUnlocalizedName() + ".name", "en_US", data.name);
     }

@@ -21,6 +21,8 @@ public class Cfg_block extends Cfg_basicData {
   public int harvestLevel = 0;
   public float slipperiness = 0.6f;
   public boolean isCollidable = true;
+  public int flammability = 0;
+  public int fireEncouragement = 0;
 
   // Drop
   public boolean dropsItSelf = false;
