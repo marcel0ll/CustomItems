@@ -497,9 +497,11 @@ public class BlockRegistry {
     block.setBreaks(data.dropsItSelf);
     block.setCanSilkHarvest(data.canSilkHarvest);
     block.setCollides(data.isCollidable);
-    data.lightLevel = Util.range(data.lightLevel, 0, 1);
+    data.lightLevel = Util.range(data.lightLevel, 0, 15);
+    
+    float mcLightLevel = (float) (data.lightLevel / 15.0);
 
-    mineBlock.setLightLevel(data.lightLevel);
+    mineBlock.setLightLevel(mcLightLevel);
     if (data.toolClass != null) {
       mineBlock.setHarvestLevel(data.toolClass, data.harvestLevel);
     }

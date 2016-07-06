@@ -344,7 +344,7 @@
         "toolClass": null,
         "resistance": 10,
         "hardness": 2,
-        "lightLevel": 0,
+        "lightLevel": 15,
         "harvestLevel": 0,
         "slipperiness": 0.6,
         "isCollidable": true,
