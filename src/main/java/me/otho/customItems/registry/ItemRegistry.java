@@ -35,7 +35,12 @@ public class ItemRegistry {
   public static boolean registerAxe(Cfg_axe data) {
     LogHelper.info("Registering Axe: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     Item.ToolMaterial material = EnumHelper.addToolMaterial(data.textureName, data.harvestLevel, data.maxUses,
         data.efficiencyOnProperMaterial, data.damageVsEntity, data.enchantability);
@@ -57,7 +62,12 @@ public class ItemRegistry {
   public static boolean registerHammer(Cfg_hammer data) {
     LogHelper.info("Registering Hammer: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     Item.ToolMaterial material = EnumHelper.addToolMaterial(data.textureName, data.harvestLevel, data.maxUses,
         data.efficiencyOnProperMaterial, data.damageVsEntity, data.enchantability);
@@ -79,7 +89,12 @@ public class ItemRegistry {
   public static boolean registerBoots(Cfg_boots data) {
     LogHelper.info("Registering Boots: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     // Make Custom Armor
     int reduction[] = { 0, 0, 0, 0 };
@@ -104,7 +119,12 @@ public class ItemRegistry {
   public static boolean registerChestplate(Cfg_chestplate data) {
     LogHelper.info("Registering Chestplate: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     // Make Custom Armor
     int reduction[] = { 0, 0, 0, 0 };
@@ -130,7 +150,12 @@ public class ItemRegistry {
   public static boolean registerFood(Cfg_food data) {
     LogHelper.info("Registering Food: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     CustomFood food = new CustomFood(data.healAmount, data.saturationModifier, data.isWolfFood);
 
@@ -171,7 +196,12 @@ public class ItemRegistry {
   public static boolean registerHelmet(Cfg_helmet data) {
     LogHelper.info("Registering Helmet: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     // Make Custom Armor
     int reduction[] = { 0, 0, 0, 0 };
@@ -197,7 +227,12 @@ public class ItemRegistry {
   public static boolean registerHoe(Cfg_hoe data) {
     LogHelper.info("Registering Hoe: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     Item.ToolMaterial material = EnumHelper.addToolMaterial(data.textureName, data.harvestLevel, data.maxUses,
         data.efficiencyOnProperMaterial, data.damageVsEntity, data.enchantability);
@@ -219,7 +254,12 @@ public class ItemRegistry {
   public static boolean registerItem(Cfg_item data) {
     LogHelper.info("Registering Item: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     CustomItem item = new CustomItem(data.maxStackSize);
 
@@ -239,7 +279,12 @@ public class ItemRegistry {
   public static boolean registerLeggings(Cfg_leggings data) {
     LogHelper.info("Registering Leggings: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     // Make Custom Armor
     int reduction[] = { 0, 0, 0, 0 };
@@ -265,7 +310,12 @@ public class ItemRegistry {
   public static boolean registerPickaxe(Cfg_pickaxe data) {
     LogHelper.info("Registering Pickaxe: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     Item.ToolMaterial material = EnumHelper.addToolMaterial(data.textureName, data.harvestLevel, data.maxUses,
         data.efficiencyOnProperMaterial, data.damageVsEntity, data.enchantability);
@@ -287,7 +337,12 @@ public class ItemRegistry {
   public static boolean registerShovel(Cfg_shovel data) {
     LogHelper.info("Registering Shovel: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     Item.ToolMaterial material = EnumHelper.addToolMaterial(data.textureName, data.harvestLevel, data.maxUses,
         data.efficiencyOnProperMaterial, data.damageVsEntity, data.enchantability);
@@ -309,7 +364,12 @@ public class ItemRegistry {
   public static boolean registerSword(Cfg_sword data) {
     LogHelper.info("Registering Sword: " + data.name, 1);
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
 
     Item.ToolMaterial material = EnumHelper.addToolMaterial(data.textureName, data.harvestLevel, data.maxUses,
         data.efficiencyOnProperMaterial, data.damageVsEntity, data.enchantability);

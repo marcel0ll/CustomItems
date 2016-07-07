@@ -490,7 +490,13 @@ public class BlockRegistry {
   public static void genericBlockSetup(Cfg_block data, IMMBlock block, boolean register) {
     Block mineBlock = (Block) block;
 
-    String registerName = Util.parseRegisterName(data.name);
+    String registerName;
+    if(data.id != null) {
+    	registerName = Util.parseRegisterName(data.id);
+    } else {
+    	registerName = Util.parseRegisterName(data.name);
+    }
+    	
 
     mineBlock.setHardness(data.hardness);
     mineBlock.setResistance(data.resistance);

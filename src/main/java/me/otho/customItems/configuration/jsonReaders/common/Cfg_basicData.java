@@ -4,11 +4,16 @@ import me.otho.customItems.CustomItems;
 
 public class Cfg_basicData {
   /**
-   * name is the identifier of the item/block to be registered
+   * id is the identifier of the item/block to be registered
+   */
+  public String id;
+  /**
+   * name is the default localized name for the item/block
+   * If no id is passed name will also be used for identification
    */
   public String name;
   /**
-   * texturename is the name of the image file of the item/block to be
+   * textureName is the name of the image file of the item/block to be
    * registered
    */
   public String textureName;
