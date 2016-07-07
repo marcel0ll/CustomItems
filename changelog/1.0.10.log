@@ -18,6 +18,7 @@ NEW BLOCK TYPES:
 (x) Convert lightLevel to 0 - 15 instead of 0 - 1
 
 (x) Add config option: "logFile" - If given permission, the mod will generate a file with all the logs generated from the mod. This is intended for easier debugging.
+(x) Add config option: "idFile" - If given permission, the mod will generate a file with all block ids, entities ids and items ids.
 (x) Remove config option: "remake" - Removed option that would generate default config files.
 (x) Remove config option: "entityIdLog" - Removed option that would log the id from the last killed entity
 
@@ -38,8 +39,6 @@ TO DO:
 ( ) Add block type: "BED" - Allows blocks to be rendered and behave as Beds
 ( ) Add block type: "DOOR" - Allows blocks to be rendered and behave as Doors
 
-( ) Add config option: "idFile" - If given permission, the mod will generate a file with all block ids, entities ids and items ids.
-( ) Add "movable" option for blocks
 ( ) Add Travis Ci continous integration
 
 ----------------------------------------------------------------------------------------------

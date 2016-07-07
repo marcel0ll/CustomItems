@@ -17,6 +17,7 @@ import me.otho.customItems.mod.handler.BlockDropHandler;
 import me.otho.customItems.mod.handler.EntityDropHandler;
 import me.otho.customItems.mod.worldGen.CustomWorldGenerator;
 import me.otho.customItems.proxy.IProxy;
+import me.otho.customItems.utility.IdDumper;
 import me.otho.customItems.utility.LogHelper;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -74,6 +75,10 @@ public class CustomItems {
   @Mod.EventHandler
   public void postInit(FMLPostInitializationEvent event) throws IOException {
     JsonConfigurationHandler.post_init();
+    
+    if (ForgeConfig.idFile) {
+    	IdDumper.writeIdFile(minecraftFolder);
+    }
 
     LogHelper.info("End of customization");
   }
