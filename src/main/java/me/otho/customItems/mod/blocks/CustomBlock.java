@@ -97,8 +97,7 @@ public class CustomBlock extends Block implements IMMBlock {
 
   @Override
   public void setOpaque(boolean isOpaque) {
-    this.opaque = isOpaque;
-    this.lightOpacity = this.isOpaqueCube() ? 255 : 0;
+    this.opaque = isOpaque;    
   }
 
   @Override

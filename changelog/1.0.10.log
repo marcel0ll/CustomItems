@@ -14,6 +14,7 @@ NEW BLOCK TYPES:
 
 (x) Add block propertie called "flammability" 
 (x) Add block propertie called "fireEncouragement" 
+(x) Add block propertie called "lightOpacity"
 (x) Convert lightLevel to 0 - 15 instead of 0 - 1
 
 (x) Add config option: "logFile" - If given permission, the mod will generate a file with all the logs generated from the mod. This is intended for easier debugging.

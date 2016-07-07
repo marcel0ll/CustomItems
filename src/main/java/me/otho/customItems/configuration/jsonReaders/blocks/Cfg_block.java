@@ -18,6 +18,7 @@ public class Cfg_block extends Cfg_basicData {
   public float resistance = 10;
   public float hardness = 2;
   public int lightLevel = 0;
+  public int lightOpacity = 0;
   public int harvestLevel = 0;
   public float slipperiness = 0.6f;
   public boolean isCollidable = true;

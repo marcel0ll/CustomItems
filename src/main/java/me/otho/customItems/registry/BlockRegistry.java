@@ -498,6 +498,7 @@ public class BlockRegistry {
     block.setCanSilkHarvest(data.canSilkHarvest);
     block.setCollides(data.isCollidable);
     data.lightLevel = Util.range(data.lightLevel, 0, 15);
+    data.lightOpacity = Util.range(data.lightOpacity, 0, 15);
     
     float mcLightLevel = (float) (data.lightLevel / 15.0);
 
@@ -519,6 +520,12 @@ public class BlockRegistry {
     }
 
     block.setOpaque(data.isOpaque);
+    if( data.isOpaque ) {
+    	mineBlock.setLightOpacity(255);
+    } else {
+    	mineBlock.setLightOpacity(data.lightOpacity);
+    }
+    
     mineBlock.setStepSound(Util.parseSoundType(data.stepSound));
 
     if (data.dropItemName != null) {
