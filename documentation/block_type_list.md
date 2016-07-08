@@ -3,8 +3,7 @@ layout: wiki
 title: Block Type List
 ---
 
-***Currently avaliable***
-
+*Currently avaliable*
 ---
 * BUTTON
 * CARPET
@@ -26,8 +25,8 @@ title: Block Type List
 * WALL
 
 
-***Planned***
 
+*Planned*
 ---
 * BED (not working)
 * DOOR (not working)
