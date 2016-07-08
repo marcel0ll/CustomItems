@@ -5,6 +5,7 @@ title: Block Type List
 
 *Currently avaliable*
 ---
+
 * BUTTON
 * CARPET
 * CROSSED
@@ -28,6 +29,7 @@ title: Block Type List
 
 *Planned*
 ---
+
 * BED (not working)
 * DOOR (not working)
 * LEVER (not working)
