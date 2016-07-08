@@ -30,9 +30,17 @@ ___
 
 `"harvestLevel":` - The level of the pickaxe needed to mine the block. This doesn't apply to shovel blocks or axe blocks. The following link shows the equivalent numerical value for vanilla tools. ([harvestLevel list](harvest_level_list "wikilink")) Default value is `0`.
 
-`"isOpaque":` - This sets wheather the block *does not* allow light pass through it. Default value is `"true``.
+`"isOpaque":` - This sets wheather the block *does not* allow light pass through it. Default value is `"true"`.
 
 `"lightLevel":` - Value Range: (min: 0.0, max: 1.0) - This sets the light level from a block. Default value is `0`. Examples: Glowstone = 1.0, Stone = 0.0
+
+`"flammability":` - Value Range: (min: 0) - Set how quickly a block can potentially catch fire. Default value is `0`.
+
+>***Note:*** These values are relative values, not exact time values. For more information click here. [Minecraft fire info.](http://minecraft.gamepedia.com/Fire#Burning_blocks)
+
+`"fireEncouragement":` - Value Range: (min: 0) - Set the block's ability to sustain adjacent fire. Default value is `0`.
+
+>***Note:*** These values are relative values, not exact time values. For more information click here. [Minecraft fire info.](http://minecraft.gamepedia.com/Fire#Burning_blocks)
 
 `"material":` - Sets the block to a particular material. ([material list](block_material_list "wikilink")) Default value is `"rock"`.
 
