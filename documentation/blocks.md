@@ -96,45 +96,43 @@ chance to drop each item after the minimum ammount
 
 ``` json
 {
-    "blocks":
-    [
-        {
-            "name": "Block 1",
-            "textureName": "Block1TextureName"
-        },
-        {
-            "name": "Block2",
-            "material": "rock",
-            "hardness": 1,
-            "resistance": 2,
-            "lightLevel": 0.2,
-            "harvestLevel": 0,
-            "dropItemName": "minecraft:apple",
-            "minItemDrop": 5,
-            "maxItemDrop": 10,
-            "eachExtraItemDropChance": 75,
-            "multipleTextures":{
-                "yneg":"side_1",
-                "ypos":"side_2",
-                "zneg":"side_3",
-                "zpos":"side_4",
-                "xneg":"side_5",
-                "xpos":"side_6"
-            }
-        },
-        ...
-        {
-            "name": "Block X",
-            "creativeTab": "Random Tab",
-            "textureName": "BlockXTextureName",
-            "material": "Material",
-            "toolClass":"ToolClass",
-            "hardness": 0,
-            "resistance": 0,
-            "lightLevel": 0,
-            "harvestLevel": 0
-        }
-    ]
+    "blocks": [
+        {
+            "name": "Block 1",
+            "textureName": "Block1TextureName"
+        },
+        {
+            "name": "Block2",
+            "material": "rock",
+            "hardness": 1,
+            "resistance": 2,
+            "lightLevel": 0.2,
+            "harvestLevel": 0,
+            "dropItemName": "minecraft:apple",
+            "minItemDrop": 5,
+            "maxItemDrop": 10,
+            "eachExtraItemDropChance": 75,
+            "multipleTextures": {
+                "yneg": "side_1",
+                "ypos": "side_2",
+                "zneg": "side_3",
+                "zpos": "side_4",
+                "xneg": "side_5",
+                "xpos": "side_6"
+            }
+        },
+        {
+            "name": "Block X",
+            "creativeTab": "Random Tab",
+            "textureName": "BlockXTextureName",
+            "material": "Material",
+            "toolClass": "ToolClass",
+            "hardness": 0,
+            "resistance": 0,
+            "lightLevel": 0,
+            "harvestLevel": 0
+        }
+    ]
 }
 ```
 # Chest Blocks
@@ -178,25 +176,24 @@ stack that can be stored in the inventory slot. By the default it is 64
 
 ``` json
 {
-    "chests":[
-        {
-            "name": "Chest1",
-            "textureName": "chest1TextureName",
-        },
-        {
-            "name": "Chest2",
-            "textureName": "chest2TextureName",
-            "slotMaxStackSize": 16
-        },
-        ...
-        {
-            "name": "ChestN",
-            "textureName": "chestNTextureName",
-            "invWidth": 1,
-            "invHeight": 6,
-            "lightLevel": 1.0
-        }
-    ]
+    "chests": [
+        {
+            "name": "Chest1",
+            "textureName": "chest1TextureName"
+        },
+        {
+            "name": "Chest2",
+            "textureName": "chest2TextureName",
+            "slotMaxStackSize": 16
+        },
+        {
+            "name": "ChestN",
+            "textureName": "chestNTextureName",
+            "invWidth": 1,
+            "invHeight": 6,
+            "lightLevel": 1
+        }
+    ]
 }
 ```
 
@@ -259,31 +256,30 @@ to drop each extra fruit that is more than the min
 
 ``` json
 {
-    "crops":
-    [
-        {
-            "name": "ironia",
-            "textureName":"iron_crop",
-            "fruitName": "minecraft:iron_ingot",
-            "renderType": "crop",
-            "dropFromGrassChance": 10,
-            "dropSeedWhenMature": true,
-            "acceptBoneMeal": true,
-            "minFruitDrop": 1,
-            "maxFruitDrop": 1,
-            "minSeedDrop": 1,
-            "maxSeedDrop": 2,
-            "eachExtraSeedDropChance": 50,
-            "eachExtraFruitDropChance": 15
-        },
-        {
-            "name":"golduce",
-            "textureName":"gold",
-            "fruitName": "minecraft:gold_ingot",
-            "renderType": "flower",
-            "dropFromGrassChance": 5
-        }
-    ]
+    "crops": [
+        {
+            "name": "ironia",
+            "textureName": "iron_crop",
+            "fruitName": "minecraft:iron_ingot",
+            "renderType": "crop",
+            "dropFromGrassChance": 10,
+            "dropSeedWhenMature": true,
+            "acceptBoneMeal": true,
+            "minFruitDrop": 1,
+            "maxFruitDrop": 1,
+            "minSeedDrop": 1,
+            "maxSeedDrop": 2,
+            "eachExtraSeedDropChance": 50,
+            "eachExtraFruitDropChance": 15
+        },
+        {
+            "name": "golduce",
+            "textureName": "gold",
+            "fruitName": "minecraft:gold_ingot",
+            "renderType": "flower",
+            "dropFromGrassChance": 5
+        }
+    ]
 }
 ```
 
@@ -351,39 +347,37 @@ up in.
 
 ``` json
 {
-   "fluids":[
-       {
-       "name":"Fluid 1",
-       "textureName":"fluid1",
-       "luminosity": 0,
-       "density": 1,
-       "temperature": 1,
-       "viscosity": 1,
-       "isGas": false
-       },
-       {
-       "name":"Fluid 2",
-       "textureName":"fluid2",
-       "luminosity": 0,
-       "density": 1,
-       "temperature": 1,
-       "viscosity": 1,
-       "isGas": false
-       },
-       ...
-       {
-       "name":"Fluid X",
-       "textureName":"fluidX",
-       "creativeTab": "Custom Items",
-       "flowLength": 4,
-       "luminosity": 5,
-       "material": "lava",
-       "bucket":
-           {
-               "name":"bob",
-               "maxStackSize": 2
-           }
-       }
+    "fluids": [
+        {
+            "name": "Fluid 1",
+            "textureName": "fluid1",
+            "luminosity": 0,
+            "density": 1,
+            "temperature": 1,
+            "viscosity": 1,
+            "isGas": false
+        },
+        {
+            "name": "Fluid 2",
+            "textureName": "fluid2",
+            "luminosity": 0,
+            "density": 1,
+            "temperature": 1,
+            "viscosity": 1,
+            "isGas": false
+        },
+        {
+            "name": "Fluid X",
+            "textureName": "fluidX",
+            "creativeTab": "Custom Items",
+            "flowLength": 4,
+            "luminosity": 5,
+            "material": "lava",
+            "bucket": {
+                "name": "bob",
+                "maxStackSize": 2
+            }
+        }
     ]
 }
 ```

@@ -3,7 +3,7 @@ layout: wiki
 title: Misc
 ---
 
-#<a name="creative_tabs" href="#creative_tabs" > Creative Tabs </a>
+# Creative Tabs
 ___
 
 **Properties:**
@@ -16,19 +16,20 @@ item that will show on the creative tab
 
 **Format Example:**
 
-	{
-	    "creativeTabs":[
-	        {
-	            "tabLabel":"newTab1",
-	            "iconItem":"customItems:yourNewItem"
-	        },
-	        {
-	            "tabLabel":"newTab2",
-	            "iconItem":"minecraft:torch"
-	        },
-	        ...
-	        {
-	            "tabLabel":"newTabN",
-	        }
-	    ]
-	}
+``` json
+{
+    "creativeTabs": [
+        {
+            "tabLabel": "newTab1",
+            "iconItem": "customItems:yourNewItem"
+        },
+        {
+            "tabLabel": "newTab2",
+            "iconItem": "minecraft:torch"
+        },
+        {
+            "tabLabel": "newTabN"
+        }
+    ]
+}
+```
