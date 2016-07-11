@@ -32,7 +32,10 @@ ___
 
 `"isOpaque":` - This sets wheather the block *does not* allow light pass through it. Default value is `"true"`.
 
-`"lightLevel":` - Value Range: (min: 0.0, max: 1.0) - This sets the light level from a block. Default value is `0`. Examples: Glowstone = 1.0, Stone = 0.0
+`"lightOpacity"` - Value Range: (min: 0, max: 255) - This sets how light travels trough a block. Default value is `2`. Example: Water has a value of 3.
+
+
+`"lightLevel":` - Value Range: (min: 0, max: 15) - This sets the light level from a block. The values reflect light levels. Default value is `0`.
 
 `"flammability":` - Value Range: (min: 0) - Set how quickly a block can potentially catch fire. Default value is `0`.
 
