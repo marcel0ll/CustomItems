@@ -8,14 +8,14 @@ title: Block Type List
 
 * BUTTON
 * CARPET
-* CROSSED
-* FALLING - (Example: Sand or Gravel)
+* CROSSED - Does not have the slow fall behaviour.
+* FALLING - Example: Sand or Gravel
 * FENCE
 * FLOWER
 * GATE
 * LADDER
 * LOG
-* NORMAL - (Set by default. This is a standard block.)
+* NORMAL - Set by default. This is a standard block.
 * PANE
 * PILLARS
 * PRESSUREPLATE
