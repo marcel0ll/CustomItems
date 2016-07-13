@@ -14,9 +14,9 @@ ___
 
 **<u>Optional Configuration:</u>**
 
-`"alwaysEdible":`- Defines if ypu can or can not eat the food item with a full hunger bar. Default value is `"false"`.
+`"alwaysEdible":`- Defines if you can or can not eat the food item with a full hunger bar. Default value is `"false"`.
 
-`"creativeTab":`- What creative tab the food will show up in. Default name is'"Custom Items"`.
+`"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
 `"dropItemName":` - Sets the id for the returned item or container after consuming food. A bowel is returned to you after having a soup. Example of id structure: `"minecraft:wheat"`, `"minecraft:stone"`.
 
@@ -42,7 +42,7 @@ ___
 
 `"saturationModifier":` - These configuration is a hidden value that increases when you consume foods. Your hungerbar will only start to increasing after you raise the saturation above 0. For further info, check [minecraft wiki](http://minecraft.gamepedia.com/Hunger). Default value is `1.0`.
 
-`"useAction":` - Values: (`"eat"',`"drink"`) - An eatting or drinking sound will play on consumption of a food item. `"eat"` - For solid foods like bread, porkchops, etc... `"drink"` - For liquids like potions. Default value is `"eat"`.
+`"useAction":` - Values: (`"eat"`,`"drink"`) - An eatting or drinking sound will play on consumption of a food item. `"eat"` - For solid foods like bread, porkchops, etc... `"drink"` - For liquids like potions. Default value is `"eat"`.
 
 
 **Format Example:**
@@ -107,7 +107,7 @@ ___
 
 **<u>Optional Configuration:</u>**
 
-`"creativeTab":`- What creative tab the food will show up in. Default name is'"Custom Items"`.
+`"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
 `"maxStackSize":` - Value Range:(Min:1, Max:64) - The max stack size for a block. Default value is `64`.
 
@@ -155,9 +155,9 @@ ___
 
 **<u>Optional Configuration:</u>**
 
-`"creativeTab":`- What creative tab the food will show up in. Default name is'"Custom Items"`.
+`"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
-`"damageVsEntity":`- How much damage it does on entities (zombies, chickens, other players). Defaule value is `0`.
+`"damageVsEntity":`- How much damage it inflicts on entities (zombies, chickens, other players) when used. Defaule value is `0`.
 
 `"enchantability":` - How easily will the tool be enchanted. For information on the standard tools enchantability, refer to the [Minecraft wiki here](http://minecraft.gamepedia.com/Enchantment_mechanics#Step_One_-_Applying_modifiers_to_the_enchantment_level) Default value is `15`.
 
@@ -202,9 +202,9 @@ ___
 
 **<u>Optional Configuration:</u>**
 
-`"creativeTab":`- What creative tab the food will show up in. Default name is'"Custom Items"`.
+`"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
-`"damageVsEntity":`- How much damage it does on entities (zombies, chickens, other players). Defaule value is `0`.
+`"damageVsEntity":`- How much damage it inflicts on entities (zombies, chickens, other players) when used. Defaule value is `0`.
 
 `"enchantability":` - How easily will the tool be enchanted. For information on the standard tools enchantability, refer to the [Minecraft wiki here](http://minecraft.gamepedia.com/Enchantment_mechanics#Step_One_-_Applying_modifiers_to_the_enchantment_level) Default value is `15`.
 
@@ -249,9 +249,9 @@ ___
 
 **<u>Optional Configuration:</u>**
 
-`"creativeTab":`- What creative tab the food will show up in. Default name is'"Custom Items"`.
+`"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
-`"damageVsEntity":`- How much damage it does on entities (zombies, chickens, other players). Defaule value is `0`.
+`"damageVsEntity":`- How much damage it inflicts on entities (zombies, chickens, other players) when used. Defaule value is `0`.
 
 `"enchantability":` - How easily will the tool be enchanted. For information on the standard tools enchantability, refer to the [Minecraft wiki here](http://minecraft.gamepedia.com/Enchantment_mechanics#Step_One_-_Applying_modifiers_to_the_enchantment_level) Default value is `15`.
 
@@ -301,9 +301,9 @@ ___
 
 **<u>Optional Configuration:</u>**
 
-`"creativeTab":`- What creative tab the food will show up in. Default name is'"Custom Items"`.
+`"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
-`"damageVsEntity":`- How much damage it does on entities (zombies, chickens, other players). Defaule value is `0`.
+`"damageVsEntity":`- How much damage it inflicts on entities (zombies, chickens, other players) when used. Defaule value is `0`.
 
 `"enchantability":` - How easily will the tool be enchanted. For information on the standard tools enchantability, refer to the [Minecraft wiki here](http://minecraft.gamepedia.com/Enchantment_mechanics#Step_One_-_Applying_modifiers_to_the_enchantment_level) Default value is `15`.
 
@@ -349,9 +349,9 @@ ___
 
 **<u>Optional Configuration:</u>**
 
-`"creativeTab":`- What creative tab the food will show up in. Default name is'"Custom Items"`.
+`"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
-`"damageVsEntity":`- How much damage it does on entities (zombies, chickens, other players). Defaule value is `0`.
+`"damageVsEntity":`- How much damage it inflicts on entities (zombies, chickens, other players) when used. Defaule value is `0`.
 
 `"enchantability":` - How easily will the tool be enchanted. For information on the standard tools enchantability, refer to the [Minecraft wiki here](http://minecraft.gamepedia.com/Enchantment_mechanics#Step_One_-_Applying_modifiers_to_the_enchantment_level) Default value is `15`.
 
@@ -401,7 +401,7 @@ ___
 
 **<u>Optional Configuration:</u>**
 
-`"creativeTab":`- What creative tab the food will show up in. Default name is'"Custom Items"`.
+`"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
 `"durability":` - How much it can take before breaking. Default value is `5`. 
 
@@ -452,7 +452,7 @@ ___
 
 **<u>Optional Configuration:</u>**
 
-`"creativeTab":`- What creative tab the food will show up in. Default name is'"Custom Items"`.
+`"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
 `"durability":` - How much it can take before breaking. Default value is `5`. 
 
@@ -503,7 +503,7 @@ ___
 
 **<u>Optional Configuration:</u>**
 
-`"creativeTab":`- What creative tab the food will show up in. Default name is'"Custom Items"`.
+`"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
 `"durability":` - How much it can take before breaking. Default value is `5`. 
 
@@ -554,7 +554,7 @@ ___
 
 **<u>Optional Configuration:</u>**
 
-`"creativeTab":`- What creative tab the food will show up in. Default name is'"Custom Items"`.
+`"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
 `"durability":` - How much it can take before breaking. Default value is `5`. 
 
