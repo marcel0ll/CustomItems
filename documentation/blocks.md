@@ -8,7 +8,7 @@ ___
 
 **<u>Required Configuration:</u>**
 
-`"name":` - The name of the block
+`"name":` - The name of the block.
 
 `"textureName":` - The texture name of the block.
 
@@ -18,7 +18,7 @@ ___
 
 `"breaks":` - If the block breaks when harvested without silkTouch, like glass. Default value is `"false"`.
 
-`"canSilkHarvest":` - If harvested with a silktouch enchanted tool, will it drop the block or not? Set this to true in your glass like blocks.  Default value is `"false"`.
+`"canSilkHarvest":` - If harvested with a silktouch enchanted tool, will it drop the block or not? Set this to `"true"` and it will be destroyed glass like blocks.  Default value is `"false"`.
 
 `"creativeTab":` - What creative tab the block will show up in.  Default value is `"Custom Items"`.
 
@@ -34,7 +34,6 @@ ___
 
 `"lightOpacity"` - Value Range: (min: 0, max: 255) - This sets how light travels trough a block. Default value is `2`. Example: Water has a value of 3.
 
-
 `"lightLevel":` - Value Range: (min: 0, max: 15) - This sets the light level from a block. The values reflect light levels. Default value is `0`.
 
 `"flammability":` - Value Range: (min: 0) - Set how quickly a block can potentially catch fire. Default value is `0`.
@@ -49,7 +48,7 @@ ___
 
 `"maxItemDrop":` - The maximum ammount of items to drop from this block. Default value is `1`.
 
-`"maxStackSize":` - Value Range:(Min:1, Max:64) - The max stack size for a block. Default value is `64`.
+`"maxStackSize":` - Value Range: (Min:1, Max:64) - The max stack size for a block. Default value is `64`.
 
 `"minItemDrop":` - The minimum ammount of items to drop from this block. Default value is `1`.
 
@@ -58,17 +57,17 @@ ___
 <p style="padding-left:3%"><strong><em>Multiple Textures properties:</em></strong></p>
 
 <div style="padding-left:4%">
-<p><code>ypos</code> - The top side texture of the block</p>
+<p><code>"ypos"</code> - The top side texture of the block.</p>
 
-<p><code>yneg</code> - The bottom side texture of the block</p>
+<p><code>"yneg":</code> - The bottom side texture of the block.</p>
 
-<p><code>xpos</code> - The east side texture of the block</p>
+<p><code>"xpos":</code> - The east side texture of the block.</p>
 
-<p><code>xneg</code> - The west side texture of the block</p>
+<p><code>"xneg":</code> - The west side texture of the block.</p>
 
-<p><code>zpos</code> - The south texture of the block</p>
+<p><code>"zpos":</code> - The south texture of the block.</p>
 
-<p><code>zneg</code> - The north texture of the block</p>
+<p><code>"zneg":</code> - The north texture of the block.</p>
 </div>
 
 `"resistance":` - How much the block is resistant to explosion. Default value is `10`.
@@ -77,7 +76,7 @@ ___
 
 `"stepSound":` - The sound that makes when you walk on this block. ([ step sound list](step_sound_list "wikilink")) Default value is `"stone"`.
 
-`"toolClass":` - The tool to mine this block.([toolClasslist](tool_class_list "wikilink"))
+`"toolClass":` - The tool to mine this block.([toolClasslist](tool_class_list "wikilink")).
 
 `"type":` - The type of the block. ([ type list](block_type_list "wikilink")) Default value is `"normal"`.
 
@@ -132,7 +131,7 @@ ___
 
 **<u>Required Configuration:</u>**
 
-`"name":` - The name of the block
+`"name":` - The name of the block.
 
 `"textureName":` - The texture name of the block.
 
@@ -185,11 +184,11 @@ ___
 
 **<u>Required Configuration:</u>**
 
-`"name":` - The name of the block
+`"name":` - The name of the block.
 
 `"textureName":` - The texture name of the block.
 
-`"fruitName":` - Set the id for the item or block to be dropped when the crop is broken on maturity. Example of id structure: "minecraft:wheat", "minecraft:stone"
+`"fruitName":` - Set the id for the item or block to be dropped when the crop is broken on maturity. Example of id structure: "minecraft:wheat", "minecraft:stone".
 
 **<u>Optional Configuration:</u>**
 
@@ -258,11 +257,11 @@ ___
 
 **<u>Required Configuration:</u>**
 
-`"name":` - The name of the block
+`"name":` - The name of the block.
 
 `"textureName":` - The texture name of the block.
 
->***Note:*** A total of five files are need to make the fluids texture work correctly. If you do not know how to make a fluid texture work correctly or what files are required go to this page. [How to setup fluid textures.](fluid_texture_tutorial "wikilink")
+>***Note:*** A total of five files are need to make the fluids texture work correctly. If you do not know how to make a fluid texture work correctly or what files are required go to this page. [How to setup fluid textures.](fluid_texture_tutorial "wikilink").
 
 **<u>Optional Configuration:</u>**
 
@@ -278,19 +277,19 @@ ___
 <p><code>"maxStackSize":</code> - Value Range:(min: 1, max: 64) - The maximum number on a stack. Default value is <code>1</code>.</p>
 
 <p><code>"textureName":</code> - Texture name for the bucket.</p>
-
-***Note:*** The bucket can still get its texture from the default bucket texture.
 </div>
+
+>***Note:*** The bucket can still get its texture from the default bucket texture.
 
 `"creativeTab":` - What creative tab the block will show up in.  Default value is `"Custom Items"`.
 
 `"density":` - Defines what liquids replace each other when they meet. Example: Water and oil. Default value is `1000`. 
 
-`"flowLength": - Value Range:(min:0 max:16) - How far does the fluid flow. Default value is `8`. 
+`"flowLength":` - Value Range:(min:0 max:16) - How far does the fluid flow. Default value is `8`. 
 
-`"isGas":` - Define if the fluid as a gas or liquid. Set the value to true will cause your fluid to flow upward (like some gases). Default value is `false'
+`"isGas":` - Define if the fluid as a gas or liquid. Set the value to true will cause your fluid to flow upward (like some gases). Default value is `false'.
 
-`"luminosity":` - Value Range: (min: 0.0, max: 1.0) - Set the light level from the fluid block. Default value is `0`. Examples: Glowstone = 1.0, Stone = 0.0
+`"luminosity":` - Value Range: (min: 0.0, max: 1.0) - Set the light level from the fluid block. Default value is `0`. Examples: Glowstone = 1.0, Stone = 0.0.
 
 `"material":` - Value Options:(`'water"`,`"lava"`) - Setting it to `"lava"` will case the fluid to be destructive.`"water"` will be passive or non damaging. Default value `water`.
 
