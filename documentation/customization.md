@@ -148,7 +148,7 @@ ___
 # Modify Drops
 ___
 
-Starting with CI 1.0.9b, you now can modify drops from pre-existing block and NPC (mobs) If you are not familiar with the Block IDs & Item IDs names I suggest using Minetweaker's built in commands to identify the block or look at the [Mineacraft wiki Block IDs page](http://minecraft.gamepedia.com/Data_values/Block_IDs) & [Mineacraft wiki Item IDs page](http://minecraft.gamepedia.com/Data_values/Item_IDs). For NPC(mob) IDs, I suggest using [Mineacraft wiki Entity IDs page](http://minecraft.gamepedia.com/Data_values/Entity_IDs).
+Starting with CI 1.0.9b, you now can modify drops from pre-existing block and NPC (mobs). If you are not familiar with the Block IDs & Item IDs names I suggest using Minetweaker's built in commands to identify the block or look at the [Mineacraft wiki Block IDs page](http://minecraft.gamepedia.com/Data_values/Block_IDs) & [Mineacraft wiki Item IDs page](http://minecraft.gamepedia.com/Data_values/Item_IDs). For NPC(mob) IDs, I suggest using [Mineacraft wiki Entity IDs page](http://minecraft.gamepedia.com/Data_values/Entity_IDs).
 
 
 ### Block Drops
