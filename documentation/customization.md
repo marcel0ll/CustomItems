@@ -6,44 +6,35 @@ title: Customization
 # Changing Existing Properties
 ___
 
-Tired of how the default Minecraft has done with its blocks or items.
-You now can change the properties of default blocks and items.
+Tired of how the default Minecraft has done with its blocks or items. You now can change the properties of default blocks and items.
 
 ### Change Existing Blocks
 ___
 
-**Properties:**
+**<u>Required Configuration:</u>**
 
-`{name}` - The name that the item is registered.
-Like: "minecraft:apple"
+`"name":` - The id name of the block that you wish to edit that is already registed in the game. Example: `"minecraft:stone"`
 
-`{maxStackSize}` - The max stack size for an
-item. Min:1, Max:64
+`"maxStackSize":` - Value Range: (Min:1, Max:64) - The max stack size for a block. Default value is `64`.
 
-`[toolClass]` - The tool to mine this block ([
-toolClass list](toolClass_list_1.0_beta_4 "wikilink"))
+**<u>Optional Configuration:</u>**
 
-`[resistance]` - How much the block is
-resistant to explosion
+`"hardness":` - How hard is to mine this block. Default value is `2`.
 
-`[hardness]` - How hard is to mine this block
+`"harvestLevel":` - The level of the pickaxe needed to mine the block. This doesn't apply to shovel blocks or axe blocks. The following link shows the equivalent numerical value for vanilla tools. ([harvestLevel list](harvest_level_list "wikilink")) Default value is `0`.
 
-`[lightLevel]` - (min: 0.0, max: 1.0) - The
-light level from a block. Glowstone = 1.0, Stone = 0.0
+`"isOpaque":` - This sets wheather the block *does not* allow light pass through it. Default value is `"true"`.
 
-`[harvestLevel]` - The level of the pickaxe
-needed to mine the block. This doesn't apply to shovel blocks or axe
-blocks. The following link shows the equivalent numerical value for
-vanilla tools. ([harvestLevel list](harvest_level_list "wikilink"))
+`"lightLevel":` - Value Range: (min: 0, max: 15) - This sets the light level from a block. The values reflect light levels. Default value is `0`.
 
-`[slipperiness]` - CommonBlocks: 0.6, ice: 0.98
+`"resistance":` - How much the block is resistant to explosion. Default value is `10`.
 
-`[isOpaque]` - Can light pass through this
-block
+`"slipperiness":` - Default value is `0.6`. Examples: Common Blocks: 0.6, ice: 0.98.
 
-`[stepSound]` - The sound that makes when you
-walk on this block. ([ step sound
-list](step_sound_list_1.0_beta_4 "wikilink"))
+`"stepSound":` - The sound that makes when you walk on this block. ([ step sound list](step_sound_list "wikilink")) Default value is `"stone"`.
+
+`"toolClass":` - The tool to mine this block.([toolClasslist](tool_class_list "wikilink")).
+
 
 **Format Example:**
 
@@ -76,13 +67,12 @@ list](step_sound_list_1.0_beta_4 "wikilink"))
 ### Change Existing Items
 ___
 
-**Properties:**
+**<u>Required Configuration:</u>**
 
-`{name}` - The name that the item is registered.
-Like: "minecraft:apple"
+`"name":` - The id name of the block that you wish to edit that is already registed in the game. Example: `"minecraft:stone"`
 
-`{maxStackSize}` - The max stack size for an
-item. Min:1, Max:64
+`"maxStackSize":` - Value Range: (Min:1, Max:64) - The max stack size for a block. Default value is `64`.
+
 
 **Format Example:**
 
@@ -107,46 +97,36 @@ item. Min:1, Max:64
 
 ### Change Existing Foods
 
-**Properties:**
+**<u>Required Configuration:</u>**
 
-`{name} ` - The name of the food
+`"name":` - The id name of the block that you wish to edit that is already registed in the game. Example: `"minecraft:stone"`
 
-`[maxStackSize] ` - The max stack size for an
-item. Min:1, Max:64
+**<u>Optional Configuration:</u>**
 
-`[healAmount] = 1 ` - How much hunger points
-this food gives.
+`"alwaysEdible":`- Defines if you can or can not eat the food item with a full hunger bar. Default value is `"false"`.
 
-`[saturationModifier] = 1 ` - It is a hidden
-value that increases when you eat just like hunger. Your hungerbar will
-only start to decrease after your saturation has reached 0. For further
-info, check [minecraft wiki](http://minecraft.gamepedia.com/Hunger).
+`"healAmount":` - How much hunger points does the food item give. This is also known as food points. For hunger point reference for standard food, refer to the [Minecraft wiki here](http://minecraft.gamepedia.com/Hunger#Food_level_and_saturation_level_restoration). Default value is `1`.
 
-`[alwaysEdible] = false ` - Defines if you can
-or not eat this food with a full hunger bar.
+`"maxStackSize":` - Value Range: (Min:1, Max:64) - The max stack size for a block. Default value is `64`.
 
-`[isWolfFood] = false ` - Can a wolf/dog eat
-this food.
+`"isWolfFood":` - Can a wolf/dog eat this food.  Default value is `"false"`.
 
-`[potionEffects] ` - Foods can have potion
-effect, like raw chicken or zombie flesh. This is an OPTIONAL propertie,
-that has its own properties. Each food can have multiple potionEffects,
-each with its own properties.
+`"potionEffects":` - This gives food items the ability to have potion effects. Each food can have multiple potion effects applied to it. Example: Golden Apple, Raw Chicken and Zombie Flesh.
 
-|**Potion Effect Properties:**
+<p style="padding-left:3%"><strong><em>Potion Effect Properties:</em></strong></p>
 
-`[effect] = "moveSpeed"` - There is a list of
-buffs/debuffs possible ([effects
-list](effects_list_1.0_beta_4 "wikilink"))
+<div style="padding-left:4%">
+<p><code>"effect":</code> - There is a list of buffs/debuffs possible and what they do.(<a href="effects_list" title="wikilink">Effects List</a>). The default value is <code>"moveSpeed"</code></p>
 
-`[potionDuration] = 20` - How many SECONDS the
-effect will last
+<p><code>"potionAmplifier":</code> - Slow II ... II is the amplifier. It makes the effect stronger Default value is <code>1</code>.</p>
 
-`[potionAmplifier] = 1` - Slow II ... II is the
-amplifier. It makes the effect stronger
+<p><code>"potionDuration":</code> - How many SECONDS the effect will last. Default is <code>20</code> seconds.</p>
 
-`[potionEffectProbability] = 1.0` - (min: 0.0,
-max: 1.0) The chance of the potion effect happening when eating the food
+<p<code>"potionEffectProbability": - Value Range: (min: 0.0, max: 1.0) - The chance of the potion effect happening when eating the food. The default values is <code>1.0</code>.</p>
+</div>
+
+`"saturationModifier":` - These configuration is a hidden value that increases when you consume foods. Your hungerbar will only start to increasing after you raise the saturation above 0. For further info, check [minecraft wiki](http://minecraft.gamepedia.com/Hunger). Default value is `1.0`.
+
 
 **Format Example:**
 
@@ -168,47 +148,39 @@ max: 1.0) The chance of the potion effect happening when eating the food
 # Modify Drops
 ___
 
-Starting with CI 1.0.9b, you now can modify drops from pre-existing
-block and NPC (mobs). |***&lt;u&gt; Important Notation&lt;/u&gt; :*** If
-you are not familiar with the Block IDs & Item IDs names I suggest using
-Minetweaker's built in commands to identify the block or look at the
-[Mineacraft wiki Block IDs
-page](http://minecraft.gamepedia.com/Data_values/Block_IDs) &
-[Mineacraft wiki Item IDs
-page](http://minecraft.gamepedia.com/Data_values/Item_IDs). For NPC
-(mob) IDs, I suggest using [Mineacraft wiki Entity IDs
-page](http://minecraft.gamepedia.com/Data_values/Entity_IDs).
+Starting with CI 1.0.9b, you now can modify drops from pre-existing block and NPC (mobs) If you are not familiar with the Block IDs & Item IDs names I suggest using Minetweaker's built in commands to identify the block or look at the [Mineacraft wiki Block IDs page](http://minecraft.gamepedia.com/Data_values/Block_IDs) & [Mineacraft wiki Item IDs page](http://minecraft.gamepedia.com/Data_values/Item_IDs). For NPC(mob) IDs, I suggest using [Mineacraft wiki Entity IDs page](http://minecraft.gamepedia.com/Data_values/Entity_IDs).
+
 
 ### Block Drops
 ___
 
-**Properties:**
+**<u>Required Configuration:</u>**
 
-`{id}` - Which block do you wish to apply a drop
-to. It is required to use the names of the Block IDs, not the numerical
-value.
+`"id":` - Which block do you wish to apply a drop to. It is required to use the names of the Block IDs, not the numerical value.
 
-`[overrides] = false` - Do you want the
-configuration for this drop to override the existing drops.
+`"drops"` - Inside this property, additional configurations are used to modify the behavior of the drops. A block can have multiple drops.
 
-`{drops}` - Inside this property, additional
-configurations are used to modify the behavior of the drops. A block can
-have multiple drops.
+<p style="padding-left:3%"><strong><em>Drop Properties:</em></strong></p>
 
-|***Drop Properties***
+<div style="padding-left:4%">
 
-`{id}` - What block or item is being dropped
-after the original block being broken. It is required to use the names
-of IDs not the numerical value.
+<p><em><u>Required Configuration:</u></em></p>
 
-`[min] = 1` - What is the minimum amount that
-is dropped. Default is &lt;code&gt;1&lt;/code&gt;.
+<p><code>"id":</code> - What block or item is being dropped after the original block being broken. It is required to use the names of IDs not the numerical value.</p>
 
-`[max] = 1`- What is the maximum amount that is
-dropped.
+<p><em><u>Optional Configuration:</u></em></p>
 
-`[chance] = 50` - What is the percentage chance
-of the item being dropped.
+<p><code>"chance":</code> - What is the percentage chance of the item being dropped. Default is <code>50</code>.
+
+<p><code>"max":</code> - What is the maximum amount that is dropped. Default is <code>1</code>.
+
+<p><code>"min":</code> - What is the minimum amount that is dropped. Default is <code>1</code>.
+</div>
+
+**<u>Optional Configuration:</u>**
+
+`"overrides":` - Do you want the configuration for this drop to override the existing drops. Default value is `false`.
+
 
 **Format Example:**
 
@@ -240,32 +212,33 @@ of the item being dropped.
 ### Entity Drop
 ___
 
-**Properties:**
+**<u>Required Configuration:</u>**
 
-`{id}` - Which NPC (mob) do you wish to apply a
-drop to. It is required to use the names of the Entity IDs.
+`"id":` - Which NPC (mob) do you wish to apply a drop to. It is required to use the names of the Entity IDs.
 
-`[overrides] = false` - Do you want the
-configuration for this drop to override the existing drops.
+`"drops"` - Inside this property, additional configurations are used to modify the behavior of the drops. A block can have multiple drops.
 
-`{drops}` - Inside this property, additional
-configurations are used to modify the behavior of the drops. A block can
-have multiple drops.
+<p style="padding-left:3%"><strong><em>Drop Properties:</em></strong></p>
 
-|***Drop Properties***
+<div style="padding-left:4%">
 
-`{id}` - What block or item is being dropped
-after the original block being broken. It is required to use the names
-of IDs not the numerical value.
+<p><em><u>Required Configuration:</u></em></p>
 
-`[min] = 1` - What is the minimum amount that
-is dropped.
+<p><code>"id":</code> - What block or item is being dropped after the original block being broken. It is required to use the names of IDs not the numerical value.</p>
 
-`[max] = 1` - What is the maximum amount that is
-dropped.
+<p><em><u>Optional Configuration:</u></em></p>
 
-`[chance] = 50` - What is the percentage chance
-of the item being dropped.
+<p><code>"chance":</code> - What is the percentage chance of the item being dropped. Default is <code>50</code>.
+
+<p><code>"max":</code> - What is the maximum amount that is dropped. Default is <code>1</code>.
+
+<p><code>"min":</code> - What is the minimum amount that is dropped. Default is <code>1</code>.
+</div>
+
+**<u>Optional Configuration:</u>**
+
+`"overrides":` - Do you want the configuration for this drop to override the existing drops. Default value is `false`.
+
 
 **Format Example:**
 
