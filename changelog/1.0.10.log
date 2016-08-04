@@ -12,6 +12,7 @@ NEW BLOCK TYPES:
 (x) Add block type: "LADDER" - Allows blocks to be rendered and behave as Ladders
 (x) Add block type: "BUTTON" - Allows blocks to be rendered and behave as Buttons
 
+(x) Add block and item propertie called "id"
 (x) Add block propertie called "flammability" 
 (x) Add block propertie called "fireEncouragement" 
 (x) Add block propertie called "lightOpacity"
@@ -24,6 +25,10 @@ NEW BLOCK TYPES:
 
 (x) Force same style on code 
 (x) Document 1.0.10
+
+(x) Fixed breaking block bug a.k.a netherOres bug
+(x) Added "hammer" item from ExNihilo. 
+(I plan to move this to a separate integration mod in future, so this may vanish in future releases)
 
 --------------------------------------------------------------
 
@@ -38,8 +43,6 @@ TO DO:
 ( ) Add block type: "LEVER" - Allows blocks to be rendered and behave as Levers
 ( ) Add block type: "BED" - Allows blocks to be rendered and behave as Beds
 ( ) Add block type: "DOOR" - Allows blocks to be rendered and behave as Doors
-
-( ) Add Travis Ci continous integration
 
 ----------------------------------------------------------------------------------------------
 

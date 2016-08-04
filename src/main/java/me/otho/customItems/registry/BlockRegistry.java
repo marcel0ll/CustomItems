@@ -349,7 +349,7 @@ public class BlockRegistry {
 
     block.tickRate = data.tickRate;
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerSlabBlock(Cfg_block data) {
@@ -358,8 +358,8 @@ public class BlockRegistry {
     CustomSlabBlock slabBlock = new CustomSlabBlock(false, CI_Material.getMaterial(data.material), registerName);
     CustomSlabBlock doubleBlock = new CustomSlabBlock(true, CI_Material.getMaterial(data.material), registerName);
 
-    genericBlockSetup(data, slabBlock, false);
-    genericBlockSetup(data, doubleBlock, false);
+    genericBlockSetup(data, slabBlock, false, true);
+    genericBlockSetup(data, doubleBlock, false, false);
 
     // Register slab block
     GameRegistry.registerBlock(slabBlock, CustomSlabItem.class, registerName, slabBlock, doubleBlock, false);
@@ -393,101 +393,101 @@ public class BlockRegistry {
 
     block.tickRate = data.tickRate;
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerLadderBlock(Cfg_block data) {
     CustomLadderBlock block = new CustomLadderBlock();
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerTrapDoorBlock(Cfg_block data) {
     CustomTrapDoorBlock block = new CustomTrapDoorBlock(CI_Material.getMaterial(data.material));
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerDoorBlock(Cfg_block data) {
     // CustomDoorBlock block = new
     // CustomDoorBlock(CI_Material.getMaterial(data.material));
     //
-    // genericBlockSetup(data, block, true);
+    // genericBlockSetup(data, block, true, true);
   }
 
   public static void registerGateBlock(Cfg_block data) {
     CustomGateBlock block = new CustomGateBlock();
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerWallBlock(Cfg_block data) {
     CustomWallBlock block = new CustomWallBlock(new CustomBlock(CI_Material.getMaterial(data.material)));
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerStairsBlock(Cfg_block data) {
     CustomStairsBlock block = new CustomStairsBlock(new CustomBlock(CI_Material.getMaterial(data.material)), 0);
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerPaneBlock(Cfg_block data) {
     CustomPaneBlock block = new CustomPaneBlock("side", "top", Material.glass, true);
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerFallingBlock(Cfg_block data) {
     CustomFallingBlock block = new CustomFallingBlock(CI_Material.getMaterial(data.material));
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerNormalBlock(Cfg_block data) {
     CustomBlock block = new CustomBlock(CI_Material.getMaterial(data.material));
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerCrossedBlock(Cfg_block data) {
     CustomCrossedBlock block = new CustomCrossedBlock(CI_Material.getMaterial(data.material));
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerLogBlock(Cfg_block data) {
     CustomRotatedPillar block = new CustomRotatedPillar(CI_Material.getMaterial(data.material));
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerFenceBlock(Cfg_block data) {
     CustomFenceBlock block = new CustomFenceBlock(data.textureName, CI_Material.getMaterial(data.material));
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerTorchBlock(Cfg_block data) {
     CustomTorch block = new CustomTorch();
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerFlowerBlock(Cfg_block data) {
     CustomFlowerBlock block = new CustomFlowerBlock();
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
   public static void registerCarpetBlock(Cfg_block data) {
     CustomCarpetBlock block = new CustomCarpetBlock();
 
-    genericBlockSetup(data, block, true);
+    genericBlockSetup(data, block, true, true);
   }
 
-  public static void genericBlockSetup(Cfg_block data, IMMBlock block, boolean register) {
+  public static void genericBlockSetup(Cfg_block data, IMMBlock block, boolean register, boolean creativeTab) {
     Block mineBlock = (Block) block;
 
     String registerName;
@@ -496,7 +496,7 @@ public class BlockRegistry {
     } else {
     	registerName = Util.parseRegisterName(data.name);
     }
-    	
+
 
     mineBlock.setHardness(data.hardness);
     mineBlock.setResistance(data.resistance);
@@ -505,7 +505,7 @@ public class BlockRegistry {
     block.setCollides(data.isCollidable);
     data.lightLevel = Util.range(data.lightLevel, 0, 15);
     data.lightOpacity = Util.range(data.lightOpacity, 0, 15);
-    
+
     float mcLightLevel = (float) (data.lightLevel / 15.0);
 
     mineBlock.setLightLevel(mcLightLevel);
@@ -531,7 +531,7 @@ public class BlockRegistry {
     } else {
     	mineBlock.setLightOpacity(data.lightOpacity);
     }
-    
+
     mineBlock.setStepSound(Util.parseSoundType(data.stepSound));
 
     if (data.dropItemName != null) {
@@ -541,9 +541,10 @@ public class BlockRegistry {
       block.setEachExtraItemDropChance(data.eachExtraItemDropChance);
     }
 
-    Registry.blocksList.add(block);
-    Registry.blocksList.add(data.creativeTab);
-
+    if (creativeTab) {
+      Registry.blocksList.add(block);
+      Registry.blocksList.add(data.creativeTab);
+    }
     // Register Block
     if (register) {
       GameRegistry.registerBlock(mineBlock, registerName);
