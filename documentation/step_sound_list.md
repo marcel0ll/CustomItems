@@ -1,16 +1,20 @@
 ---
 layout: wiki
-title: Setp Sound List
+title: Step Sound List
 ---
-* anvil
-* cloth
-* glass
-* grass
-* gravel
-* ladder
-* metal
-* piston
-* sand
-* snow
-* stone
-* wood
+
+*Currently avaliable*
+---
+
+* `anvil`
+* `cloth`
+* `glass`
+* `grass`
+* `gravel`
+* `ladder`
+* `metal`
+* `piston`
+* `sand`
+* `snow`
+* `stone` - Set by default.
+* `wood`

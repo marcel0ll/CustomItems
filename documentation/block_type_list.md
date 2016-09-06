@@ -33,4 +33,3 @@ title: Block Type List
 * BED (not working)
 * DOOR (not working)
 * LEVER (not working)
-
