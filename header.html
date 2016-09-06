@@ -1,0 +1,58 @@
+<header>
+    <nav class="top-nav green lighten-2">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a class="page-title">{{page.title}}</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+            <i class="mdi-navigation-menu"></i>
+        </a>
+    </div>
+    <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
+        <li class="logo">
+            <img class="brand-logo" src="{{ " /images/logo.png " | prepend: site.baseurl }}" alt="Custom Items Logo">
+        </li>
+        <!--  <li class="search">
+          <div class="search-wrapper card">
+              <input id="search" disabled value="Not yet implemented"><i class="material-icons">search</i>
+              <div class="search-results"></div>
+          </div>
+        </li> -->
+        <li class="bold">
+            <a href="{{ site.url }}">Home</a>
+        </li>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a class="collapsible-header  waves-effect waves-teal"> About </a>
+                    <div class="collapsible-body" style="">
+                        <ul>
+                            <li><a href="{{ " /about/ci " | prepend: site.baseurl }}">CI</a></li>
+                            <li><a href="{{ " /about/donating " | prepend: site.baseurl }}">Donating</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a class="collapsible-header  waves-effect waves-teal"> Documentation </a>
+                    <div class="collapsible-body" style="">
+                        <ul>
+                            <li><a href="{{ " /documentation/getting_started_info " | prepend: site.baseurl }}">Getting Started Info</a></li>
+                            <li><a href="{{ " /documentation/blocks " | prepend: site.baseurl }}">Blocks</a></li>
+                            <li><a href="{{ " /documentation/customization " | prepend: site.baseurl }}">Customization</a></li>
+                            <li><a href="{{ " /documentation/items " | prepend: site.baseurl }}">Items</a></li>
+                            <li><a href="{{ " /documentation/misc " | prepend: site.baseurl }}">Misc</a></li>
+                            <li><a href="{{ " /documentation/oreGen " | prepend: site.baseurl }}">Ore gen</a></li>
+                        </ul>
+
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="bold">
+            <a href="{{ " /tutorials/index " | prepend: site.baseurl }}">Tutorials</a>
+        </li>
+    </ul>
+</header>
