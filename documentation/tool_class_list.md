@@ -2,6 +2,10 @@
 layout: wiki
 title: Tool Class List
 ---
-* pickaxe
-* axe
-* shovel
+
+*Currently avaliable*
+---
+
+* `axe`
+* `pickaxe`
+* `shovel`

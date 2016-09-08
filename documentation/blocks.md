@@ -6,99 +6,89 @@ title: Blocks
 # Blocks
 ___
 
-**Properties:**
+**<u>Required Configuration:</u>**
 
-`{name}` - The name of the block
+`"name":` - The name of the block.
 
-`{textureName}` - The texture name of the block.
+`"textureName":` - The texture name of the block.
 
-`[creativeTab] = "Custom Items"` - What
-creative tab the block will show up in.
+>***Note:*** If `"multipleTextures":` is used, this configuration is not required.
 
-`[maxStackSize] = 64` - The max stack size for
-a block. Min:1, Max:64
+**<u>Optional Configuration:</u>**
 
-`[multipleTextures]` - Inside this property,
-additional configurations are used to make multiple textured blocks like
-wood, crafting tables, etc. If this properties is set, this block
-textureName will be ignored and each of the textures from the
-multipleTexture properties will be used.
+`"breaks":` - If the block breaks when harvested without silkTouch, like glass. Default value is `"false"`.
 
-***Multiple Textures properties:***
+`"canSilkHarvest":` - If harvested with a silktouch enchanted tool, will it drop the block or not? Set this to `"true"` and it will be destroyed glass like blocks.  Default value is `"false"`.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`{ypos}` - The top side texture of the block
+`"creativeTab":` - What creative tab the block will show up in.  Default value is `"Custom Items"`.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`{yneg}` - The bottom side texture of the block
+`"dropItemName":` - The name of the item that is dropped when harvesting this block. If there is a item set, the block won`t drop an item block of this block.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`{xpos}` - The east side texture of the block
+`"eachExtraItemDropChance":` - What is the chance to drop each item after the minimum ammount. Default value is `50`.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`{xneg}` - The west side texture of the block
+`"hardness":` - How hard is to mine this block. Default value is `2`.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`{zpos}` - The south texture of the block
+`"harvestLevel":` - The level of the pickaxe needed to mine the block. This doesn't apply to shovel blocks or axe blocks. The following link shows the equivalent numerical value for vanilla tools. ([harvestLevel list](harvest_level_list "wikilink")) Default value is `0`.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`{zneg}` - The north texture of the block
+`"isOpaque":` - This sets wheather the block *does not* allow light pass through it. Default value is `"true"`.
 
-`[isOpaque] = true` - Can light pass through
-this block
+`"lightOpacity"` - Value Range: (min: 0, max: 255) - This sets how light travels trough a block. Default value is `2`. Example: Water has a value of 3.
 
-`[type] = "normal" ` - The type of the block.
-([ type list](block_type_list "wikilink"))
+`"lightLevel":` - Value Range: (min: 0, max: 15) - This sets the light level from a block. The values reflect light levels. Default value is `0`.
 
-`[stepSound] = "stone"` - The sound that makes
-when you walk on this block. ([ step sound
-list](step_sound_list "wikilink"))
+`"flammability":` - Value Range: (min: 0) - Set how quickly a block can potentially catch fire. Default value is `0`.
 
-`[material] = "rock"` - The block material ([
-material list](block_material_list "wikilink"))
+>***Note:*** These values are relative values, not exact time values. For more information click here. [Minecraft fire info.](http://minecraft.gamepedia.com/Fire#Burning_blocks)
 
-`[toolClass]` - The tool to mine this block.
-Can be left blank ([ toolClass
-list](tool_class_list "wikilink"))
+`"fireEncouragement":` - Value Range: (min: 0) - Set the block's ability to sustain adjacent fire. Default value is `0`.
 
-`[resistance] = 10` - How much the block is
-resistant to explosion
+>***Note:*** These values are relative values, not exact time values. For more information click here. [Minecraft fire info.](http://minecraft.gamepedia.com/Fire#Burning_blocks)
 
-`[hardness] = 2` - How hard is to mine this
-block
+`"material":` - Sets the block to a particular material. ([material list](block_material_list "wikilink")) Default value is `"rock"`.
 
-`[lightLevel] = 0; ` - (min: 0.0, max: 1.0) -
-The light level from a block. Glowstone = 1.0, Stone = 0.0
+`"maxItemDrop":` - The maximum ammount of items to drop from this block. Default value is `1`.
 
-`[harvestLevel] = 0` - The level of the pickaxe
-needed to mine the block. This doesn't apply to shovel blocks or axe
-blocks. The following link shows the equivalent numerical value for
-vanilla tools. ([harvestLevel list](harvest_level_list "wikilink"))
+`"maxStackSize":` - Value Range: (Min:1, Max:64) - The max stack size for a block. Default value is `64`.
 
-`[slipperiness] = 0.6f` - CommonBlocks: 0.6,
-ice: 0.98
+`"minItemDrop":` - The minimum ammount of items to drop from this block. Default value is `1`.
 
-`[breaks] = false` - If the block breaks when
-harvested without silkTouch, like glass
+`"multipleTextures":` - Inside this property, additional configurations are used to make multiple textured blocks like wood, crafting tables, etc. If this properties is set, this block textureName will be ignored and each of the textures from the multipleTexture properties will be used.
 
-`[canSilkHarvest] = false` - If harvested with
-a silktouch enchanted tool, will it drop the block or not? Set this to
-true in your glass like blocks
+<p style="padding-left:3%"><strong><em>Multiple Textures properties:</em></strong></p>
 
-`[dropItemName]` - The name of the item that is
-dropped when harvesting this block. If there is a item set, the block
-won't drop an item block of this block.
+<div style="padding-left:4%">
+<p><code>"ypos"</code> - The top side texture of the block.</p>
 
-`[minItemDrop] = 1` - The minimum ammount of
-items to drop from this block
+<p><code>"yneg":</code> - The bottom side texture of the block.</p>
 
-`[maxItemDrop] = 1` - The maximum ammount of
-items to drop from this block
+<p><code>"xpos":</code> - The east side texture of the block.</p>
 
-`[eachExtraItemDropChance] = 50` - What is the
-chance to drop each item after the minimum ammount
+<p><code>"xneg":</code> - The west side texture of the block.</p>
 
-**Format Example:**
+<p><code>"zpos":</code> - The south texture of the block.</p>
+
+<p><code>"zneg":</code> - The north texture of the block.</p>
+</div>
+
+`"resistance":` - How much the block is resistant to explosion. Default value is `10`.
+
+`"slipperiness":` - Default value is `0.6`. Examples: Common Blocks: 0.6, ice: 0.98.
+
+`"stepSound":` - The sound that makes when you walk on this block. ([ step sound list](step_sound_list "wikilink")) Default value is `"stone"`.
+
+`"toolClass":` - The tool to mine this block.([toolClasslist](tool_class_list "wikilink")).
+
+`"type":` - The type of the block. ([ type list](block_type_list "wikilink")) Default value is `"normal"`.
+
+
+**<u>Example Configuration:</u>**
 
 ``` json
 {
-    "blocks": [
+    "blocks":
+    [
         {
-            "name": "Block 1",
+            "name": "Block 1",
             "textureName": "Block1TextureName"
         },
         {
@@ -112,21 +102,22 @@ chance to drop each item after the minimum ammount
             "minItemDrop": 5,
             "maxItemDrop": 10,
             "eachExtraItemDropChance": 75,
-            "multipleTextures": {
-                "yneg": "side_1",
-                "ypos": "side_2",
-                "zneg": "side_3",
-                "zpos": "side_4",
-                "xneg": "side_5",
-                "xpos": "side_6"
+            "multipleTextures":{
+                "yneg":"side_1",
+                "ypos":"side_2",
+                "zneg":"side_3",
+                "zpos":"side_4",
+                "xneg":"side_5",
+                "xpos":"side_6"
             }
         },
+        ...
         {
-            "name": "Block X",
-            "creativeTab": "Random Tab",
+            "name": "Block X",
+            "creativeTab": "Random Tab",
             "textureName": "BlockXTextureName",
             "material": "Material",
-            "toolClass": "ToolClass",
+            "toolClass":"ToolClass",
             "hardness": 0,
             "resistance": 0,
             "lightLevel": 0,
@@ -138,60 +129,51 @@ chance to drop each item after the minimum ammount
 # Chest Blocks
 ___
 
-**Properties:**
+**<u>Required Configuration:</u>**
 
-`{name}` - The name of the block
+`"name":` - The name of the block.
 
-`{textureName}` - The texture name of the block.
+`"textureName":` - The texture name of the block.
 
-`[creativeTab] = "Custom Items"` - What
-creative tab the chest block will show up in.
+**<u>Optional Configuration:</u>**
 
-`[invName] = "Custom Chest"` - The chest name
-that will appear inside the invetory UI
+`"creativeTab":` - What creative tab the block will show up in.  Default value is `"Custom Items"`.
 
-`[hasOwner] = false` - This is a test
-propertie, use at your own risk. When this is true, only the person that
-put the chest down will be able to open it, but it will still interact
-with hoppers and stuff.
+`"hasOwner":` - When this is true, only the person that put the chest down will be able to open it, but it will still interact with hoppers and stuff. Default value is `"false"`.
 
-`[invWidth] = 3` - The number of collumns that
-the inventory has. For now the limit is 9.
+> ***WARNING:***  This is an experimental configuration, use at your own risk.
 
-`[invHeight] = 3` - The number of rows that the
-inventory has. For now the limit is 6.
+`"invHeight":` - Value Range(max: 6) - This sets the number of rows that the inventory has. Default value is `3`.
 
-`[slotMaxStackSize] = 64` - The size of the
-stack that can be stored in the inventory slot. By the default it is 64
-(a normal stack). But it can be set to store only 1 item per slot, or
-124 or 75
+`"invName":` - This sets the chest name in the invetory UI. Default value is `"Custom Chest"`.
 
->***IMPORTANT:*** A chest block **IS** a block. So some properties from
->blocks are valid for a chest block. Like lightlevel. Allowed block
->properties: hardness, resistance, lightLevel, harvestLevel,
->slipperiness, isOpaque, stepsound, and multipletextures. Please check
->the block properties section for further info.
+`"invWidth":` - Value Range(max: 9) - This sets the number of collumns that the inventory. Default value is `3`.
+
+`"slotMaxStackSize":` - The size of the stack that can be stored per inventory slot. Default value is `64`.
+
+>***Note:*** A chest block **IS** a block. So some properties from blocks are valid for a chest block. Like lightlevel. The following are aloud block configuration: hardness, resistance, lightLevel, harvestLevel, slipperiness, isOpaque, stepsound, and multipletextures. Please check the block configuration section for further info on each of these options. 
 
 **Format Example:**
 
 ``` json
 {
-    "chests": [
+    "chests":[
         {
             "name": "Chest1",
-            "textureName": "chest1TextureName"
+            "textureName": "chest1TextureName",
         },
         {
             "name": "Chest2",
             "textureName": "chest2TextureName",
             "slotMaxStackSize": 16
         },
+        ...
         {
             "name": "ChestN",
             "textureName": "chestNTextureName",
             "invWidth": 1,
             "invHeight": 6,
-            "lightLevel": 1
+            "lightLevel": 1.0
         }
     ]
 }
@@ -200,55 +182,41 @@ stack that can be stored in the inventory slot. By the default it is 64
 # Crops
 ___
 
-**Properties:**
+**<u>Required Configuration:</u>**
 
-`{name}` - The name of the crop and the seed
+`"name":` - The name of the block.
 
-`{textureName}` - The texture name of the crop
-block and the seed.
+`"textureName":` - The texture name of the block.
 
-`[creativeTab] = "Custom Items"` - What
-creative tab the crop and seeds will show up in.
+`"fruitName":` - Set the id for the item or block to be dropped when the crop is broken on maturity. Example of id structure: "minecraft:wheat", "minecraft:stone".
 
-`{fruitName}` - The item that will be dropped as
-a fruit. Ex.: "minecraft:apple"
+**<u>Optional Configuration:</u>**
 
-`[renderType] = "crops"` - The block render
-type. How the block renders, like a torch or like a normal block. For
-crops there is two options "crops" or "flower"
+`"acceptBoneMeal":` - Sets wheather a crop will except Bone Meal to grow. Default value is `"true"`.
 
-`[dropFromGrassChance] = 10` - The chance to
-drop the seed from grass block. min:0 max:100
+`"creativeTab":` - What creative tab the block will show up in.  Default value is `"Custom Items"`.
 
-`[dropSeedWhenMature] = true` - If false the
-crop wont drop seed when harvested
+`"dropFromGrassChance":` - Value Range:(Min:0, Max:100) - The chance to drop the seed from grass block. Default value is `10`.
 
-`[acceptBoneMeal] = true` - If false it wont be
-possible to use bonemeal in this crop
+`"dropSeedWhenMature":` - This enables seeds to be dropped from crops. If false, crops will not drop seeds when harvested. Default value is `"true"`.
 
-`[minFruitDrop] = 1` - The minimum ammount of
-fruits to drop when harveting a mature crop. min = 0
+`"eachExtraFruitDropChance":` - Value Range:(Min:0, Max:100) - Sets the percentage chance for an extra "fruit" to drop. Default value is `15`.
 
-`[maxFruitDrop] = 1` - The maximum ammount of
-fruits to drop when harveting a mature crop
+`"eachExtraSeedDropChance":` - Value Range:(Min:0, Max:100) - Sets the percentage chance for an extra seed to drop. Default value is `50`.
 
-`[minSeedDrop] = 1` - The minimum ammount of
-seeds to drop when harveting a mature crop. min = 0
+`"maxFruitDrop":` - The maximum ammount of "fruits" to drop when harveting a mature crop. Default value is `1`.
 
-`[maxSeedDrop] = 2` - The maximum ammount of
-seeds to drop when harveting a mature crop. min = 0
+`"maxSeedDrop":` - The maximum ammount of seeds to drop when harveting a mature crop. Default value is `2`.
 
-`[eachExtraSeedDropChance] = 50` - The chance
-to drop each extra seed that is more than the min
+`"minFruitDrop":` - The minimum ammount of "fruits" to drop when harveting a mature crop. Default value is `1`.
 
-`[eachExtraFruitDropChance] = 15` - The chance
-to drop each extra fruit that is more than the min
+`"minSeedDrop":` - The minimum ammount of seeds to drop when harveting a mature crop. Default value is `1`.
 
->**Observations:**
+`"renderType":` - Value Options:(`"crops"`,`"flower"`) - This sets how crops block will render or look like. The `"crops"` value will render the crops similar how Wheat crops are layed out. The `"flower"` value will render the crops similar to a Minecraft Dandelion. Default value is `"crops"`.
+
+>**Notes:**
 >
->-   blocks/textureName\#.png will be the crops texture. The \# is for
->    the different levels for crop growth. 4 different levels
->    are required.
+>-   blocks/textureName\#.png will be the crops texture. The \# is for the different levels for crop growth. 4 different levels are required.
 >
 >-   items/textureName\_seed.png will be the seeds texture.
 
@@ -256,10 +224,11 @@ to drop each extra fruit that is more than the min
 
 ``` json
 {
-    "crops": [
+    "crops":
+    [
         {
             "name": "ironia",
-            "textureName": "iron_crop",
+            "textureName":"iron_crop",
             "fruitName": "minecraft:iron_ingot",
             "renderType": "crop",
             "dropFromGrassChance": 10,
@@ -273,8 +242,8 @@ to drop each extra fruit that is more than the min
             "eachExtraFruitDropChance": 15
         },
         {
-            "name": "golduce",
-            "textureName": "gold",
+            "name":"golduce",
+            "textureName":"gold",
             "fruitName": "minecraft:gold_ingot",
             "renderType": "flower",
             "dropFromGrassChance": 5
@@ -286,98 +255,86 @@ to drop each extra fruit that is more than the min
 # Fluids
 ___
 
-**Properties:**
+**<u>Required Configuration:</u>**
 
-`{name}` - The name of the fluid
+`"name":` - The name of the block.
 
-`{textureName}` - The texture name of the fluid.
-|***IMPORTANT:*** A total of five files are need to make the fluids
-texture work correctly. If you do not know how to make a fluid texture
-work correctly or what files are required go to this page. [How to setup
-fluid textures.](fluid_texture_tutorial "wikilink")
+`"textureName":` - The texture name of the block.
 
-`[creativeTab] = "Custom Items"` - What
-creative tab the fluid will show up in.
+>***Note:*** A total of five files are need to make the fluids texture work correctly. If you do not know how to make a fluid texture work correctly or what files are required go to this page. [How to setup fluid textures.](fluid_texture_tutorial "wikilink").
 
-`[luminosity] = 0` - The light level from the
-fluid block
+**<u>Optional Configuration:</u>**
 
-`[density] = 1000` - Defines what liquids
-replace each other when they meet. (like water and oil)
+`"bucket":` - Inside this configuration, additional configurations are used to modify buckets. By default, all fluids come with a predefined name of a bucket. The fluids name with bucket after that. Example: <code>Custom name Bucket</code>. However, a buckets name can be edit with this configuration.</p>
 
-`[temperature] = 300` - At moment this field
-makes nothing at all.
+<p style="padding-left:3%"><strong><em>Bucket Configuration:</em></strong></p>
 
-`[viscosity] = 1000` - How far/fast a liquid
-flows
+<div style="padding-left:4%">
+<p><code>"creativeTab":</code> - What tab the bucket will show up in.</p>
 
-`[material] = water` - Whether you want it to
-be `water` base or `lava`
-base. Lava being destructive and water being passive or non damaging.
+<p><code>"name":</code> - Name of the bucket without Bucket after it.</p>
 
-`[isGas] = false` - Define if the fluid is gas
-or liquid
+<p><code>"maxStackSize":</code> - Value Range:(min: 1, max: 64) - The maximum number on a stack. Default value is <code>1</code>.</p>
 
-`[flowLength] = 8` - How far does the fluid
-flow. The maximum distance is set a 16.
+<p><code>"textureName":</code> - Texture name for the bucket.</p>
+</div>
 
-`[bucket]` - Inside this configuration,
-additional configurations are used to modify buckets. By default, all
-fluids come with a predefined name of a bucket. The fluids name with
-bucket after that. Example: `Custom name Bucket`
-However, a buckets name can be edit with this configuration.
+>***Note:*** The bucket can still get its texture from the default bucket texture.
 
-***Bucket properties:***
+`"creativeTab":` - What creative tab the block will show up in.  Default value is `"Custom Items"`.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`{name}` - Name of the bucket without Bucket
-after it.
+`"density":` - Defines what liquids replace each other when they meet. Example: Water and oil. Default value is `1000`. 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`[textureName]` - Texture name for the bucket.
+`"flowLength":` - Value Range:(min:0 max:16) - How far does the fluid flow. Default value is `8`. 
 
-<!-- ***Note:*** The bucket can still get its texture from the default
-bucket texture. -->
+`"isGas":` - Define if the fluid as a gas or liquid. Set the value to true will cause your fluid to flow upward (like some gases). Default value is `false'.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`[maxStackSize] = 1` - The maximum number on a
-stack (min: 1, max: 64).
+`"luminosity":` - Value Range: (min: 0.0, max: 1.0) - Set the light level from the fluid block. Default value is `0`. Examples: Glowstone = 1.0, Stone = 0.0.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`[creativeTab]` - What tab the bucket will show
-up in.
+`"material":` - Value Options:(`'water"`,`"lava"`) - Setting it to `"lava"` will case the fluid to be destructive.`"water"` will be passive or non damaging. Default value `water`.
+
+`"temperature":` - At moment this field does nothing. Default value `300`.
+
+`"viscosity":` - How far/fast a liquid flows. Default value `1000`.
+
 
 **Format Example:**
 
 ``` json
 {
-    "fluids": [
-        {
-            "name": "Fluid 1",
-            "textureName": "fluid1",
-            "luminosity": 0,
-            "density": 1,
-            "temperature": 1,
-            "viscosity": 1,
-            "isGas": false
-        },
-        {
-            "name": "Fluid 2",
-            "textureName": "fluid2",
-            "luminosity": 0,
-            "density": 1,
-            "temperature": 1,
-            "viscosity": 1,
-            "isGas": false
-        },
-        {
-            "name": "Fluid X",
-            "textureName": "fluidX",
-            "creativeTab": "Custom Items",
-            "flowLength": 4,
-            "luminosity": 5,
-            "material": "lava",
-            "bucket": {
-                "name": "bob",
-                "maxStackSize": 2
-            }
-        }
+   "fluids":[
+       {
+       "name":"Fluid 1",
+       "textureName":"fluid1",
+       "luminosity": 0,
+       "density": 1,
+       "temperature": 1,
+       "viscosity": 1,
+       "isGas": false
+       },
+       {
+       "name":"Fluid 2",
+       "textureName":"fluid2",
+       "luminosity": 0,
+       "density": 1,
+       "temperature": 1,
+       "viscosity": 1,
+       "isGas": false
+       },
+       ...
+       {
+       "name":"Fluid X",
+       "textureName":"fluidX",
+       "creativeTab": "Custom Items",
+       "flowLength": 4,
+       "luminosity": 5,
+       "material": "lava",
+       "bucket":
+           {
+               "name":"bob",
+               "maxStackSize": 2
+           }
+       }
     ]
 }
 ```
