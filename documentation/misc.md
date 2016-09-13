@@ -6,11 +6,11 @@ title: Misc
 # Creative Tabs
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"tabLabe":` - The label that will show when passing the mouse over the tab.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"iconItem":` - The item that will display on the creative tab. Default is `"minecraft:item_frame"`.
 
