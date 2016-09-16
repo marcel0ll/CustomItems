@@ -37,7 +37,7 @@ ___
 
 <p><code>"potionDuration":</code> - How many SECONDS the effect will last. Default is <code>20</code> seconds.</p>
 
-<p<code>"potionEffectProbability": - Value Range: (min: 0.0, max: 1.0) - The chance of the potion effect happening when eating the food. The default values is <code>1.0</code>.</p>
+<p><code>"potionEffectProbability":</code> - Value Range: (min: 0.0, max: 1.0) - The chance of the potion effect happening when eating the food. The default values is <code>1.0</code>.</p>
 </div>
 
 `"saturationModifier":` - These configuration is a hidden value that increases when you consume foods. Your hungerbar will only start to increasing after you raise the saturation above 0. For further info, check [minecraft wiki](http://minecraft.gamepedia.com/Hunger). Default value is `1.0`.

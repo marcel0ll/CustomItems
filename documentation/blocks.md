@@ -6,7 +6,7 @@ title: Blocks
 # Blocks
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the block.
 
@@ -14,7 +14,7 @@ ___
 
 >***Note:*** If `"multipleTextures":` is used, this configuration is not required.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"breaks":` - If the block breaks when harvested without silkTouch, like glass. Default value is `"false"`.
 
@@ -126,16 +126,17 @@ ___
     ]
 }
 ```
+
 # Chest Blocks
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the block.
 
 `"textureName":` - The texture name of the block.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"creativeTab":` - What creative tab the block will show up in.  Default value is `"Custom Items"`.
 
@@ -182,7 +183,7 @@ ___
 # Crops
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the block.
 
@@ -190,7 +191,7 @@ ___
 
 `"fruitName":` - Set the id for the item or block to be dropped when the crop is broken on maturity. Example of id structure: "minecraft:wheat", "minecraft:stone".
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"acceptBoneMeal":` - Sets wheather a crop will except Bone Meal to grow. Default value is `"true"`.
 
@@ -255,15 +256,15 @@ ___
 # Fluids
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the block.
 
 `"textureName":` - The texture name of the block.
 
->***Note:*** A total of five files are need to make the fluids texture work correctly. If you do not know how to make a fluid texture work correctly or what files are required go to this page. [How to setup fluid textures.](fluid_texture_tutorial "wikilink").
+>***Note:*** A total of five files are need to make the fluids texture work correctly. If you do not know how to make a fluid texture work correctly or what files are required go to this page. [How to setup fluid textures.](../tutorials/fluid_texture_tutorial "Tutorial").
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"bucket":` - Inside this configuration, additional configurations are used to modify buckets. By default, all fluids come with a predefined name of a bucket. The fluids name with bucket after that. Example: <code>Custom name Bucket</code>. However, a buckets name can be edit with this configuration.</p>
 

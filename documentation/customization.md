@@ -11,13 +11,13 @@ Tired of how the default Minecraft has done with its blocks or items. You now ca
 ### Change Existing Blocks
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The id name of the block that you wish to edit that is already registed in the game. Example: `"minecraft:stone"`
 
 `"maxStackSize":` - Value Range: (Min:1, Max:64) - The max stack size for a block. Default value is `64`.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"hardness":` - How hard is to mine this block. Default value is `2`.
 
@@ -67,7 +67,7 @@ ___
 ### Change Existing Items
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The id name of the block that you wish to edit that is already registed in the game. Example: `"minecraft:stone"`
 
@@ -97,11 +97,11 @@ ___
 
 ### Change Existing Foods
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The id name of the block that you wish to edit that is already registed in the game. Example: `"minecraft:stone"`
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"alwaysEdible":`- Defines if you can or can not eat the food item with a full hunger bar. Default value is `"false"`.
 
@@ -122,7 +122,7 @@ ___
 
 <p><code>"potionDuration":</code> - How many SECONDS the effect will last. Default is <code>20</code> seconds.</p>
 
-<p<code>"potionEffectProbability": - Value Range: (min: 0.0, max: 1.0) - The chance of the potion effect happening when eating the food. The default values is <code>1.0</code>.</p>
+<p><code>"potionEffectProbability":</code> - Value Range: (min: 0.0, max: 1.0) - The chance of the potion effect happening when eating the food. The default values is <code>1.0</code>.</p>
 </div>
 
 `"saturationModifier":` - These configuration is a hidden value that increases when you consume foods. Your hungerbar will only start to increasing after you raise the saturation above 0. For further info, check [minecraft wiki](http://minecraft.gamepedia.com/Hunger). Default value is `1.0`.
@@ -154,7 +154,7 @@ Starting with CI 1.0.9b, you now can modify drops from pre-existing block and NP
 ### Block Drops
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"id":` - Which block do you wish to apply a drop to. It is required to use the names of the Block IDs, not the numerical value.
 
@@ -164,11 +164,11 @@ ___
 
 <div style="padding-left:4%">
 
-<p><em><u>Required Configuration:</u></em></p>
+<p><em><u style="font-weight: bold;">Required Configuration:</u></em></p>
 
 <p><code>"id":</code> - What block or item is being dropped after the original block being broken. It is required to use the names of IDs not the numerical value.</p>
 
-<p><em><u>Optional Configuration:</u></em></p>
+<p><em><u style="font-weight: bold;">Optional Configuration:</u></em></p>
 
 <p><code>"chance":</code> - What is the percentage chance of the item being dropped. Default is <code>50</code>.
 
@@ -177,7 +177,7 @@ ___
 <p><code>"min":</code> - What is the minimum amount that is dropped. Default is <code>1</code>.
 </div>
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"overrides":` - Do you want the configuration for this drop to override the existing drops. Default value is `false`.
 
@@ -212,7 +212,7 @@ ___
 ### Entity Drop
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"id":` - Which NPC (mob) do you wish to apply a drop to. It is required to use the names of the Entity IDs.
 
@@ -222,11 +222,11 @@ ___
 
 <div style="padding-left:4%">
 
-<p><em><u>Required Configuration:</u></em></p>
+<p><em><u style="font-weight: bold;">Required Configuration:</u></em></p>
 
 <p><code>"id":</code> - What block or item is being dropped after the original block being broken. It is required to use the names of IDs not the numerical value.</p>
 
-<p><em><u>Optional Configuration:</u></em></p>
+<p><em><u style="font-weight: bold;">Optional Configuration:</u></em></p>
 
 <p><code>"chance":</code> - What is the percentage chance of the item being dropped. Default is <code>50</code>.
 
@@ -235,7 +235,7 @@ ___
 <p><code>"min":</code> - What is the minimum amount that is dropped. Default is <code>1</code>.
 </div>
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"overrides":` - Do you want the configuration for this drop to override the existing drops. Default value is `false`.
 
