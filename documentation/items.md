@@ -6,13 +6,13 @@ title: Items
 # Foods
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the food.
 
 `"textureName":` - The texture name of the food.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"alwaysEdible":`- Defines if you can or can not eat the food item with a full hunger bar. Default value is `"false"`.
 
@@ -99,13 +99,13 @@ ___
 # Items
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the item.
 
 `"textureName":` - The texture name of the item.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
@@ -147,13 +147,13 @@ ___
 
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the item.
 
 `"textureName":` - The texture name of the item.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
@@ -194,13 +194,13 @@ ___
 ### Hoes
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the item.
 
 `"textureName":` - The texture name of the item.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
@@ -241,13 +241,13 @@ ___
 ### Pickaxes
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the item.
 
 `"textureName":` - The texture name of the item.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
@@ -293,13 +293,13 @@ ___
 ___
 
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the item.
 
 `"textureName":` - The texture name of the item.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
@@ -341,13 +341,13 @@ ___
 ___
 
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the item.
 
 `"textureName":` - The texture name of the item.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
@@ -393,13 +393,13 @@ ___
 ___
 
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the item.
 
 `"textureName":` - The texture name of the item.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
@@ -444,13 +444,13 @@ ___
 
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the item.
 
 `"textureName":` - The texture name of the item.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
@@ -495,13 +495,13 @@ ___
 
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the item.
 
 `"textureName":` - The texture name of the item.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 
@@ -546,13 +546,13 @@ ___
 
 ___
 
-**<u>Required Configuration:</u>**
+**<u style="font-weight: bold;">Required Configuration:</u>**
 
 `"name":` - The name of the item.
 
 `"textureName":` - The texture name of the item.
 
-**<u>Optional Configuration:</u>**
+**<u style="font-weight: bold;">Optional Configuration:</u>**
 
 `"creativeTab":`- What creative tab the food will show up in. Default name is `"Custom Items"`.
 

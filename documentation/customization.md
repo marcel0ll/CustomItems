@@ -163,7 +163,6 @@ ___
 <p style="padding-left:3%"><strong><em>Drop Properties:</em></strong></p>
 
 <div style="padding-left:4%">
-
 <p><em><u style="font-weight: bold;">Required Configuration:</u></em></p>
 
 <p><code>"id":</code> - What block or item is being dropped after the original block being broken. It is required to use the names of IDs not the numerical value.</p>
@@ -221,7 +220,6 @@ ___
 <p style="padding-left:3%"><strong><em>Drop Properties:</em></strong></p>
 
 <div style="padding-left:4%">
-
 <p><em><u style="font-weight: bold;">Required Configuration:</u></em></p>
 
 <p><code>"id":</code> - What block or item is being dropped after the original block being broken. It is required to use the names of IDs not the numerical value.</p>
