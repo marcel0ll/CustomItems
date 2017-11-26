@@ -286,7 +286,7 @@ public class BlockRegistry {
     Registry.blocksList.add(fluidBlock);
     Registry.blocksList.add(data.creativeTab);
 
-    fluidBlock.setBlockName(Registry.mod_id.toLowerCase() + ":" + data.name);
+    fluidBlock.setBlockName(data.name);
     GameRegistry.registerBlock(fluidBlock, registerName);
 
     fluid.setUnlocalizedName(
