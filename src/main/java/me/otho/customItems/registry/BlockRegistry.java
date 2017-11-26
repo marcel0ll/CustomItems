@@ -6,6 +6,7 @@ import org.apache.commons.lang3.ArrayUtils;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import me.otho.customItems.configuration.ForgeConfig;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_block;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_blockDrop;
 import me.otho.customItems.configuration.jsonReaders.blocks.Cfg_crop;
@@ -294,38 +295,39 @@ public class BlockRegistry {
     LanguageRegistry.instance().addStringLocalization(fluid.getUnlocalizedName(), "en_US", data.name);
     fluid.setBlock(fluidBlock);
 
-    if (data.bucket.name == null) {
-      data.bucket.name = data.name + " Bucket";
+    if (ForgeConfig.generateBucket) {
+        if (data.bucket.name == null) {
+          data.bucket.name = data.name + " Bucket";
+        }
+
+        String BucketRegisterName = Util.parseRegisterName(data.bucket.name);
+
+        if (data.bucket.creativeTab == null) {
+          data.bucket.creativeTab = data.creativeTab;
+        }
+
+        if (data.bucket.textureName == null) {
+          data.bucket.textureName = data.textureName + "_bucket";
+        }
+
+        CustomBucket bucket = new CustomBucket(fluidBlock, data.bucket.textureName);
+
+        bucket.setUnlocalizedName(Registry.mod_id.toLowerCase() + ":" + data.bucket.name);
+        bucket.setContainerItem(Items.bucket);
+
+        Registry.itemsList.add(bucket);
+        Registry.itemsList.add(data.bucket.creativeTab);
+
+        bucket.setTextureName(data.bucket.textureName);
+        GameRegistry.registerItem(bucket, BucketRegisterName);
+
+        FluidContainerRegistry.registerFluidContainer(
+            FluidRegistry.getFluidStack(fluid.getName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(bucket),
+            new ItemStack(Items.bucket));
+        LanguageRegistry.instance().addStringLocalization(bucket.getUnlocalizedName() + ".name", "en_US", data.bucket.name);
+        BucketHandler.INSTANCE.buckets.put(fluidBlock, bucket);
+        MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
     }
-
-    String BucketRegisterName = Util.parseRegisterName(data.bucket.name);
-
-    if (data.bucket.creativeTab == null) {
-      data.bucket.creativeTab = data.creativeTab;
-    }
-
-    if (data.bucket.textureName == null) {
-      data.bucket.textureName = data.textureName + "_bucket";
-    }
-
-    CustomBucket bucket = new CustomBucket(fluidBlock, data.bucket.textureName);
-
-    bucket.setUnlocalizedName(Registry.mod_id.toLowerCase() + ":" + data.bucket.name);
-    bucket.setContainerItem(Items.bucket);
-
-    Registry.itemsList.add(bucket);
-    Registry.itemsList.add(data.bucket.creativeTab);
-
-    bucket.setTextureName(data.bucket.textureName);
-    GameRegistry.registerItem(bucket, BucketRegisterName);
-
-    FluidContainerRegistry.registerFluidContainer(
-        FluidRegistry.getFluidStack(fluid.getName(), FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(bucket),
-        new ItemStack(Items.bucket));
-    LanguageRegistry.instance().addStringLocalization(bucket.getUnlocalizedName() + ".name", "en_US", data.bucket.name);
-    BucketHandler.INSTANCE.buckets.put(fluidBlock, bucket);
-    MinecraftForge.EVENT_BUS.register(BucketHandler.INSTANCE);
-
     return true;
   }
 

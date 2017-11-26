@@ -12,6 +12,8 @@ public class ForgeConfig {
   public static boolean entityIdLog = false;
   public static boolean idFile = false;
   public static boolean logFile = false;
+  public static boolean generateBucket = true;
+
 
   public static void init(File configFile) {
     if (config == null) {
@@ -27,6 +29,8 @@ public class ForgeConfig {
         "Enable this if you want the mod to make a log files with all entities ids, blocks ids and items ids.");
     logFile = config.getBoolean("logFile", "OPTIONS", false,
         "Enable this if you want the mod to make a separate log file for easier debugging");
+    generateBucket = config.getBoolean("generateBucket", "OPTIONS", true,
+        "Enable this if you want the mod to add buckets for each custom fluids");
 
     if (config.hasChanged()) {
       config.save();
