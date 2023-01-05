@@ -169,11 +169,11 @@ ___
 
 <p><em><u style="font-weight: bold;">Optional Configuration:</u></em></p>
 
-<p><code>"chance":</code> - What is the percentage chance of the item being dropped. Default is <code>50</code>.
+<p><code>"chance":</code> - What is the percentage chance of the item being dropped. Default is <code>50</code>.</p>
 
-<p><code>"max":</code> - What is the maximum amount that is dropped. Default is <code>1</code>.
+<p><code>"max":</code> - What is the maximum amount that is dropped. Default is <code>1</code>.</p>
 
-<p><code>"min":</code> - What is the minimum amount that is dropped. Default is <code>1</code>.
+<p><code>"min":</code> - What is the minimum amount that is dropped. Default is <code>1</code>.</p>
 </div>
 
 **<u style="font-weight: bold;">Optional Configuration:</u>**
